@@ -1,0 +1,77 @@
+\documentclass[a4paper,12pt]{article}
+
+\input{ReportHeader}
+
+\begin{document}
+%----------------------------------------------------------------------------------------
+%	TITLE+
+%----------------------------------------------------------------------------------------
+% Title Page
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    \Huge{\textbf{EEE3027 Integrated Circuit Design}}\\[0.5cm]
+    \Large{\textbf{Semester 1 Report}}\\ 
+    \Large{Sahas Talasila \textit{230057896}}
+    \vfill
+\end{titlepage}
+
+% Table of Contents
+\tableofcontents
+\newpage
+
+\begin{abstract}
+    This is a placeholder for the abstract of the report.
+\end{abstract}
+
+\section{Introduction}
+
+\subsection{Background}
+This is a placeholder for the background information.
+
+\begin{itemize}
+    \item Lab 1 Part 1
+    \item N-Type characteristics
+    \item P-Type characteristics
+    \item MOSFET operation
+    \item Parts that constitute a MOSFET and what altering them does to the operation of the MOSFET.
+    \item Explanation of the PMOS and NMOS operation regions.
+    \item What measurements were taken and how they were taken.
+    \item Explanation of the graphs plotted and what they signify.
+    \item Include code snippets of the simulation code used.
+    \item Include graphs plotted.
+    \item Analysis of the results.
+    \begin{enumerate}
+        \item DC Analysis of NMOS and PMOS and explanation of what DC analysis is.
+        \item Task 1: NMOS DC I-V sweep with annotations.
+        \item Task 2: PMOS DC I-V sweep with annotations.
+        \item Gain factor calculation and explanation.
+        \item Beta explanation with Python example.
+        \item Task 4 Iterative solution
+    \end{enumerate}
+    \item Lab 1 Part 2
+    \item Explain what static analysis is.
+    \item Draw an annotated schematic of the inverter circuit.
+    \item Explain the operation of the inverter circuit.
+    \item 1B, Annotate the file (All 7 lines)
+    \item TASK 1C: DC Modes You have simulated the DC transfer characteristic of a CMOS inverter by sweeping the input voltage Vin from 0 V to 5 V. Plot the 
+    output voltage Vout against Vin. On your plot of Vout vs. Vin, clearly mark and label the following five operating points:
+    A: Vin=0, B: Vin=1, C: Vin=2.5, D: Vin=4, E: Vin=5, For each point (A–E), identify the operating region of both the NMOS and PMOS transistors: Cutoff
+    Triode (Linear) or Saturation, showing it as a table, and approximate Vout at each point.
+    \item TASK 1D, NMOS pull up example, show the sweep as well, then answer these 5 questions:
+    \item Q1. (1 mark) What is the highest output voltage reached in the NMOS pull-up version? Why does it not reach 5 V?
+    \item Q2. (1 mark) Explain what happens to the NMOS pull-up transistor when Vin=0. Is it conducting?
+    \item Q3. (1 mark) Describe what would happen if this NMOS-only inverter drove another CMOS logic gate. What are the risks?
+    \item Q4. (1 mark) Why does a PMOS transistor avoid this issue? How does it behave differently from NMOS in pull-up?
+    \item Q5. (2 marks) On your NMOS-only inverter plot, annotate the output voltage limit and mark the region where a 1 cannot be produced.
+    \item TASK 2: TASK 2: CMOS Inverter Design for Delay Specification
+    Use LTspice and theoretical models to design an inverter that meets timing specifications. Analyze
+    performance using simulation and transistor-level delay theory (including propagation delay, rise/fall
+    time, capacitive loading).
+    \item TASK 2 Question 1 Transient Simulation and Analysis.
+    \item TASK 2 Question 2 RC Delay Model.
+    \item TASK 2 Question 3 Design and New Alternatives for performance.
+    \item TASK 2 Question 4 Selection of questions to be answered.
+\end{itemize}
+
+\end{document}

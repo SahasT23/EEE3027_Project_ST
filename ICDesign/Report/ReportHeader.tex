@@ -1,0 +1,185 @@
+\usepackage{url}
+\usepackage{parskip} 	
+\usepackage{tabularx}
+
+%other packages for formatting
+\RequirePackage{color}
+\RequirePackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[scale=0.9]{geometry}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{rotating}
+\usetikzlibrary{shapes.geometric, arrows}
+\usetikzlibrary{positioning, shapes}
+\usepackage{float}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{tikz}
+\usepackage{tabularx}
+\usepackage{circuitikz}
+\usepackage{pgfplots}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{float}  
+\usepackage{booktabs}
+\usepackage{xcolor}
+\pgfplotsset{compat=1.18}
+\usepackage{setspace}
+\usepackage{colortbl}
+\usepackage{tcolorbox}
+\usepackage{wrapfig}
+\usepackage{media9}
+\usepackage{siunitx}
+
+% Define colors
+\definecolor{blueblock}{RGB}{173, 216, 230}  % Light blue
+\definecolor{greenblock}{RGB}{144, 238, 144} % Light green
+\definecolor{redblock}{RGB}{255, 182, 193}   % Light red
+\definecolor{lightblue}{RGB}{173,216,230}
+\definecolor{lightgreen}{RGB}{144,238,144}
+\definecolor{lightorange}{RGB}{255,200,150}
+\definecolor{lightpurple}{RGB}{220,180,240}
+
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+
+% Define styles with smaller dimensions and font size
+\tikzset{
+    font=\small,
+    startstop/.style={
+        rectangle,
+        rounded corners,
+        minimum width=2.5cm,
+        minimum height=0.8cm,
+        draw=black,
+        fill=red!30,
+        text centered,
+        % Set text width to wrap text automatically
+        text width=3.0cm,
+        align=center
+    },
+    process/.style={
+        rectangle,
+        minimum width=2.5cm,
+        minimum height=0.8cm,
+        draw=black,
+        fill=orange!30,
+        text centered,
+        % Set text width to wrap text automatically
+        text width=3.0cm,
+        align=center
+    },
+    decision/.style={
+        diamond,
+        aspect=2,
+        draw=black,
+        fill=green!30,
+        inner sep=0pt,
+        minimum width=2.0cm,
+        minimum height=1.0cm,
+        % Allow text wrapping in decision blocks
+        text width=2.2cm,
+        align=center
+    },
+    io/.style={
+        trapezium,
+        trapezium left angle=70,
+        trapezium right angle=110,
+        minimum width=2.5cm,
+        minimum height=0.8cm,
+        draw=black,
+        fill=blue!30,
+        text centered,
+        % Set text width to wrap text automatically
+        text width=3.0cm,
+        align=center
+    },
+    arrow/.style={
+        thick,
+        ->,
+        >=Stealth,
+        shorten <=1pt,
+        shorten >=1pt
+    },
+}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\usepackage{listings}
+
+% Define C style
+\lstdefinestyle{cstyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{blue}, % Keywords in blue
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=4,
+    language=C,
+    morekeywords={uint32_t, uint64_t, int32_t, int64_t, bool, inline}
+}
+
+\lstset{style=cstyle}
+
+% Page layout settings
+\geometry{a4paper, margin=1in}
+
+%tabularx environment
+\usepackage{tabularx}
+
+%for lists within experience section
+\usepackage{enumitem}
+
+% centered version of 'X' col. type
+\newcolumntype{C}{>{\centering\arraybackslash}X} 
+
+%to prevent spillover of tabular into next pages
+\usepackage{supertabular}
+\usepackage{tabularx}
+\newlength{\fullcollw}
+\setlength{\fullcollw}{0.47\textwidth}
+
+%custom \section
+\usepackage{titlesec}				
+\usepackage{multicol}
+\usepackage{multirow}
+
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{10pt}{10pt}
+
+%for publications
+\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
+
+%Setup hyperref package, and colours for links
+\usepackage[unicode, draft=false]{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
+\addbibresource{citations.bib}
+\setlength\bibitemsep{1em}
+
+%for social icons
+\usepackage{fontawesome5}
