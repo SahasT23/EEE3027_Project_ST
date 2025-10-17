@@ -1,0 +1,16 @@
+
+* NMOS I_D vs V_DS using LEVEL=1 (LTSpice-compatible)
+* Sweep VDS from 0V to 1.2V with VGS fixed at 1.2V
+
+VGS G 0 DC 1.2
+VDS D 0 DC 0
+
+* NMOS using LEVEL=1 model
+M1 D G 0 0 NLEVEL1 W=10u L=1u
+
+.model NLEVEL1 NMOS LEVEL=1 VTO=0.4 KP=200u LAMBDA=0.02
+
+* Sweep VDS
+.dc VDS 0 1.2 0.01
+.plot DC I(M1)
+.end

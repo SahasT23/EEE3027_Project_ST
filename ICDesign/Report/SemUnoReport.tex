@@ -586,6 +586,102 @@ Measured current increase: $(656-642)/642 = 2.2\%$ $\approx 2.4\%$ predicted. Sl
 
 \textbf{Subthreshold assumption:} Setting $V_{GS} = 0.3$V $< V_T$ yields $I_D \approx 0$ as Level 1 predicts, though real devices show exponential subthreshold current ($\sim$pA range).
 
+\subsection{How Does SPICE Work?}
+
+SPICE is the circuit simulator that we have been using so far. It models electronic circuits by solving nonlinear differential-algebraic equations derived from Kirchhoff’s laws. The general form of the circuit equations is:
+\begin{equation}
+\mathbf{f}(\mathbf{x}, \dot{\mathbf{x}}, t) = 0
+\end{equation}
+where \(\mathbf{x}\) represents the vector of unknown node voltages and branch currents.
+
+Using modified nodal analysis (MNA), SPICE forms equations of the type:
+\begin{equation}
+\mathbf{C} \, \dot{\mathbf{v}} + \mathbf{G}(\mathbf{v}) = \mathbf{i}_s(t)
+\end{equation}
+where:
+- \(\mathbf{C}\) is the capacitance matrix,  
+- \(\mathbf{G}(\mathbf{v})\) represents nonlinear conductances (resistors, diodes, transistors, etc.),  
+- \(\mathbf{i}_s(t)\) represents source currents.
+
+For transient analysis, SPICE discretizes the time derivative using a numerical integration method such as Backward Euler [source]:
+\[
+\dot{\mathbf{v}}(t_n) \approx \frac{\mathbf{v}_n - \mathbf{v}_{n-1}}{\Delta t}
+\]
+This transforms the equations into a system of nonlinear algebraic equations:
+\begin{equation}
+\mathbf{F}(\mathbf{v}_n) = \mathbf{G}(\mathbf{v}_n) + \frac{\mathbf{C}}{\Delta t} (\mathbf{v}_n - \mathbf{v}_{n-1}) - \mathbf{i}_s(t_n) = 0
+\end{equation}
+
+To solve this system, SPICE uses the \textbf{Newton–Raphson method}, an iterative root-finding algorithm for nonlinear equations. Given a function \(\mathbf{F}(\mathbf{v})\), the goal is to find \(\mathbf{v}\) such that:
+\begin{equation}
+\mathbf{F}(\mathbf{v}) = 0
+\end{equation}
+Starting from an initial guess \(\mathbf{v}^{(0)}\), the method iteratively refines the estimate using:
+\[
+\mathbf{J}(\mathbf{v}^{(k)}) \, \Delta \mathbf{v}^{(k)} = -\mathbf{F}(\mathbf{v}^{(k)}), \quad
+\mathbf{v}^{(k+1)} = \mathbf{v}^{(k)} + \Delta \mathbf{v}^{(k)}
+\]
+
+Here is a simple worked example of the Newton-Raphson method:
+
+We want to solve the nonlinear equation
+\begin{equation}
+f(x) = x^2 - 2 = 0
+\end{equation}
+whose root is \(\sqrt{2}\).
+
+The Newton–Raphson iteration formula is:
+\[
+x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
+\]
+
+For our function \(f(x) = x^2 - 2\),
+\[
+f'(x) = 2x
+\]
+so the iteration becomes:
+\[
+x_{n+1} = x_n - \frac{x_n^2 - 2}{2x_n}
+\]
+
+Let the initial guess be \(x_0 = 1\). Then:
+\[
+x_1 = 1 - \frac{1^2 - 2}{2(1)} = 1.5
+\]
+\[
+x_2 = 1.5 - \frac{1.5^2 - 2}{2(1.5)} = 1.4167
+\]
+\[
+x_3 = 1.4167 - \frac{1.4167^2 - 2}{2(1.4167)} = 1.4142
+\]
+
+After three iterations, \(x_3 \approx 1.4142\), which is very close to the true value of \(\sqrt{2}\).
+
+Here, \(\mathbf{J}(\mathbf{v})\) is the \textbf{Jacobian matrix} of \(\mathbf{F}\), defined as:
+\begin{equation}
+\mathbf{J}(\mathbf{v}) =
+\begin{bmatrix}
+\frac{\partial F_1}{\partial v_1} & \frac{\partial F_1}{\partial v_2} & \cdots & \frac{\partial F_1}{\partial v_n} \\
+\frac{\partial F_2}{\partial v_1} & \frac{\partial F_2}{\partial v_2} & \cdots & \frac{\partial F_2}{\partial v_n} \\
+\vdots & \vdots & \ddots & \vdots \\
+\frac{\partial F_n}{\partial v_1} & \frac{\partial F_n}{\partial v_2} & \cdots & \frac{\partial F_n}{\partial v_n}
+\end{bmatrix}
+\end{equation}
+The Jacobian represents how each equation in \(\mathbf{F}\) changes with respect to each variable in \(\mathbf{v}\). In circuit terms, it corresponds to the small-signal conductance matrix, which describes the local linear behavior of the nonlinear circuit.
+
+The Newton–Raphson method repeats this process until the solution converges, meaning:
+\begin{equation}
+\|\Delta \mathbf{v}^{(k)}\| < \epsilon
+\end{equation}
+for some small tolerance \(\epsilon\).
+
+In summary:
+1. SPICE forms nonlinear equations via modified nodal analysis.  
+2. It discretizes time derivatives for transient analysis.  
+3. It applies the Newton–Raphson method to iteratively solve the nonlinear system.  
+4. The Jacobian matrix captures how circuit equations respond to voltage and current changes, enabling efficient convergence to the correct solution.
+
+
 \section{Report Checklist}
 
 \begin{itemize}

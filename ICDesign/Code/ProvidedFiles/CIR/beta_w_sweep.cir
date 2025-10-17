@@ -1,0 +1,26 @@
+* Task 3: β Gain Factor Sweep using .step param
+* Sweep W from 2µm to 20µm to observe linear scaling of ID
+
+.param VGSVAL=1.2 VDSVAL=1.2
+.param LVAL=1u
+
+* Voltage sources to bias gate and drain
+VGS G 0 DC {VGSVAL}
+VDS D 0 DC {VDSVAL}
+
+* NMOS transistor with swept WVAL
+M1 D G 0 0 NLEVEL1 W={WVAL} L={LVAL}
+
+* Shichman-Hodges Level 1 model
+.model NLEVEL1 NMOS LEVEL=1 VTO=0.4 KP=200u LAMBDA=0.02
+
+* Sweep W from 2µm to 20µm in 2µm steps
+.step param WVAL 2u 20u 2u
+
+* DC operating point analysis
+.op
+
+* Output drain current for each step
+.print OP V(G) V(D) I(M1) WVAL={WVAL}
+
+.end

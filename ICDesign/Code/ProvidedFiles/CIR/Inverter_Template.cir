@@ -1,0 +1,35 @@
+*===========================================*
+* CMOS Inverter Transient Response Template *
+*===========================================*
+
+* --- Power Supply ---
+VDD Vdd 0 DC 5
+
+* --- Input Signal: PULSE Source ---
+* PULSE(Vlow Vhigh TD TR TF PW PER)
+Vin in 0 PULSE(<<< FILL IN PARAMETERS >>>)
+
+* --- Transistors (Use Level 1 Models) ---
+* Define NMOS and PMOS transistors below:
+* HINT: Use correct terminal order: Drain Gate Source Bulk
+
+* NMOS (drives low)
+M1 out in 0 0 <<< NMOS MODEL NAME >>> W=<<< >>> L=<<< >>>
+
+* PMOS (pulls up)
+M2 out in Vdd Vdd <<< PMOS MODEL NAME >>> W=<<< >>> L=<<< >>>
+
+* --- Load Capacitance ---
+* Add a capacitor from out to ground
+Cl out 0 <<< FILL IN CAP VALUE >>>
+
+* --- Transient Analysis ---
+* Simulate from 0 to 200 ns
+.tran <<< FILL IN TIME STEP >>> <<< FILL IN STOP TIME >>>
+
+* --- Transistor Models (Level 1) ---
+.model <<< NMOS MODEL NAME >>> NMOS LEVEL=1 VTO=<<< >>> KP=<<< >>> LAMBDA=<<< >>>
+.model <<< PMOS MODEL NAME >>> PMOS LEVEL=1 VTO=<<< >>> KP=<<< >>> LAMBDA=<<< >>>
+
+* --- End ---
+.end
