@@ -1,0 +1,7 @@
+* Netlist created with www.circuit-diagram.org
+* CMOSDiagram
+V1 0 5
+V2 2 0
+C3 3 1 0.00047
+'mosfetn drn:2 gate:3 t=NChannelMosfet
+'mosfetp gate:0 src:3 t=PChannelMosfet
