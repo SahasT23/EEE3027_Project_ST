@@ -681,6 +681,71 @@ In summary:
 3. It applies the Newton–Raphson method to iteratively solve the nonlinear system.  
 4. The Jacobian matrix captures how circuit equations respond to voltage and current changes, enabling efficient convergence to the correct solution.
 
+\subsubsection{Actual Example of Newton Raphson Method with a Circuit}
+
+Consider the series circuit: a voltage source \(V_s\), a resistor \(R\) and a diode \(D\) in series. We wish to find the diode voltage \(V_d\) at DC (steady state).
+
+Kirchhoff's Voltage Law (KVL) around the loop gives
+\begin{equation}
+V_s - I R - V_d = 0
+\end{equation}
+and the diode follows the Shockley equation
+\begin{equation}
+I = I_s\!\left(e^{\frac{V_d}{nV_t}} - 1\right)
+\end{equation}
+Substituting the diode law into KVL yields the nonlinear scalar equation for \(V_d\):
+\begin{equation}
+f(V_d)\equiv V_s - R\,I_s\!\left(e^{\frac{V_d}{nV_t}} - 1\right) - V_d = 0.
+\end{equation}
+
+To solve \(f(V_d)=0\) with Newton–Raphson, form the iteration
+\begin{equation}
+V_{d}^{(k+1)} = V_{d}^{(k)} - \frac{f\bigl(V_{d}^{(k)}\bigr)}{f'\bigl(V_{d}^{(k)}\bigr)}.
+\end{equation}
+We need the derivative \(f'(V_d)\). Differentiating (3) gives
+\begin{equation}
+f'(V_d) = -R I_s \frac{1}{nV_t} e^{\frac{V_d}{nV_t}} - 1.
+\end{equation}
+Thus each Newton step can be written explicitly as
+\begin{equation}
+V_{d}^{(k+1)} = V_{d}^{(k)} - \frac{V_s - R I_s\!\left(e^{\frac{V_{d}^{(k)}}{nV_t}} - 1\right) - V_{d}^{(k)}}
+{-R I_s \dfrac{1}{nV_t} e^{\frac{V_{d}^{(k)}}{nV_t}} - 1}.
+\end{equation}
+
+A practical step-by-step procedure:
+\begin{enumerate}
+\item Choose device and circuit parameters \(V_s, R, I_s, n, V_t\) and an initial guess \(V_d^{(0)}\) (a typical choice is \(0.6\!-\!0.8\) V for silicon diodes, or \(V_s/2\) if unsure).
+\item Evaluate \(f(V_d^{(k)})\) using (3) and \(f'(V_d^{(k)})\) using (4).
+\item Compute the Newton update by (5) to obtain \(V_d^{(k+1)}\).
+\item Check convergence: accept \(V_d^{(k+1)}\) if
+\begin{equation}
+\bigl|V_d^{(k+1)}-V_d^{(k)}\bigr| < \varepsilon
+\quad\text{or}\quad
+\bigl|f(V_d^{(k+1)})\bigr| < \delta,
+\end{equation}
+where \(\varepsilon,\delta\) are tolerances (e.g. \(10^{-6}\) V or a small current error).
+\item If not converged, set \(k\leftarrow k+1\) and repeat from step 2. Include a maximum iteration limit to avoid infinite loops.
+\end{enumerate}
+
+Notes and practical tips:
+\begin{itemize}
+\item Because the diode exponential can grow very rapidly, the term \(R I_s e^{V_d/(nV_t)}\) may dominate for moderate \(V_d\); choose the initial guess to avoid overflow in the exponential (or use scaled arithmetic / libraries that handle large arguments).
+\item If \(f'(V_d^{(k)})\) is nearly zero, the Newton step can be large or unstable; in practice a damping (line search) factor \(\alpha\in(0,1]\) is sometimes used:
+\[
+V_d^{(k+1)} = V_d^{(k)} - \alpha\frac{f(V_d^{(k)})}{f'(V_d^{(k)})}.
+\]
+\item For comparison, the same nonlinear equation can be solved in closed form using the Lambert \(W\) function to obtain
+\begin{equation}
+V_d = V_s + R I_s - nV_t \, W\!\left(\frac{R I_s}{nV_t}\,e^{\frac{V_s+R I_s}{nV_t}}\right),
+\end{equation}
+which gives an analytical reference solution (principal branch \(W_0\)) to verify the Newton result.
+\end{itemize}
+
+Finally, once \(V_d\) is found compute the diode current from the Shockley law:
+\begin{equation}
+I = I_s\!\left(e^{\frac{V_d}{nV_t}} - 1\right).
+\end{equation}
+
 
 \section{Report Checklist}
 
