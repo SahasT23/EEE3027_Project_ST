@@ -1,0 +1,186 @@
+\documentclass[a4paper,12pt]{article}
+\input{ReportHeader}
+\graphicspath{{../Images/}}
+
+\begin{document}
+%----------------------------------------------------------------------------------------
+%	TITLE+
+%----------------------------------------------------------------------------------------
+% Title Page
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    \Huge{\textbf{EEE3027 Integrated Circuit Design}}\\[0.5cm]
+    \Large{\textbf{Semester 1 Report}}\\ 
+    \Large{Sahas Talasila \textit{230057896}}
+    \vfill
+\end{titlepage}
+
+% Table of Contents
+\tableofcontents
+\newpage
+
+\begin{abstract}
+    This is a placeholder for the abstract of the report.
+\end{abstract}
+
+\section{Introduction}
+
+\section{NMOS and PMOS I-V Characteristics Lab 1}
+
+\subsection{NMOS Characteristics}
+
+Include theory on how a transistor works, regions of operation, and also beta.
+
+Explain the differences between holes and electrons, and explain why it will be useful to know both characteristics, 
+and how it shows tthis in an NMOS
+
+Explain the code used to generate the plots,
+
+Explain the plots.
+
+Finally, show the calculations for each curve.
+
+\subsection{PMOS characteristics}
+
+Have already included theory on how a transistor works, regions of operation, and also beta.
+
+Explain the code to generate the plots (just a small difference),
+
+Explain the plots. (plot of Id vs Vds) 
+
+Finally, show the calculations for each curve. Example shown below
+
+\begin{itemize}
+  \item \textbf{EXPECTED CURVES:}
+  \begin{itemize}
+    \item \textbf{Curve 1 ($V_{GS} = 0.4\,\text{V}$):}
+      \begin{itemize}
+        \item Barely turns on ($V_{GS} = V_{th}$)
+        \item Very low current
+        \item Saturation at $I_{DS} \approx 0\,\text{mA}$
+      \end{itemize}
+
+    \item \textbf{Curve 2 ($V_{GS} = 0.6\,\text{V}$):}
+      \begin{itemize}
+        \item $V_{DSsat} = 0.6 - 0.4 = 0.2\,\text{V}$
+        \item Saturation current (approx) $= 0.04\,\text{mA}$
+        \item $I_{DS,sat} = \frac{\beta}{2}(V_{GS} - V_{th})^2 = 1\,\text{m} \times (0.2)^2 = 0.04\,\text{mA}$
+      \end{itemize}
+
+    \item \textbf{Curve 3 ($V_{GS} = 0.8\,\text{V}$):}
+      \begin{itemize}
+        \item $V_{DSsat} = 0.8 - 0.4 = 0.4\,\text{V}$
+        \item Saturation current (approx) $= 0.16\,\text{mA}$
+        \item $I_{DS,sat} = 1\,\text{m} \times (0.4)^2 = 0.16\,\text{mA}$
+      \end{itemize}
+
+    \item \textbf{Curve 4 ($V_{GS} = 1.0\,\text{V}$):}
+      \begin{itemize}
+        \item $V_{DSsat} = 1.0 - 0.4 = 0.6\,\text{V}$
+        \item Saturation current (approx) $= 0.36\,\text{mA}$
+        \item $I_{DS,sat} = 1\,\text{m} \times (0.6)^2 = 0.36\,\text{mA}$
+      \end{itemize}
+
+    \item \textbf{Curve 5 ($V_{GS} = 1.2\,\text{V}$):}
+      \begin{itemize}
+        \item $V_{DSsat} = 1.2 - 0.4 = 0.8\,\text{V}$
+        \item Saturation current (approx) $= 0.64\,\text{mA}$
+        \item $I_{DS,sat} = 1\,\text{m} \times (0.8)^2 = 0.64\,\text{mA}$
+      \end{itemize}
+
+    \item \textbf{Each curve:}
+      \begin{itemize}
+        \item Linear region: $0$ to $(V_{GS} - V_{th})$
+        \item Saturation region: $(V_{GS} - V_{th})$ to $1.2\,\text{V}$
+        \item Higher $V_{GS} \Rightarrow$ higher saturation current
+        \item Saturation current $\propto (V_{GS} - V_{th})^2$
+      \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+
+\subsection{Beta Calculation}
+
+Explain what beta is, and how to calculate it.
+Show the calculations for both NMOS and PMOS.
+
+Explain the code again and then show a plot of beta and then gradient calculation.
+
+Explain what the gradient means.
+
+Show image with gradients, then compare theoretical and experimental values.
+
+Explain the relationship between mu, Cox, W and L, and how changing W and L will affect beta.
+
+Show plot with l times 2 and how gradient has halved, refering back to the beta equation and the equivalent versions.
+
+Show how VGS also affects beta. (has to be in saturation region for this to be true), otherwise it is not valid.
+Show plot with VGS changed and how beta changes accordingly.
+Refer back to beta equation again.
+
+Beta vs width or length table
+
+\subsection{How SPICE calculates non linear equations}
+Include brief theory on non linear equations in circuits.
+
+Add diagram of diode and resistor in series.
+
+Explain how SPICE uses piecewise linear approximation to solve non linear equations.
+
+And explain how newton raphson method is used to converge to a solution for the non linear equations
+
+Show worked example of diode equation and how it is approximated using piecewise linear approximation.
+
+Refer to python code and also the cobweb diagram. 
+
+Compare bisection method to newton raphson method and explain why newton raphson is better for SPICE.
+
+Add flowchart//pseudocode of how SPICE solves non linear equations using newton raphson method.
+
+\section{Lab 1 part 2: CMOS Inverter and Experiments}
+
+\subsection{CMOS Inverter Diagram and Theory}
+
+Explain the CMOS inverter circuit diagram and how a CMOS inverter works.
+
+Explain the components used (NMOS and PMOS) and how they work together to create the inverter.
+
+\subsection{CMOS Missing SPICE}
+
+Explain the missing SPICE code and how it works.
+
+Explain the additions and annotations made to the original code.
+
+\subsection{Transfer Curves}
+
+Explain what the transfer curves and how they were generated.
+
+Point out the plots and explain the different regions of operation for PMOS and NMOS.
+
+Explain when NMOS is on and when PMOS is on/triode/saturation.
+
+Analysis table showing what happens at each voltage level. 
+
+\subsection{NMOS Pull Up}
+
+Explain the modifications made to the CMOS inverter to create an NMOS pull up.
+
+Show the SPICE code used.
+
+Explain the transfer curves generated and compare to the CMOS inverter.
+
+Show the differences and why they occur.
+
+Show the calculations for the threshold voltages of both NMOS and PMOS in the circuit, 
+and explain how they were calculated and how they affect the operation of the inverter.
+
+Show how the NMOS pull up is worse than the CMOS inverter.
+
+Answer Questions from lab brief.
+
+\subsection{CMOS Inverter Design}
+
+Explain the requirements for the CMOS inverter design and what they mean. 
+
+\end{document}

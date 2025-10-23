@@ -28,61 +28,6 @@
 
 \subsection{Background and Key Concepts}
 
-\subsubsection{Transistors}
-A transistor is a semiconductor device used to amplify or switch electronic signals and electrical power. 
-It is composed of semiconductor material, usually with at least three terminals for connection to an external circuit. A voltage or current applied to one pair of the transistor's terminals controls the current through another pair of terminals.
-
-\textbf{Transistor Structure:}
-
-\begin{itemize}
-    \item \textbf{Source (S):} The terminal through which carriers enter the channel.
-    \item \textbf{Drain (D):} The terminal through which carriers leave the channel.
-    \item \textbf{Gate (G):} The terminal that modulates the conductivity of the channel.
-    \item \textbf{Body (B):} The substrate on which the transistor is built, often connected to the source.
-    \item \textbf{Channel:} The region between the source and drain where current flows when the transistor is on.  
-    \item \textbf{Oxide Layer:} An insulating layer between the gate and the channel, typically made of silicon dioxide (SiO2).
-\end{itemize}
-
-\begin{figure}[h!]
-    \centering
-    \begin{circuitikz}[american]
-
-  % NMOS transistor
-  \draw
-    (0,0) node[nmos, anchor=D] (nmos) {}
-    (nmos.G) node[left] {G}
-    (nmos.D) node[above] {D}
-    (nmos.S) node[below] {S};
-
-  % PMOS transistor with flipped orientation
-  \draw
-    (4,0) node[pmos, anchor=S, xscale=-1] (pmos) {}
-    (pmos.G) node[right] {G}
-    (pmos.D) node[below] {D}
-    (pmos.S) node[above] {S};
-\end{circuitikz}
-    \caption{Basic structure of an NMOS and PMOS transistor.}
-    \label{fig:transistor_structure}
-\end{figure}
-
-\subsubsection{MOSFET Types}
-\begin{itemize}
-    \item \textbf{N-channel (NMOS):} electrons are charge carriers.
-    \item \textbf{P-channel (PMOS):} holes are charge carriers.
-\end{itemize}
-
-\subsubsection{Operating Regions of a MOSFET}
-\begin{center}
-\begin{tabular}{|c|c|c|}
-\hline
-\textbf{Region} & \textbf{Condition (N-channel)} & \textbf{Description} \\
-\hline
-Cutoff & $V_{GS} < V_{th}$ & OFF (no current) \\
-Triode (Linear) & $V_{GS} > V_{th}, \, V_{DS} < V_{GS}-V_{th}$ & Acts as variable resistor \\
-Saturation (Active) & $V_{GS} > V_{th}, \, V_{DS} \ge V_{GS}-V_{th}$ & Current source (amplifier region) \\
-\hline
-\end{tabular}
-\end{center}
 
 \subsection{Importance of MOSFET Physical Parameters}
 
@@ -175,6 +120,15 @@ Shorter effective channel length causes:
     \item Reduced control by the gate.
 \end{itemize}
 
+\subsection{Lab 1 Part 1}
+
+Explain what an NMOS and PMOS transistor is, their structure and operation. 
+Discuss the I-V characteristics of both transistors, 
+highlighting the differences in their operation regions (cutoff, linear, saturation). 
+Include equations governing their behavior in each region.
+Explain the equations for both NMOS and PMOS transistors.
+
+
 %--------------------------------------------------------------
 \subsection{Beta ($\beta$) Equations for MOSFETs}
 
@@ -222,10 +176,66 @@ g_m = \frac{\partial I_D}{\partial V_{GS}} = \beta(V_{GS} - V_{th})
 
 \section{Formative Assessment 1 Report}
 
+\subsubsection{Transistors}
+A transistor is a semiconductor device used to amplify or switch electronic signals and electrical power. 
+It is composed of semiconductor material, usually with at least three terminals for connection to an external circuit. A voltage or current applied to one pair of the transistor's terminals controls the current through another pair of terminals.
+
+\textbf{Transistor Structure:}
+
+\begin{itemize}
+    \item \textbf{Source (S):} The terminal through which carriers enter the channel.
+    \item \textbf{Drain (D):} The terminal through which carriers leave the channel.
+    \item \textbf{Gate (G):} The terminal that modulates the conductivity of the channel.
+    \item \textbf{Body (B):} The substrate on which the transistor is built, often connected to the source.
+    \item \textbf{Channel:} The region between the source and drain where current flows when the transistor is on.  
+    \item \textbf{Oxide Layer:} An insulating layer between the gate and the channel, typically made of silicon dioxide (SiO2).
+\end{itemize}
+
+\begin{figure}[h!]
+    \centering
+    \begin{circuitikz}[american]
+
+  % NMOS transistor
+  \draw
+    (0,0) node[nmos, anchor=D] (nmos) {}
+    (nmos.G) node[left] {G}
+    (nmos.D) node[above] {D}
+    (nmos.S) node[below] {S};
+
+  % PMOS transistor with flipped orientation
+  \draw
+    (4,0) node[pmos, anchor=S, xscale=-1] (pmos) {}
+    (pmos.G) node[right] {G}
+    (pmos.D) node[below] {D}
+    (pmos.S) node[above] {S};
+\end{circuitikz}
+    \caption{Basic structure of an NMOS and PMOS transistor.}
+    \label{fig:transistor_structure}
+\end{figure}
+
+\subsubsection{MOSFET Types}
+\begin{itemize}
+    \item \textbf{N-channel (NMOS):} electrons are charge carriers.
+    \item \textbf{P-channel (PMOS):} holes are charge carriers.
+\end{itemize}
+
+\subsubsection{Operating Regions of a MOSFET}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Region} & \textbf{Condition (N-channel)} & \textbf{Description} \\
+\hline
+Cutoff & $V_{GS} < V_{th}$ & OFF (no current) \\
+Triode (Linear) & $V_{GS} > V_{th}, \, V_{DS} < V_{GS}-V_{th}$ & Acts as variable resistor \\
+Saturation (Active) & $V_{GS} > V_{th}, \, V_{DS} \ge V_{GS}-V_{th}$ & Current source (amplifier region) \\
+\hline
+\end{tabular}
+\end{center}
+
 A MOS transistor operates in two main regions depending on the drain-source voltage ($V_{DS}$) and the gate-source voltage ($V_{GS}$).
 In \textit{Figure 2}, we can see the NMOS Sweep for a few specified $V_{GS}$ values. The explanation of the code will be explained below
 
-\subsection{NMOS I-V Characteristics (First Task - Lab 1 Part 1)}
+\subsection{PMOS and NMOS I-V Characteristics (First Task - Lab 1 Part 1)}
 
 \begin{figure}[h!]
     \centering
