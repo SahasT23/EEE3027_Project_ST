@@ -1,121 +1,147 @@
-"""
-EEE3027: Integrated Circuit Design and Embedded Systems
-Task 4 – SPICE Under the Hood
-
-Newton–Raphson Iteration for Diode Circuit Simulation (Non Linear Equation Solving)
-We consider a simple diode–resistor circuit:
-
-     Vs ─────>|────── R ──
-          │  Diode       │
-          │              │
-          └──────────────┘
-                  |
-                  GND
-
-Kirchhoff’s Voltage Law (KVL):
-    Vs - I*R - Vd = 0
-
-Diode current (Shockley equation):
-    I = Is * (exp(Vd / (n * Vt)) - 1)
-
-Substituting gives:
-    f(Vd) = Vs - R*Is*(exp(Vd / (n*Vt)) - 1) - Vd = 0
-
-We solve f(Vd) = 0 for the diode voltage Vd using Newton–Raphson iteration,
-and generate a cobweb diagram showing the iterative process.
-"""
-
-"""
-EEE3027: Integrated Circuit Design and Embedded Systems
-Task 4 – SPICE Under the Hood
-
-Newton–Raphson Iteration for Diode Circuit Simulation
-Improved Cobweb Diagram (y = x vs. Newton Update Function)
-"""
-
-import math
-import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 
-# --- Given parameters ---
+# Given parameters
 Vs = 5.0        # Supply voltage (V)
 R = 1000.0      # Resistance (Ω)
-Is = 1e-12      # Diode saturation current (A)
+Is = 1e-12      # Saturation current (A)
 n = 1.0         # Ideality factor
-Vt = 0.0259     # Thermal voltage (V)
+Vt = 0.026      # Thermal voltage (V)
 
-# --- Define nonlinear function and derivative ---
+def diode_current(Vd):
+    """Calculate diode current given voltage"""
+    return Is * (np.exp(Vd / (n * Vt)) - 1)
+
 def f(Vd):
-    return Vs - R * Is * (math.exp(Vd / (n * Vt)) - 1) - Vd
+    """Function we want to zero: KVL equation"""
+    I = diode_current(Vd)
+    return Vs - R * I - Vd
 
-def df(Vd):
-    return -R * Is * (math.exp(Vd / (n * Vt)) / (n * Vt)) - 1
+def f_derivative(Vd):
+    """Derivative of f for Newton-Raphson"""
+    return -R * Is * (1 / (n * Vt)) * np.exp(Vd / (n * Vt)) - 1
 
-# --- Newton–Raphson iteration parameters ---
-Vd = 0.7           # Initial guess (V)
-tolerance = 1e-6
-max_iter = 20
-
-# --- Store iteration results for table and plotting ---
-results = []
-Vd_values = [Vd]
-
-for i in range(max_iter):
-    f_val = f(Vd)
-    df_val = df(Vd)
-    Vd_new = Vd - f_val / df_val
-    results.append({
-        "Iteration": i + 1,
-        "Vd (V)": Vd_new,
-        "Change (V)": abs(Vd_new - Vd)
-    })
-    Vd_values.append(Vd_new)
-    if abs(Vd_new - Vd) < tolerance:
+def newton_raphson(initial_guess, tolerance=1e-6, max_iterations=50):
+    """
+    Newton-Raphson iterative solver
+    """
+    Vd = initial_guess
+    iterations = []
+    
+    for i in range(max_iterations):
+        # Calculate function value and derivative
+        f_val = f(Vd)
+        f_prime = f_derivative(Vd)
+        
+        # Calculate current for this Vd
+        I = diode_current(Vd)
+        VR = I * R
+        
+        # Store iteration data
+        iterations.append({
+            'iteration': i,
+            'Vd': Vd,
+            'I': I,
+            'VR': VR,
+            'f_val': f_val,
+            'error': abs(f_val)
+        })
+        
+        # Check convergence
+        if abs(f_val) < tolerance:
+            print(f"Converged in {i+1} iterations")
+            break
+        
+        # Newton-Raphson update
+        Vd_new = Vd - f_val / f_prime
+        
+        # Ensure Vd stays in reasonable range
+        if Vd_new < 0:
+            Vd_new = Vd / 2  # Bisection fallback
+        elif Vd_new > Vs:
+            Vd_new = (Vd + Vs) / 2
+        
         Vd = Vd_new
-        break
-    Vd = Vd_new
+    
+    return Vd, I, iterations
 
-# --- Compute final diode current ---
-I = Is * (math.exp(Vd / (n * Vt)) - 1)
+def simple_bisection(Vd_low=0.5, Vd_high=1.0, tolerance=1e-6, max_iterations=50):
+    """
+    Simple bisection method for comparison
+    """
+    iterations = []
+    
+    for i in range(max_iterations):
+        # Try midpoint
+        Vd = (Vd_low + Vd_high) / 2
+        
+        # Calculate function value
+        f_val = f(Vd)
+        I = diode_current(Vd)
+        VR = I * R
+        
+        # Store data
+        iterations.append({
+            'iteration': i,
+            'Vd': Vd,
+            'I': I,
+            'VR': VR,
+            'f_val': f_val,
+            'error': abs(f_val)
+        })
+        
+        # Check convergence
+        if abs(f_val) < tolerance:
+            print(f"Bisection converged in {i+1} iterations")
+            break
+        
+        # Update bounds
+        if f_val > 0:
+            Vd_low = Vd  # Need higher Vd
+        else:
+            Vd_high = Vd  # Need lower Vd
+    
+    return Vd, I, iterations
 
-# --- Display iteration table ---
-df_results = pd.DataFrame(results)
-print("\nNewton–Raphson Iteration Results:\n")
-print(df_results.to_string(index=False, float_format="%.6e"))
-print("\nFinal Results:")
-print(f"Diode voltage (Vd): {Vd:.6f} V")
-print(f"Diode current (I): {I:.6e} A")
+# Solve using Newton-Raphson
+print("=" * 60)
+print("NEWTON-RAPHSON METHOD")
+print("=" * 60)
+Vd_nr, I_nr, iter_nr = newton_raphson(initial_guess=0.7)
 
-# --- Cobweb diagram setup ---
-x = np.linspace(0.5, 0.8, 400)
-g = [val - f(val)/df(val) for val in x]  # Newton update function
-y_line = x                               # y = x line
+print(f"\nFinal Solution:")
+print(f"  Vd = {Vd_nr:.6f} V")
+print(f"  I  = {I_nr*1000:.6f} mA")
+print(f"  VR = {I_nr*R:.6f} V")
+print(f"\nVerification (should equal Vs = {Vs}V):")
+print(f"  VR + Vd = {I_nr*R + Vd_nr:.6f} V")
+print(f"  Error = {abs(Vs - (I_nr*R + Vd_nr)):.6f} V")
 
-# Plot setup
-plt.figure(figsize=(8, 6))
-plt.plot(x, g, 'b', label=r'$g(V_d) = V_d - \frac{f(V_d)}{f\'(V_d)}$')
-plt.plot(x, y_line, 'k--', label=r'$y = V_d$')
+print("\n\nIteration History:")
+print(f"{'Iter':<6} {'Vd (V)':<12} {'I (mA)':<12} {'VR (V)':<12} {'f(Vd)':<12} {'Error':<12}")
+print("-" * 72)
+for it in iter_nr:
+    print(f"{it['iteration']:<6} {it['Vd']:<12.6f} {it['I']*1000:<12.6f} "
+          f"{it['VR']:<12.6f} {it['f_val']:<12.6f} {it['error']:<12.6f}")
 
-# Plot cobweb path
-for i in range(len(Vd_values) - 1):
-    x0, x1 = Vd_values[i], Vd_values[i+1]
-    # vertical line to g(x)
-    plt.plot([x0, x0], [x0, x1], color='red', lw=1.2)
-    # horizontal line to y = x
-    plt.plot([x0, x1], [x1, x1], color='red', lw=1.2)
-    plt.text(x0, x1, f"$V_{{{i}}}$", fontsize=8, ha='right', va='bottom')
+# Solve using Bisection
+print("\n\n" + "=" * 60)
+print("BISECTION METHOD")
+print("=" * 60)
+Vd_bis, I_bis, iter_bis = simple_bisection()
 
-# Final converged point
-plt.scatter(Vd_values[-1], Vd_values[-1], color='green', s=60, zorder=5, label='Converged Point')
+print(f"\nFinal Solution:")
+print(f"  Vd = {Vd_bis:.6f} V")
+print(f"  I  = {I_bis*1000:.6f} mA")
+print(f"  VR = {I_bis*R:.6f} V")
 
-plt.title("Newton–Raphson Cobweb Diagram for Diode Equation")
-plt.xlabel(r"$V_d$ (V)")
-plt.ylabel(r"$V_{d+1}$ (V)")
-plt.grid(True, linestyle='--', alpha=0.5)
-plt.legend()
-plt.tight_layout()
-plt.savefig("newton_cobweb_diagram.png", dpi=300)
-plt.show()
+print("\n\nIteration History:")
+print(f"{'Iter':<6} {'Vd (V)':<12} {'I (mA)':<12} {'VR (V)':<12} {'f(Vd)':<12} {'Error':<12}")
+print("-" * 72)
+for it in iter_bis:
+    print(f"{it['iteration']:<6} {it['Vd']:<12.6f} {it['I']*1000:<12.6f} "
+          f"{it['VR']:<12.6f} {it['f_val']:<12.6f} {it['error']:<12.6f}")
 
-print("\nCobweb diagram saved as 'newton_cobweb_diagram.png'.")
+print("\n" + "=" * 60)
+print(f"Newton-Raphson: {len(iter_nr)} iterations")
+print(f"Bisection: {len(iter_bis)} iterations")
+print("=" * 60)

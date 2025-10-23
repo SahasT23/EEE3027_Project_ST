@@ -1,0 +1,256 @@
+*===========================================*
+* PMOS I_D vs V_DS using LEVEL=1 Model
+* Sweep VDS from 0V to -1.2V (negative for PMOS!)
+* Multiple VGS curves to show characteristic families
+* PMOS conducts when VGS is NEGATIVE
+*===========================================*
+
+* --- IMPORTANT PMOS CONVENTIONS ---
+* For PMOS (P-channel MOSFET):
+* - Source is typically at HIGH voltage (VDD)
+* - Drain is at LOWER voltage
+* - VGS must be NEGATIVE to turn ON (VGS < Vth, where Vth is negative)
+* - Current flows from SOURCE to DRAIN (opposite of NMOS)
+* - VDS is typically NEGATIVE in normal operation
+* - Threshold voltage VTO is NEGATIVE (e.g., -0.4V)
+
+* --- VOLTAGE SOURCES ---
+
+VGS G 0 DC 0
+* VGS: Gate voltage source
+* G: Positive terminal at gate node
+* 0: Negative terminal at ground
+* DC: DC voltage source
+* 0: Initial value (will be swept from -0.4V to -1.2V)
+* Purpose: Controls gate-source voltage
+* For PMOS: VGS must be NEGATIVE to turn transistor ON
+* When VGS < Vth (e.g., VGS < -0.4V), transistor conducts
+
+VDS D 0 DC 0
+* VDS: Drain voltage source
+* D: Positive terminal at drain node  
+* 0: Negative terminal at ground
+* DC: DC voltage source
+* 0: Initial value (will be swept from 0V to -1.2V)
+* Purpose: Controls drain-source voltage
+* For PMOS: VDS is typically NEGATIVE during conduction
+* Negative VDS means drain is at lower voltage than source
+
+* --- PMOS TRANSISTOR DEFINITION ---
+
+M1 D G 0 0 PLEVEL1 W=20u L=1u
+* M1: PMOS transistor instance name
+* D: Drain terminal connected to node D
+* G: Gate terminal connected to node G
+* 0 (first): Source terminal connected to ground (acts as VDD here)
+* 0 (second): Bulk/Body terminal connected to ground
+*    Note: For PMOS, bulk is typically tied to VDD (highest voltage)
+*    In this test circuit, both source and bulk at ground (0V)
+* PLEVEL1: Model name (references .model below)
+* W=20u: Channel width = 20 micrometers
+*    PMOS typically needs to be ~2x wider than NMOS
+*    This is because hole mobility is ~2-3x lower than electron mobility
+*    Wider PMOS compensates for lower mobility
+* L=1u: Channel length = 1 micrometer
+* BETA_p = (W/L) × KP = 20 × 100u = 2mA/V^2
+*    Same BETA as the NMOS example (allows balanced inverter design)
+
+* --- PMOS MODEL PARAMETERS ---
+
+.model PLEVEL1 PMOS LEVEL=1 VTO=-0.4 KP=100u LAMBDA=0.02
+* .model: Command to define transistor model
+* PLEVEL1: Model name (must match M1 definition)
+* PMOS: Specifies P-channel MOSFET (holes are charge carriers)
+* LEVEL=1: Shichman-Hodges model (basic square-law model)
+*
+* VTO=-0.4: Threshold voltage = -0.4V (NEGATIVE for PMOS!)
+*    PMOS turns ON when VGS < VTO (more negative than threshold)
+*    Example: If VGS = -0.6V, then VGS < -0.4V → transistor ON
+*    Overdrive voltage: |VGS - VTO| = |-0.6 - (-0.4)| = 0.2V
+*    Also written as Vthp or Vth in equations
+*
+* KP=100u: Process transconductance = 100uA/V^2 
+*    About HALF of NMOS KP (200u)
+*    This reflects lower hole mobility compared to electrons
+*    u_p ≈ 0.4 × u_n (holes move slower than electrons)
+*    Units: Amperes per Volt-squared
+*
+* LAMBDA=0.02: Channel-length modulation = 0.02 V⁻¹
+*    Same value as NMOS
+*    Creates slight slope in saturation region
+*    Models finite output resistance
+
+* --- NESTED DC SWEEP FOR MULTIPLE CURVES ---
+
+.dc VDS 0 -1.2 -0.01 VGS -0.4 -1.2 -0.2
+* .dc: DC sweep analysis command
+*
+* PRIMARY SWEEP (inner loop - x-axis):
+*    VDS: Voltage source to sweep (drain-source)
+*    0: Start at 0 Volts
+*    -1.2: End at -1.2 Volts (NEGATIVE!)
+*    -0.01: Step size = -10mV (negative step for negative sweep)
+*    Points per curve: (0 - (-1.2)) / 0.01 = 120 points
+*    Sweeps from 0V down to -1.2V
+*
+* SECONDARY SWEEP (outer loop - creates multiple curves):
+*    VGS: Gate-source voltage to sweep
+*    -0.4: Start at -0.4V (= threshold, barely ON)
+*    -1.2: End at -1.2V (strongly ON)
+*    -0.2: Step size = -0.2V (negative step)
+*    Number of curves: ((-0.4) - (-1.2)) / 0.2 + 1 = 5 curves
+*
+* CURVES GENERATED:
+* Curve 1: VGS = -0.4V (at threshold, minimal current)
+* Curve 2: VGS = -0.6V (moderate conduction)
+* Curve 3: VGS = -0.8V (higher conduction)
+* Curve 4: VGS = -1.0V (strong conduction)
+* Curve 5: VGS = -1.2V (maximum conduction in this range)
+
+* --- OUTPUT SPECIFICATION ---
+
+.plot DC I(M1)
+* .plot: Specify what to plot
+* DC: Use DC analysis results
+* I(M1): Drain current through M1
+* Note: For PMOS, current is NEGATIVE (flows from S to D)
+*       LTspice will plot as negative values
+*       You may want to plot -I(M1) to see positive curves
+* Alternative: .plot DC -I(M1) for positive y-axis values
+
+* --- END OF NETLIST ---
+
+.end
+* Required end statement
+
+*===========================================*
+* PMOS OPERATING REGIONS EXPLANATION
+*===========================================*
+*
+* For PMOS, all voltages are typically NEGATIVE relative to source
+* Using ABSOLUTE VALUES for clarity: |VGS|, |VDS|, |Vth|
+*
+* CUTOFF REGION:
+* Condition: VGS > Vth (less negative than threshold)
+* Example: If Vth = -0.4V and VGS = -0.2V, then VGS > Vth → OFF
+* For our sweep: N/A (all VGS values ≤ -0.4V, so always ON)
+* Current: Ids = 0
+*
+* LINEAR (TRIODE) REGION:
+* Condition: VGS ≤ Vth AND |VDS| < |VGS - Vth|
+* Alternate form: VGS ≤ Vth AND VDS > (VGS - Vth)
+* Physical meaning: Channel exists along entire length
+* Transistor acts as voltage-controlled resistor
+* Current increases with |VDS|
+*
+* Equation:
+* Ids = BETA_p[(VGS - Vth)VDS - VDS^2/2](1 + LAMBDA×|VDS|)
+* Note: All terms negative, so Ids comes out negative
+*
+* For Curve 5 (VGS = -1.2V):
+*    Vth = -0.4V
+*    VGS - Vth = -1.2 - (-0.4) = -0.8V
+*    Linear region: 0V > VDS > -0.8V
+*    Saturation starts when: VDS = VGS - Vth = -0.8V
+*
+* SATURATION REGION:
+* Condition: VGS ≤ Vth AND |VDS| ≥ |VGS - Vth|
+* Alternate form: VGS ≤ Vth AND VDS ≤ (VGS - Vth)
+* Physical meaning: Channel pinched off at drain end
+* Transistor acts as current source
+* Current nearly constant, slight increase with |VDS|
+*
+* Equation:
+* Ids = (BETA_p/2)(VGS - Vth)^2(1 + LAMBDA×|VDS|)
+*
+* Vdssat (saturation voltage) = VGS - Vth
+*
+*===========================================*
+* DETAILED REGION CALCULATIONS FOR EACH CURVE
+*===========================================*
+*
+* CURVE 1: VGS = -0.4V
+* -------------------------
+* Vth = -0.4V
+* VGS - Vth = -0.4 - (-0.4) = 0V
+* 
+* Vdssat = 0V (immediately in saturation)
+* Linear region: None (VDS from 0V to 0V)
+* Saturation region: 0V to -1.2V (entire range)
+*
+* Saturation current:
+* Ids_sat = (BETA_p/2)(VGS - Vth)^2
+*         = (2mA/V^2 / 2) × (0V)^2
+*         = 0mA
+* Transistor barely turns on, almost no current
+*
+*
+* CURVE 2: VGS = -0.6V
+* -------------------------
+* Vth = -0.4V
+* VGS - Vth = -0.6 - (-0.4) = -0.2V
+* |VGS - Vth| = 0.2V (overdrive)
+*
+* Vdssat = -0.2V
+* Linear region: 0V > VDS > -0.2V
+* Saturation region: -0.2V ≥ VDS ≥ -1.2V
+*
+* Saturation current:
+* Ids_sat = (1mA/V^2) × (-0.2V)^2
+*         = 1mA/V^2 × 0.04V^2
+*         = 0.04mA = 40uA (negative direction)
+* Display as: -40uA or 40uA magnitude
+*
+*
+* CURVE 3: VGS = -0.8V
+* -------------------------
+* Vth = -0.4V  
+* VGS - Vth = -0.8 - (-0.4) = -0.4V
+* |VGS - Vth| = 0.4V
+*
+* Vdssat = -0.4V
+* Linear region: 0V > VDS > -0.4V
+* Saturation region: -0.4V ≥ VDS ≥ -1.2V
+*
+* Saturation current:
+* Ids_sat = (1mA/V^2) × (-0.4V)^2
+*         = 1mA/V^2 × 0.16V^2
+*         = 0.16mA = 160uA (negative)
+*
+*
+* CURVE 4: VGS = -1.0V
+* -------------------------
+* Vth = -0.4V
+* VGS - Vth = -1.0 - (-0.4) = -0.6V
+* |VGS - Vth| = 0.6V
+*
+* Vdssat = -0.6V
+* Linear region: 0V > VDS > -0.6V  
+* Saturation region: -0.6V ≥ VDS ≥ -1.2V
+*
+* Saturation current:
+* Ids_sat = (1mA/V^2) × (-0.6V)^2
+*         = 1mA/V^2 × 0.36V^2
+*         = 0.36mA = 360uA (negative)
+*
+*
+* CURVE 5: VGS = -1.2V
+* -------------------------
+* Vth = -0.4V
+* VGS - Vth = -1.2 - (-0.4) = -0.8V
+* |VGS - Vth| = 0.8V
+*
+* Vdssat = -0.8V
+* Linear region: 0V > VDS > -0.8V
+* Saturation region: -0.8V ≥ VDS ≥ -1.2V
+*
+* Saturation current:
+* Ids_sat = (1mA/V^2) × (-0.8V)^2
+*         = 1mA/V^2 × 0.64V^2
+*         = 0.64mA = 640uA (negative)
+*
+*
+*       Magnitude increases as |VGS| increases
+*       Saturation current ∝ (VGS - Vth)^2
+*
+*===========================================*
