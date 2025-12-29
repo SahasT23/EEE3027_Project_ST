@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<model class="org.workcraft.plugins.circuit.VisualCircuit" ref="">
+  <AbstractModel>
+    <property class="java.lang.String" name="title" value="C-element"/>
+  </AbstractModel>
+  <root class="org.workcraft.dom.visual.VisualGroup" ref="0">
+    <VisualGroup>
+      <property class="boolean" name="isCollapsed" value="false"/>
+    </VisualGroup>
+    <VisualTransformableNode>
+      <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 0x0.0p0 0x0.0p0" name="transform"/>
+    </VisualTransformableNode>
+    <node class="org.workcraft.plugins.circuit.VisualFunctionContact" ref="1">
+      <VisualFunctionContact ref="out"/>
+      <VisualContact>
+        <property class="org.workcraft.plugins.circuit.VisualContact$Direction" enum-class="org.workcraft.plugins.circuit.VisualContact$Direction" name="direction" value="EAST"/>
+      </VisualContact>
+      <VisualComponent>
+        <property class="java.awt.Color" name="fillColor" rgb="#ffffff"/>
+        <property class="java.awt.Color" name="foregroundColor" rgb="#000000"/>
+        <property class="java.lang.String" name="label" value=""/>
+        <property class="java.awt.Color" name="labelColor" rgb="#000000"/>
+        <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="labelPositioning" value="TOP"/>
+        <property class="java.awt.Color" name="nameColor" rgb="#0000b2"/>
+        <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="namePositioning" value="RIGHT"/>
+      </VisualComponent>
+      <VisualTransformableNode>
+        <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 0x1.149a4186147aep3 0x0.0p0" name="transform"/>
+      </VisualTransformableNode>
+    </node>
+    <node class="org.workcraft.plugins.circuit.VisualFunctionContact" ref="2">
+      <VisualFunctionContact ref="in1"/>
+      <VisualContact>
+        <property class="org.workcraft.plugins.circuit.VisualContact$Direction" enum-class="org.workcraft.plugins.circuit.VisualContact$Direction" name="direction" value="WEST"/>
+      </VisualContact>
+      <VisualComponent>
+        <property class="java.awt.Color" name="fillColor" rgb="#ffffff"/>
+        <property class="java.awt.Color" name="foregroundColor" rgb="#000000"/>
+        <property class="java.lang.String" name="label" value=""/>
+        <property class="java.awt.Color" name="labelColor" rgb="#000000"/>
+        <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="labelPositioning" value="TOP"/>
+        <property class="java.awt.Color" name="nameColor" rgb="#b20000"/>
+        <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="namePositioning" value="LEFT"/>
+      </VisualComponent>
+      <VisualTransformableNode>
+        <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 -0x1.15ad3b65147aep3 0x0.0p0" name="transform"/>
+      </VisualTransformableNode>
+    </node>
+    <node class="org.workcraft.plugins.circuit.VisualFunctionContact" ref="3">
+      <VisualFunctionContact ref="in2"/>
+      <VisualContact>
+        <property class="org.workcraft.plugins.circuit.VisualContact$Direction" enum-class="org.workcraft.plugins.circuit.VisualContact$Direction" name="direction" value="WEST"/>
+      </VisualContact>
+      <VisualComponent>
+        <property class="java.awt.Color" name="fillColor" rgb="#ffffff"/>
+        <property class="java.awt.Color" name="foregroundColor" rgb="#000000"/>
+        <property class="java.lang.String" name="label" value=""/>
+        <property class="java.awt.Color" name="labelColor" rgb="#000000"/>
+        <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="labelPositioning" value="TOP"/>
+        <property class="java.awt.Color" name="nameColor" rgb="#b20000"/>
+        <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="namePositioning" value="LEFT"/>
+      </VisualComponent>
+      <VisualTransformableNode>
+        <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 -0x1.15ad3b65147aep3 0x1.0p0" name="transform"/>
+      </VisualTransformableNode>
+    </node>
+    <node class="org.workcraft.plugins.circuit.VisualFunctionComponent" ref="4">
+      <VisualFunctionComponent ref="outa.">
+        <property class="org.workcraft.plugins.circuit.renderers.ComponentRenderingResult$RenderType" enum-class="org.workcraft.plugins.circuit.renderers.ComponentRenderingResult$RenderType" name="renderType" value="GATE"/>
+      </VisualFunctionComponent>
+      <VisualCircuitComponent>
+        <property class="java.lang.String" name="label" value=""/>
+      </VisualCircuitComponent>
+      <VisualComponent>
+        <property class="java.awt.Color" name="fillColor" rgb="#ffffff"/>
+        <property class="java.awt.Color" name="foregroundColor" rgb="#000000"/>
+        <property class="java.lang.String" name="label" value=""/>
+        <property class="java.awt.Color" name="labelColor" rgb="#000000"/>
+        <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="labelPositioning" value="TOP"/>
+        <property class="java.awt.Color" name="nameColor" rgb="#595959"/>
+        <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="namePositioning" value="BOTTOM"/>
+      </VisualComponent>
+      <VisualTransformableNode>
+        <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 -0x1.12f9df000008p-5 0x0.0p0" name="transform"/>
+      </VisualTransformableNode>
+      <node class="org.workcraft.plugins.circuit.VisualFunctionContact" ref="5">
+        <VisualFunctionContact ref="outa.i1"/>
+        <VisualContact>
+          <property class="org.workcraft.plugins.circuit.VisualContact$Direction" enum-class="org.workcraft.plugins.circuit.VisualContact$Direction" name="direction" value="WEST"/>
+        </VisualContact>
+        <VisualComponent>
+          <property class="java.awt.Color" name="fillColor" rgb="#ffffff"/>
+          <property class="java.awt.Color" name="foregroundColor" rgb="#000000"/>
+          <property class="java.lang.String" name="label" value=""/>
+          <property class="java.awt.Color" name="labelColor" rgb="#000000"/>
+          <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="labelPositioning" value="TOP"/>
+          <property class="java.awt.Color" name="nameColor" rgb="#b20000"/>
+          <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="namePositioning" value="LEFT"/>
+        </VisualComponent>
+        <VisualTransformableNode>
+          <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 -0x1.8p1 -0x1.0p0" name="transform"/>
+        </VisualTransformableNode>
+      </node>
+      <node class="org.workcraft.plugins.circuit.VisualFunctionContact" ref="6">
+        <VisualFunctionContact ref="outa.i2"/>
+        <VisualContact>
+          <property class="org.workcraft.plugins.circuit.VisualContact$Direction" enum-class="org.workcraft.plugins.circuit.VisualContact$Direction" name="direction" value="WEST"/>
+        </VisualContact>
+        <VisualComponent>
+          <property class="java.awt.Color" name="fillColor" rgb="#ffffff"/>
+          <property class="java.awt.Color" name="foregroundColor" rgb="#000000"/>
+          <property class="java.lang.String" name="label" value=""/>
+          <property class="java.awt.Color" name="labelColor" rgb="#000000"/>
+          <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="labelPositioning" value="TOP"/>
+          <property class="java.awt.Color" name="nameColor" rgb="#b20000"/>
+          <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="namePositioning" value="LEFT"/>
+        </VisualComponent>
+        <VisualTransformableNode>
+          <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 -0x1.8p1 0x1.0p0" name="transform"/>
+        </VisualTransformableNode>
+      </node>
+      <node class="org.workcraft.plugins.circuit.VisualFunctionContact" ref="7">
+        <VisualFunctionContact ref="outa.i3"/>
+        <VisualContact>
+          <property class="org.workcraft.plugins.circuit.VisualContact$Direction" enum-class="org.workcraft.plugins.circuit.VisualContact$Direction" name="direction" value="WEST"/>
+        </VisualContact>
+        <VisualComponent>
+          <property class="java.awt.Color" name="fillColor" rgb="#ffffff"/>
+          <property class="java.awt.Color" name="foregroundColor" rgb="#000000"/>
+          <property class="java.lang.String" name="label" value=""/>
+          <property class="java.awt.Color" name="labelColor" rgb="#000000"/>
+          <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="labelPositioning" value="TOP"/>
+          <property class="java.awt.Color" name="nameColor" rgb="#b20000"/>
+          <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="namePositioning" value="LEFT"/>
+        </VisualComponent>
+        <VisualTransformableNode>
+          <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 -0x1.8p1 0x0.0p0" name="transform"/>
+        </VisualTransformableNode>
+      </node>
+      <node class="org.workcraft.plugins.circuit.VisualFunctionContact" ref="8">
+        <VisualFunctionContact ref="outa.i4"/>
+        <VisualContact>
+          <property class="org.workcraft.plugins.circuit.VisualContact$Direction" enum-class="org.workcraft.plugins.circuit.VisualContact$Direction" name="direction" value="WEST"/>
+        </VisualContact>
+        <VisualComponent>
+          <property class="java.awt.Color" name="fillColor" rgb="#ffffff"/>
+          <property class="java.awt.Color" name="foregroundColor" rgb="#000000"/>
+          <property class="java.lang.String" name="label" value=""/>
+          <property class="java.awt.Color" name="labelColor" rgb="#000000"/>
+          <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="labelPositioning" value="TOP"/>
+          <property class="java.awt.Color" name="nameColor" rgb="#b20000"/>
+          <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="namePositioning" value="LEFT"/>
+        </VisualComponent>
+        <VisualTransformableNode>
+          <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 -0x1.8p1 -0x1.0p-1" name="transform"/>
+        </VisualTransformableNode>
+      </node>
+      <node class="org.workcraft.plugins.circuit.VisualFunctionContact" ref="9">
+        <VisualFunctionContact ref="outa.i5"/>
+        <VisualContact>
+          <property class="org.workcraft.plugins.circuit.VisualContact$Direction" enum-class="org.workcraft.plugins.circuit.VisualContact$Direction" name="direction" value="WEST"/>
+        </VisualContact>
+        <VisualComponent>
+          <property class="java.awt.Color" name="fillColor" rgb="#ffffff"/>
+          <property class="java.awt.Color" name="foregroundColor" rgb="#000000"/>
+          <property class="java.lang.String" name="label" value=""/>
+          <property class="java.awt.Color" name="labelColor" rgb="#000000"/>
+          <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="labelPositioning" value="TOP"/>
+          <property class="java.awt.Color" name="nameColor" rgb="#b20000"/>
+          <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="namePositioning" value="LEFT"/>
+        </VisualComponent>
+        <VisualTransformableNode>
+          <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 -0x1.8p1 0x1.0p-1" name="transform"/>
+        </VisualTransformableNode>
+      </node>
+      <node class="org.workcraft.plugins.circuit.VisualFunctionContact" ref="10">
+        <VisualFunctionContact ref="outa.o"/>
+        <VisualContact>
+          <property class="org.workcraft.plugins.circuit.VisualContact$Direction" enum-class="org.workcraft.plugins.circuit.VisualContact$Direction" name="direction" value="EAST"/>
+        </VisualContact>
+        <VisualComponent>
+          <property class="java.awt.Color" name="fillColor" rgb="#ffffff"/>
+          <property class="java.awt.Color" name="foregroundColor" rgb="#000000"/>
+          <property class="java.lang.String" name="label" value=""/>
+          <property class="java.awt.Color" name="labelColor" rgb="#000000"/>
+          <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="labelPositioning" value="TOP"/>
+          <property class="java.awt.Color" name="nameColor" rgb="#0000b2"/>
+          <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="namePositioning" value="RIGHT"/>
+        </VisualComponent>
+        <VisualTransformableNode>
+          <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 0x1.8p1 0x0.0p0" name="transform"/>
+        </VisualTransformableNode>
+      </node>
+    </node>
+    <node class="org.workcraft.plugins.circuit.VisualCircuitConnection" ref="17">
+      <VisualCircuitConnection ref="@c2"/>
+      <VisualConnection first="2" ref="@c2" second="7">
+        <property class="double" name="arrowLength" value="0x0.0p0"/>
+        <property class="double" name="arrowWidth" value="0x1.3333333333333p-3"/>
+        <property class="double" name="bubbleSize" value="0x1.999999999999ap-3"/>
+        <property class="java.awt.Color" name="color" rgb="#000000"/>
+        <property class="double" name="lineWidth" value="0x1.47ae147ae147bp-5"/>
+        <property class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" enum-class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" name="scaleMode" value="NONE"/>
+        <property class="boolean" name="tokenColorPropagator" value="true"/>
+        <graphic class="org.workcraft.dom.visual.connections.Polyline" ref="108"/>
+      </VisualConnection>
+    </node>
+    <node class="org.workcraft.plugins.circuit.VisualCircuitConnection" ref="20">
+      <VisualCircuitConnection ref="@c3"/>
+      <VisualConnection first="10" ref="@c3" second="6">
+        <property class="double" name="arrowLength" value="0x0.0p0"/>
+        <property class="double" name="arrowWidth" value="0x1.3333333333333p-3"/>
+        <property class="double" name="bubbleSize" value="0x1.999999999999ap-3"/>
+        <property class="java.awt.Color" name="color" rgb="#000000"/>
+        <property class="double" name="lineWidth" value="0x1.47ae147ae147bp-5"/>
+        <property class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" enum-class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" name="scaleMode" value="NONE"/>
+        <property class="boolean" name="tokenColorPropagator" value="true"/>
+        <graphic class="org.workcraft.dom.visual.connections.Polyline" ref="100">
+          <node class="org.workcraft.dom.visual.connections.ControlPoint" ref="114">
+            <VisualTransformableNode>
+              <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 0x1.7bb41883ffffep1 0x1.0p1" name="transform"/>
+            </VisualTransformableNode>
+          </node>
+          <node class="org.workcraft.dom.visual.connections.ControlPoint" ref="115">
+            <VisualTransformableNode>
+              <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 -0x1.844be77c00002p1 0x1.0p1" name="transform"/>
+            </VisualTransformableNode>
+          </node>
+        </graphic>
+      </VisualConnection>
+    </node>
+    <node class="org.workcraft.plugins.circuit.VisualCircuitConnection" ref="23">
+      <VisualCircuitConnection ref="@c4"/>
+      <VisualConnection first="10" ref="@c4" second="1">
+        <property class="double" name="arrowLength" value="0x0.0p0"/>
+        <property class="double" name="arrowWidth" value="0x1.3333333333333p-3"/>
+        <property class="double" name="bubbleSize" value="0x1.999999999999ap-3"/>
+        <property class="java.awt.Color" name="color" rgb="#000000"/>
+        <property class="double" name="lineWidth" value="0x1.47ae147ae147bp-5"/>
+        <property class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" enum-class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" name="scaleMode" value="NONE"/>
+        <property class="boolean" name="tokenColorPropagator" value="true"/>
+        <graphic class="org.workcraft.dom.visual.connections.Polyline" ref="104"/>
+      </VisualConnection>
+    </node>
+    <node class="org.workcraft.plugins.circuit.VisualCircuitConnection" ref="26">
+      <VisualCircuitConnection ref="@c5"/>
+      <VisualConnection first="10" ref="@c5" second="8">
+        <property class="double" name="arrowLength" value="0x0.0p0"/>
+        <property class="double" name="arrowWidth" value="0x1.3333333333333p-3"/>
+        <property class="double" name="bubbleSize" value="0x1.999999999999ap-3"/>
+        <property class="java.awt.Color" name="color" rgb="#000000"/>
+        <property class="double" name="lineWidth" value="0x1.47ae147ae147bp-5"/>
+        <property class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" enum-class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" name="scaleMode" value="NONE"/>
+        <property class="boolean" name="tokenColorPropagator" value="true"/>
+        <graphic class="org.workcraft.dom.visual.connections.Polyline" ref="92">
+          <node class="org.workcraft.dom.visual.connections.ControlPoint" ref="111">
+            <VisualTransformableNode>
+              <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 0x1.7bb41883ffffep1 -0x1.0p1" name="transform"/>
+            </VisualTransformableNode>
+          </node>
+          <node class="org.workcraft.dom.visual.connections.ControlPoint" ref="112">
+            <VisualTransformableNode>
+              <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 -0x1.0p2 -0x1.0p1" name="transform"/>
+            </VisualTransformableNode>
+          </node>
+          <node class="org.workcraft.dom.visual.connections.ControlPoint" ref="113">
+            <VisualTransformableNode>
+              <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 -0x1.0p2 -0x1.0p-1" name="transform"/>
+            </VisualTransformableNode>
+          </node>
+        </graphic>
+      </VisualConnection>
+    </node>
+    <node class="org.workcraft.plugins.circuit.VisualJoint" ref="118">
+      <VisualJoint ref="@joint1"/>
+      <VisualComponent>
+        <property class="java.awt.Color" name="fillColor" rgb="#ffffff"/>
+        <property class="java.awt.Color" name="foregroundColor" rgb="#000000"/>
+        <property class="java.lang.String" name="label" value=""/>
+        <property class="java.awt.Color" name="labelColor" rgb="#000000"/>
+        <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="labelPositioning" value="TOP"/>
+        <property class="java.awt.Color" name="nameColor" rgb="#595959"/>
+        <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="namePositioning" value="BOTTOM"/>
+      </VisualComponent>
+      <VisualTransformableNode>
+        <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 -0x1.cp2 0x1.0p-1" name="transform"/>
+      </VisualTransformableNode>
+    </node>
+    <node class="org.workcraft.plugins.circuit.VisualCircuitConnection" ref="119">
+      <VisualCircuitConnection ref="@c11"/>
+      <VisualConnection first="3" ref="@c11" second="118">
+        <property class="double" name="arrowLength" value="0x0.0p0"/>
+        <property class="double" name="arrowWidth" value="0x1.3333333333333p-3"/>
+        <property class="double" name="bubbleSize" value="0x1.999999999999ap-3"/>
+        <property class="java.awt.Color" name="color" rgb="#000000"/>
+        <property class="double" name="lineWidth" value="0x1.47ae147ae147bp-5"/>
+        <property class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" enum-class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" name="scaleMode" value="NONE"/>
+        <property class="boolean" name="tokenColorPropagator" value="true"/>
+        <graphic class="org.workcraft.dom.visual.connections.Polyline" ref="121">
+          <node class="org.workcraft.dom.visual.connections.ControlPoint" ref="122">
+            <VisualTransformableNode>
+              <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 -0x1.cp2 0x1.0p0" name="transform"/>
+            </VisualTransformableNode>
+          </node>
+        </graphic>
+      </VisualConnection>
+    </node>
+    <node class="org.workcraft.plugins.circuit.VisualCircuitConnection" ref="123">
+      <VisualCircuitConnection ref="@c12"/>
+      <VisualConnection first="118" ref="@c12" second="9">
+        <property class="double" name="arrowLength" value="0x0.0p0"/>
+        <property class="double" name="arrowWidth" value="0x1.3333333333333p-3"/>
+        <property class="double" name="bubbleSize" value="0x1.999999999999ap-3"/>
+        <property class="java.awt.Color" name="color" rgb="#000000"/>
+        <property class="double" name="lineWidth" value="0x1.47ae147ae147bp-5"/>
+        <property class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" enum-class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" name="scaleMode" value="NONE"/>
+        <property class="boolean" name="tokenColorPropagator" value="true"/>
+        <graphic class="org.workcraft.dom.visual.connections.Polyline" ref="125"/>
+      </VisualConnection>
+    </node>
+    <node class="org.workcraft.plugins.circuit.VisualCircuitConnection" ref="126">
+      <VisualCircuitConnection ref="@c13"/>
+      <VisualConnection first="118" ref="@c13" second="5">
+        <property class="double" name="arrowLength" value="0x0.0p0"/>
+        <property class="double" name="arrowWidth" value="0x1.3333333333333p-3"/>
+        <property class="double" name="bubbleSize" value="0x1.999999999999ap-3"/>
+        <property class="java.awt.Color" name="color" rgb="#000000"/>
+        <property class="double" name="lineWidth" value="0x1.47ae147ae147bp-5"/>
+        <property class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" enum-class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" name="scaleMode" value="NONE"/>
+        <property class="boolean" name="tokenColorPropagator" value="true"/>
+        <graphic class="org.workcraft.dom.visual.connections.Polyline" ref="128">
+          <node class="org.workcraft.dom.visual.connections.ControlPoint" ref="129">
+            <VisualTransformableNode>
+              <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 -0x1.cp2 -0x1.0p0" name="transform"/>
+            </VisualTransformableNode>
+          </node>
+        </graphic>
+      </VisualConnection>
+    </node>
+  </root>
+</model>

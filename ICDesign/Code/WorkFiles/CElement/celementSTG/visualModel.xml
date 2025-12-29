@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<model class="org.workcraft.plugins.stg.VisualStg" ref="">
+  <AbstractModel>
+    <property class="java.lang.String" name="title" value=""/>
+  </AbstractModel>
+  <root class="org.workcraft.dom.visual.VisualGroup" ref="0">
+    <VisualGroup>
+      <property class="boolean" name="isCollapsed" value="false"/>
+    </VisualGroup>
+    <VisualTransformableNode>
+      <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 0x0.0p0 0x0.0p0" name="transform"/>
+    </VisualTransformableNode>
+    <node class="org.workcraft.plugins.stg.VisualSignalTransition" ref="1">
+      <VisualSignalTransition ref="in1+"/>
+      <VisualComponent>
+        <property class="java.awt.Color" name="fillColor" rgb="#ffffff"/>
+        <property class="java.awt.Color" name="foregroundColor" rgb="#000000"/>
+        <property class="java.lang.String" name="label" value=""/>
+        <property class="java.awt.Color" name="labelColor" rgb="#000000"/>
+        <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="labelPositioning" value="TOP"/>
+        <property class="java.awt.Color" name="nameColor" rgb="#b20000"/>
+        <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="namePositioning" value="CENTER"/>
+      </VisualComponent>
+      <VisualTransformableNode>
+        <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 0x1.0p2 0x0.0p0" name="transform"/>
+      </VisualTransformableNode>
+    </node>
+    <node class="org.workcraft.plugins.stg.VisualSignalTransition" ref="2">
+      <VisualSignalTransition ref="in1-"/>
+      <VisualComponent>
+        <property class="java.awt.Color" name="fillColor" rgb="#ffffff"/>
+        <property class="java.awt.Color" name="foregroundColor" rgb="#000000"/>
+        <property class="java.lang.String" name="label" value=""/>
+        <property class="java.awt.Color" name="labelColor" rgb="#000000"/>
+        <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="labelPositioning" value="TOP"/>
+        <property class="java.awt.Color" name="nameColor" rgb="#b20000"/>
+        <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="namePositioning" value="CENTER"/>
+      </VisualComponent>
+      <VisualTransformableNode>
+        <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 0x1.4p3 0x0.0p0" name="transform"/>
+      </VisualTransformableNode>
+    </node>
+    <node class="org.workcraft.plugins.stg.VisualSignalTransition" ref="3">
+      <VisualSignalTransition ref="in2+"/>
+      <VisualComponent>
+        <property class="java.awt.Color" name="fillColor" rgb="#ffffff"/>
+        <property class="java.awt.Color" name="foregroundColor" rgb="#000000"/>
+        <property class="java.lang.String" name="label" value=""/>
+        <property class="java.awt.Color" name="labelColor" rgb="#000000"/>
+        <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="labelPositioning" value="TOP"/>
+        <property class="java.awt.Color" name="nameColor" rgb="#b20000"/>
+        <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="namePositioning" value="CENTER"/>
+      </VisualComponent>
+      <VisualTransformableNode>
+        <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 0x1.0p1 0x1.0p1" name="transform"/>
+      </VisualTransformableNode>
+    </node>
+    <node class="org.workcraft.plugins.stg.VisualSignalTransition" ref="4">
+      <VisualSignalTransition ref="in2-"/>
+      <VisualComponent>
+        <property class="java.awt.Color" name="fillColor" rgb="#ffffff"/>
+        <property class="java.awt.Color" name="foregroundColor" rgb="#000000"/>
+        <property class="java.lang.String" name="label" value=""/>
+        <property class="java.awt.Color" name="labelColor" rgb="#000000"/>
+        <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="labelPositioning" value="TOP"/>
+        <property class="java.awt.Color" name="nameColor" rgb="#b20000"/>
+        <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="namePositioning" value="CENTER"/>
+      </VisualComponent>
+      <VisualTransformableNode>
+        <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 0x1.0p3 0x1.0p1" name="transform"/>
+      </VisualTransformableNode>
+    </node>
+    <node class="org.workcraft.plugins.stg.VisualSignalTransition" ref="5">
+      <VisualSignalTransition ref="out+"/>
+      <VisualComponent>
+        <property class="java.awt.Color" name="fillColor" rgb="#ffffff"/>
+        <property class="java.awt.Color" name="foregroundColor" rgb="#000000"/>
+        <property class="java.lang.String" name="label" value=""/>
+        <property class="java.awt.Color" name="labelColor" rgb="#000000"/>
+        <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="labelPositioning" value="TOP"/>
+        <property class="java.awt.Color" name="nameColor" rgb="#0000b2"/>
+        <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="namePositioning" value="CENTER"/>
+      </VisualComponent>
+      <VisualTransformableNode>
+        <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 0x1.8p2 0x1.0p2" name="transform"/>
+      </VisualTransformableNode>
+    </node>
+    <node class="org.workcraft.plugins.stg.VisualSignalTransition" ref="6">
+      <VisualSignalTransition ref="out-"/>
+      <VisualComponent>
+        <property class="java.awt.Color" name="fillColor" rgb="#ffffff"/>
+        <property class="java.awt.Color" name="foregroundColor" rgb="#000000"/>
+        <property class="java.lang.String" name="label" value=""/>
+        <property class="java.awt.Color" name="labelColor" rgb="#000000"/>
+        <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="labelPositioning" value="TOP"/>
+        <property class="java.awt.Color" name="nameColor" rgb="#0000b2"/>
+        <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="namePositioning" value="CENTER"/>
+      </VisualComponent>
+      <VisualTransformableNode>
+        <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 0x1.8p3 0x1.0p2" name="transform"/>
+      </VisualTransformableNode>
+    </node>
+    <node class="org.workcraft.plugins.stg.VisualImplicitPlaceArc" ref="7">
+      <VisualImplicitPlaceArc first="1" refCon1="@c0" refCon2="@c1" refPlace="&lt;in1+,in1-&gt;" second="2">
+        <property class="java.awt.Color" name="tokenColor" rgb="#000000"/>
+      </VisualImplicitPlaceArc>
+      <VisualConnection first="1" ref="" second="2">
+        <property class="double" name="arrowLength" value="0x1.999999999999ap-2"/>
+        <property class="double" name="arrowWidth" value="0x1.3333333333333p-3"/>
+        <property class="double" name="bubbleSize" value="0x1.999999999999ap-3"/>
+        <property class="java.awt.Color" name="color" rgb="#000000"/>
+        <property class="double" name="lineWidth" value="0x1.47ae147ae147bp-6"/>
+        <property class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" enum-class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" name="scaleMode" value="LOCK_RELATIVELY"/>
+        <property class="boolean" name="tokenColorPropagator" value="true"/>
+        <graphic class="org.workcraft.dom.visual.connections.Polyline" ref="9"/>
+      </VisualConnection>
+    </node>
+    <node class="org.workcraft.plugins.stg.VisualImplicitPlaceArc" ref="10">
+      <VisualImplicitPlaceArc first="3" refCon1="@c2" refCon2="@c3" refPlace="&lt;in2+,in2-&gt;" second="4">
+        <property class="java.awt.Color" name="tokenColor" rgb="#000000"/>
+      </VisualImplicitPlaceArc>
+      <VisualConnection first="3" ref="" second="4">
+        <property class="double" name="arrowLength" value="0x1.999999999999ap-2"/>
+        <property class="double" name="arrowWidth" value="0x1.3333333333333p-3"/>
+        <property class="double" name="bubbleSize" value="0x1.999999999999ap-3"/>
+        <property class="java.awt.Color" name="color" rgb="#000000"/>
+        <property class="double" name="lineWidth" value="0x1.47ae147ae147bp-6"/>
+        <property class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" enum-class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" name="scaleMode" value="LOCK_RELATIVELY"/>
+        <property class="boolean" name="tokenColorPropagator" value="true"/>
+        <graphic class="org.workcraft.dom.visual.connections.Polyline" ref="12"/>
+      </VisualConnection>
+    </node>
+    <node class="org.workcraft.plugins.stg.VisualImplicitPlaceArc" ref="13">
+      <VisualImplicitPlaceArc first="5" refCon1="@c4" refCon2="@c5" refPlace="&lt;out+,out-&gt;" second="6">
+        <property class="java.awt.Color" name="tokenColor" rgb="#000000"/>
+      </VisualImplicitPlaceArc>
+      <VisualConnection first="5" ref="" second="6">
+        <property class="double" name="arrowLength" value="0x1.999999999999ap-2"/>
+        <property class="double" name="arrowWidth" value="0x1.3333333333333p-3"/>
+        <property class="double" name="bubbleSize" value="0x1.999999999999ap-3"/>
+        <property class="java.awt.Color" name="color" rgb="#000000"/>
+        <property class="double" name="lineWidth" value="0x1.47ae147ae147bp-6"/>
+        <property class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" enum-class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" name="scaleMode" value="LOCK_RELATIVELY"/>
+        <property class="boolean" name="tokenColorPropagator" value="true"/>
+        <graphic class="org.workcraft.dom.visual.connections.Polyline" ref="15"/>
+      </VisualConnection>
+    </node>
+    <node class="org.workcraft.plugins.stg.VisualImplicitPlaceArc" ref="16">
+      <VisualImplicitPlaceArc first="3" refCon1="@c6" refCon2="@c7" refPlace="&lt;in2+,out+&gt;" second="5">
+        <property class="java.awt.Color" name="tokenColor" rgb="#000000"/>
+      </VisualImplicitPlaceArc>
+      <VisualConnection first="3" ref="" second="5">
+        <property class="double" name="arrowLength" value="0x1.999999999999ap-2"/>
+        <property class="double" name="arrowWidth" value="0x1.3333333333333p-3"/>
+        <property class="double" name="bubbleSize" value="0x1.999999999999ap-3"/>
+        <property class="java.awt.Color" name="color" rgb="#000000"/>
+        <property class="double" name="lineWidth" value="0x1.47ae147ae147bp-6"/>
+        <property class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" enum-class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" name="scaleMode" value="LOCK_RELATIVELY"/>
+        <property class="boolean" name="tokenColorPropagator" value="true"/>
+        <graphic class="org.workcraft.dom.visual.connections.Bezier" ref="18">
+          <Bezier>
+            <cp1 class="org.workcraft.dom.visual.connections.BezierControlPoint" ref="19">
+              <VisualTransformableNode>
+                <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 0x1.0p2 0x1.0p1" name="transform"/>
+              </VisualTransformableNode>
+            </cp1>
+            <cp2 class="org.workcraft.dom.visual.connections.BezierControlPoint" ref="20">
+              <VisualTransformableNode>
+                <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 0x1.0p2 0x1.0p2" name="transform"/>
+              </VisualTransformableNode>
+            </cp2>
+          </Bezier>
+        </graphic>
+      </VisualConnection>
+    </node>
+    <node class="org.workcraft.plugins.stg.VisualImplicitPlaceArc" ref="21">
+      <VisualImplicitPlaceArc first="1" refCon1="@c8" refCon2="@c9" refPlace="&lt;in1+,out+&gt;" second="5">
+        <property class="java.awt.Color" name="tokenColor" rgb="#000000"/>
+      </VisualImplicitPlaceArc>
+      <VisualConnection first="1" ref="" second="5">
+        <property class="double" name="arrowLength" value="0x1.999999999999ap-2"/>
+        <property class="double" name="arrowWidth" value="0x1.3333333333333p-3"/>
+        <property class="double" name="bubbleSize" value="0x1.999999999999ap-3"/>
+        <property class="java.awt.Color" name="color" rgb="#000000"/>
+        <property class="double" name="lineWidth" value="0x1.47ae147ae147bp-6"/>
+        <property class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" enum-class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" name="scaleMode" value="LOCK_RELATIVELY"/>
+        <property class="boolean" name="tokenColorPropagator" value="true"/>
+        <graphic class="org.workcraft.dom.visual.connections.Bezier" ref="23">
+          <Bezier>
+            <cp1 class="org.workcraft.dom.visual.connections.BezierControlPoint" ref="24">
+              <VisualTransformableNode>
+                <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 0x1.8p2 0x0.0p0" name="transform"/>
+              </VisualTransformableNode>
+            </cp1>
+            <cp2 class="org.workcraft.dom.visual.connections.BezierControlPoint" ref="25">
+              <VisualTransformableNode>
+                <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 0x1.0p2 0x1.0p2" name="transform"/>
+              </VisualTransformableNode>
+            </cp2>
+          </Bezier>
+        </graphic>
+      </VisualConnection>
+    </node>
+    <node class="org.workcraft.plugins.stg.VisualImplicitPlaceArc" ref="26">
+      <VisualImplicitPlaceArc first="5" refCon1="@c10" refCon2="@c11" refPlace="&lt;out+,in2-&gt;" second="4">
+        <property class="java.awt.Color" name="tokenColor" rgb="#000000"/>
+      </VisualImplicitPlaceArc>
+      <VisualConnection first="5" ref="" second="4">
+        <property class="double" name="arrowLength" value="0x1.999999999999ap-2"/>
+        <property class="double" name="arrowWidth" value="0x1.3333333333333p-3"/>
+        <property class="double" name="bubbleSize" value="0x1.999999999999ap-3"/>
+        <property class="java.awt.Color" name="color" rgb="#000000"/>
+        <property class="double" name="lineWidth" value="0x1.47ae147ae147bp-6"/>
+        <property class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" enum-class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" name="scaleMode" value="LOCK_RELATIVELY"/>
+        <property class="boolean" name="tokenColorPropagator" value="true"/>
+        <graphic class="org.workcraft.dom.visual.connections.Bezier" ref="28">
+          <Bezier>
+            <cp1 class="org.workcraft.dom.visual.connections.BezierControlPoint" ref="29">
+              <VisualTransformableNode>
+                <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 0x1.0p3 0x1.0p2" name="transform"/>
+              </VisualTransformableNode>
+            </cp1>
+            <cp2 class="org.workcraft.dom.visual.connections.BezierControlPoint" ref="30">
+              <VisualTransformableNode>
+                <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 0x1.8p2 0x1.0p1" name="transform"/>
+              </VisualTransformableNode>
+            </cp2>
+          </Bezier>
+        </graphic>
+      </VisualConnection>
+    </node>
+    <node class="org.workcraft.plugins.stg.VisualImplicitPlaceArc" ref="31">
+      <VisualImplicitPlaceArc first="5" refCon1="@c12" refCon2="@c13" refPlace="&lt;out+,in1-&gt;" second="2">
+        <property class="java.awt.Color" name="tokenColor" rgb="#000000"/>
+      </VisualImplicitPlaceArc>
+      <VisualConnection first="5" ref="" second="2">
+        <property class="double" name="arrowLength" value="0x1.999999999999ap-2"/>
+        <property class="double" name="arrowWidth" value="0x1.3333333333333p-3"/>
+        <property class="double" name="bubbleSize" value="0x1.999999999999ap-3"/>
+        <property class="java.awt.Color" name="color" rgb="#000000"/>
+        <property class="double" name="lineWidth" value="0x1.47ae147ae147bp-6"/>
+        <property class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" enum-class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" name="scaleMode" value="LOCK_RELATIVELY"/>
+        <property class="boolean" name="tokenColorPropagator" value="true"/>
+        <graphic class="org.workcraft.dom.visual.connections.Bezier" ref="33">
+          <Bezier>
+            <cp1 class="org.workcraft.dom.visual.connections.BezierControlPoint" ref="34">
+              <VisualTransformableNode>
+                <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 0x1.0p3 0x1.0p2" name="transform"/>
+              </VisualTransformableNode>
+            </cp1>
+            <cp2 class="org.workcraft.dom.visual.connections.BezierControlPoint" ref="35">
+              <VisualTransformableNode>
+                <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 0x1.0p3 0x0.0p0" name="transform"/>
+              </VisualTransformableNode>
+            </cp2>
+          </Bezier>
+        </graphic>
+      </VisualConnection>
+    </node>
+    <node class="org.workcraft.plugins.stg.VisualImplicitPlaceArc" ref="36">
+      <VisualImplicitPlaceArc first="2" refCon1="@c14" refCon2="@c15" refPlace="&lt;in1-,out-&gt;" second="6">
+        <property class="java.awt.Color" name="tokenColor" rgb="#000000"/>
+      </VisualImplicitPlaceArc>
+      <VisualConnection first="2" ref="" second="6">
+        <property class="double" name="arrowLength" value="0x1.999999999999ap-2"/>
+        <property class="double" name="arrowWidth" value="0x1.3333333333333p-3"/>
+        <property class="double" name="bubbleSize" value="0x1.999999999999ap-3"/>
+        <property class="java.awt.Color" name="color" rgb="#000000"/>
+        <property class="double" name="lineWidth" value="0x1.47ae147ae147bp-6"/>
+        <property class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" enum-class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" name="scaleMode" value="LOCK_RELATIVELY"/>
+        <property class="boolean" name="tokenColorPropagator" value="true"/>
+        <graphic class="org.workcraft.dom.visual.connections.Bezier" ref="38">
+          <Bezier>
+            <cp1 class="org.workcraft.dom.visual.connections.BezierControlPoint" ref="39">
+              <VisualTransformableNode>
+                <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 0x1.8p3 0x0.0p0" name="transform"/>
+              </VisualTransformableNode>
+            </cp1>
+            <cp2 class="org.workcraft.dom.visual.connections.BezierControlPoint" ref="40">
+              <VisualTransformableNode>
+                <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 0x1.4p3 0x1.0p2" name="transform"/>
+              </VisualTransformableNode>
+            </cp2>
+          </Bezier>
+        </graphic>
+      </VisualConnection>
+    </node>
+    <node class="org.workcraft.plugins.stg.VisualImplicitPlaceArc" ref="41">
+      <VisualImplicitPlaceArc first="4" refCon1="@c16" refCon2="@c17" refPlace="&lt;in2-,out-&gt;" second="6">
+        <property class="java.awt.Color" name="tokenColor" rgb="#000000"/>
+      </VisualImplicitPlaceArc>
+      <VisualConnection first="4" ref="" second="6">
+        <property class="double" name="arrowLength" value="0x1.999999999999ap-2"/>
+        <property class="double" name="arrowWidth" value="0x1.3333333333333p-3"/>
+        <property class="double" name="bubbleSize" value="0x1.999999999999ap-3"/>
+        <property class="java.awt.Color" name="color" rgb="#000000"/>
+        <property class="double" name="lineWidth" value="0x1.47ae147ae147bp-6"/>
+        <property class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" enum-class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" name="scaleMode" value="LOCK_RELATIVELY"/>
+        <property class="boolean" name="tokenColorPropagator" value="true"/>
+        <graphic class="org.workcraft.dom.visual.connections.Bezier" ref="43">
+          <Bezier>
+            <cp1 class="org.workcraft.dom.visual.connections.BezierControlPoint" ref="44">
+              <VisualTransformableNode>
+                <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 0x1.4p3 0x1.0p1" name="transform"/>
+              </VisualTransformableNode>
+            </cp1>
+            <cp2 class="org.workcraft.dom.visual.connections.BezierControlPoint" ref="45">
+              <VisualTransformableNode>
+                <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 0x1.4p3 0x1.0p2" name="transform"/>
+              </VisualTransformableNode>
+            </cp2>
+          </Bezier>
+        </graphic>
+      </VisualConnection>
+    </node>
+    <node class="org.workcraft.plugins.stg.VisualStgPlace" ref="46">
+      <VisualStgPlace ref="p0"/>
+      <VisualPlace>
+        <property class="java.awt.Color" name="tokenColor" rgb="#000000"/>
+      </VisualPlace>
+      <VisualComponent>
+        <property class="java.awt.Color" name="fillColor" rgb="#ffffff"/>
+        <property class="java.awt.Color" name="foregroundColor" rgb="#000000"/>
+        <property class="java.lang.String" name="label" value=""/>
+        <property class="java.awt.Color" name="labelColor" rgb="#000000"/>
+        <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="labelPositioning" value="TOP"/>
+        <property class="java.awt.Color" name="nameColor" rgb="#595959"/>
+        <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="namePositioning" value="BOTTOM"/>
+      </VisualComponent>
+      <VisualTransformableNode>
+        <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 0x0.0p0 0x0.0p0" name="transform"/>
+      </VisualTransformableNode>
+    </node>
+    <node class="org.workcraft.dom.visual.connections.VisualConnection" ref="47">
+      <VisualConnection first="46" ref="@c18" second="1">
+        <property class="double" name="arrowLength" value="0x1.999999999999ap-2"/>
+        <property class="double" name="arrowWidth" value="0x1.3333333333333p-3"/>
+        <property class="double" name="bubbleSize" value="0x1.999999999999ap-3"/>
+        <property class="java.awt.Color" name="color" rgb="#000000"/>
+        <property class="double" name="lineWidth" value="0x1.47ae147ae147bp-6"/>
+        <property class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" enum-class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" name="scaleMode" value="NONE"/>
+        <property class="boolean" name="tokenColorPropagator" value="true"/>
+        <graphic class="org.workcraft.dom.visual.connections.Polyline" ref="49"/>
+      </VisualConnection>
+    </node>
+    <node class="org.workcraft.plugins.stg.VisualStgPlace" ref="50">
+      <VisualStgPlace ref="p1"/>
+      <VisualPlace>
+        <property class="java.awt.Color" name="tokenColor" rgb="#000000"/>
+      </VisualPlace>
+      <VisualComponent>
+        <property class="java.awt.Color" name="fillColor" rgb="#ffffff"/>
+        <property class="java.awt.Color" name="foregroundColor" rgb="#000000"/>
+        <property class="java.lang.String" name="label" value=""/>
+        <property class="java.awt.Color" name="labelColor" rgb="#000000"/>
+        <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="labelPositioning" value="TOP"/>
+        <property class="java.awt.Color" name="nameColor" rgb="#595959"/>
+        <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="namePositioning" value="BOTTOM"/>
+      </VisualComponent>
+      <VisualTransformableNode>
+        <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 0x0.0p0 0x1.0p1" name="transform"/>
+      </VisualTransformableNode>
+    </node>
+    <node class="org.workcraft.dom.visual.connections.VisualConnection" ref="51">
+      <VisualConnection first="50" ref="@c19" second="3">
+        <property class="double" name="arrowLength" value="0x1.999999999999ap-2"/>
+        <property class="double" name="arrowWidth" value="0x1.3333333333333p-3"/>
+        <property class="double" name="bubbleSize" value="0x1.999999999999ap-3"/>
+        <property class="java.awt.Color" name="color" rgb="#000000"/>
+        <property class="double" name="lineWidth" value="0x1.47ae147ae147bp-6"/>
+        <property class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" enum-class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" name="scaleMode" value="NONE"/>
+        <property class="boolean" name="tokenColorPropagator" value="true"/>
+        <graphic class="org.workcraft.dom.visual.connections.Polyline" ref="53"/>
+      </VisualConnection>
+    </node>
+    <node class="org.workcraft.plugins.stg.VisualStgPlace" ref="54">
+      <VisualStgPlace ref="p2"/>
+      <VisualPlace>
+        <property class="java.awt.Color" name="tokenColor" rgb="#000000"/>
+      </VisualPlace>
+      <VisualComponent>
+        <property class="java.awt.Color" name="fillColor" rgb="#ffffff"/>
+        <property class="java.awt.Color" name="foregroundColor" rgb="#000000"/>
+        <property class="java.lang.String" name="label" value=""/>
+        <property class="java.awt.Color" name="labelColor" rgb="#000000"/>
+        <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="labelPositioning" value="TOP"/>
+        <property class="java.awt.Color" name="nameColor" rgb="#595959"/>
+        <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="namePositioning" value="BOTTOM"/>
+      </VisualComponent>
+      <VisualTransformableNode>
+        <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 0x0.0p0 0x1.0p2" name="transform"/>
+      </VisualTransformableNode>
+    </node>
+    <node class="org.workcraft.dom.visual.connections.VisualConnection" ref="55">
+      <VisualConnection first="54" ref="@c20" second="5">
+        <property class="double" name="arrowLength" value="0x1.999999999999ap-2"/>
+        <property class="double" name="arrowWidth" value="0x1.3333333333333p-3"/>
+        <property class="double" name="bubbleSize" value="0x1.999999999999ap-3"/>
+        <property class="java.awt.Color" name="color" rgb="#000000"/>
+        <property class="double" name="lineWidth" value="0x1.47ae147ae147bp-6"/>
+        <property class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" enum-class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" name="scaleMode" value="NONE"/>
+        <property class="boolean" name="tokenColorPropagator" value="true"/>
+        <graphic class="org.workcraft.dom.visual.connections.Polyline" ref="57"/>
+      </VisualConnection>
+    </node>
+    <node class="org.workcraft.plugins.stg.VisualStgPlace" ref="58">
+      <VisualStgPlace ref="p3"/>
+      <VisualPlace>
+        <property class="java.awt.Color" name="tokenColor" rgb="#000000"/>
+      </VisualPlace>
+      <VisualComponent>
+        <property class="java.awt.Color" name="fillColor" rgb="#ffffff"/>
+        <property class="java.awt.Color" name="foregroundColor" rgb="#000000"/>
+        <property class="java.lang.String" name="label" value=""/>
+        <property class="java.awt.Color" name="labelColor" rgb="#000000"/>
+        <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="labelPositioning" value="TOP"/>
+        <property class="java.awt.Color" name="nameColor" rgb="#595959"/>
+        <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="namePositioning" value="BOTTOM"/>
+      </VisualComponent>
+      <VisualTransformableNode>
+        <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 0x1.cp3 0x0.0p0" name="transform"/>
+      </VisualTransformableNode>
+    </node>
+    <node class="org.workcraft.dom.visual.connections.VisualConnection" ref="59">
+      <VisualConnection first="2" ref="@c21" second="58">
+        <property class="double" name="arrowLength" value="0x1.999999999999ap-2"/>
+        <property class="double" name="arrowWidth" value="0x1.3333333333333p-3"/>
+        <property class="double" name="bubbleSize" value="0x1.999999999999ap-3"/>
+        <property class="java.awt.Color" name="color" rgb="#000000"/>
+        <property class="double" name="lineWidth" value="0x1.47ae147ae147bp-6"/>
+        <property class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" enum-class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" name="scaleMode" value="NONE"/>
+        <property class="boolean" name="tokenColorPropagator" value="true"/>
+        <graphic class="org.workcraft.dom.visual.connections.Polyline" ref="61"/>
+      </VisualConnection>
+    </node>
+    <node class="org.workcraft.plugins.stg.VisualStgPlace" ref="62">
+      <VisualStgPlace ref="p4"/>
+      <VisualPlace>
+        <property class="java.awt.Color" name="tokenColor" rgb="#000000"/>
+      </VisualPlace>
+      <VisualComponent>
+        <property class="java.awt.Color" name="fillColor" rgb="#ffffff"/>
+        <property class="java.awt.Color" name="foregroundColor" rgb="#000000"/>
+        <property class="java.lang.String" name="label" value=""/>
+        <property class="java.awt.Color" name="labelColor" rgb="#000000"/>
+        <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="labelPositioning" value="TOP"/>
+        <property class="java.awt.Color" name="nameColor" rgb="#595959"/>
+        <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="namePositioning" value="BOTTOM"/>
+      </VisualComponent>
+      <VisualTransformableNode>
+        <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 0x1.cp3 0x1.0p1" name="transform"/>
+      </VisualTransformableNode>
+    </node>
+    <node class="org.workcraft.dom.visual.connections.VisualConnection" ref="63">
+      <VisualConnection first="4" ref="@c22" second="62">
+        <property class="double" name="arrowLength" value="0x1.999999999999ap-2"/>
+        <property class="double" name="arrowWidth" value="0x1.3333333333333p-3"/>
+        <property class="double" name="bubbleSize" value="0x1.999999999999ap-3"/>
+        <property class="java.awt.Color" name="color" rgb="#000000"/>
+        <property class="double" name="lineWidth" value="0x1.47ae147ae147bp-6"/>
+        <property class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" enum-class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" name="scaleMode" value="NONE"/>
+        <property class="boolean" name="tokenColorPropagator" value="true"/>
+        <graphic class="org.workcraft.dom.visual.connections.Polyline" ref="65"/>
+      </VisualConnection>
+    </node>
+    <node class="org.workcraft.plugins.stg.VisualStgPlace" ref="66">
+      <VisualStgPlace ref="p5"/>
+      <VisualPlace>
+        <property class="java.awt.Color" name="tokenColor" rgb="#000000"/>
+      </VisualPlace>
+      <VisualComponent>
+        <property class="java.awt.Color" name="fillColor" rgb="#ffffff"/>
+        <property class="java.awt.Color" name="foregroundColor" rgb="#000000"/>
+        <property class="java.lang.String" name="label" value=""/>
+        <property class="java.awt.Color" name="labelColor" rgb="#000000"/>
+        <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="labelPositioning" value="TOP"/>
+        <property class="java.awt.Color" name="nameColor" rgb="#595959"/>
+        <property class="org.workcraft.dom.visual.Positioning" enum-class="org.workcraft.dom.visual.Positioning" name="namePositioning" value="BOTTOM"/>
+      </VisualComponent>
+      <VisualTransformableNode>
+        <property class="java.awt.geom.AffineTransform" matrix="0x1.0p0 0x0.0p0 0x0.0p0 0x1.0p0 0x1.cp3 0x1.0p2" name="transform"/>
+      </VisualTransformableNode>
+    </node>
+    <node class="org.workcraft.dom.visual.connections.VisualConnection" ref="67">
+      <VisualConnection first="6" ref="@c23" second="66">
+        <property class="double" name="arrowLength" value="0x1.999999999999ap-2"/>
+        <property class="double" name="arrowWidth" value="0x1.3333333333333p-3"/>
+        <property class="double" name="bubbleSize" value="0x1.999999999999ap-3"/>
+        <property class="java.awt.Color" name="color" rgb="#000000"/>
+        <property class="double" name="lineWidth" value="0x1.47ae147ae147bp-6"/>
+        <property class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" enum-class="org.workcraft.dom.visual.connections.VisualConnection$ScaleMode" name="scaleMode" value="NONE"/>
+        <property class="boolean" name="tokenColorPropagator" value="true"/>
+        <graphic class="org.workcraft.dom.visual.connections.Polyline" ref="69"/>
+      </VisualConnection>
+    </node>
+  </root>
+</model>

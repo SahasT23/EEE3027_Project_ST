@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<model class="org.workcraft.plugins.stg.Stg" ref="">
+  <AbstractModel>
+    <property class="java.lang.String" name="title" value="VME"/>
+  </AbstractModel>
+  <root class="org.workcraft.dom.math.MathGroup" ref=".">
+    <node class="org.workcraft.plugins.stg.SignalTransition" ref="dsr+">
+      <SignalTransition>
+        <property class="org.workcraft.plugins.stg.SignalTransition$Direction" enum-class="org.workcraft.plugins.stg.SignalTransition$Direction" name="direction" value="PLUS"/>
+        <property class="org.workcraft.plugins.stg.Signal$Type" enum-class="org.workcraft.plugins.stg.Signal$Type" name="signalType" value="INPUT"/>
+      </SignalTransition>
+    </node>
+    <node class="org.workcraft.plugins.stg.StgPlace" ref="p1">
+      <StgPlace>
+        <property class="boolean" name="implicit" value="false"/>
+        <property class="boolean" name="mutex" value="false"/>
+      </StgPlace>
+      <Place>
+        <property class="int" name="capacity" value="1"/>
+        <property class="int" name="tokens" value="1"/>
+      </Place>
+    </node>
+    <node class="org.workcraft.plugins.stg.SignalTransition" ref="lds+">
+      <SignalTransition>
+        <property class="org.workcraft.plugins.stg.SignalTransition$Direction" enum-class="org.workcraft.plugins.stg.SignalTransition$Direction" name="direction" value="PLUS"/>
+        <property class="org.workcraft.plugins.stg.Signal$Type" enum-class="org.workcraft.plugins.stg.Signal$Type" name="signalType" value="OUTPUT"/>
+      </SignalTransition>
+    </node>
+    <node class="org.workcraft.plugins.stg.SignalTransition" ref="ldtack+">
+      <SignalTransition>
+        <property class="org.workcraft.plugins.stg.SignalTransition$Direction" enum-class="org.workcraft.plugins.stg.SignalTransition$Direction" name="direction" value="PLUS"/>
+        <property class="org.workcraft.plugins.stg.Signal$Type" enum-class="org.workcraft.plugins.stg.Signal$Type" name="signalType" value="INPUT"/>
+      </SignalTransition>
+    </node>
+    <node class="org.workcraft.plugins.stg.SignalTransition" ref="dsr-">
+      <SignalTransition>
+        <property class="org.workcraft.plugins.stg.SignalTransition$Direction" enum-class="org.workcraft.plugins.stg.SignalTransition$Direction" name="direction" value="MINUS"/>
+        <property class="org.workcraft.plugins.stg.Signal$Type" enum-class="org.workcraft.plugins.stg.Signal$Type" name="signalType" value="INPUT"/>
+      </SignalTransition>
+    </node>
+    <node class="org.workcraft.plugins.stg.SignalTransition" ref="dtack+">
+      <SignalTransition>
+        <property class="org.workcraft.plugins.stg.SignalTransition$Direction" enum-class="org.workcraft.plugins.stg.SignalTransition$Direction" name="direction" value="PLUS"/>
+        <property class="org.workcraft.plugins.stg.Signal$Type" enum-class="org.workcraft.plugins.stg.Signal$Type" name="signalType" value="OUTPUT"/>
+      </SignalTransition>
+    </node>
+    <node class="org.workcraft.plugins.stg.SignalTransition" ref="d-">
+      <SignalTransition>
+        <property class="org.workcraft.plugins.stg.SignalTransition$Direction" enum-class="org.workcraft.plugins.stg.SignalTransition$Direction" name="direction" value="MINUS"/>
+        <property class="org.workcraft.plugins.stg.Signal$Type" enum-class="org.workcraft.plugins.stg.Signal$Type" name="signalType" value="OUTPUT"/>
+      </SignalTransition>
+    </node>
+    <node class="org.workcraft.plugins.stg.SignalTransition" ref="ldtack-">
+      <SignalTransition>
+        <property class="org.workcraft.plugins.stg.SignalTransition$Direction" enum-class="org.workcraft.plugins.stg.SignalTransition$Direction" name="direction" value="MINUS"/>
+        <property class="org.workcraft.plugins.stg.Signal$Type" enum-class="org.workcraft.plugins.stg.Signal$Type" name="signalType" value="INPUT"/>
+      </SignalTransition>
+    </node>
+    <node class="org.workcraft.plugins.stg.SignalTransition" ref="lds-">
+      <SignalTransition>
+        <property class="org.workcraft.plugins.stg.SignalTransition$Direction" enum-class="org.workcraft.plugins.stg.SignalTransition$Direction" name="direction" value="MINUS"/>
+        <property class="org.workcraft.plugins.stg.Signal$Type" enum-class="org.workcraft.plugins.stg.Signal$Type" name="signalType" value="OUTPUT"/>
+      </SignalTransition>
+    </node>
+    <node class="org.workcraft.plugins.stg.StgPlace" ref="&lt;lds-,ldtack-&gt;">
+      <StgPlace>
+        <property class="boolean" name="implicit" value="true"/>
+        <property class="boolean" name="mutex" value="false"/>
+      </StgPlace>
+      <Place>
+        <property class="int" name="capacity" value="1"/>
+        <property class="int" name="tokens" value="0"/>
+      </Place>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con2">
+      <MathConnection first="lds-" second="&lt;lds-,ldtack-&gt;"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con3">
+      <MathConnection first="&lt;lds-,ldtack-&gt;" second="ldtack-"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con4">
+      <MathConnection first="p1" second="dsr+"/>
+    </node>
+    <node class="org.workcraft.plugins.stg.StgPlace" ref="&lt;dsr+,lds+&gt;">
+      <StgPlace>
+        <property class="boolean" name="implicit" value="true"/>
+        <property class="boolean" name="mutex" value="false"/>
+      </StgPlace>
+      <Place>
+        <property class="int" name="capacity" value="1"/>
+        <property class="int" name="tokens" value="0"/>
+      </Place>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con5">
+      <MathConnection first="dsr+" second="&lt;dsr+,lds+&gt;"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con6">
+      <MathConnection first="&lt;dsr+,lds+&gt;" second="lds+"/>
+    </node>
+    <node class="org.workcraft.plugins.stg.StgPlace" ref="&lt;lds+,ldtack+&gt;">
+      <StgPlace>
+        <property class="boolean" name="implicit" value="true"/>
+        <property class="boolean" name="mutex" value="false"/>
+      </StgPlace>
+      <Place>
+        <property class="int" name="capacity" value="1"/>
+        <property class="int" name="tokens" value="0"/>
+      </Place>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con7">
+      <MathConnection first="lds+" second="&lt;lds+,ldtack+&gt;"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con8">
+      <MathConnection first="&lt;lds+,ldtack+&gt;" second="ldtack+"/>
+    </node>
+    <node class="org.workcraft.plugins.stg.StgPlace" ref="&lt;dtack+,dsr-&gt;">
+      <StgPlace>
+        <property class="boolean" name="implicit" value="true"/>
+        <property class="boolean" name="mutex" value="false"/>
+      </StgPlace>
+      <Place>
+        <property class="int" name="capacity" value="1"/>
+        <property class="int" name="tokens" value="0"/>
+      </Place>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con11">
+      <MathConnection first="dtack+" second="&lt;dtack+,dsr-&gt;"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con12">
+      <MathConnection first="&lt;dtack+,dsr-&gt;" second="dsr-"/>
+    </node>
+    <node class="org.workcraft.plugins.stg.StgPlace" ref="&lt;dsr-,d-&gt;">
+      <StgPlace>
+        <property class="boolean" name="implicit" value="true"/>
+        <property class="boolean" name="mutex" value="false"/>
+      </StgPlace>
+      <Place>
+        <property class="int" name="capacity" value="1"/>
+        <property class="int" name="tokens" value="0"/>
+      </Place>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con13">
+      <MathConnection first="dsr-" second="&lt;dsr-,d-&gt;"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con14">
+      <MathConnection first="&lt;dsr-,d-&gt;" second="d-"/>
+    </node>
+    <node class="org.workcraft.plugins.stg.StgPlace" ref="p2">
+      <StgPlace>
+        <property class="boolean" name="implicit" value="false"/>
+        <property class="boolean" name="mutex" value="false"/>
+      </StgPlace>
+      <Place>
+        <property class="int" name="capacity" value="1"/>
+        <property class="int" name="tokens" value="1"/>
+      </Place>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con17">
+      <MathConnection first="ldtack-" second="p2"/>
+    </node>
+    <node class="org.workcraft.plugins.stg.SignalTransition" ref="dtack-">
+      <SignalTransition>
+        <property class="org.workcraft.plugins.stg.SignalTransition$Direction" enum-class="org.workcraft.plugins.stg.SignalTransition$Direction" name="direction" value="MINUS"/>
+        <property class="org.workcraft.plugins.stg.Signal$Type" enum-class="org.workcraft.plugins.stg.Signal$Type" name="signalType" value="OUTPUT"/>
+      </SignalTransition>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con21">
+      <MathConnection first="dtack-" second="p1"/>
+    </node>
+    <node class="org.workcraft.plugins.stg.SignalTransition" ref="d+">
+      <SignalTransition>
+        <property class="org.workcraft.plugins.stg.SignalTransition$Direction" enum-class="org.workcraft.plugins.stg.SignalTransition$Direction" name="direction" value="PLUS"/>
+        <property class="org.workcraft.plugins.stg.Signal$Type" enum-class="org.workcraft.plugins.stg.Signal$Type" name="signalType" value="OUTPUT"/>
+      </SignalTransition>
+    </node>
+    <node class="org.workcraft.plugins.stg.StgPlace" ref="&lt;ldtack+,d+&gt;">
+      <StgPlace>
+        <property class="boolean" name="implicit" value="true"/>
+        <property class="boolean" name="mutex" value="false"/>
+      </StgPlace>
+      <Place>
+        <property class="int" name="capacity" value="1"/>
+        <property class="int" name="tokens" value="0"/>
+      </Place>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con22">
+      <MathConnection first="ldtack+" second="&lt;ldtack+,d+&gt;"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con23">
+      <MathConnection first="&lt;ldtack+,d+&gt;" second="d+"/>
+    </node>
+    <node class="org.workcraft.plugins.stg.StgPlace" ref="&lt;d+,dtack+&gt;">
+      <StgPlace>
+        <property class="boolean" name="implicit" value="true"/>
+        <property class="boolean" name="mutex" value="false"/>
+      </StgPlace>
+      <Place>
+        <property class="int" name="capacity" value="1"/>
+        <property class="int" name="tokens" value="0"/>
+      </Place>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con24">
+      <MathConnection first="d+" second="&lt;d+,dtack+&gt;"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con25">
+      <MathConnection first="&lt;d+,dtack+&gt;" second="dtack+"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con26">
+      <MathConnection first="p2" second="lds+"/>
+    </node>
+    <node class="org.workcraft.plugins.stg.SignalTransition" ref="dsw+">
+      <SignalTransition>
+        <property class="org.workcraft.plugins.stg.SignalTransition$Direction" enum-class="org.workcraft.plugins.stg.SignalTransition$Direction" name="direction" value="PLUS"/>
+        <property class="org.workcraft.plugins.stg.Signal$Type" enum-class="org.workcraft.plugins.stg.Signal$Type" name="signalType" value="INPUT"/>
+      </SignalTransition>
+    </node>
+    <node class="org.workcraft.plugins.stg.SignalTransition" ref="d+/1">
+      <SignalTransition>
+        <property class="org.workcraft.plugins.stg.SignalTransition$Direction" enum-class="org.workcraft.plugins.stg.SignalTransition$Direction" name="direction" value="PLUS"/>
+        <property class="org.workcraft.plugins.stg.Signal$Type" enum-class="org.workcraft.plugins.stg.Signal$Type" name="signalType" value="OUTPUT"/>
+      </SignalTransition>
+    </node>
+    <node class="org.workcraft.plugins.stg.SignalTransition" ref="lds+/1">
+      <SignalTransition>
+        <property class="org.workcraft.plugins.stg.SignalTransition$Direction" enum-class="org.workcraft.plugins.stg.SignalTransition$Direction" name="direction" value="PLUS"/>
+        <property class="org.workcraft.plugins.stg.Signal$Type" enum-class="org.workcraft.plugins.stg.Signal$Type" name="signalType" value="OUTPUT"/>
+      </SignalTransition>
+    </node>
+    <node class="org.workcraft.plugins.stg.SignalTransition" ref="ldtack+/1">
+      <SignalTransition>
+        <property class="org.workcraft.plugins.stg.SignalTransition$Direction" enum-class="org.workcraft.plugins.stg.SignalTransition$Direction" name="direction" value="PLUS"/>
+        <property class="org.workcraft.plugins.stg.Signal$Type" enum-class="org.workcraft.plugins.stg.Signal$Type" name="signalType" value="INPUT"/>
+      </SignalTransition>
+    </node>
+    <node class="org.workcraft.plugins.stg.SignalTransition" ref="d-/1">
+      <SignalTransition>
+        <property class="org.workcraft.plugins.stg.SignalTransition$Direction" enum-class="org.workcraft.plugins.stg.SignalTransition$Direction" name="direction" value="MINUS"/>
+        <property class="org.workcraft.plugins.stg.Signal$Type" enum-class="org.workcraft.plugins.stg.Signal$Type" name="signalType" value="OUTPUT"/>
+      </SignalTransition>
+    </node>
+    <node class="org.workcraft.plugins.stg.SignalTransition" ref="dtack+/1">
+      <SignalTransition>
+        <property class="org.workcraft.plugins.stg.SignalTransition$Direction" enum-class="org.workcraft.plugins.stg.SignalTransition$Direction" name="direction" value="PLUS"/>
+        <property class="org.workcraft.plugins.stg.Signal$Type" enum-class="org.workcraft.plugins.stg.Signal$Type" name="signalType" value="OUTPUT"/>
+      </SignalTransition>
+    </node>
+    <node class="org.workcraft.plugins.stg.SignalTransition" ref="dsw-">
+      <SignalTransition>
+        <property class="org.workcraft.plugins.stg.SignalTransition$Direction" enum-class="org.workcraft.plugins.stg.SignalTransition$Direction" name="direction" value="MINUS"/>
+        <property class="org.workcraft.plugins.stg.Signal$Type" enum-class="org.workcraft.plugins.stg.Signal$Type" name="signalType" value="INPUT"/>
+      </SignalTransition>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con27">
+      <MathConnection first="p1" second="dsw+"/>
+    </node>
+    <node class="org.workcraft.plugins.stg.StgPlace" ref="&lt;dsw+,d+/1&gt;">
+      <StgPlace>
+        <property class="boolean" name="implicit" value="true"/>
+        <property class="boolean" name="mutex" value="false"/>
+      </StgPlace>
+      <Place>
+        <property class="int" name="capacity" value="1"/>
+        <property class="int" name="tokens" value="0"/>
+      </Place>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con29">
+      <MathConnection first="dsw+" second="&lt;dsw+,d+/1&gt;"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con30">
+      <MathConnection first="&lt;dsw+,d+/1&gt;" second="d+/1"/>
+    </node>
+    <node class="org.workcraft.plugins.stg.StgPlace" ref="&lt;d+/1,lds+/1&gt;">
+      <StgPlace>
+        <property class="boolean" name="implicit" value="true"/>
+        <property class="boolean" name="mutex" value="false"/>
+      </StgPlace>
+      <Place>
+        <property class="int" name="capacity" value="1"/>
+        <property class="int" name="tokens" value="0"/>
+      </Place>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con31">
+      <MathConnection first="d+/1" second="&lt;d+/1,lds+/1&gt;"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con32">
+      <MathConnection first="&lt;d+/1,lds+/1&gt;" second="lds+/1"/>
+    </node>
+    <node class="org.workcraft.plugins.stg.StgPlace" ref="&lt;lds+/1,ldtack+/1&gt;">
+      <StgPlace>
+        <property class="boolean" name="implicit" value="true"/>
+        <property class="boolean" name="mutex" value="false"/>
+      </StgPlace>
+      <Place>
+        <property class="int" name="capacity" value="1"/>
+        <property class="int" name="tokens" value="0"/>
+      </Place>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con33">
+      <MathConnection first="lds+/1" second="&lt;lds+/1,ldtack+/1&gt;"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con34">
+      <MathConnection first="&lt;lds+/1,ldtack+/1&gt;" second="ldtack+/1"/>
+    </node>
+    <node class="org.workcraft.plugins.stg.StgPlace" ref="&lt;ldtack+/1,d-/1&gt;">
+      <StgPlace>
+        <property class="boolean" name="implicit" value="true"/>
+        <property class="boolean" name="mutex" value="false"/>
+      </StgPlace>
+      <Place>
+        <property class="int" name="capacity" value="1"/>
+        <property class="int" name="tokens" value="0"/>
+      </Place>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con35">
+      <MathConnection first="ldtack+/1" second="&lt;ldtack+/1,d-/1&gt;"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con36">
+      <MathConnection first="&lt;ldtack+/1,d-/1&gt;" second="d-/1"/>
+    </node>
+    <node class="org.workcraft.plugins.stg.StgPlace" ref="&lt;d-/1,dtack+/1&gt;">
+      <StgPlace>
+        <property class="boolean" name="implicit" value="true"/>
+        <property class="boolean" name="mutex" value="false"/>
+      </StgPlace>
+      <Place>
+        <property class="int" name="capacity" value="1"/>
+        <property class="int" name="tokens" value="0"/>
+      </Place>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con37">
+      <MathConnection first="d-/1" second="&lt;d-/1,dtack+/1&gt;"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con38">
+      <MathConnection first="&lt;d-/1,dtack+/1&gt;" second="dtack+/1"/>
+    </node>
+    <node class="org.workcraft.plugins.stg.StgPlace" ref="&lt;dtack+/1,dsw-&gt;">
+      <StgPlace>
+        <property class="boolean" name="implicit" value="true"/>
+        <property class="boolean" name="mutex" value="false"/>
+      </StgPlace>
+      <Place>
+        <property class="int" name="capacity" value="1"/>
+        <property class="int" name="tokens" value="0"/>
+      </Place>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con39">
+      <MathConnection first="dtack+/1" second="&lt;dtack+/1,dsw-&gt;"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con40">
+      <MathConnection first="&lt;dtack+/1,dsw-&gt;" second="dsw-"/>
+    </node>
+    <node class="org.workcraft.plugins.stg.StgPlace" ref="p3">
+      <StgPlace>
+        <property class="boolean" name="implicit" value="false"/>
+        <property class="boolean" name="mutex" value="false"/>
+      </StgPlace>
+      <Place>
+        <property class="int" name="capacity" value="1"/>
+        <property class="int" name="tokens" value="0"/>
+      </Place>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con43">
+      <MathConnection first="d-" second="p3"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con44">
+      <MathConnection first="dsw-" second="p3"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con45">
+      <MathConnection first="p3" second="lds-"/>
+    </node>
+    <node class="org.workcraft.plugins.stg.StgPlace" ref="p4">
+      <StgPlace>
+        <property class="boolean" name="implicit" value="false"/>
+        <property class="boolean" name="mutex" value="false"/>
+      </StgPlace>
+      <Place>
+        <property class="int" name="capacity" value="1"/>
+        <property class="int" name="tokens" value="0"/>
+      </Place>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con46">
+      <MathConnection first="d-" second="p4"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con47">
+      <MathConnection first="dsw-" second="p4"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con49">
+      <MathConnection first="p2" second="lds+/1"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="con0">
+      <MathConnection first="p4" second="dtack-"/>
+    </node>
+  </root>
+</model>

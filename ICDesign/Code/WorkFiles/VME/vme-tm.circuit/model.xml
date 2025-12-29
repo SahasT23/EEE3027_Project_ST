@@ -1,0 +1,691 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<model class="org.workcraft.plugins.circuit.Circuit" ref="">
+  <AbstractModel>
+    <property class="java.lang.String" name="title" value="VME"/>
+  </AbstractModel>
+  <root class="org.workcraft.dom.math.MathGroup" ref=".">
+    <node class="org.workcraft.plugins.circuit.FunctionContact" ref="d">
+      <FunctionContact resetFunction="" setFunction=""/>
+      <Contact>
+        <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="OUTPUT"/>
+        <property class="boolean" name="forcedInit" value="false"/>
+        <property class="boolean" name="initToOne" value="false"/>
+        <property class="java.lang.String" name="name" value="d"/>
+        <property class="boolean" name="pathBreaker" value="false"/>
+      </Contact>
+    </node>
+    <node class="org.workcraft.plugins.circuit.FunctionContact" ref="lds">
+      <FunctionContact resetFunction="" setFunction=""/>
+      <Contact>
+        <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="OUTPUT"/>
+        <property class="boolean" name="forcedInit" value="false"/>
+        <property class="boolean" name="initToOne" value="false"/>
+        <property class="java.lang.String" name="name" value="lds"/>
+        <property class="boolean" name="pathBreaker" value="false"/>
+      </Contact>
+    </node>
+    <node class="org.workcraft.plugins.circuit.FunctionContact" ref="dtack">
+      <FunctionContact resetFunction="" setFunction=""/>
+      <Contact>
+        <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="OUTPUT"/>
+        <property class="boolean" name="forcedInit" value="false"/>
+        <property class="boolean" name="initToOne" value="false"/>
+        <property class="java.lang.String" name="name" value="dtack"/>
+        <property class="boolean" name="pathBreaker" value="false"/>
+      </Contact>
+    </node>
+    <node class="org.workcraft.plugins.circuit.FunctionContact" ref="dsr">
+      <FunctionContact resetFunction="" setFunction=""/>
+      <Contact>
+        <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="INPUT"/>
+        <property class="boolean" name="forcedInit" value="false"/>
+        <property class="boolean" name="initToOne" value="false"/>
+        <property class="java.lang.String" name="name" value="dsr"/>
+        <property class="boolean" name="pathBreaker" value="false"/>
+      </Contact>
+    </node>
+    <node class="org.workcraft.plugins.circuit.FunctionContact" ref="dsw">
+      <FunctionContact resetFunction="" setFunction=""/>
+      <Contact>
+        <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="INPUT"/>
+        <property class="boolean" name="forcedInit" value="false"/>
+        <property class="boolean" name="initToOne" value="false"/>
+        <property class="java.lang.String" name="name" value="dsw"/>
+        <property class="boolean" name="pathBreaker" value="false"/>
+      </Contact>
+    </node>
+    <node class="org.workcraft.plugins.circuit.FunctionContact" ref="ldtack">
+      <FunctionContact resetFunction="" setFunction=""/>
+      <Contact>
+        <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="INPUT"/>
+        <property class="boolean" name="forcedInit" value="false"/>
+        <property class="boolean" name="initToOne" value="false"/>
+        <property class="java.lang.String" name="name" value="ldtack"/>
+        <property class="boolean" name="pathBreaker" value="false"/>
+      </Contact>
+    </node>
+    <node class="org.workcraft.plugins.circuit.FunctionComponent" ref="U1">
+      <FunctionComponent>
+        <property class="boolean" name="isZeroDelay" value="false"/>
+      </FunctionComponent>
+      <CircuitComponent>
+        <property class="boolean" name="isEnvironment" value="false"/>
+        <property class="java.lang.String" name="module" value="NAND3B"/>
+        <property class="java.lang.String" name="name" value="U1"/>
+        <property class="boolean" name="pathBreaker" value="false"/>
+      </CircuitComponent>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="U1.ON">
+        <FunctionContact resetFunction="" setFunction="(U1.AN' * U1.B * U1.C)'"/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="OUTPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="true"/>
+          <property class="java.lang.String" name="name" value="ON"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="U1.AN">
+        <FunctionContact resetFunction="" setFunction=""/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="INPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="false"/>
+          <property class="java.lang.String" name="name" value="AN"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="U1.B">
+        <FunctionContact resetFunction="" setFunction=""/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="INPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="false"/>
+          <property class="java.lang.String" name="name" value="B"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="U1.C">
+        <FunctionContact resetFunction="" setFunction=""/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="INPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="false"/>
+          <property class="java.lang.String" name="name" value="C"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+    </node>
+    <node class="org.workcraft.plugins.circuit.FunctionComponent" ref="IN_BUBBLE3">
+      <FunctionComponent>
+        <property class="boolean" name="isZeroDelay" value="true"/>
+      </FunctionComponent>
+      <CircuitComponent>
+        <property class="boolean" name="isEnvironment" value="false"/>
+        <property class="java.lang.String" name="module" value="INV"/>
+        <property class="java.lang.String" name="name" value="IN_BUBBLE3"/>
+        <property class="boolean" name="pathBreaker" value="false"/>
+      </CircuitComponent>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="IN_BUBBLE3.ON">
+        <FunctionContact resetFunction="" setFunction="IN_BUBBLE3.I'"/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="OUTPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="true"/>
+          <property class="java.lang.String" name="name" value="ON"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="IN_BUBBLE3.I">
+        <FunctionContact resetFunction="" setFunction=""/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="INPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="false"/>
+          <property class="java.lang.String" name="name" value="I"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+    </node>
+    <node class="org.workcraft.plugins.circuit.FunctionComponent" ref="U5">
+      <FunctionComponent>
+        <property class="boolean" name="isZeroDelay" value="false"/>
+      </FunctionComponent>
+      <CircuitComponent>
+        <property class="boolean" name="isEnvironment" value="false"/>
+        <property class="java.lang.String" name="module" value="OAI21"/>
+        <property class="java.lang.String" name="name" value="U5"/>
+        <property class="boolean" name="pathBreaker" value="false"/>
+      </CircuitComponent>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="U5.ON">
+        <FunctionContact resetFunction="" setFunction="(U5.B * (U5.A1 + U5.A2))'"/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="OUTPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="true"/>
+          <property class="java.lang.String" name="name" value="ON"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="U5.A1">
+        <FunctionContact resetFunction="" setFunction=""/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="INPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="false"/>
+          <property class="java.lang.String" name="name" value="A1"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="U5.A2">
+        <FunctionContact resetFunction="" setFunction=""/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="INPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="false"/>
+          <property class="java.lang.String" name="name" value="A2"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="U5.B">
+        <FunctionContact resetFunction="" setFunction=""/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="INPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="false"/>
+          <property class="java.lang.String" name="name" value="B"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+    </node>
+    <node class="org.workcraft.plugins.circuit.FunctionComponent" ref="U6">
+      <FunctionComponent>
+        <property class="boolean" name="isZeroDelay" value="false"/>
+      </FunctionComponent>
+      <CircuitComponent>
+        <property class="boolean" name="isEnvironment" value="false"/>
+        <property class="java.lang.String" name="module" value="NAND2"/>
+        <property class="java.lang.String" name="name" value="U6"/>
+        <property class="boolean" name="pathBreaker" value="false"/>
+      </CircuitComponent>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="U6.ON">
+        <FunctionContact resetFunction="" setFunction="(U6.A * U6.B)'"/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="OUTPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="false"/>
+          <property class="java.lang.String" name="name" value="ON"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="U6.A">
+        <FunctionContact resetFunction="" setFunction=""/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="INPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="false"/>
+          <property class="java.lang.String" name="name" value="A"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="U6.B">
+        <FunctionContact resetFunction="" setFunction=""/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="INPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="false"/>
+          <property class="java.lang.String" name="name" value="B"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+    </node>
+    <node class="org.workcraft.plugins.circuit.FunctionComponent" ref="U7">
+      <FunctionComponent>
+        <property class="boolean" name="isZeroDelay" value="false"/>
+      </FunctionComponent>
+      <CircuitComponent>
+        <property class="boolean" name="isEnvironment" value="false"/>
+        <property class="java.lang.String" name="module" value="INV"/>
+        <property class="java.lang.String" name="name" value="U7"/>
+        <property class="boolean" name="pathBreaker" value="false"/>
+      </CircuitComponent>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="U7.ON">
+        <FunctionContact resetFunction="" setFunction="U7.I'"/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="OUTPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="false"/>
+          <property class="java.lang.String" name="name" value="ON"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="U7.I">
+        <FunctionContact resetFunction="" setFunction=""/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="INPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="false"/>
+          <property class="java.lang.String" name="name" value="I"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+    </node>
+    <node class="org.workcraft.plugins.circuit.FunctionComponent" ref="IN_BUBBLE9">
+      <FunctionComponent>
+        <property class="boolean" name="isZeroDelay" value="true"/>
+      </FunctionComponent>
+      <CircuitComponent>
+        <property class="boolean" name="isEnvironment" value="false"/>
+        <property class="java.lang.String" name="module" value="INV"/>
+        <property class="java.lang.String" name="name" value="IN_BUBBLE9"/>
+        <property class="boolean" name="pathBreaker" value="false"/>
+      </CircuitComponent>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="IN_BUBBLE9.ON">
+        <FunctionContact resetFunction="" setFunction="IN_BUBBLE9.I'"/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="OUTPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="true"/>
+          <property class="java.lang.String" name="name" value="ON"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="IN_BUBBLE9.I">
+        <FunctionContact resetFunction="" setFunction=""/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="INPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="false"/>
+          <property class="java.lang.String" name="name" value="I"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+    </node>
+    <node class="org.workcraft.plugins.circuit.FunctionComponent" ref="U10">
+      <FunctionComponent>
+        <property class="boolean" name="isZeroDelay" value="false"/>
+      </FunctionComponent>
+      <CircuitComponent>
+        <property class="boolean" name="isEnvironment" value="false"/>
+        <property class="java.lang.String" name="module" value="AOI221"/>
+        <property class="java.lang.String" name="name" value="U10"/>
+        <property class="boolean" name="pathBreaker" value="false"/>
+      </CircuitComponent>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="U10.ON">
+        <FunctionContact resetFunction="" setFunction="(U10.C + U10.A2 * U10.A1 + U10.B2 * U10.B1)'"/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="OUTPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="false"/>
+          <property class="java.lang.String" name="name" value="ON"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="U10.A1">
+        <FunctionContact resetFunction="" setFunction=""/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="INPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="false"/>
+          <property class="java.lang.String" name="name" value="A1"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="U10.A2">
+        <FunctionContact resetFunction="" setFunction=""/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="INPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="false"/>
+          <property class="java.lang.String" name="name" value="A2"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="U10.B1">
+        <FunctionContact resetFunction="" setFunction=""/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="INPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="false"/>
+          <property class="java.lang.String" name="name" value="B1"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="U10.B2">
+        <FunctionContact resetFunction="" setFunction=""/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="INPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="false"/>
+          <property class="java.lang.String" name="name" value="B2"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="U10.C">
+        <FunctionContact resetFunction="" setFunction=""/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="INPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="false"/>
+          <property class="java.lang.String" name="name" value="C"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+    </node>
+    <node class="org.workcraft.plugins.circuit.FunctionComponent" ref="IN_BUBBLE12">
+      <FunctionComponent>
+        <property class="boolean" name="isZeroDelay" value="true"/>
+      </FunctionComponent>
+      <CircuitComponent>
+        <property class="boolean" name="isEnvironment" value="false"/>
+        <property class="java.lang.String" name="module" value="INV"/>
+        <property class="java.lang.String" name="name" value="IN_BUBBLE12"/>
+        <property class="boolean" name="pathBreaker" value="false"/>
+      </CircuitComponent>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="IN_BUBBLE12.ON">
+        <FunctionContact resetFunction="" setFunction="IN_BUBBLE12.I'"/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="OUTPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="false"/>
+          <property class="java.lang.String" name="name" value="ON"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="IN_BUBBLE12.I">
+        <FunctionContact resetFunction="" setFunction=""/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="INPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="false"/>
+          <property class="java.lang.String" name="name" value="I"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+    </node>
+    <node class="org.workcraft.plugins.circuit.FunctionComponent" ref="OUT_BUBBLE15">
+      <FunctionComponent>
+        <property class="boolean" name="isZeroDelay" value="false"/>
+      </FunctionComponent>
+      <CircuitComponent>
+        <property class="boolean" name="isEnvironment" value="false"/>
+        <property class="java.lang.String" name="module" value="INV"/>
+        <property class="java.lang.String" name="name" value="OUT_BUBBLE15"/>
+        <property class="boolean" name="pathBreaker" value="false"/>
+      </CircuitComponent>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="OUT_BUBBLE15.ON">
+        <FunctionContact resetFunction="" setFunction="OUT_BUBBLE15.I'"/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="OUTPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="false"/>
+          <property class="java.lang.String" name="name" value="ON"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="OUT_BUBBLE15.I">
+        <FunctionContact resetFunction="" setFunction=""/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="INPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="false"/>
+          <property class="java.lang.String" name="name" value="I"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+    </node>
+    <node class="org.workcraft.plugins.circuit.FunctionComponent" ref="U16">
+      <FunctionComponent>
+        <property class="boolean" name="isZeroDelay" value="false"/>
+      </FunctionComponent>
+      <CircuitComponent>
+        <property class="boolean" name="isEnvironment" value="false"/>
+        <property class="java.lang.String" name="module" value="AOI211"/>
+        <property class="java.lang.String" name="name" value="U16"/>
+        <property class="boolean" name="pathBreaker" value="false"/>
+      </CircuitComponent>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="U16.ON">
+        <FunctionContact resetFunction="" setFunction="(U16.A1 * U16.A2 + U16.C + U16.B)'"/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="OUTPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="true"/>
+          <property class="java.lang.String" name="name" value="ON"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="U16.A1">
+        <FunctionContact resetFunction="" setFunction=""/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="INPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="false"/>
+          <property class="java.lang.String" name="name" value="A1"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="U16.A2">
+        <FunctionContact resetFunction="" setFunction=""/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="INPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="false"/>
+          <property class="java.lang.String" name="name" value="A2"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="U16.B">
+        <FunctionContact resetFunction="" setFunction=""/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="INPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="false"/>
+          <property class="java.lang.String" name="name" value="B"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="U16.C">
+        <FunctionContact resetFunction="" setFunction=""/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="INPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="false"/>
+          <property class="java.lang.String" name="name" value="C"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+    </node>
+    <node class="org.workcraft.plugins.circuit.FunctionComponent" ref="U17">
+      <FunctionComponent>
+        <property class="boolean" name="isZeroDelay" value="false"/>
+      </FunctionComponent>
+      <CircuitComponent>
+        <property class="boolean" name="isEnvironment" value="false"/>
+        <property class="java.lang.String" name="module" value="OAI2BB1"/>
+        <property class="java.lang.String" name="name" value="U17"/>
+        <property class="boolean" name="pathBreaker" value="false"/>
+      </CircuitComponent>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="U17.ON">
+        <FunctionContact resetFunction="" setFunction="((U17.A2N' + U17.A1N') * U17.B)'"/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="OUTPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="true"/>
+          <property class="java.lang.String" name="name" value="ON"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="U17.A1N">
+        <FunctionContact resetFunction="" setFunction=""/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="INPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="false"/>
+          <property class="java.lang.String" name="name" value="A1N"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="U17.A2N">
+        <FunctionContact resetFunction="" setFunction=""/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="INPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="false"/>
+          <property class="java.lang.String" name="name" value="A2N"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+      <node class="org.workcraft.plugins.circuit.FunctionContact" ref="U17.B">
+        <FunctionContact resetFunction="" setFunction=""/>
+        <Contact>
+          <property class="org.workcraft.plugins.circuit.Contact$IOType" enum-class="org.workcraft.plugins.circuit.Contact$IOType" name="IOType" value="INPUT"/>
+          <property class="boolean" name="forcedInit" value="false"/>
+          <property class="boolean" name="initToOne" value="false"/>
+          <property class="java.lang.String" name="name" value="B"/>
+          <property class="boolean" name="pathBreaker" value="false"/>
+        </Contact>
+      </node>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c0">
+      <MathConnection first="IN_BUBBLE9.ON" second="U10.A2"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c11">
+      <MathConnection first="U10.ON" second="dtack"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c21">
+      <MathConnection first="IN_BUBBLE12.ON" second="U16.A1"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c22">
+      <MathConnection first="OUT_BUBBLE15.ON" second="U17.B"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c23">
+      <MathConnection first="U1.ON" second="U6.A"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c24">
+      <MathConnection first="U7.ON" second="lds"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c25">
+      <MathConnection first="IN_BUBBLE3.ON" second="U5.A1"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c26">
+      <MathConnection first="U16.ON" second="OUT_BUBBLE15.I"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c27">
+      <MathConnection first="U5.ON" second="U6.B"/>
+    </node>
+    <node class="org.workcraft.plugins.circuit.Joint" ref="@joint0"/>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c7">
+      <MathConnection first="@joint0" second="U1.AN"/>
+    </node>
+    <node class="org.workcraft.plugins.circuit.Joint" ref="@joint1"/>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c8">
+      <MathConnection first="@joint0" second="@joint1"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c9">
+      <MathConnection first="@joint1" second="U10.C"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c10">
+      <MathConnection first="@joint1" second="U5.A2"/>
+    </node>
+    <node class="org.workcraft.plugins.circuit.Joint" ref="@joint2"/>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c14">
+      <MathConnection first="@joint2" second="U10.B2"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c15">
+      <MathConnection first="@joint2" second="IN_BUBBLE9.I"/>
+    </node>
+    <node class="org.workcraft.plugins.circuit.Joint" ref="@joint3"/>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c18">
+      <MathConnection first="dsr" second="@joint3"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c31">
+      <MathConnection first="@joint3" second="U16.C"/>
+    </node>
+    <node class="org.workcraft.plugins.circuit.Joint" ref="@joint4"/>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c36">
+      <MathConnection first="dsw" second="@joint4"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c37">
+      <MathConnection first="@joint4" second="U16.A2"/>
+    </node>
+    <node class="org.workcraft.plugins.circuit.Joint" ref="@joint5"/>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c40">
+      <MathConnection first="@joint4" second="@joint5"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c41">
+      <MathConnection first="@joint5" second="U10.B1"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c42">
+      <MathConnection first="@joint5" second="U5.B"/>
+    </node>
+    <node class="org.workcraft.plugins.circuit.Joint" ref="@joint6"/>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c43">
+      <MathConnection first="ldtack" second="@joint6"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c46">
+      <MathConnection first="@joint6" second="IN_BUBBLE3.I"/>
+    </node>
+    <node class="org.workcraft.plugins.circuit.Joint" ref="@joint7"/>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c48">
+      <MathConnection first="@joint7" second="IN_BUBBLE12.I"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c49">
+      <MathConnection first="@joint7" second="U17.A2N"/>
+    </node>
+    <node class="org.workcraft.plugins.circuit.Joint" ref="@joint8"/>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c51">
+      <MathConnection first="@joint3" second="@joint8"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c52">
+      <MathConnection first="@joint8" second="U10.A1"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c53">
+      <MathConnection first="@joint8" second="U1.B"/>
+    </node>
+    <node class="org.workcraft.plugins.circuit.Joint" ref="@joint9"/>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c2">
+      <MathConnection first="U17.ON" second="@joint9"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c3">
+      <MathConnection first="@joint9" second="@joint7"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c4">
+      <MathConnection first="@joint9" second="U7.I"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c6">
+      <MathConnection first="@joint9" second="@joint0"/>
+    </node>
+    <node class="org.workcraft.plugins.circuit.Joint" ref="@joint10"/>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c13">
+      <MathConnection first="U6.ON" second="@joint10"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c19">
+      <MathConnection first="@joint10" second="d"/>
+    </node>
+    <node class="org.workcraft.plugins.circuit.Joint" ref="@joint11"/>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c1">
+      <MathConnection first="@joint10" second="@joint11"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c5">
+      <MathConnection first="@joint11" second="U16.B"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c12">
+      <MathConnection first="@joint11" second="@joint2"/>
+    </node>
+    <node class="org.workcraft.plugins.circuit.Joint" ref="@joint12"/>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c16">
+      <MathConnection first="@joint6" second="@joint12"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c17">
+      <MathConnection first="@joint12" second="U17.A1N"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c20">
+      <MathConnection first="@joint12" second="U1.C"/>
+    </node>
+    <node class="org.workcraft.plugins.circuit.Environment" ref="node1">
+      <Environment>
+        <property class="java.io.File" name="base" path="/home/danil"/>
+        <property class="java.io.File" name="file" path="/home/danil/vme.stg.work"/>
+      </Environment>
+    </node>
+  </root>
+</model>

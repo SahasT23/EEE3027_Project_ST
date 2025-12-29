@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<model class="org.workcraft.plugins.dtd.Dtd" ref="">
+  <AbstractModel>
+    <property class="java.lang.String" name="title" value=""/>
+  </AbstractModel>
+  <root class="org.workcraft.dom.math.MathGroup" ref=".">
+    <node class="org.workcraft.plugins.dtd.Signal" ref="in1">
+      <Signal>
+        <property class="org.workcraft.plugins.dtd.Signal$State" enum-class="org.workcraft.plugins.dtd.Signal$State" name="initialState" value="LOW"/>
+        <property class="org.workcraft.plugins.dtd.Signal$Type" enum-class="org.workcraft.plugins.dtd.Signal$Type" name="type" value="INPUT"/>
+      </Signal>
+      <node class="org.workcraft.plugins.dtd.EntryEvent" ref="@entry0"/>
+      <node class="org.workcraft.plugins.dtd.ExitEvent" ref="@exit0"/>
+      <node class="org.workcraft.plugins.dtd.TransitionEvent" ref="@t1">
+        <TransitionEvent>
+          <property class="org.workcraft.plugins.dtd.TransitionEvent$Direction" enum-class="org.workcraft.plugins.dtd.TransitionEvent$Direction" name="direction" value="RISE"/>
+        </TransitionEvent>
+      </node>
+      <node class="org.workcraft.dom.math.MathConnection" ref="@c6">
+        <MathConnection first="@entry0" second="@t1"/>
+      </node>
+      <node class="org.workcraft.plugins.dtd.TransitionEvent" ref="@t4">
+        <TransitionEvent>
+          <property class="org.workcraft.plugins.dtd.TransitionEvent$Direction" enum-class="org.workcraft.plugins.dtd.TransitionEvent$Direction" name="direction" value="FALL"/>
+        </TransitionEvent>
+      </node>
+      <node class="org.workcraft.dom.math.MathConnection" ref="@c14">
+        <MathConnection first="@t4" second="@exit0"/>
+      </node>
+      <node class="org.workcraft.dom.math.MathConnection" ref="@c15">
+        <MathConnection first="@t1" second="@t4"/>
+      </node>
+    </node>
+    <node class="org.workcraft.plugins.dtd.Signal" ref="in2">
+      <Signal>
+        <property class="org.workcraft.plugins.dtd.Signal$State" enum-class="org.workcraft.plugins.dtd.Signal$State" name="initialState" value="LOW"/>
+        <property class="org.workcraft.plugins.dtd.Signal$Type" enum-class="org.workcraft.plugins.dtd.Signal$Type" name="type" value="INPUT"/>
+      </Signal>
+      <node class="org.workcraft.plugins.dtd.EntryEvent" ref="@entry1"/>
+      <node class="org.workcraft.plugins.dtd.ExitEvent" ref="@exit1"/>
+      <node class="org.workcraft.plugins.dtd.TransitionEvent" ref="@t0">
+        <TransitionEvent>
+          <property class="org.workcraft.plugins.dtd.TransitionEvent$Direction" enum-class="org.workcraft.plugins.dtd.TransitionEvent$Direction" name="direction" value="RISE"/>
+        </TransitionEvent>
+      </node>
+      <node class="org.workcraft.dom.math.MathConnection" ref="@c4">
+        <MathConnection first="@entry1" second="@t0"/>
+      </node>
+      <node class="org.workcraft.plugins.dtd.TransitionEvent" ref="@t3">
+        <TransitionEvent>
+          <property class="org.workcraft.plugins.dtd.TransitionEvent$Direction" enum-class="org.workcraft.plugins.dtd.TransitionEvent$Direction" name="direction" value="FALL"/>
+        </TransitionEvent>
+      </node>
+      <node class="org.workcraft.dom.math.MathConnection" ref="@c11">
+        <MathConnection first="@t3" second="@exit1"/>
+      </node>
+      <node class="org.workcraft.dom.math.MathConnection" ref="@c12">
+        <MathConnection first="@t0" second="@t3"/>
+      </node>
+    </node>
+    <node class="org.workcraft.plugins.dtd.Signal" ref="out">
+      <Signal>
+        <property class="org.workcraft.plugins.dtd.Signal$State" enum-class="org.workcraft.plugins.dtd.Signal$State" name="initialState" value="LOW"/>
+        <property class="org.workcraft.plugins.dtd.Signal$Type" enum-class="org.workcraft.plugins.dtd.Signal$Type" name="type" value="OUTPUT"/>
+      </Signal>
+      <node class="org.workcraft.plugins.dtd.EntryEvent" ref="@entry2"/>
+      <node class="org.workcraft.plugins.dtd.ExitEvent" ref="@exit2"/>
+      <node class="org.workcraft.plugins.dtd.TransitionEvent" ref="@t2">
+        <TransitionEvent>
+          <property class="org.workcraft.plugins.dtd.TransitionEvent$Direction" enum-class="org.workcraft.plugins.dtd.TransitionEvent$Direction" name="direction" value="RISE"/>
+        </TransitionEvent>
+      </node>
+      <node class="org.workcraft.dom.math.MathConnection" ref="@c8">
+        <MathConnection first="@entry2" second="@t2"/>
+      </node>
+      <node class="org.workcraft.plugins.dtd.TransitionEvent" ref="@t5">
+        <TransitionEvent>
+          <property class="org.workcraft.plugins.dtd.TransitionEvent$Direction" enum-class="org.workcraft.plugins.dtd.TransitionEvent$Direction" name="direction" value="FALL"/>
+        </TransitionEvent>
+      </node>
+      <node class="org.workcraft.dom.math.MathConnection" ref="@c17">
+        <MathConnection first="@t5" second="@exit2"/>
+      </node>
+      <node class="org.workcraft.dom.math.MathConnection" ref="@c18">
+        <MathConnection first="@t2" second="@t5"/>
+      </node>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c9">
+      <MathConnection first="@t1" second="@t2"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c10">
+      <MathConnection first="@t0" second="@t2"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c13">
+      <MathConnection first="@t2" second="@t3"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c16">
+      <MathConnection first="@t2" second="@t4"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c19">
+      <MathConnection first="@t4" second="@t5"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c20">
+      <MathConnection first="@t3" second="@t5"/>
+    </node>
+  </root>
+</model>

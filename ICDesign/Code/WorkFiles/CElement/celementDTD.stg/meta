@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<workcraft-meta>
+  <version major="3" minor="5" revision="3" status=""/>
+  <compatibility major="3" minor="3" revision="0" status=""/>
+  <stamp time="2025-12-28T17:22:14.979Z" uuid="0ebbb8b6-a1bc-49ca-966b-1f75d202c670"/>
+  <descriptor class="org.workcraft.plugins.dtd.DtdDescriptor"/>
+  <math entry-name="model.xml" format-uuid="6ea20f69-c9c4-4888-9124-252fe4345309"/>
+  <visual entry-name="visualModel.xml" format-uuid="6ea20f69-c9c4-4888-9124-252fe4345309"/>
+</workcraft-meta>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<workcraft-meta>
+  <version major="3" minor="2" revision="0" status=""/>
+  <stamp time="2018-07-10 10:33:48.81" uuid="373ae90e-1210-4b00-95d7-7c407a03b535"/>
+  <descriptor class="org.workcraft.plugins.circuit.CircuitDescriptor"/>
+  <math entry-name="model.xml" format-uuid="6ea20f69-c9c4-4888-9124-252fe4345309"/>
+  <visual entry-name="visualModel.xml" format-uuid="6ea20f69-c9c4-4888-9124-252fe4345309"/>
+</workcraft-meta>

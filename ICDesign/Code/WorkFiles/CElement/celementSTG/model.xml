@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<model class="org.workcraft.plugins.stg.Stg" ref="">
+  <AbstractModel>
+    <property class="java.lang.String" name="title" value=""/>
+  </AbstractModel>
+  <root class="org.workcraft.dom.math.MathGroup" ref=".">
+    <node class="org.workcraft.plugins.stg.SignalTransition" ref="in1+">
+      <SignalTransition>
+        <property class="org.workcraft.plugins.stg.SignalTransition$Direction" enum-class="org.workcraft.plugins.stg.SignalTransition$Direction" name="direction" value="PLUS"/>
+        <property class="org.workcraft.plugins.stg.Signal$Type" enum-class="org.workcraft.plugins.stg.Signal$Type" name="signalType" value="INPUT"/>
+      </SignalTransition>
+    </node>
+    <node class="org.workcraft.plugins.stg.SignalTransition" ref="in1-">
+      <SignalTransition>
+        <property class="org.workcraft.plugins.stg.SignalTransition$Direction" enum-class="org.workcraft.plugins.stg.SignalTransition$Direction" name="direction" value="MINUS"/>
+        <property class="org.workcraft.plugins.stg.Signal$Type" enum-class="org.workcraft.plugins.stg.Signal$Type" name="signalType" value="INPUT"/>
+      </SignalTransition>
+    </node>
+    <node class="org.workcraft.plugins.stg.SignalTransition" ref="in2+">
+      <SignalTransition>
+        <property class="org.workcraft.plugins.stg.SignalTransition$Direction" enum-class="org.workcraft.plugins.stg.SignalTransition$Direction" name="direction" value="PLUS"/>
+        <property class="org.workcraft.plugins.stg.Signal$Type" enum-class="org.workcraft.plugins.stg.Signal$Type" name="signalType" value="INPUT"/>
+      </SignalTransition>
+    </node>
+    <node class="org.workcraft.plugins.stg.SignalTransition" ref="in2-">
+      <SignalTransition>
+        <property class="org.workcraft.plugins.stg.SignalTransition$Direction" enum-class="org.workcraft.plugins.stg.SignalTransition$Direction" name="direction" value="MINUS"/>
+        <property class="org.workcraft.plugins.stg.Signal$Type" enum-class="org.workcraft.plugins.stg.Signal$Type" name="signalType" value="INPUT"/>
+      </SignalTransition>
+    </node>
+    <node class="org.workcraft.plugins.stg.SignalTransition" ref="out+">
+      <SignalTransition>
+        <property class="org.workcraft.plugins.stg.SignalTransition$Direction" enum-class="org.workcraft.plugins.stg.SignalTransition$Direction" name="direction" value="PLUS"/>
+        <property class="org.workcraft.plugins.stg.Signal$Type" enum-class="org.workcraft.plugins.stg.Signal$Type" name="signalType" value="OUTPUT"/>
+      </SignalTransition>
+    </node>
+    <node class="org.workcraft.plugins.stg.SignalTransition" ref="out-">
+      <SignalTransition>
+        <property class="org.workcraft.plugins.stg.SignalTransition$Direction" enum-class="org.workcraft.plugins.stg.SignalTransition$Direction" name="direction" value="MINUS"/>
+        <property class="org.workcraft.plugins.stg.Signal$Type" enum-class="org.workcraft.plugins.stg.Signal$Type" name="signalType" value="OUTPUT"/>
+      </SignalTransition>
+    </node>
+    <node class="org.workcraft.plugins.stg.StgPlace" ref="&lt;in1+,in1-&gt;">
+      <StgPlace>
+        <property class="boolean" name="implicit" value="true"/>
+        <property class="boolean" name="mutex" value="false"/>
+        <property class="org.workcraft.plugins.stg.Mutex$Protocol" enum-class="org.workcraft.plugins.stg.Mutex$Protocol" name="mutexProtocol" value="EARLY"/>
+      </StgPlace>
+      <Place>
+        <property class="int" name="capacity" value="1"/>
+        <property class="int" name="tokens" value="0"/>
+      </Place>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c0">
+      <MathConnection first="in1+" second="&lt;in1+,in1-&gt;"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c1">
+      <MathConnection first="&lt;in1+,in1-&gt;" second="in1-"/>
+    </node>
+    <node class="org.workcraft.plugins.stg.StgPlace" ref="&lt;in2+,in2-&gt;">
+      <StgPlace>
+        <property class="boolean" name="implicit" value="true"/>
+        <property class="boolean" name="mutex" value="false"/>
+        <property class="org.workcraft.plugins.stg.Mutex$Protocol" enum-class="org.workcraft.plugins.stg.Mutex$Protocol" name="mutexProtocol" value="EARLY"/>
+      </StgPlace>
+      <Place>
+        <property class="int" name="capacity" value="1"/>
+        <property class="int" name="tokens" value="0"/>
+      </Place>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c2">
+      <MathConnection first="in2+" second="&lt;in2+,in2-&gt;"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c3">
+      <MathConnection first="&lt;in2+,in2-&gt;" second="in2-"/>
+    </node>
+    <node class="org.workcraft.plugins.stg.StgPlace" ref="&lt;out+,out-&gt;">
+      <StgPlace>
+        <property class="boolean" name="implicit" value="true"/>
+        <property class="boolean" name="mutex" value="false"/>
+        <property class="org.workcraft.plugins.stg.Mutex$Protocol" enum-class="org.workcraft.plugins.stg.Mutex$Protocol" name="mutexProtocol" value="EARLY"/>
+      </StgPlace>
+      <Place>
+        <property class="int" name="capacity" value="1"/>
+        <property class="int" name="tokens" value="0"/>
+      </Place>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c4">
+      <MathConnection first="out+" second="&lt;out+,out-&gt;"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c5">
+      <MathConnection first="&lt;out+,out-&gt;" second="out-"/>
+    </node>
+    <node class="org.workcraft.plugins.stg.StgPlace" ref="&lt;in2+,out+&gt;">
+      <StgPlace>
+        <property class="boolean" name="implicit" value="true"/>
+        <property class="boolean" name="mutex" value="false"/>
+        <property class="org.workcraft.plugins.stg.Mutex$Protocol" enum-class="org.workcraft.plugins.stg.Mutex$Protocol" name="mutexProtocol" value="EARLY"/>
+      </StgPlace>
+      <Place>
+        <property class="int" name="capacity" value="1"/>
+        <property class="int" name="tokens" value="0"/>
+      </Place>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c6">
+      <MathConnection first="in2+" second="&lt;in2+,out+&gt;"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c7">
+      <MathConnection first="&lt;in2+,out+&gt;" second="out+"/>
+    </node>
+    <node class="org.workcraft.plugins.stg.StgPlace" ref="&lt;in1+,out+&gt;">
+      <StgPlace>
+        <property class="boolean" name="implicit" value="true"/>
+        <property class="boolean" name="mutex" value="false"/>
+        <property class="org.workcraft.plugins.stg.Mutex$Protocol" enum-class="org.workcraft.plugins.stg.Mutex$Protocol" name="mutexProtocol" value="EARLY"/>
+      </StgPlace>
+      <Place>
+        <property class="int" name="capacity" value="1"/>
+        <property class="int" name="tokens" value="0"/>
+      </Place>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c8">
+      <MathConnection first="in1+" second="&lt;in1+,out+&gt;"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c9">
+      <MathConnection first="&lt;in1+,out+&gt;" second="out+"/>
+    </node>
+    <node class="org.workcraft.plugins.stg.StgPlace" ref="&lt;out+,in2-&gt;">
+      <StgPlace>
+        <property class="boolean" name="implicit" value="true"/>
+        <property class="boolean" name="mutex" value="false"/>
+        <property class="org.workcraft.plugins.stg.Mutex$Protocol" enum-class="org.workcraft.plugins.stg.Mutex$Protocol" name="mutexProtocol" value="EARLY"/>
+      </StgPlace>
+      <Place>
+        <property class="int" name="capacity" value="1"/>
+        <property class="int" name="tokens" value="0"/>
+      </Place>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c10">
+      <MathConnection first="out+" second="&lt;out+,in2-&gt;"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c11">
+      <MathConnection first="&lt;out+,in2-&gt;" second="in2-"/>
+    </node>
+    <node class="org.workcraft.plugins.stg.StgPlace" ref="&lt;out+,in1-&gt;">
+      <StgPlace>
+        <property class="boolean" name="implicit" value="true"/>
+        <property class="boolean" name="mutex" value="false"/>
+        <property class="org.workcraft.plugins.stg.Mutex$Protocol" enum-class="org.workcraft.plugins.stg.Mutex$Protocol" name="mutexProtocol" value="EARLY"/>
+      </StgPlace>
+      <Place>
+        <property class="int" name="capacity" value="1"/>
+        <property class="int" name="tokens" value="0"/>
+      </Place>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c12">
+      <MathConnection first="out+" second="&lt;out+,in1-&gt;"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c13">
+      <MathConnection first="&lt;out+,in1-&gt;" second="in1-"/>
+    </node>
+    <node class="org.workcraft.plugins.stg.StgPlace" ref="&lt;in1-,out-&gt;">
+      <StgPlace>
+        <property class="boolean" name="implicit" value="true"/>
+        <property class="boolean" name="mutex" value="false"/>
+        <property class="org.workcraft.plugins.stg.Mutex$Protocol" enum-class="org.workcraft.plugins.stg.Mutex$Protocol" name="mutexProtocol" value="EARLY"/>
+      </StgPlace>
+      <Place>
+        <property class="int" name="capacity" value="1"/>
+        <property class="int" name="tokens" value="0"/>
+      </Place>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c14">
+      <MathConnection first="in1-" second="&lt;in1-,out-&gt;"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c15">
+      <MathConnection first="&lt;in1-,out-&gt;" second="out-"/>
+    </node>
+    <node class="org.workcraft.plugins.stg.StgPlace" ref="&lt;in2-,out-&gt;">
+      <StgPlace>
+        <property class="boolean" name="implicit" value="true"/>
+        <property class="boolean" name="mutex" value="false"/>
+        <property class="org.workcraft.plugins.stg.Mutex$Protocol" enum-class="org.workcraft.plugins.stg.Mutex$Protocol" name="mutexProtocol" value="EARLY"/>
+      </StgPlace>
+      <Place>
+        <property class="int" name="capacity" value="1"/>
+        <property class="int" name="tokens" value="0"/>
+      </Place>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c16">
+      <MathConnection first="in2-" second="&lt;in2-,out-&gt;"/>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c17">
+      <MathConnection first="&lt;in2-,out-&gt;" second="out-"/>
+    </node>
+    <node class="org.workcraft.plugins.stg.StgPlace" ref="p0">
+      <StgPlace>
+        <property class="boolean" name="implicit" value="false"/>
+        <property class="boolean" name="mutex" value="false"/>
+        <property class="org.workcraft.plugins.stg.Mutex$Protocol" enum-class="org.workcraft.plugins.stg.Mutex$Protocol" name="mutexProtocol" value="EARLY"/>
+      </StgPlace>
+      <Place>
+        <property class="int" name="capacity" value="1"/>
+        <property class="int" name="tokens" value="1"/>
+      </Place>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c18">
+      <MathConnection first="p0" second="in1+"/>
+    </node>
+    <node class="org.workcraft.plugins.stg.StgPlace" ref="p1">
+      <StgPlace>
+        <property class="boolean" name="implicit" value="false"/>
+        <property class="boolean" name="mutex" value="false"/>
+        <property class="org.workcraft.plugins.stg.Mutex$Protocol" enum-class="org.workcraft.plugins.stg.Mutex$Protocol" name="mutexProtocol" value="EARLY"/>
+      </StgPlace>
+      <Place>
+        <property class="int" name="capacity" value="1"/>
+        <property class="int" name="tokens" value="1"/>
+      </Place>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c19">
+      <MathConnection first="p1" second="in2+"/>
+    </node>
+    <node class="org.workcraft.plugins.stg.StgPlace" ref="p2">
+      <StgPlace>
+        <property class="boolean" name="implicit" value="false"/>
+        <property class="boolean" name="mutex" value="false"/>
+        <property class="org.workcraft.plugins.stg.Mutex$Protocol" enum-class="org.workcraft.plugins.stg.Mutex$Protocol" name="mutexProtocol" value="EARLY"/>
+      </StgPlace>
+      <Place>
+        <property class="int" name="capacity" value="1"/>
+        <property class="int" name="tokens" value="1"/>
+      </Place>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c20">
+      <MathConnection first="p2" second="out+"/>
+    </node>
+    <node class="org.workcraft.plugins.stg.StgPlace" ref="p3">
+      <StgPlace>
+        <property class="boolean" name="implicit" value="false"/>
+        <property class="boolean" name="mutex" value="false"/>
+        <property class="org.workcraft.plugins.stg.Mutex$Protocol" enum-class="org.workcraft.plugins.stg.Mutex$Protocol" name="mutexProtocol" value="EARLY"/>
+      </StgPlace>
+      <Place>
+        <property class="int" name="capacity" value="1"/>
+        <property class="int" name="tokens" value="0"/>
+      </Place>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c21">
+      <MathConnection first="in1-" second="p3"/>
+    </node>
+    <node class="org.workcraft.plugins.stg.StgPlace" ref="p4">
+      <StgPlace>
+        <property class="boolean" name="implicit" value="false"/>
+        <property class="boolean" name="mutex" value="false"/>
+        <property class="org.workcraft.plugins.stg.Mutex$Protocol" enum-class="org.workcraft.plugins.stg.Mutex$Protocol" name="mutexProtocol" value="EARLY"/>
+      </StgPlace>
+      <Place>
+        <property class="int" name="capacity" value="1"/>
+        <property class="int" name="tokens" value="0"/>
+      </Place>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c22">
+      <MathConnection first="in2-" second="p4"/>
+    </node>
+    <node class="org.workcraft.plugins.stg.StgPlace" ref="p5">
+      <StgPlace>
+        <property class="boolean" name="implicit" value="false"/>
+        <property class="boolean" name="mutex" value="false"/>
+        <property class="org.workcraft.plugins.stg.Mutex$Protocol" enum-class="org.workcraft.plugins.stg.Mutex$Protocol" name="mutexProtocol" value="EARLY"/>
+      </StgPlace>
+      <Place>
+        <property class="int" name="capacity" value="1"/>
+        <property class="int" name="tokens" value="0"/>
+      </Place>
+    </node>
+    <node class="org.workcraft.dom.math.MathConnection" ref="@c23">
+      <MathConnection first="out-" second="p5"/>
+    </node>
+  </root>
+</model>
