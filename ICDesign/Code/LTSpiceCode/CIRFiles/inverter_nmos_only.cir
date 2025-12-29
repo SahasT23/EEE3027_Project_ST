@@ -1,0 +1,32 @@
+*===========================================*
+* NMOS-Only Inverter (Pseudo-NMOS)          *
+* Task 1D: NMOS Pull-up Exploration         *
+*===========================================*
+
+* --- Power Supply ---
+VDD Vdd 0 DC 5
+
+* --- Input Voltage Source ---
+Vin in 0 DC 0
+
+* --- NMOS Transistor M1 (Pull-down) ---
+* Standard pull-down, gate controlled by input
+* Terminals: Drain=out, Gate=in, Source=0, Bulk=0
+M1 out in 0 0 NMOSLEVEL1 W=10u L=1u
+
+* --- NMOS Transistor M2 (Pull-up - PROBLEM!) ---
+* Gate tied to VDD, acts as source follower
+* Terminals: Drain=Vdd, Gate=Vdd, Source=out, Bulk=0
+* Note: This configuration cannot pull output above VDD-Vth
+M2 Vdd Vdd out 0 NMOSLEVEL1 W=20u L=1u
+
+* --- DC Sweep Analysis ---
+.dc Vin 0 5 0.01
+
+* --- Plot Output ---
+.plot DC V(out)
+
+* --- NMOS Model ---
+.model NMOSLEVEL1 NMOS LEVEL=1 VTO=0.4 KP=200u LAMBDA=0.02
+
+.end

@@ -1,0 +1,61 @@
+*===========================================*
+* Lab 2 Task 2 Q1: Original Transient Design
+* Wnmos=10um, Wpmos=20um (2:1 ratio)
+* Baseline design - may not meet all specs
+*===========================================*
+
+* --- Power Supply ---
+VDD Vdd 0 DC 5
+
+* --- Input Signal: PULSE Source ---
+* PULSE(Vlow Vhigh Tdelay Trise Tfall Tpulse Tperiod)
+* 0-5V pulse, 5ns edges, 50ns pulse width, 100ns period
+Vin in 0 PULSE(0 5 0ns 5ns 5ns 50ns 100ns)
+
+* --- NMOS Transistor M1 (Pull-down) ---
+M1 out in 0 0 NMOSLEVEL1 W=10u L=1u
+
+* --- PMOS Transistor M2 (Pull-up) ---
+* 2:1 ratio (not optimal for symmetry)
+M2 out in Vdd Vdd PMOSLEVEL1 W=20u L=1u
+
+* --- Load Capacitance ---
+CL out 0 10p
+
+* --- Transient Analysis ---
+* 0.1ns timestep, 200ns duration (2 complete cycles)
+.tran 0.1ns 200ns
+
+* --- Transistor Models ---
+.model NMOSLEVEL1 NMOS LEVEL=1 VTO=0.4 KP=200u LAMBDA=0.02
+.model PMOSLEVEL1 PMOS LEVEL=1 VTO=-0.4 KP=80u LAMBDA=0.02
+
+*===========================================*
+* AUTOMATED TIMING MEASUREMENTS
+* View results: Ctrl+L (SPICE Error Log)
+*===========================================*
+
+* Rise time: 10% (0.5V) to 90% (4.5V) on output rising edge
+.meas tran t_rise TRIG V(out) VAL=0.5 RISE=1 TARG V(out) VAL=4.5 RISE=1
+
+* Fall time: 90% (4.5V) to 10% (0.5V) on output falling edge
+.meas tran t_fall TRIG V(out) VAL=4.5 FALL=1 TARG V(out) VAL=0.5 FALL=1
+
+* tPHL: Input rises past 50% -> Output falls past 50%
+.meas tran tPHL TRIG V(in) VAL=2.5 RISE=1 TARG V(out) VAL=2.5 FALL=1
+
+* tPLH: Input falls past 50% -> Output rises past 50%
+.meas tran tPLH TRIG V(in) VAL=2.5 FALL=1 TARG V(out) VAL=2.5 RISE=1
+
+* Average propagation delay
+.meas tran t_prop PARAM='(tPHL+tPLH)/2'
+
+* Delay asymmetry (spec: < 2ns)
+.meas tran t_skew PARAM='abs(tPHL-tPLH)'
+
+*===========================================*
+* SPECIFICATION CHECK:
+* t_rise <= 15ns, t_fall <= 10ns, t_skew <= 2ns
+*===========================================*
+
+.end

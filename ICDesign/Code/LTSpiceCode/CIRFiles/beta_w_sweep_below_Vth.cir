@@ -1,0 +1,29 @@
+*===========================================*
+* Lab 1 Task 3 Extension: VGS Below Vth     *
+* Shows cutoff region (no current)          *
+*===========================================*
+
+* --- Fixed Bias Parameters ---
+* VGS = 0.3V < Vth = 0.4V (CUTOFF!)
+.param VGSVAL=0.3
+.param VDSVAL=1.2
+.param LVAL=1u
+
+* --- Voltage Sources ---
+VGS G 0 DC {VGSVAL}
+VDS D 0 DC {VDSVAL}
+
+* --- NMOS ---
+M1 D G 0 0 NLEVEL1 W={WVAL} L={LVAL}
+
+* --- Model ---
+.model NLEVEL1 NMOS LEVEL=1 VTO=0.4 KP=200u LAMBDA=0.02
+
+* --- Sweep W ---
+.step param WVAL 2u 20u 2u
+
+* --- Analysis ---
+.op
+.print OP I(M1)
+
+.end

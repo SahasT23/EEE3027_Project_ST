@@ -1,0 +1,31 @@
+*===========================================*
+* CMOS Inverter Transient Analysis          *
+* Task 2 Q3: Variant 3 - 2:1 Ratio          *
+* Wnmos=12um, Wpmos=24um                    *
+* Faster but asymmetric                     *
+*===========================================*
+
+* --- Power Supply ---
+VDD Vdd 0 DC 5
+
+* --- Input Signal: PULSE Source ---
+Vin in 0 PULSE(0 5 0ns 5ns 5ns 50ns 100ns)
+
+* --- NMOS Transistor M1 (Pull-down) ---
+M1 out in 0 0 NMOSLEVEL1 W=12u L=1u
+
+* --- PMOS Transistor M2 (Pull-up) ---
+* 2:1 ratio (not optimal for symmetry)
+M2 out in Vdd Vdd PMOSLEVEL1 W=24u L=1u
+
+* --- Load Capacitance ---
+CL out 0 10p
+
+* --- Transient Analysis ---
+.tran 0.1ns 200ns
+
+* --- Transistor Models ---
+.model NMOSLEVEL1 NMOS LEVEL=1 VTO=0.4 KP=200u LAMBDA=0.02
+.model PMOSLEVEL1 PMOS LEVEL=1 VTO=-0.4 KP=80u LAMBDA=0.02
+
+.end

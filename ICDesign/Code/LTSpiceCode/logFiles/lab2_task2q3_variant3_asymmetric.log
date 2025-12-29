@@ -1,0 +1,22 @@
+LTspice 24.1.6 for Windows
+Circuit: C:\Users\sahas\OneDrive\Documents\LTspice\NewLTspice\lab2_task2q3_variant3_asymmetric.cir
+Start Time: Sun Dec 28 20:44:38 2025
+solver = Normal
+Maximum thread count: 4
+tnom = 27
+temp = 27
+method = trap
+Instance "M1": Length shorter than recommended for a level 1 MOSFET.
+Instance "M2": Length shorter than recommended for a level 1 MOSFET.
+Direct Newton iteration for .op point succeeded.
+Total elapsed time: 0.216 seconds.
+
+Files loaded:
+C:\Users\sahas\OneDrive\Documents\LTspice\NewLTspice\lab2_task2q3_variant3_asymmetric.cir
+
+t_rise=3.78412550396e-09 FROM 5.80541722322e-08 TO 6.18382977361e-08
+t_fall=3.30926404015e-09 FROM 2.82276765499e-09 TO 6.13203169514e-09
+tphl=1.93500338506e-09 FROM 2.49999995702e-09 TO 4.43500334208e-09
+tplh=2.26676872983e-09 FROM 5.75000001027e-08 TO 5.97667688325e-08
+t_prop: '(tPHL+tPLH)/2'=2.10088605745e-09
+t_skew: 'abs(tPHL-tPLH)'=3.3176534477e-10

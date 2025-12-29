@@ -1,0 +1,33 @@
+*===========================================*
+* CMOS Inverter Transient Analysis          *
+* Task 2 Q3: Variant 1 - OPTIMISED          *
+* Wnmos=12um, Wpmos=30um (ratio 2.5:1)      *
+* MEETS ALL SPECIFICATIONS                  *
+*===========================================*
+
+* --- Power Supply ---
+VDD Vdd 0 DC 5
+
+* --- Input Signal: PULSE Source ---
+Vin in 0 PULSE(0 5 0ns 5ns 5ns 50ns 100ns)
+
+* --- NMOS Transistor M1 (Pull-down) ---
+* Increased from 10um to 12um to reduce fall time
+M1 out in 0 0 NMOSLEVEL1 W=12u L=1u
+
+* --- PMOS Transistor M2 (Pull-up) ---
+* Ratio Wp/Wn = 2.5 to match KPn/KPp = 200/80 = 2.5
+* This gives symmetric rise and fall times
+M2 out in Vdd Vdd PMOSLEVEL1 W=30u L=1u
+
+* --- Load Capacitance ---
+CL out 0 10p
+
+* --- Transient Analysis ---
+.tran 0.1ns 200ns
+
+* --- Transistor Models ---
+.model NMOSLEVEL1 NMOS LEVEL=1 VTO=0.4 KP=200u LAMBDA=0.02
+.model PMOSLEVEL1 PMOS LEVEL=1 VTO=-0.4 KP=80u LAMBDA=0.02
+
+.end

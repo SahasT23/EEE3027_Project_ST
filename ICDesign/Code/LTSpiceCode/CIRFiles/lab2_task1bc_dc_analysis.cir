@@ -1,0 +1,39 @@
+*===========================================*
+* Lab 2 Task 1B/1C: CMOS Inverter DC Analysis
+* DC Transfer Characteristic Sweep
+*===========================================*
+
+* --- Power Supply ---
+* 5V DC supply between Vdd node and ground
+VDD Vdd 0 DC 5
+
+* --- Input Voltage Source ---
+* DC source swept from 0V to 5V for transfer curve
+Vin in 0 DC 0
+
+* --- NMOS Transistor M1 (Pull-down Network) ---
+* Drain=out, Gate=in, Source=GND, Bulk=GND
+* Conducts when Vin > Vth, pulls output LOW
+M1 out in 0 0 NMOSLEVEL1 W=10u L=1u
+
+* --- PMOS Transistor M2 (Pull-up Network) ---
+* Drain=out, Gate=in, Source=Vdd, Bulk=Vdd
+* Conducts when Vin < VDD-|Vth|, pulls output HIGH
+* W=20um (2x NMOS) to partially compensate for lower hole mobility
+M2 out in Vdd Vdd PMOSLEVEL1 W=20u L=1u
+
+* --- DC Sweep Analysis ---
+* Sweep Vin from 0V to 5V in 10mV steps (501 points)
+.dc Vin 0 5 0.01
+
+* --- Plot Commands ---
+.plot DC V(out) V(in)
+
+* --- Transistor Models (Shichman-Hodges Level 1) ---
+* NMOS: Vth=+0.4V, KP=200uA/V^2, lambda=0.02/V
+.model NMOSLEVEL1 NMOS LEVEL=1 VTO=0.4 KP=200u LAMBDA=0.02
+
+* PMOS: Vth=-0.4V, KP=80uA/V^2 (lower due to hole mobility), lambda=0.02/V
+.model PMOSLEVEL1 PMOS LEVEL=1 VTO=-0.4 KP=80u LAMBDA=0.02
+
+.end

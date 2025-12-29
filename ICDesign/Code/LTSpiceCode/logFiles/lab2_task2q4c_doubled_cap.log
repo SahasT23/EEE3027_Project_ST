@@ -1,0 +1,23 @@
+LTspice 24.1.6 for Windows
+Circuit: C:\Users\sahas\OneDrive\Documents\LTspice\NewLTspice\lab2_task2q4c_doubled_cap.cir
+Start Time: Sun Dec 28 20:47:13 2025
+solver = Normal
+Maximum thread count: 4
+tnom = 27
+temp = 27
+method = trap
+Instance "M1": Length shorter than recommended for a level 1 MOSFET.
+Instance "M1": Width narrower than recommended for a level 1 MOSFET.
+Instance "M2": Length shorter than recommended for a level 1 MOSFET.
+Direct Newton iteration for .op point succeeded.
+Total elapsed time: 0.281 seconds.
+
+Files loaded:
+C:\Users\sahas\OneDrive\Documents\LTspice\NewLTspice\lab2_task2q4c_doubled_cap.cir
+
+t_rise=7.66344799614e-09 FROM 5.87618832984e-08 TO 6.64253312946e-08
+t_fall=6.31624648452e-09 FROM 3.50517042599e-09 TO 9.82141691051e-09
+tphl=3.35670628454e-09 FROM 2.49999995702e-09 TO 5.85670624156e-09
+tplh=3.96711869084e-09 FROM 5.74999999249e-08 TO 6.14671186157e-08
+t_prop: '(tPHL+tPLH)/2'=3.66191248769e-09
+t_skew: 'abs(tPHL-tPLH)'=6.10412406297e-10

@@ -1,0 +1,38 @@
+*===========================================*
+* Lab 2 Task 1D: NMOS-Only Inverter
+* Demonstrates why PMOS is needed for pull-up
+*===========================================*
+
+* --- Power Supply ---
+VDD Vdd 0 DC 5
+
+* --- Input Voltage Source ---
+Vin in 0 DC 0
+
+* --- NMOS Transistor M1 (Pull-down) ---
+* Standard configuration: gate controlled by input
+* Drain=out, Gate=in, Source=GND, Bulk=GND
+M1 out in 0 0 NMOSLEVEL1 W=10u L=1u
+
+* --- NMOS Transistor M2 (Pull-up - PROBLEMATIC!) ---
+* Source follower configuration: gate tied to VDD
+* Drain=Vdd, Gate=Vdd, Source=out, Bulk=GND
+* LIMITATION: Cannot pull output above VDD - Vth = 4.6V
+M2 Vdd Vdd out 0 NMOSLEVEL1 W=20u L=1u
+
+* --- DC Sweep Analysis ---
+.dc Vin 0 5 0.01
+
+* --- Plot Commands ---
+.plot DC V(out)
+
+* --- NMOS Model ---
+.model NMOSLEVEL1 NMOS LEVEL=1 VTO=0.4 KP=200u LAMBDA=0.02
+
+*===========================================*
+* EXPECTED RESULT:
+* Vout_max = VDD - Vth = 5 - 0.4 = 4.6V
+* Output cannot reach full 5V (weak logic '1')
+*===========================================*
+
+.end

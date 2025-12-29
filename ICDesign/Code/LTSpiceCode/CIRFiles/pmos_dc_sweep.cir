@@ -1,0 +1,35 @@
+*===========================================*
+* Lab 1 Task 2: PMOS I-V DC Sweep           *
+* Multiple VGS curves (negative voltages)   *
+*===========================================*
+
+* --- Gate Voltage Parameter ---
+.param VGSVAL=-1.2
+
+* --- Voltage Sources ---
+* Gate-source voltage (negative for PMOS)
+VGS G 0 DC {VGSVAL}
+
+* Drain-source voltage (swept negative)
+VDS D 0 DC 0
+
+* --- PMOS Transistor ---
+* Terminals: Drain=D, Gate=G, Source=0, Bulk=0
+* Width=10um, Length=1um (same as NMOS for comparison)
+M1 D G 0 0 PLEVEL1 W=10u L=1u
+
+* --- Shichman-Hodges Level 1 Model ---
+* VTO = Threshold voltage (-0.4V, negative for PMOS)
+* KP = Transconductance parameter (200uA/V^2)
+* LAMBDA = Channel-length modulation (0.02/V)
+.model PLEVEL1 PMOS LEVEL=1 VTO=-0.4 KP=200u LAMBDA=0.02
+
+* --- DC Sweep Analysis ---
+* Primary: VDS from 0V to -1.2V in -10mV steps
+* Secondary: VGS from -0.4V to -1.2V in -0.2V steps (5 curves)
+.dc VDS -1.2 0 -0.01 VGS -0.4 -1.2 -0.2
+
+* --- Plot drain current ---
+.plot DC I(M1)
+
+.end

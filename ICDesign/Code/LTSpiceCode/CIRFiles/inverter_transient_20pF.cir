@@ -1,0 +1,27 @@
+*===========================================*
+* CMOS Inverter Transient Analysis          *
+* Task 2 Q4c: Doubled Load Capacitance      *
+* CL = 20pF (doubled from 10pF)             *
+*===========================================*
+
+* --- Power Supply ---
+VDD Vdd 0 DC 5
+
+* --- Input Signal: PULSE Source ---
+Vin in 0 PULSE(0 5 0ns 5ns 5ns 50ns 100ns)
+
+* --- Transistors (Original sizing) ---
+M1 out in 0 0 NMOSLEVEL1 W=10u L=1u
+M2 out in Vdd Vdd PMOSLEVEL1 W=20u L=1u
+
+* --- Load Capacitance DOUBLED ---
+CL out 0 20p
+
+* --- Transient Analysis ---
+.tran 0.1ns 200ns
+
+* --- Transistor Models ---
+.model NMOSLEVEL1 NMOS LEVEL=1 VTO=0.4 KP=200u LAMBDA=0.02
+.model PMOSLEVEL1 PMOS LEVEL=1 VTO=-0.4 KP=80u LAMBDA=0.02
+
+.end

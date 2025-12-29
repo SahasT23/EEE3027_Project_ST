@@ -1,0 +1,28 @@
+*===========================================*
+* Lab 1 Task 3 Extension: Doubled L         *
+* Shows effect of doubling channel length   *
+*===========================================*
+
+* --- Fixed Bias Parameters ---
+.param VGSVAL=1.2
+.param VDSVAL=1.2
+.param LVAL=2u
+
+* --- Voltage Sources ---
+VGS G 0 DC {VGSVAL}
+VDS D 0 DC {VDSVAL}
+
+* --- NMOS with L=2um (doubled) ---
+M1 D G 0 0 NLEVEL1 W={WVAL} L={LVAL}
+
+* --- Model ---
+.model NLEVEL1 NMOS LEVEL=1 VTO=0.4 KP=200u LAMBDA=0.02
+
+* --- Sweep W ---
+.step param WVAL 2u 20u 2u
+
+* --- Analysis ---
+.op
+.print OP I(M1)
+
+.end
