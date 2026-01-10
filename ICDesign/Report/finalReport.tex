@@ -880,6 +880,247 @@ The \texttt{PULSE} source generates a $0-5V$ square wave with $5ns$ rise/fall ti
 
 \section{Asynchronous Circuit Modelling with Workcraft \- (Labs 7 \& 8)}
 
+\subsection{Lab 7 - C-Element Modelling and Design}
+
+\textbf{Part 1, Theory and Procedure}
+
+The C-element is one of the most fundamental building blocks in asynchronous circuit design. Unlike combinational gates where outputs are purely a function of current inputs, the C-element is a state-holding element with memory. 
+
+Its behaviour is defined as follows: the output transitions HIGH ($Q^+$) only when all inputs are HIGH, the output transitions LOW ($Q^-$) only when all inputs are LOW, and when the inputs have different values, the output retains its previous value. This makes it a synchronisation element that waits for all inputs to agree before changing state.
+
+The state-dependent truth table for a two-input C-element is given by:
+\[
+\begin{array}{c c c c}
+A & B & Q(t) & Q(t+1) \\
+\hline
+0 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+1 & 1 & 0 & 1 \\
+1 & 1 & 1 & 1 \\
+0 & 1 & 0 & 0 \\
+0 & 1 & 1 & 1 \\
+1 & 0 & 0 & 0 \\
+1 & 0 & 1 & 1
+\end{array}
+\]
+
+Signal Transition Graphs (STGs) are an extension of Petri nets specifically designed for specifying asynchronous circuits. 
+
+Each signal event (rising transition denoted '+' or falling transition denoted '-') becomes a Petri net transition. 
+
+Places between transitions hold tokens representing the current state, and arcs define causality - which events must occur before others can fire.
+
+\textbf{part 1, C-Element STG construction}
+
+
+
+\textbf{Part 1, Results and Discussion}
+
+The structure enforces AND-causality by requiring both $in1^+$ and $in2^+$ to fire before $out^+$ is enabled. 
+
+In Petri net terms, $out^+$ has two input places that must both contain tokens. The implicit places represent waiting states; for example, after $in1^+$ fires, the system waits for $in2^+$ before allowing $out^+$ to occur. 
+
+The initial marking, with tokens on the arcs from $out^-$ to the input rising transitions, represents the starting condition where all signals are LOW and the system is ready for a new SET phase. 
+
+The STG allows concurrency, so $in1^+$ and $in2^+$ may occur in any order, reflecting that their relative timing is actually unimportant.
+
+This can be seen in the STG diagram below:
+
+\begin{large}
+    IMAGE SHOWING STG OF C-ELEMENT HERE
+\end{large}
+
+The trace corresponding to the STG is shown here, with two runs of the C-element behaviour:
+
+\begin{large}
+ IMAGE SHOWING THE TRACE OF THE C-ELEMENT HERE.
+\end{large}
+
+ . Circuit timing diagram generated from the trace is shown below:
+
+\begin{large}
+    IMAGE SHOWING THE TIMING DIAGRAM OF THE C-ELEMENT HERE.
+\end{large}
+
+\textbf{Part 2, Simulation and Verification}
+
+\textbf{Part 2, Procedure and theory}
+
+Before synthesising an STG into a circuit, it must be verified against key correctness properties. 
+
+Consistency requires every signal to alternate strictly between rising and falling transitions, meaning $in1^+ \rightarrow in1^-$ must occur before another $in1^+$, ensuring valid digital behaviour. 
+
+Deadlock-freeness guarantees progress by requiring that from every reachable state, at least one transition is enabled, so the system never reaches a state where no action is possible. 
+
+Input-properness ensures that input transitions are controlled only by the environment and are never disabled by internal circuit behaviour. Output-persistence requires that once an output or internal transition becomes enabled, it cannot be disabled by another firing transition, which is essential for hazard-free operation.
+
+Verification is performed by first activating the Simulation tool [M] and manually firing enabled transitions, or by pasting a trace such as $in2^+ \rightarrow in1^+ \rightarrow out^+ \rightarrow in1^- \rightarrow in2^- \rightarrow out^-$. 
+
+After simulating a trace, a timing diagram can be generated using the \textit{Generate trace diagram} option. 
+
+Formal verification is then carried out via \textit{Verification} $\rightarrow$ \textit{Consistency (MPSat)}, followed by deadlock freeness, input properness, and output persistency checks, or by using the combined option \textit{Conformation, deadlock freeness, and output persistency (reuse unfolding)}.
+
+\textbf{Part 2, Results and Discussion}
+
+Consistency holds because the STG enforces strict alternation of transitions, with each signal following a cyclic pattern $+ \rightarrow - \rightarrow + \rightarrow -$. 
+
+Deadlock-freeness is satisfied since at least one transition is always enabled: initially $in1^+$ and $in2^+$ are enabled, after they fire $out^+$ becomes enabled, and the cycle repeats indefinitely. 
+
+Input-properness holds because input transitions ($in1^\pm$, $in2^\pm$) are controlled solely by the environment and are not disabled by output behaviour. 
+
+Output-persistence is satisfied because once $out^+$ or $out^-$ becomes enabled, it cannot be disabled by any input transition; for example, after $in1^+$ and $in2^+$ fire, $out^+$ is guaranteed to occur since no input can remove the required tokens.
+
+Verification results from Workcraft are shown below:
+
+\begin{large}
+    IMAGE SHOWING THE VERIFICATION RESULTS FOR C-ELEMENT HERE.
+\end{large}
+
+\textbf{Part 3, Synthesis - Complex Gate vs Technology Mapping}
+
+\textbf{Part 3, Procedure and Theory}
+
+Asynchronous circuit synthesis converts an STG specification into a gate-level implementation. Workcraft supports two main approaches. In complex-gate synthesis, a single Boolean equation is derived for each output or internal signal. For the C-element this gives
+\[
+out = (out \lor in2)\land in1 \;\lor\; in2 \land out,
+\]
+which simplifies to
+\[
+out = (in1 \land in2) \;\lor\; (in1 \land out) \;\lor\; (in2 \land out).
+\]
+This equation represents the behaviour of the C-element as a single complex Boolean function and is not constrained to a specific standard cell library.
+
+In technology mapping synthesis, the Boolean equations are mapped onto gates available in a standard cell library, such as NAND, NOR, AND, OR, and inverters. Depending on the target library, the function may be implemented using one gate or decomposed into multiple gates, producing a circuit that is directly implementable in conventional digital technologies.
+
+The synthesis procedure consists of opening the verified C-element STG, running \textit{Synthesis} $\rightarrow$ \textit{Complex gate (MPSat)} to generate and record the result, then returning to the STG and running \textit{Synthesis} $\rightarrow$ \textit{Technology mapping (MPSat)} or \textit{Petrify} to obtain and record the mapped implementation.
+
+\textbf{Part 3, Results and Discussion}
+
+In this case, technology mapping produces a single gate rather than multiple gates. This occurs because the Boolean function of the C-element can be mapped directly onto a single cell available in the target library. The resulting gate has inputs $in1$ and $in2$ and includes a feedback connection from $out$ to itself, preserving the state-holding behaviour.
+
+The complex-gate synthesis also represents the logic as one combined Boolean function,
+\[
+out = (out \lor in2)\land in1 \;\lor\; in2 \land out,
+\]
+which is reflected in the Verilog export as a single \texttt{assign} statement. In both synthesis approaches, the functional behaviour is identical, and the feedback path ensures correct C-element operation.
+
+For further reference, the Verilog code generated from complex-gate synthesis is shown below:
+
+\begin{large}
+    IMAGE SHOWING THE VERILOG CODE FOR C-ELEMENT HERE.
+\end{large}
+
+Workcraft provides two forms of C-element synthesis. Standard C-element synthesis produces a canonical implementation that directly represents an ideal C-element, with built-in memory and feedback. The result typically appears as a single C-element gate or an equivalent standard-cell representation, emphasising clarity and correspondence with theoretical asynchronous models.
+
+Generalised C-element synthesis derives a Boolean function with memory from the STG without enforcing a strict C-element structure. This allows additional logic or asymmetry when required by the specification and may be realised as a complex gate with feedback or as a small network of standard gates after technology mapping. While both approaches implement equivalent behaviour, the standard method highlights the textbook C-element, whereas the generalised method provides greater flexibility for optimisation and technology mapping.
+
+This can be seen in the images below:
+
+\begin{large}
+IMAGE SHOWING THE STANDARD C ELEMENT
+\end{large}
+
+and for Generalised C-element:
+
+\begin{large}
+IMAGE SHOWING THE GENERALISED C ELEMENT
+\end{large}
+
+\textbf{Part 4, Gate Level Simulation and Verification (Theory and Procedure)}
+
+The complex-gate equation of the C-element can be algebraically rewritten as
+\[
+out = (out \lor in2)\land in1 \;\lor\; in2 \land out
+     = (in1 \land in2) \;\lor\; (in1 \land out) \;\lor\; (in2 \land out).
+\]
+This form reveals an implementation consisting of three AND gates feeding a single OR gate. The term $in1 \land in2$ represents the SET condition, while $in1 \land out$ and $in2 \land out$ implement the state-holding behaviour when the output is already high. The OR gate combines these terms so that the output is asserted either when both inputs are high or when it must be held high.
+
+In Workcraft, the manual decomposition is performed by creating a new Digital Circuit model and generating three two-input AND gates and one three-input OR gate using the function generator. Input ports $in1$ and $in2$ and an output port $out$ are added using the port generator. The inputs are connected to form the $in1\cdot in2$, $in1\cdot out$, and $in2\cdot out$ terms, the AND outputs are wired to the OR gate, and the OR output is connected to $out$ with feedback paths to the AND gates.
+
+\textbf{Results and Discussion}
+
+This decomposition captures C-element behaviour by combining conditional setting with feedback-based state holding. When both inputs are LOW, all AND gates output zero and the OR gate drives $out=0$. A single rising input does not change the output, since the set term $in1\land in2$ is false and the feedback terms are inactive. When both inputs are HIGH, the set term becomes true and drives the OR gate high, setting $out=1$.
+
+Once $out$ is high, the feedback terms $in1\land out$ and $in2\land out$ maintain the output if either input remains HIGH. The output only resets when both inputs fall, at which point all AND terms are zero. The feedback paths provide the required memory behaviour.
+
+Compared to a complex-gate implementation, the same logic is realised using four standard gates. This increases fan-out at $out$, which feeds both the external output and feedback paths, and increases fan-in at the OR gate, which combines three signals. This may increase delay and area but improves portability across standard cell libraries.
+
+The following images show the gate-level implementations of the C-element:
+
+\begin{large}
+IMAGE SHOWING THE GATE LEVEL IMPLEMENTATION OF C-ELEMENT HERE.
+\end{large}
+
+\begin{large}
+IMAGE SHOWING THE STG OF THE GATE LEVEL C-ELEMENT HERE.
+\end{large}
+
+\begin{large}
+TRACE OF THE GATE LEVEL C-ELEMENT HERE.
+\end{large}
+
+\textbf{Part 5, Verification and Understanding}
+
+Any circuit implementation must be verified to ensure correct behaviour and freedom from hazards. Consistency ensures that signal transitions alternate correctly, while deadlock-freeness guarantees that the circuit can always make progress. Output persistency is essential for glitch-free operation, ensuring that once an output transition is enabled it cannot be disabled, which also implies hazard-freeness.
+
+For verification, Workcraft internally converts the circuit into an equivalent STG capturing all possible behaviours and checks these properties on the derived model. The verification procedure consists of opening the decomposed circuit from Task-4 and running \textit{Verification} $\rightarrow$ \textit{Output persistency (MPSat)} and \textit{Deadlock freeness (MPSat)}, or using the combined option \textit{Conformation, deadlock freeness, and output persistency}.
+
+\textbf{Results and Discussion}
+
+When the environment STG is not attached, verification fails for output persistency. The tool reports a violation trace such as $in2^+ \rightarrow in1^+$, indicating that the output $out$ is non-persistent. In this situation, after both input transitions have occurred, the output transition $out^+$ becomes enabled. However, without environment constraints, the verifier allows input transitions such as $in1^-$ or $in2^-$ to occur immediately. If an input falls before $out^+$ fires, the enabling condition is removed and the output transition is disabled, resulting in a persistence violation.
+
+This failure does not indicate an implementation error. In a realistic system, the environment does not arbitrarily withdraw inputs, and the original STG specification enforces valid input behaviour. The violation therefore arises from analysing the circuit in isolation rather than from incorrect C-element functionality.
+
+the verification results from Workcraft are shown below, including the violation as well as successful verification when the environment is included:
+
+\begin{large}
+    IMAGE SHOWING THE VERIFICATION RESULTS FOR GATE LEVEL C-ELEMENT HERE.
+\end{large}
+
+\textbf{Part 6, Adding Environments and Their Impact}
+
+\textbf{Procedure and Theory}
+
+The verification failure observed previously occurs because the circuit is analysed in isolation, allowing inputs to change arbitrarily at any time. In practice, asynchronous circuits operate within well-defined environments that follow specific interaction protocols. The original STG specification therefore encodes both the circuit behaviour, describing how outputs respond to inputs, and the environment assumptions, constraining when input transitions may occur.
+
+By attaching the STG as an environment, the verifier is restricted to consider only input sequences permitted by the specification. To evaluate this effect, two copies of the circuit are created. In the first, the environment property is set to the original \textit{celement.stg.work} file, while in the second the environment is left unspecified. Output persistency verification is then performed on both versions, demonstrating the impact of environment constraints on correctness checking.
+
+\textbf{Part 6, Results and Discussion}
+
+Verification of the circuit with and without an environment demonstrates the importance of environment constraints. When the environment STG is attached, output persistency verification succeeds, showing that $out$ behaves correctly under all allowed input sequences. In contrast, without an environment, verification fails with a trace such as $in2^+ \rightarrow in1^+$, where $out$ could be disabled by $in1^-$ or $in2^-$. 
+
+This occurs because, in isolation, the verifier assumes inputs can change at any time. After $in2^+$ and $in1^+$ enable $out^+$, the verifier considers the possibility that an input falls immediately, causing a persistence violation. With the environment attached, the STG constrains input sequences: after $in1^+$ and $in2^+$, only $out^+$ is enabled, and $in1^-$ or $in2^-$ cannot occur until $out^+$ fires. 
+
+The key insight is that the environment STG serves as a contract: the circuit is guaranteed to behave correctly as long as the environment respects the specified input constraints, and verification confirms compliance with this contract.
+
+\begin{large}
+    IMAGE SHOWING THE VERIFICATION RESULTS FOR C-ELEMENT WITHOUT ENVIRONMENT HERE.
+\end{large}
+
+\begin{large}
+    IMAGE SHOWING THE VERIFICATION RESULTS FOR C-ELEMENT WITH ENVIRONMENT HERE.
+\end{large}
+
+\textbf{Bonus Task}
+
+The circuit without an attached environment can be converted to a signal transition graph (STG) to compare its behaviour with the original C-element STG. 
+
+The extracted STG is generally more complex than the original because it captures all possible behaviours of the circuit, rather than a single controlled protocol. 
+
+While the original STG specifies one particular sequence of inputs and outputs following the C-element handshake, the extracted STG represents every sequence of inputs the circuit can respond to. 
+
+This results in additional interleavings and states, showing what the circuit can do rather than what it should do. Consequently, the original STG is effectively a subset of the extracted STG's behaviours.
+
+\begin{large}
+    IMAGE SHOWING THE EXTRACTED STG FROM THE CIRCUIT HERE.
+\end{large}
+
+\begin{large}
+    IMAGE SHOWING THE COMPARISON BETWEEN THE ORIGINAL AND EXTRACTED STG HERE.
+\end{large}
+
+The extracted STG includes ``extra" behaviours that the original specification doesn't allow, which is why environment constraints are needed.
+
 \section{References}
 
 \section{Appendix}
