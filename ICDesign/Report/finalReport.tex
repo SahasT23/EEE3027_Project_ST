@@ -1121,6 +1121,271 @@ This results in additional interleavings and states, showing what the circuit ca
 
 The extracted STG includes ``extra" behaviours that the original specification doesn't allow, which is why environment constraints are needed.
 
+\textbf{Part 7, External Circuit Verification}
+
+\textbf{Procedure and Theory}
+
+This task evaluates the isochronic fork assumption, a key principle in speed-independent asynchronous design. An isochronic fork assumes that when a signal branches to multiple destinations, the delay difference between the branches is negligible relative to gate delays, so all destinations observe the transition effectively simultaneously. 
+
+Two circuits are provided for comparison: a correctly implemented decomposed C-element that assumes isochronic forks, and a modified version in which a buffer is inserted on one branch of a fork, introducing a significant delay and violating the isochronic fork assumption. 
+
+For each circuit, verification is performed by attaching the original \textit{celement.stg.work} as the environment and running \textit{Verification} $\rightarrow$ \textit{Output persistency (MPSat)} and the conformation check. The results illustrate the impact of violating the isochronic fork assumption on correctness and hazard freedom.
+
+\textbf{Results and Discussion}
+
+For the circuit without the buffer, all verification checks pass, confirming correct C-element behaviour under the isochronic fork assumption. The circuit therefore operates correctly and is free from hazards. In contrast, the circuit with an inserted buffer fails output persistency verification, producing a violation trace that indicates a hazard.
+
+The failure occurs because the buffer breaks the isochronic fork assumption in the feedback path from $out$. In the decomposed C-element, $out$ feeds back to multiple AND gates. Under the isochronic assumption, all feedback paths observe transitions simultaneously. 
+
+Introducing a buffer causes one AND gate to observe the change later than the other, creating a temporary inconsistent state.
+
+For example, when both inputs and the output are initially HIGH, dropping one input causes some AND terms to deactivate immediately while another remains active. 
+
+If the second input then falls before the delayed feedback is observed, the output may be incorrectly disabled or exhibit non-persistent behaviour. 
+The violation trace reported by Workcraft highlights this window where an enabled output can be disabled.
+
+The key insight is that speed-independent design relies on isochronic forks. While wire delays are usually negligible compared to gate delays, significant interconnect delays or poor routing can violate this assumption. 
+The buffered circuit explicitly models such a violation, demonstrating why physical implementation considerations remain important in asynchronous circuit design.
+
+Here, the verification results for both circuits are shown:
+
+\begin{large}
+    IMAGE SHOWING THE VERIFICATION RESULTS FOR C-ELEMENT WITH ISOCHRONIC FORK HERE.
+\end{large}
+
+\begin{large}
+    IMAGE SHOWING THE VERIFICATION RESULTS FOR C-ELEMENT WITH BUFFERED FORK HERE.
+\end{large}
+
+And the verification violation trace for the buffered fork circuit is shown below:
+
+\begin{large}
+    IMAGE SHOWING THE VERIFICATION VIOLATION TRACE FOR C-ELEMENT WITH BUFFERED FORK HERE.
+\end{large}
+
+\subsection{Lab 8 - VME Bus Controller}
+
+\textbf{Task 1: Model Read and Write Controllers, Procedure and Theory}
+
+The VME (Versa Module Europa) bus is a standard computer bus interface in which a controller mediates communication between the system bus and a slave device. The controller supports two operations: read and write, which differ primarily in the timing of the data transceiver.
+
+\textbf{READ operation (Device $\rightarrow$ Bus):}
+
+The bus initiates a read using \texttt{dsr+}. The controller forwards the request to the device with \texttt{lds+}. Once the device has data ready, it responds with \texttt{ldtack+}. The controller then enables the data transceiver using \texttt{d+} and signals data availability to the bus with \texttt{dtack+}. After the transfer completes, all signals return low in sequence:
+\[
+\texttt{dsr-},\ \texttt{lds-},\ \texttt{d-},\ \texttt{ldtack-},\ \texttt{dtack-}.
+\]
+
+\textbf{WRITE operation (Bus $\rightarrow$ Device):}
+
+The bus requests a write using \texttt{dsw+}. The controller first enables the data transceiver with \texttt{d+} so that data is present on the bus, then asserts \texttt{lds+} to notify the device. The device acknowledges receipt using \texttt{ldtack+}. The controller then disables the transceiver with \texttt{d-} and signals completion to the bus using \texttt{dtack+}. The remaining signals return low in order:
+\[
+\texttt{dsw-},\ \texttt{lds-},\ \texttt{ldtack-},\ \texttt{dtack-}.
+\]
+
+The key difference between the two modes is the timing of the transceiver control. In the read operation, the transceiver is enabled only after the device confirms data readiness, whereas in the write operation it is enabled before the write request to ensure data is available to the device.
+
+Inputs from the environment are \texttt{dsr}, \texttt{dsw}, and \texttt{ldtack}. Outputs generated by the controller are \texttt{lds}, \texttt{d}, and \texttt{dtack}.
+
+For the read controller, a new STG was created in Workcraft and saved as \texttt{vme-read.stg.work}. 
+
+Transitions were added following the read timing sequence, signal directions were assigned appropriately, and causal arcs were used to enforce ordering. 
+
+An initial token was placed before \texttt{dsr+}.
+
+For the write controller, a separate STG was created and saved as \texttt{vme-write.stg.work}. 
+
+The write timing sequence was implemented, with particular attention to the earlier assertion of \texttt{d+}. Signal types were assigned and an initial token was placed to represent the idle state.
+
+\textbf{Results and Discussion}
+
+Figures of the READ and WRITE STGs are included. Both models exhibit largely linear behaviour, with limited concurrency during the reset phase.
+
+In the \textbf{READ STG}, the sequence
+\[
+\texttt{dsr+} \rightarrow \texttt{lds+} \rightarrow \texttt{ldtack+} \rightarrow \texttt{d+} \rightarrow \texttt{dtack+}
+\]
+ensures that the device signals data readiness before the transceiver is enabled. This ordering prevents invalid or unstable data from propagating onto the bus.
+
+In the \textbf{WRITE STG}, the sequence
+\[
+\texttt{dsw+} \rightarrow \texttt{d+} \rightarrow \texttt{lds+} \rightarrow \texttt{ldtack+} \rightarrow \texttt{d-} \rightarrow \texttt{dtack+}
+\]
+shows that the transceiver is enabled early, allowing the device to observe valid bus data when the write request is asserted.
+
+The READ and WRITE controllers were modelled separately to simplify verification. Isolating each mode reduces model complexity, making it easier to validate correctness and identify errors before integration.
+
+In both STGs, limited concurrency appears during the reset phase. Some deassertion transitions, such as \texttt{lds-} and \texttt{ldtack-}, may occur concurrently with the next request (\texttt{dsr+} or \texttt{dsw+}). This overlap allows a new transaction to begin while the previous one is still completing its reset, improving overall responsiveness.
+
+\begin{large}
+    IMAGE SHOWING THE VME READ STG HERE.
+\end{large}
+
+\begin{large}
+    IMAGE SHOWING THE TRACE OF THE VME READ STG HERE.
+\end{large}
+
+\begin{large}
+    IMAGE SHOWING THE TIMING DIAGRAM OF THE VME READ STG HERE.
+\end{large}
+
+\begin{large}
+    IMAGE SHOWING THE VERIFICATION RESULTS FOR THE VME READ STG HERE.
+\end{large}
+
+This covers the read controller. The write controller follows similarly:
+
+\begin{large}
+    IMAGE SHOWING THE VME WRITE STG HERE.
+\end{large}
+
+\begin{large}
+    IMAGE SHOWING THE TRACE OF THE VME WRITE STG HERE.
+\end{large}
+
+\begin{large}
+    IMAGE SHOWING THE TIMING DIAGRAM OF THE VME WRITE STG HERE.
+\end{large}
+
+\begin{large}
+    IMAGE SHOWING THE VERIFICATION RESULTS FOR THE VME WRITE STG HERE.
+\end{large}
+
+\textbf{Part 2, Combine Read and Write Controllers, Procedure and Theory}
+
+A single controller must support both read and write operations, requiring the READ and WRITE STGs to be combined into a unified specification. The merged model must enforce mutual exclusion, ensuring that only one request (\texttt{dsr+} or \texttt{dsw+}) can occur at a time, while correctly sharing common signals (\texttt{lds}, \texttt{ldtack}, \texttt{dtack}, \texttt{d}). Each mode must also preserve its original sequencing constraints.
+
+The combined STG uses a shared initial state in which the controller waits for either a read or a write request. This introduces a choice structure: from the initial place, either the READ or WRITE sequence may be taken, but not both. After executing the selected path, the controller returns to the shared initial state, ready for the next operation.
+
+To construct the combined model, a new STG was created in Workcraft and saved as \texttt{vme-read\_write.stg.work}. The READ and WRITE STGs were copied into this workspace and positioned nearby. The initial places of both models (e.g. \texttt{p1r} and \texttt{p1w}) were selected and merged using \texttt{Transformations → Merge selected places}, forming a single shared place \texttt{p1}. Any additional places representing shared states, such as those preceding \texttt{dtack-}, were merged in the same manner. The resulting STG clearly shows a choice from \texttt{p1}, where either \texttt{dsr+} or \texttt{dsw+} may fire.
+
+Validation was performed using the simulation tool (\texttt{M}) to trace both read and write executions. Standard verification checks were also applied to confirm correctness of the combined model.
+
+\textbf{Part 2, Results and Discussion}
+
+Composing the READ and WRITE controllers is necessary because a single physical circuit must support both operations. Synthesis tools also require one unified specification, and composition ensures that the controller correctly arbitrates between read and write requests.
+
+The composed model offers several benefits. A single implementation is obtained instead of two separate controllers, allowing hardware resources for shared signals such as \texttt{lds} and \texttt{dtack} to be reused. Mutual exclusion is enforced by the choice structure in the STG, guaranteeing that only one mode is active at any time. At the same time, concurrency is preserved, as the merged STG allows new requests to arrive during reset phases.
+
+However, composition also introduces challenges. The combined STG is larger and more difficult to understand and verify. Merging behaviours can introduce CSC conflicts, where different execution paths lead to identical states that require different outputs, an issue explored further in Task~3. Increased STG complexity also leads to more complex synthesized circuits.
+
+A key observation is the distinction between free and controlled choice. The merged initial place \texttt{p1} represents a free choice, where the environment selects either a read or write operation. Any subsequent merges represent controlled choices, where behaviour is determined by the earlier branch selection.
+
+Finally, the model highlights an important aspect of VME operation. Reset signals from the device, such as \texttt{lds-} and \texttt{ldtack-}, can occur concurrently with new bus requests (\texttt{dsr+} or \texttt{dsw+}). This overlap allows a new transaction to begin before the previous one has fully completed, enabling pipelined operation and improved bus throughput.
+
+\begin{large}
+    IMAGE SHOWING THE VME READ-WRITE COMBINED STG HERE.
+\end{large}
+
+\begin{large}
+    IMAGE SHOWING THE TRACE OF THE VME READ-WRITE COMBINED STG HERE.
+\end{large}
+
+\begin{large}
+    IMAGE SHOWING THE TIMING DIAGRAM OF THE VME READ-WRITE COMBINED STG HERE.
+\end{large}
+
+\begin{large}
+    IMAGE SHOWING THE VERIFICATION RESULTS FOR THE VME READ-WRITE COMBINED STG HERE.
+\end{large}
+
+\textbf{Part 3, CSC Conflict Verification, Theory and Procedure}
+
+Complete State Coding (CSC) is a key requirement for correct circuit synthesis. It ensures that every distinct state in an STG has a unique binary encoding defined by the values of its signals. A CSC conflict occurs when two different STG states share identical signal values but require different output transitions to occur next.
+
+This situation is problematic because the circuit can only observe current signal values, not the execution history. If two states appear identical yet demand different behaviour, the circuit cannot determine which action to take.
+
+CSC conflicts arise naturally in the merged VME controller. Both READ and WRITE modes reuse the same set of signals, and at certain points their executions may produce identical signal values. Despite this, the required next action can differ between modes. For example, in the READ path the transceiver may need to be enabled (\texttt{d+}) after \texttt{ldtack+}, whereas in the WRITE path \texttt{d+} has already occurred earlier.
+
+To identify these conflicts, the merged model \texttt{vme-read\_write.stg.work} was opened in Workcraft and checked using \texttt{Verification → Complete State Coding (all cores) [MPSat]}. The resulting report highlights the states that violate the CSC property.
+
+\textbf{Part 3, Results and Discussion}
+
+CSC verification of the merged controller fails, and the tool reports one or more CSC conflicts. A screenshot of the conflict report is included.
+
+Each reported conflict consists of a pair of STG states reached via different execution traces, for example one through the READ path and the other through the WRITE path. Although these states have identical values for all signals, they enable different output transitions. As a result, the circuit cannot determine which action to take based solely on the observed signal values.
+
+In the VME controller, such conflicts typically arise during the reset phase, where signal combinations may repeat across both modes. While the current signal values are identical, the required behaviour depends on the execution history, specifically whether the controller arrived from a read or a write operation. This historical information is not visible to the circuit.
+
+This issue is fundamental to circuit synthesis. A combinational circuit computes outputs as a function of its current inputs. If two distinct situations present the same inputs but require different outputs, no valid combinational function exists. To resolve this ambiguity, additional state must be introduced to distinguish between the conflicting situations. In practice, this is achieved by adding internal signals to encode the missing state information.
+
+\begin{large}
+    IMAGE SHOWING THE VERIFICATION RESULTS FOR CSC CONFLICTS IN VME CONTROLLER HERE.
+\end{large}
+
+\begin{large}
+    IMAGE SHOWING THE CSC CONFLICT DETAILS FOR VME CONTROLLER HERE.
+\end{large}
+
+\begin{large}
+    TERMINAL OUTPUT SHOWING DETAILS
+\end{large}
+
+\textbf{Part 4, Resolving CSC Conflicts, Procedure and Theory}
+
+CSC conflicts must be resolved before circuit synthesis. The general solution is to introduce additional internal signals that encode extra state information, allowing the circuit to distinguish between states that previously appeared identical.
+
+One approach is \textbf{automatic resolution using Petrify}. Petrify (via MPSat) can insert internal signals automatically to eliminate CSC conflicts. This is done using \texttt{Tools → Encoding conflicts → Resolve CSC conflicts [Petrify]}. As a result, a new internal signal (typically named \texttt{csc0}) is added, with transitions positioned to differentiate the conflicting states.
+
+CSC conflicts may also be resolved \textbf{manually} by inserting internal signals based on an understanding of the model. The read and write paths are first identified, and an internal signal is added such that it takes different values on each path. Transitions are placed so that the conflicting states no longer share identical signal encodings.
+
+A structured manual approach is the \textbf{state signal method}. Here, a dedicated internal signal (e.g. \texttt{mode}) explicitly records whether the controller is operating in read or write mode. For example, \texttt{mode+} may fire after \texttt{dsr+} to indicate read mode, while \texttt{mode-} fires after \texttt{dsw+} to indicate write mode. This directly encodes the branch selection.
+
+Finally, Petrify may apply an \textbf{arbitrary signal insertion} strategy. The tool analyses the conflicting states, determines minimal signal placements, and inserts internal signals that resolve the conflicts. These signals may not have an intuitive interpretation, but they are sufficient to guarantee correct and conflict-free synthesis.
+
+\textbf{Part 4, Results and Discussion}
+
+EXPLAINING THE DIFFERENCE BETWEEN THE $3+$ RESOLUTION METHODS LATER ON.
+
+IMAGES TO SHOW THE BS THAT WE NEED LATER ON, NEED TO SHOW THE DIFFERENT RESOLUTIONS, MAPPING AND ETC. INCLUDE VERIFICATION RESULTS.
+
+\textbf{Part 5, Synthesis and Verification, Theory and Procedure}
+
+Once CSC conflicts are resolved, the STG can be synthesised into a circuit. Synthesis proceeds by generating the full state graph of the STG, deriving next-state logic for each output and internal signal, and mapping the resulting Boolean equations to logic gates, either as complex gates or through technology mapping.
+
+To perform synthesis, the CSC-resolved STG was used and processed via \texttt{Synthesis → Complex gate [MPSat]} (or technology mapping). The resulting circuit was saved and functionally validated using the simulation tool (\texttt{M}) by exercising both read and write sequences.
+
+Formal verification was then applied to ensure correctness of the synthesised circuit. The environment property was set to the original specification \texttt{vme-read\_write.stg.work}, rather than the CSC-resolved model. Conformation, deadlock freeness, and output persistency were verified using MPSat, either individually or using the combined verification option with unfolding reuse.
+
+\textbf{Part 5, Results and Discussion}
+
+\textbf{Results \& Discussion}
+
+Screenshots of the synthesised circuit and the verification results are included. All verification checks pass.
+
+Inspection of the circuit shows the logic implementing each output signal (\texttt{lds}, \texttt{dtack}, and \texttt{d}), as well as the internal signal \texttt{csc0} introduced during CSC resolution. Feedback paths are visible in the circuit, where outputs feed back into gate inputs, providing the memory required to store state.
+
+Verification is performed against the original STG rather than the CSC-resolved model because the original STG represents the behavioural contract with the environment. CSC resolution only introduces internal implementation details. Verifying against the original specification ensures that the synthesised circuit preserves the intended external behaviour, independent of how internal state is encoded.
+
+Each verification check addresses a different correctness aspect. Conformation ensures that the circuit produces correct outputs for all legal input sequences defined by the STG. Deadlock freeness guarantees that the circuit can always make progress and never becomes stuck waiting indefinitely. Output persistency ensures hazard-free behaviour, meaning that once an output is enabled it completes its transition without glitches.
+
+\textbf{Results \& Discussion}
+
+Screenshots of the synthesised circuit and the verification results are included. All verification checks pass.
+
+Inspection of the circuit shows the logic implementing each output signal (\texttt{lds}, \texttt{dtack}, and \texttt{d}), as well as the internal signal \texttt{csc0} introduced during CSC resolution. Feedback paths are visible in the circuit, where outputs feed back into gate inputs, providing the memory required to store state.
+
+Verification is performed against the original STG rather than the CSC-resolved model because the original STG represents the behavioural contract with the environment. CSC resolution only introduces internal implementation details. Verifying against the original specification ensures that the synthesised circuit preserves the intended external behaviour, independent of how internal state is encoded.
+
+Each verification check addresses a different correctness aspect. Conformation ensures that the circuit produces correct outputs for all legal input sequences defined by the STG. Deadlock freeness guarantees that the circuit can always make progress and never becomes stuck waiting indefinitely. Output persistency ensures hazard-free behaviour, meaning that once an output is enabled it completes its transition without glitches.
+
+\begin{large}
+    IMAGE SHOWING THE SYNTHESISED VME CONTROLLER CIRCUIT HERE.
+\end{large}
+
+\begin{large}
+    IMAGE SHOWING THE VERIFICATION RESULTS FOR THE SYNTHESISED VME CONTROLLER CIRCUIT HERE.
+\end{large}
+
+\begin{large}
+    GATE MAPPINGS AND ETC HERE.
+\end{large}
+
+\textbf{Task 6, Verilog to VHDL Translation}
+
+The synthesised circuit can be exported to Verilog for use in standard digital design flows. 
+The task requires translating this to VHDL and explaining the connection to previous lab tools.
+
 \section{References}
 
 \section{Appendix}
