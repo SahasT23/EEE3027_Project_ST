@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.10.7)  10 JAN 2026 21:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.10.7)  12 JAN 2026 21:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1290,7 +1290,7 @@ Overfull \hbox (4.66489pt too wide) in paragraph at lines 130--132
 \OT1/cmr/m/n/12 transcon-duc-tance pa-ram-e-ter (KP), and channel-length mod-u-la-tion co-ef-fi-cient (LAMBDA). 
  []
 
-<../Images/1NMOSImage.png, id=100, 1282.7925pt x 899.36pt>
+<../Images/1NMOSImage.png, id=115, 1282.7925pt x 899.36pt>
 File: ../Images/1NMOSImage.png Graphic file (type png)
 <use ../Images/1NMOSImage.png>
 Package pdftex.def Info: ../Images/1NMOSImage.png  used on input line 139.
@@ -1301,7 +1301,7 @@ Overfull \hbox (16.51495pt too wide) in paragraph at lines 144--145
  []
 
 [4] [5 <../Images/1NMOSImage.png>]
-<../Images/1PMOSImage.png, id=147, 1974.37625pt x 1406.25375pt>
+<../Images/1PMOSImage.png, id=163, 1974.37625pt x 1406.25375pt>
 File: ../Images/1PMOSImage.png Graphic file (type png)
 <use ../Images/1PMOSImage.png>
 Package pdftex.def Info: ../Images/1PMOSImage.png  used on input line 242.
@@ -1312,31 +1312,31 @@ Overfull \hbox (18.16595pt too wide) in paragraph at lines 247--249
  []
 
 [7 <../Images/1PMOSImage.png>] [8] [9]
-<../Images/1BetaVerify.png, id=221, 1857.94125pt x 1321.93875pt>
+<../Images/1BetaVerify.png, id=236, 1857.94125pt x 1321.93875pt>
 File: ../Images/1BetaVerify.png Graphic file (type png)
 <use ../Images/1BetaVerify.png>
 Package pdftex.def Info: ../Images/1BetaVerify.png  used on input line 435.
 (pdftex.def)             Requested size: 334.415pt x 237.9387pt.
  [10] [11 <../Images/1BetaVerify.png>]
-<../Images/1BetaDoubledL.png, id=267, 1822.81pt x 1292.83pt>
+<../Images/1BetaDoubledL.png, id=282, 1822.81pt x 1292.83pt>
 File: ../Images/1BetaDoubledL.png Graphic file (type png)
 <use ../Images/1BetaDoubledL.png>
 Package pdftex.def Info: ../Images/1BetaDoubledL.png  used on input line 500.
 (pdftex.def)             Requested size: 328.09164pt x 232.69936pt.
  [12 <../Images/1BetaDoubledL.png>] [13]
-<../Images/Task4NRI.png, id=294, 735.74875pt x 672.5125pt>
+<../Images/Task4NRI.png, id=309, 735.74875pt x 672.5125pt>
 File: ../Images/Task4NRI.png Graphic file (type png)
 <use ../Images/Task4NRI.png>
 Package pdftex.def Info: ../Images/Task4NRI.png  used on input line 599.
 (pdftex.def)             Requested size: 264.86934pt x 242.10431pt.
  [14]
-<../Images/newton_cobweb_diagram.png, id=305, 578.16pt x 433.62pt>
+<../Images/newton_cobweb_diagram.png, id=320, 578.16pt x 433.62pt>
 File: ../Images/newton_cobweb_diagram.png Graphic file (type png)
 <use ../Images/newton_cobweb_diagram.png>
 Package pdftex.def Info: ../Images/newton_cobweb_diagram.png  used on input line 608.
 (pdftex.def)             Requested size: 277.51364pt x 208.13524pt.
  [15 <../Images/Task4NRI.png> <../Images/newton_cobweb_diagram.png>]
-<../Images/NewCircuit.png, id=314, 433.62pt x 286.82156pt>
+<../Images/NewCircuit.png, id=329, 433.62pt x 286.82156pt>
 File: ../Images/NewCircuit.png Graphic file (type png)
 <use ../Images/NewCircuit.png>
 Package pdftex.def Info: ../Images/NewCircuit.png  used on input line 639.
@@ -1345,100 +1345,183 @@ Package pdftex.def Info: ../Images/NewCircuit.png  used on input line 639.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<../Images/2CMOSInverter.png, id=323, 1821.80624pt x 1294.8375pt>
+<../Images/2CMOSInverter.png, id=338, 1821.80624pt x 1294.8375pt>
 File: ../Images/2CMOSInverter.png Graphic file (type png)
 <use ../Images/2CMOSInverter.png>
 Package pdftex.def Info: ../Images/2CMOSInverter.png  used on input line 716.
 (pdftex.def)             Requested size: 437.24243pt x 310.76735pt.
 [17]
-<../Images/Point1.png, id=357, 609.27625pt x 418.56375pt>
+<../Images/Point1.png, id=372, 609.27625pt x 418.56375pt>
 File: ../Images/Point1.png Graphic file (type png)
 <use ../Images/Point1.png>
 Package pdftex.def Info: ../Images/Point1.png  used on input line 725.
 (pdftex.def)             Requested size: 225.42868pt x 154.86615pt.
  [18 <../Images/2CMOSInverter.png>]
-<../Images/Point2.png, id=368, 609.27625pt x 418.56375pt>
+<../Images/Point2.png, id=383, 609.27625pt x 418.56375pt>
 File: ../Images/Point2.png Graphic file (type png)
 <use ../Images/Point2.png>
 Package pdftex.def Info: ../Images/Point2.png  used on input line 732.
 (pdftex.def)             Requested size: 225.42868pt x 154.86615pt.
-<../Images/Point3.png, id=369, 607.26875pt x 418.56375pt>
+<../Images/Point3.png, id=384, 607.26875pt x 418.56375pt>
 File: ../Images/Point3.png Graphic file (type png)
 <use ../Images/Point3.png>
 Package pdftex.def Info: ../Images/Point3.png  used on input line 739.
 (pdftex.def)             Requested size: 224.68591pt x 154.86615pt.
-<../Images/Point4.png, id=370, 609.27625pt x 414.54875pt>
+<../Images/Point4.png, id=385, 609.27625pt x 414.54875pt>
 File: ../Images/Point4.png Graphic file (type png)
 <use ../Images/Point4.png>
 Package pdftex.def Info: ../Images/Point4.png  used on input line 746.
 (pdftex.def)             Requested size: 225.42868pt x 153.38063pt.
  [19 <../Images/Point1.png> <../Images/Point2.png> <../Images/Point3.png>]
-<../Images/Point5.png, id=382, 609.27625pt x 414.54875pt>
+<../Images/Point5.png, id=397, 609.27625pt x 414.54875pt>
 File: ../Images/Point5.png Graphic file (type png)
 <use ../Images/Point5.png>
 Package pdftex.def Info: ../Images/Point5.png  used on input line 753.
 (pdftex.def)             Requested size: 225.42868pt x 153.38063pt.
-<../Images/HighlightedNMOSOnly.png, id=383, 1274.7625pt x 905.3825pt>
+<../Images/HighlightedNMOSOnly.png, id=398, 1274.7625pt x 905.3825pt>
 File: ../Images/HighlightedNMOSOnly.png Graphic file (type png)
 <use ../Images/HighlightedNMOSOnly.png>
 Package pdftex.def Info: ../Images/HighlightedNMOSOnly.png  used on input line 782.
 (pdftex.def)             Requested size: 318.68985pt x 226.34506pt.
  [20 <../Images/Point4.png> <../Images/Point5.png>] [21 <../Images/HighlightedNMOSOnly.png>]
-<../Images/OGTransientAnalysisLog.png, id=416, 1619.04875pt x 900.36375pt>
+<../Images/OGTransientAnalysisLog.png, id=431, 1619.04875pt x 900.36375pt>
 File: ../Images/OGTransientAnalysisLog.png Graphic file (type png)
 <use ../Images/OGTransientAnalysisLog.png>
 Package pdftex.def Info: ../Images/OGTransientAnalysisLog.png  used on input line 874.
 (pdftex.def)             Requested size: 404.7612pt x 225.09038pt.
  [22] [23 <../Images/OGTransientAnalysisLog.png>] [24]
-Overfull \hbox (1.81627pt too wide) in paragraph at lines 976--978
-[]\OT1/cmr/m/n/14.4 IMAGE SHOW-ING THE VER-I-FI-CA-TION RE-SULTS FOR C-ELEMENT
+Overfull \hbox (5.23999pt too wide) in paragraph at lines 986--987
+[]\OT1/cmr/m/n/12 The Artix-7 FPGA con-tains DSP48E1 prim-i-tives, which are hard-wired multiply-accumulate
  []
 
-[25] [26] [27]
-Overfull \hbox (6.41304pt too wide) in paragraph at lines 1077--1079
-[]\OT1/cmr/m/n/14.4 IMAGE SHOW-ING THE VER-I-FI-CA-TION RE-SULTS FOR GATE LEVEL
+[25]
+Overfull \hbox (24.31789pt too wide) in paragraph at lines 1023--1025
+[]\OT1/cmr/m/n/14.4 IMAGE SHOW-ING THE AN-NO-TATED WAVE-FORM OF THE PIPELINED
+ []
+
+[26]
+Overfull \hbox (1.21977pt too wide) in paragraph at lines 1061--1063
+[]\OT1/cmr/m/n/14.4 IMAGE SHOW-ING THE UTIL-I-SA-TION RE-PORT OF THE PIPELINED
  []
 
 
-Overfull \hbox (1.81627pt too wide) in paragraph at lines 1097--1099
-[]\OT1/cmr/m/n/14.4 IMAGE SHOW-ING THE VER-I-FI-CA-TION RE-SULTS FOR C-ELEMENT
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (2.10814pt too wide) in paragraph at lines 1131--1132
+[]\OT1/cmr/m/n/12 A com-bi-na-tional di-vider for a WIDTH-bit operand re-quires WIDTH it-er-a-tions of compare-
+ []
+
+[27]
+Overfull \hbox (31.0618pt too wide) in paragraph at lines 1152--1153
+[]\OT1/cmr/m/n/12 The fol-low-ing fig-ures show the wave-form, post-synthesis tim-ing re-port, and post-implementation
+ []
+
+
+Overfull \hbox (8.95634pt too wide) in paragraph at lines 1159--1161
+[]\OT1/cmr/m/n/14.4 IMAGE SHOW-ING THE TIM-ING RE-PORT OF THE COM-BI-NA-TIONAL
+ []
+
+
+Overfull \hbox (8.95634pt too wide) in paragraph at lines 1163--1165
+[]\OT1/cmr/m/n/14.4 IMAGE SHOW-ING THE TIM-ING RE-PORT OF THE COM-BI-NA-TIONAL
+ []
+
+
+Overfull \hbox (8.67131pt too wide) in paragraph at lines 1167--1169
+[]\OT1/cmr/m/n/14.4 IMAGE SHOW-ING THE POWER RE-PORT OF THE COM-BI-NA-TIONAL
  []
 
 [28]
-Overfull \hbox (1.81627pt too wide) in paragraph at lines 1101--1103
-[]\OT1/cmr/m/n/14.4 IMAGE SHOW-ING THE VER-I-FI-CA-TION RE-SULTS FOR C-ELEMENT
+Overfull \hbox (8.67131pt too wide) in paragraph at lines 1171--1173
+[]\OT1/cmr/m/n/14.4 IMAGE SHOW-ING THE POWER RE-PORT OF THE COM-BI-NA-TIONAL
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1280--1283
+
  []
 
 [29]
-Overfull \hbox (1.81627pt too wide) in paragraph at lines 1153--1155
-[]\OT1/cmr/m/n/14.4 IMAGE SHOW-ING THE VER-I-FI-CA-TION RE-SULTS FOR C-ELEMENT
+Underfull \hbox (badness 10000) in paragraph at lines 1292--1295
+
  []
 
 
-Overfull \hbox (1.81627pt too wide) in paragraph at lines 1157--1159
-[]\OT1/cmr/m/n/14.4 IMAGE SHOW-ING THE VER-I-FI-CA-TION RE-SULTS FOR C-ELEMENT
+Overfull \hbox (24.31789pt too wide) in paragraph at lines 1299--1301
+[]\OT1/cmr/m/n/14.4 IMAGE SHOW-ING THE AN-NO-TATED WAVE-FORM OF THE PIPELINED
  []
 
 [30]
-Overfull \hbox (24.12701pt too wide) in paragraph at lines 1190--1191
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[31]
+Overfull \hbox (10.19952pt too wide) in paragraph at lines 1382--1383
+[]\OT1/cmr/m/n/12 Latency vs through-put trade-off: Multi-cycle has high la-tency but rea-son-able through-
+ []
+
+[32]
+Overfull \hbox (280.88327pt too wide) in paragraph at lines 1508--1509
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[33] [34] [35]
+Overfull \hbox (1.81627pt too wide) in paragraph at lines 1639--1641
+[]\OT1/cmr/m/n/14.4 IMAGE SHOW-ING THE VER-I-FI-CA-TION RE-SULTS FOR C-ELEMENT
+ []
+
+[36] [37] [38]
+Overfull \hbox (6.41304pt too wide) in paragraph at lines 1740--1742
+[]\OT1/cmr/m/n/14.4 IMAGE SHOW-ING THE VER-I-FI-CA-TION RE-SULTS FOR GATE LEVEL
+ []
+
+[39]
+Overfull \hbox (1.81627pt too wide) in paragraph at lines 1760--1762
+[]\OT1/cmr/m/n/14.4 IMAGE SHOW-ING THE VER-I-FI-CA-TION RE-SULTS FOR C-ELEMENT
+ []
+
+
+Overfull \hbox (1.81627pt too wide) in paragraph at lines 1764--1766
+[]\OT1/cmr/m/n/14.4 IMAGE SHOW-ING THE VER-I-FI-CA-TION RE-SULTS FOR C-ELEMENT
+ []
+
+[40]
+Overfull \hbox (1.81627pt too wide) in paragraph at lines 1816--1818
+[]\OT1/cmr/m/n/14.4 IMAGE SHOW-ING THE VER-I-FI-CA-TION RE-SULTS FOR C-ELEMENT
+ []
+
+
+Overfull \hbox (1.81627pt too wide) in paragraph at lines 1820--1822
+[]\OT1/cmr/m/n/14.4 IMAGE SHOW-ING THE VER-I-FI-CA-TION RE-SULTS FOR C-ELEMENT
+ []
+
+[41]
+Overfull \hbox (24.12701pt too wide) in paragraph at lines 1853--1854
 []\OT1/cmr/m/n/12 For the read con-troller, a new STG was cre-ated in Workcraft and saved as \OT1/cmtt/m/n/12 vme-read.stg.work\OT1/cmr/m/n/12 . 
  []
 
-[31]
-LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 1260.
+[42]
+LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 1923.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-) [32]
-Overfull \hbox (0.34474pt too wide) in paragraph at lines 1277--1279
+) [43]
+Overfull \hbox (0.34474pt too wide) in paragraph at lines 1940--1942
 []\OT1/cmr/m/n/14.4 IMAGE SHOW-ING THE VME READ-WRITE COM-BINED STG HERE.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1277--1279
+Underfull \hbox (badness 10000) in paragraph at lines 1940--1942
 
  []
 
-[33] [34] [35] [36] (./finalReport.aux)
+[44] [45] [46] [47] (./finalReport.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1448,24 +1531,24 @@ L3 programming layer <2024-01-22>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `finalReport.out' has not changed.
-(rerunfilecheck)             Checksum: 34F7994F0D9DBEB6CE9730CCE1823EEC;2409.
+(rerunfilecheck)             Checksum: 57E6D43D5B46519BF8647A676BF38145;3086.
 Package logreq Info: Writing requests to 'finalReport.run.xml'.
 \openout1 = `finalReport.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 70984 strings out of 474222
- 1764772 string characters out of 5748733
- 3065620 words of memory out of 5000000
- 92199 multiletter control sequences out of 15000+600000
- 568369 words of font info for 74 fonts, out of 8000000 for 9000
+ 71212 strings out of 474222
+ 1768136 string characters out of 5748733
+ 3065716 words of memory out of 5000000
+ 92387 multiletter control sequences out of 15000+600000
+ 569617 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  89i,14n,90p,1260b,2449s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on finalReport.pdf (37 pages, 2281771 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb>
+Output written on finalReport.pdf (48 pages, 2332700 bytes).
 PDF statistics:
- 667 PDF objects out of 1000 (max. 8388607)
- 552 compressed objects within 6 object streams
- 254 named destinations out of 1000 (max. 500000)
- 184 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 778 PDF objects out of 1000 (max. 8388607)
+ 649 compressed objects within 7 object streams
+ 294 named destinations out of 1000 (max. 500000)
+ 208 words of extra memory for PDF output out of 10000 (max. 10000000)
 

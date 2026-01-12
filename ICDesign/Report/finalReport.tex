@@ -878,6 +878,671 @@ The \texttt{PULSE} source generates a $0-5V$ square wave with $5ns$ rise/fall ti
 
 \section{FPGA Design Labs \- (Labs 4, 5 \& 6)}
 
+\section{Lab 4, IPSP (Single-Cycle and Pipelined)}
+
+\textbf{Theory and Procedure}
+
+The IPSP performs a multiply-accumulate (MAC) operation:
+\begin{equation}
+y_{out} = a \times x + y_{in}
+\end{equation}
+
+In systolic arrays, IPSPs chain together—each receives a partial sum from its neighbour, adds its contribution, and passes the result onward.
+
+Rather than complex floating-point hardware, this lab uses Q16.16 fixed-point representation, consisting of 16 integer bits and 16 fractional bits stored in a 32-bit word.
+
+When multiplying two Q16.16 numbers, the product is a 64-bit Q32.32 value. To return to Q16.16 format, bits~[47:16] of the product are extracted:
+\begin{equation}
+\text{Result} = \text{Product}[47:16]
+\end{equation}
+
+The 64-bit product can be interpreted as:
+\[
+\begin{array}{|c|c|c|c|}
+\hline
+63\ldots48 & 47\ldots32 & 31\ldots16 & 15\ldots0 \\
+\hline
+\text{overflow} & \text{integer} & \text{fraction} & \text{discard} \\
+\hline
+\end{array}
+\]
+
+A single-cycle design requires that the result appears one clock cycle after valid input. The entire multiply-and-add combinational path must therefore complete within a 10\,ns clock period at 100\,MHz. This constraint is challenging because the combinational delay often exceeds the available timing budget.
+
+\textbf{Results and Discussion}
+
+The testbench verifies functional correctness. When \texttt{valid\_in} is asserted, \texttt{valid\_out} goes high on the next clock edge with the correct result.
+
+For example, with
+\begin{equation}
+a = 2.0, \quad x = 3.0, \quad y_{in} = 4.0
+\end{equation}
+the output is
+\begin{equation}
+y_{out} = 10.0
+\end{equation}
+which corresponds to the Q16.16 hexadecimal representation
+\begin{equation}
+y_{out} = \texttt{0x000A0000}.
+\end{equation}
+
+Waveforms should be annotated to show the single-cycle input-to-output relationship, and Q16.16 values should be verified by changing the radix from hexadecimal to decimal for clarity.
+
+Synthesis converts HDL code into a technology-mapped netlist by inferring logic such as adders, multipliers, and registers, providing an idealised view of resource usage and timing. 
+
+Implementation maps this netlist onto the physical device through placement and routing, introducing real interconnect delays. As a result, implementation determines whether the design meets its clock timing constraints, while synthesis only determines the logical hardware structure.
+
+Firstly, a visual verification of the waveform shows that, after 10ns, the output matches the expected result when valid input is provided, with the rising edge for the input at 35ns and the corresponding output at 45ns.
+
+\begin{large}
+    IMAGE SHOWING THE ANNOTATED WAVEFORM OF THE SINGLE CYCLE IPSP HERE. 
+\end{large}
+
+\paragraph{Worst Negative Slack (WNS)}
+Worst Negative Slack is the minimum setup-time slack over all synchronous timing paths in the design. It indicates how much the most critical path violates (or meets) the clock period constraint:
+\[
+\text{WNS} = \min \left( T_{\text{required}} - T_{\text{arrival}} \right)
+\]
+A negative WNS implies a setup-time violation and limits the maximum achievable clock frequency, while a positive WNS indicates available timing margin.
+
+\paragraph{Worst Pulse Width Slack (WPWS)}
+Worst Pulse Width Slack measures the minimum slack associated with clock pulse width constraints at sequential elements:
+\[
+\text{WPWS} = \min \left( T_{\text{pulse,actual}} - T_{\text{pulse,required}} \right)
+\]
+A negative WPWS indicates that the clock high or low pulse width is too short to meet the flip-flop or latch requirements, potentially causing functional failure independent of clock frequency.
+
+This can be seen in the timing report excerpt below, where an infinite negative WNS indicate that the single-cycle design cannot meet the 10\,ns clock period due to excessive combinational delay, thus highlighting the impracticality of this approach for the given operation.
+
+\begin{large}
+    IMAGE SHOWING THE TIMING REPORT OF THE SINGLE CYCLE IPSP HERE.
+\end{large}
+
+The Power Summary estimates the on-chip power consumption of an FPGA design. Total power is reported as the sum of dynamic and static components:
+\[
+P_{\text{total}} = P_{\text{dynamic}} + P_{\text{static}}
+\]
+
+Dynamic power arises from signal switching activity and is broken down by resource type, including clock networks, logic, routing, memory blocks, DSPs, and I/O. Static power represents leakage power and depends primarily on the device, operating voltage, and temperature.
+
+The Power Summary also provides estimated thermal information, such as junction temperature, enabling assessment of the design’s power efficiency and thermal feasibility. The reported values are estimates and depend on the accuracy of clock and switching activity assumptions.
+
+\begin{large}
+    IMAGE SHOWING THE POWER REPORT OF THE SINGLE CYCLE IPSP HERE.
+\end{large}
+
+For further reference, the utilisation report can simply tell a designer how many resources have been used in the FPGA, such as LUTs, Flip-Flops, BRAMs, and DSP slices.
+
+\begin{large}
+    IMAGE SHOWING THE UTILISATION REPORT OF THE SINGLE CYCLE IPSP HERE.
+\end{large}
+
+\textbf{Synthesis and Implementation of IPSP}
+
+After behavioural simulation, the design proceeds through synthesis and implementation, with each stage increasing realism: behavioural simulation assumes ideal zero-delay operation, post-synthesis timing includes estimated delays, and post-implementation timing accounts for actual routing delays and is the most accurate.
+
+Synthesising in out-of-context (OOC) mode analyses a module in isolation, reporting its intrinsic timing characteristics without influence from the parent design.
+
+The Artix-7 FPGA contains DSP48E1 primitives, which are hardwired multiply\-accumulate blocks. Vivado automatically maps 32$\times$32 multiplications to these primitives, enabling fast multiplication, whereas division has no equivalent dedicated hardware.
+
+The timing report identifies the critical path as the slowest path through the design, typically from input, through the DSP48E1 multiplier, then fabric-based addition logic, to the output.
+
+This can be seen in the timing report excerpt below:
+
+\begin{large}
+    IMAGE SHOWING THE TIMING REPORT OF THE SINGLE CYCLE IPSP POST IMP HERE.
+\end{large}
+
+\textbf{Pipelined IPSP, Theory and Procedure}
+
+When a single-cycle design fails timing, pipelining divides the long combinational path into shorter stages by inserting registers. The critical path of a pipelined design is therefore
+\begin{equation}
+T_{\text{critical,pipelined}} = \max(T_{\text{stage1}}, T_{\text{stage2}}, \ldots) 
+< T_{\text{stage1}} + T_{\text{stage2}} + \ldots
+\end{equation}
+
+A four-stage pipeline can be described as follows: 
+1. stage 1 registers the inputs $(a, x, y)$; 
+2. stage 2 performs the multiplication; 
+3. stage 3 registers the product and aligns $y$; 
+4. stage 4 performs the addition and produces the output.
+
+Compared to a single-cycle design, pipelining increases latency from one cycle to four cycles while preserving a throughput of one result per cycle. The achievable clock frequency improves from approximately 80\,MHz to above 100\,MHz. After the initial four-cycle delay, one result is produced every cycle, which is naturally tolerated by systolic arrays.
+
+The \texttt{valid} signal must be pipelined alongside the data so that \texttt{valid\_out} is asserted only when valid data reaches the output stage. 
+
+This approach lets more hardware resources be used in parallel, trading off area for speed.
+
+\textbf{Results and Discussion}
+
+Synthesis and implementation proceed similarly to the single-cycle design, with the addition of pipeline registers breaking the critical path.
+
+The waveform also adheres to the expected four-cycle latency, with \texttt{valid\_out} asserted four cycles after \texttt{valid\_in}, and the output data correctly reflecting the pipelined multiply-accumulate operation.
+
+\begin{large}
+    IMAGE SHOWING THE ANNOTATED WAVEFORM OF THE PIPELINED IPSP HERE.
+\end{large}
+
+The timing report excerpt below shows that the pipelined design meets the 10\,ns clock period with a positive WNS, indicating successful timing closure.
+
+\begin{large}
+    IMAGE SHOWING THE TIMING REPORT OF THE PIPELINED IPSP POST SYNTHESIS HERE.
+\end{large}
+
+After implementation, the timing report confirms that the design still meets timing constraints, with the critical path now slightly shorter due to pipelining.
+
+\begin{large}
+    IMAGE SHOWING THE TIMING REPORT OF THE PIPELINED IPSP POST IMP HERE.
+\end{large}
+
+As mentioned above, the critical path can be seen here as well. The critical path tells the designer where the longest delay occurs, which is useful for further optimisation if needed.
+
+\begin{large}
+    IMAGE SHOWING THE CRITICAL PATH OF THE PIPELINED IPSP HERE.
+\end{large}
+
+The power reports show the dynamic and static power consumption of the pipelined design, which may be higher than the single-cycle design due to increased register usage but is offset by improved timing performance. 
+
+There is a higher utilisation of the FPGA resources due to the additional pipeline registers, which is reflected in the utilisation report.
+
+\begin{large}
+    IMAGE SHOWING THE POWER REPORT OF THE PIPELINED IPSP HERE POST SYNTH.
+\end{large}
+
+And after implementation:
+
+\begin{large}
+    IMAGE SHOWING THE POWER REPORT OF THE PIPELINED IPSP HERE POST IMP.
+\end{large}
+
+Utilisation report shows the resource usage of the pipelined design, which typically increases due to the additional registers but remains within acceptable limits for the target FPGA.
+
+\begin{large}
+    IMAGE SHOWING THE UTILISATION REPORT OF THE PIPELINED IPSP HERE.
+\end{large}
+
+\textbf{2D, Timing and Understanding}
+
+This task requires explaining why pipelining improves performance and identifying the FPGA primitives used in the design. Pipelining helps by splitting a long combinational path into shorter stages separated by registers, reducing the critical path delay and allowing a higher clock frequency.
+
+By adjusting the XDC clock constraints, the maximum operating frequency of each design can be determined. The pipelined design achieves a significantly higher $F_{\text{max}}$ because each pipeline stage contains less combinational logic, whereas the single-cycle design must complete the entire operation within one clock period.
+
+The FPGA primitives used are summarised below. Multiplication is mapped to the DSP48E1 primitive because Artix-7 devices contain dedicated hardwired multiplier--accumulator blocks that provide high-speed arithmetic. Addition is implemented using LUTs with CARRY8 chains, which are optimised for fast carry propagation across the FPGA fabric. Registers are implemented using FDRE primitives, which are edge-triggered flip-flops used for state storage and pipelining.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{l l}
+\hline
+\textbf{Operation} & \textbf{Primitive} \\
+\hline
+Multiplication & DSP48E1 \\
+Addition & CARRY8 + LUTs \\
+Registers & FDRE \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Lab 5, DivSub}
+
+\textbf{Single Cycle DivSub, Theory and Procedure}
+
+The \texttt{DIVSUB} block is located at the left boundary of the systolic array and computes
+\begin{equation}
+x_{out} = \frac{b - y}{a}.
+\end{equation}
+This operation consists of a subtraction followed by a division. Unlike multiplication, FPGAs provide no dedicated hardware for division, so it must be implemented using LUTs and general fabric logic.
+
+In the first version, both subtraction and division are implemented as purely combinational logic, completing in a single clock cycle. For a 32-bit division, this requires fully unrolling the division algorithm into one large combinational path.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+    block/.style={draw, rectangle, minimum width=3.2cm, minimum height=1.2cm, align=center},
+    arrow/.style={->, thick},
+    node distance=2cm
+]
+
+% Input nodes
+\node (b) {$b$};
+\node[below=1cm of b] (y) {$y$};
+\node[below=1cm of y] (a) {$a$};
+
+% Subtractor
+\node[block, right=2.5cm of y] (sub) {Subtract\\$b - y$};
+
+% Divider
+\node[block, right=2.5cm of sub] (div) {Divide\\Block\\$\dfrac{b-y}{a}$};
+
+% Output
+\node[right=2.5cm of div] (xout) {$x_{out}$};
+
+% Orthogonal connections
+\draw[arrow] (b.east) -- ++(0.8,0) |- (sub.north west);
+\draw[arrow] (y.east) -- ++(0.8,0) -- (sub.west);
+\draw[arrow] (a.east) -- ++(0.8,0) |- (div.south west);
+
+\draw[arrow] (sub.east) -- ++(0.8,0) -- (div.west);
+\draw[arrow] (div.east) -- ++(0.8,0) -- (xout.west);
+
+\end{tikzpicture}
+\caption{DIVSUB block with right-angled signal routing showing subtraction followed by division}
+\end{figure}
+
+A combinational divider for a WIDTH-bit operand requires WIDTH iterations of compare\-subtract\-shift logic, all cascaded into a single path. As a result, the critical path delay grows proportionally to
+\begin{equation}
+O(\text{WIDTH}^2)
+\end{equation}
+gate delays. For 32-bit operands, this produces thousands of logic levels, far exceeding any practical clock period and causing severe timing failures.
+
+For fixed-point Q16.16 division, direct division causes the fractional scaling to be lost:
+\begin{equation}
+\frac{A_{Q16.16}}{B_{Q16.16}} = \frac{A \times 2^{16}}{B \times 2^{16}} = \frac{A}{B},
+\end{equation}
+which is no longer in Q16.16 format. To preserve the fixed-point representation, the dividend must be pre-shifted left by 16 bits:
+\begin{equation}
+\text{Result}_{Q16.16} = \frac{A_{Q16.16} \ll 16}{B_{Q16.16}}.
+\end{equation}
+
+\textbf{Results and Discussion}
+
+The combinational DIVSUB produces functionally correct results in behavioural simulation. Since there are no delays modelled, the division completes instantaneously within the simulation timestep.
+
+However, synthesis and implementation reports reveal that the design cannot meet timing constraints due to the excessively long combinational path through the divider. The timing report shows an infinite WNS, indicating that the critical path delay far exceeds the 10\,ns clock period.
+
+The following figures show the waveform, post-synthesis timing report, and post-implementation timing report for the combinational DIVSUB design, along with the equivalent power reports
+
+\begin{large}
+    IMAGE SHOWING THE ANNOTATED WAVEFORM OF THE COMBINATIONAL DIVSUB HERE.
+\end{large}
+
+\begin{large}
+    IMAGE SHOWING THE TIMING REPORT OF THE COMBINATIONAL DIVSUB POST SYNTH HERE.
+\end{large}
+
+\begin{large}
+    IMAGE SHOWING THE TIMING REPORT OF THE COMBINATIONAL DIVSUB POST IMP HERE.
+\end{large}
+
+\begin{large}
+    IMAGE SHOWING THE POWER REPORT OF THE COMBINATIONAL DIVSUB HERE POST SYNTH.
+\end{large}
+
+\begin{large}
+    IMAGE SHOWING THE POWER REPORT OF THE COMBINATIONAL DIVSUB HERE POST IMP.
+\end{large}
+
+\textbf{Pipelined DivSub, Theory and Procedure}
+
+Version 2 implements division sequentially over \texttt{WIDTH} clock cycles using the shift--subtract algorithm, which is a practical approach for FPGA implementation.
+
+Each clock cycle computes one bit of the quotient. The remainder register is shifted left by one bit, and the most significant bit of the dividend is copied into the least significant bit of the remainder. The remainder is then compared with the divisor. If
+\begin{equation}
+\text{Remainder} \geq \text{Divisor},
+\end{equation}
+the divisor is subtracted from the remainder and the next quotient bit is set to~1. If
+\begin{equation}
+\text{Remainder} < \text{Divisor},
+\end{equation}
+no subtraction occurs and the quotient bit is set to~0. The quotient register is shifted left and the new bit inserted, while the dividend is also shifted left, discarding the bit just used. After \texttt{WIDTH} iterations, the quotient register holds the final result.
+
+An example of this process for $13 \div 3$ using 8-bit registers is shown in Table~\ref{tab:serial_div}.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{c c c c l}
+\hline
+\textbf{Cycle} & \textbf{Remainder} & \textbf{Dividend} & \textbf{Quotient} & \textbf{Action} \\
+\hline
+Init & 00000000 & 00001101 & 00000000 & Load \\
+1 & 00000000 & 00011010 & 00000000 & $0<3$, Q=0 \\
+2 & 00000000 & 00110100 & 00000000 & $0<3$, Q=0 \\
+3 & 00000001 & 01101000 & 00000000 & $1<3$, Q=0 \\
+4 & 00000011 & 11010000 & 00000000 & $3\ge3$, Q=1 \\
+5 & 00000001 & 10100000 & 00000001 & Subtract, $1<3$ \\
+6 & 00000010 & 01000000 & 00000010 & $2<3$, Q=0 \\
+7 & 00000101 & 10000000 & 00000100 & $5\ge3$, Q=1 \\
+8 & 00000001 & 00000000 & 00000100 & Done: 4 r 1 \\
+\hline
+\end{tabular}
+\caption{Serial binary division of $13 \div 3$ using an 8-bit shift--subtract algorithm}
+\label{tab:serial_div}
+\end{table}
+
+\begin{large}
+    IMAGE SHOWING THE DIVSUB BLOCK DIAGRAM WITH THE SERIAL DIVIDER HERE.
+\end{large}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+    block/.style={draw, rectangle, minimum width=3.8cm, minimum height=1.4cm, align=center},
+    arrow/.style={->, thick},
+    node distance=1.4cm
+]
+
+% Top: subtraction block
+\node[block] (sub) {fp\_sub};
+
+\node[left=1.5cm of sub] (ain1) {$a_{in}$};
+\node[below=0.6cm of ain1] (bin) {$b_{in}$};
+\node[below=0.6cm of bin] (yin) {$y_{in}$};
+
+\node[right=1.7cm of sub] (bmy) {$b - y$};
+
+% Divider block
+\node[block, below=2cm of bmy] (div) {Multi-stage Divider\\(32 cycles)};
+
+\node[left=1.7cm of div] (ain2) {$a_{in}$};
+\node[right=1.7cm of div] (xout) {$x_{out}$};
+
+% FIFO and FSM
+\node[block, below=2cm of div] (fifo) {FIFO Buffer};
+\node[left=1.7cm of fifo] (validin) {$valid_{in}$};
+
+\node[block, below=1.7cm of fifo] (fsm) {FSM Control};
+
+% Connections: subtraction
+\draw[arrow] (ain1.east) -- (sub.west);
+\draw[arrow] (bin.east) -- (sub.west);
+\draw[arrow] (yin.east) -- (sub.west);
+\draw[arrow] (sub.east) -- (bmy.west);
+
+% b-y to divider (vertical)
+\draw[arrow] (bmy.south) -- ++(0,-1.2) -- (div.north);
+
+% Divider inputs/outputs
+\draw[arrow] (ain2.east) -- (div.west);
+\draw[arrow] (div.east) -- (xout.west);
+
+% FIFO and control path
+\draw[arrow] (validin.east) -- (fifo.west);
+\draw[arrow] (fifo.north) -- ++(0,1.2) -| (div.south);
+\draw[arrow] (fsm.north) -- (fifo.south);
+
+\end{tikzpicture}
+\caption{DIVSUB block with pipelined subtraction, multi-cycle division, and control logic. The subtraction computes $b-y$, which is divided by $a_{in}$ using a 32\-cycle sequential divider. Valid signals are buffered and controlled by an FSM.}
+\end{figure}
+
+{$fp\_sub$}: Computes ${\left(b-y\right)}$ in one cycle
+
+Multi-stage Divider: Sequential division over WIDTH cycles
+
+FIFO Buffer: Stores incoming data while division completes
+
+FSM Control: Orchestrates dataflow and valid signals
+
+New data may arrive every clock cycle, but division takes $32+$ cycles. The FIFO buffers incoming operands so they aren't lost while a division is in progress.
+
+\textbf{Results and Discussion}
+
+Subtraction Phase (Cycle 1):
+
+$valid_in$ asserts with inputs\\
+$(b-y)$ computed immediately\\
+FSM transitions from IDLE to DIVIDING\\
+
+Division Phase (Cycles 2\-33):
+
+Internal counter increments each cycle (visible if exposed)\\
+Remainder and quotient registers update progressively\\
+FSM remains in DIVIDING state
+
+Output Phase (Cycle 34):
+
+Division complete, $valid_out$ asserts\\
+$x_out$ contains correct quotient\\
+FSM returns to IDLE (or processes next FIFO entry)\\
+
+This can be seen in the waveform below, where $valid_out$ goes high $34$ cycles after $valid_in$, and $x_out$ holds the correct result.
+
+\begin{large}
+    IMAGE SHOWING THE ANNOTATED WAVEFORM OF THE PIPELINED DIVSUB HERE.
+\end{large}
+
+For further reference, the synthesis and implementation timing reports confirm that the pipelined design meets timing constraints, with a positive WNS indicating successful timing closure.
+
+\begin{large}
+    IMAGE SHOWING THE TIMING REPORT OF THE PIPELINED DIVSUB POST SYNTH HERE.
+\end{large}
+
+\begin{large}
+    IMAGE SHOWING THE TIMING REPORT OF THE PIPELINED DIVSUB POST IMP HERE.
+\end{large}
+
+The power reports show the dynamic and static power consumption of the pipelined DIVSUB design, which may be higher than the combinational design due to increased register usage but is offset by improved timing performance.
+
+\begin{large}
+    IMAGE SHOWING THE POWER REPORT OF THE PIPELINED DIVSUB HERE POST SYNTH.
+\end{large} 
+
+\begin{large}
+    IMAGE SHOWING THE POWER REPORT OF THE PIPELINED DIVSUB HERE POST IMP.
+\end{large}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{l c l}
+\hline
+\textbf{Register} & \textbf{Width} & \textbf{Purpose} \\
+\hline
+Dividend  & 32 bits & Holds the numerator and shifts left each cycle \\
+Divisor   & 32 bits & Holds the denominator and remains constant during division \\
+Remainder & 33 bits & Accumulates partial results during the shift--subtract process \\
+Quotient  & 32 bits & Builds the final result one bit at a time \\
+Counter   & 5--6 bits & Tracks division progress from cycle 0 to 31 \\
+\hline
+\end{tabular}
+\caption{Purpose and width of key registers used in the sequential divider}
+\end{table}
+
+\textbf{Timing and Understanding}
+
+The tables below compare multiplication and division on FPGAs, highlighting the fundamental differences in their hardware implementations and performance characteristics.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{l c c}
+\hline
+\textbf{Aspect} & \textbf{Multiplication} & \textbf{Division} \\
+\hline
+FPGA Primitive & DSP48E1 (dedicated) & None \\
+Algorithm & Parallel array & Sequential shift--subtract \\
+Single-cycle operation & Yes (via DSP) & No (excessive logic depth) \\
+Typical latency & 1--4 cycles & \texttt{WIDTH} cycles \\
+\hline
+\end{tabular}
+\caption{Comparison of multiplication and division hardware on an FPGA}
+\end{table}
+
+Multiplication has a regular and highly parallelisable structure, allowing partial products to be computed and summed simultaneously. This maps efficiently to dedicated DSP48E1 hardware blocks. In contrast, division is inherently sequential, as each quotient bit depends on the previous remainder, making it unsuitable for single-cycle implementation in general-purpose logic.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{l c c}
+\hline
+\textbf{Metric} & \textbf{IPSP (Pipelined)} & \textbf{DIVSUB (Multi-cycle)} \\
+\hline
+Operation & $a \times x + y$ & $\dfrac{b - y}{a}$ \\
+Latency & 4 cycles & $\sim$33 cycles \\
+Throughput & 1 per cycle & 1 per $\sim$33 cycles \\
+Hardware & DSP48E1 & LUTs only \\
+\hline
+\end{tabular}
+\caption{Comparison of IPSP and DIVSUB implementations}
+\end{table}
+
+This asymmetry explains why systolic arrays place the \texttt{DIVSUB} block at the array boundary, where fewer elements are processed, while IPSP units populate the main array to maximise throughput.
+
+This was shown in the timing reports for both designs, where the pipelined IPSP meets timing with a positive WNS, while the multi-cycle DIVSUB also meets timing due to its sequential nature, albeit with higher latency.
+
+\begin{itemize}
+    \item No dedicated division hardware: Unlike DSP48E1 for multiplication, FPGAs have no division primitive
+    \item Sequential algorithm required: Division inherently requires iterating through bits — this cannot be parallelised like multiplication
+    \item Multi-cycle is the only practical approach: The choice is between impossibly slow single-cycle or practical multi-cycle
+    \item Latency vs throughput trade-off: Multi-cycle has high latency but reasonable throughput with pipelining/buffering
+    \item System-level impact: The controller (Lab 6) must account for DIVSUB's long latency when scheduling data flow
+\end{itemize}
+
+\subsection{Task 6, Full Systolic Array Implementation}
+
+The term \emph{systolic} is inspired by the rhythmic pumping of the heart. In a systolic array, data flows through processing elements in a regular, clocked manner. Each processing element performs a simple local operation and passes intermediate results to its neighbours, while all elements operate in lockstep under a global clock. Complex computations therefore emerge from the coordinated operation of many simple units.
+
+Systolic arrays are well suited to solving linear systems of the form
+\begin{equation}
+A x = b,
+\end{equation}
+particularly when $A$ is triangular and back-substitution can be applied. For a lower triangular system,
+\begin{equation}
+\begin{bmatrix}
+a_{11} & 0 & 0 \\
+a_{21} & a_{22} & 0 \\
+a_{31} & a_{32} & a_{33}
+\end{bmatrix}
+\begin{bmatrix}
+x_1 \\ x_2 \\ x_3
+\end{bmatrix}
+=
+\begin{bmatrix}
+b_1 \\ b_2 \\ b_3
+\end{bmatrix},
+\end{equation}
+the solution is computed sequentially.
+
+The first variable is obtained directly using a division:
+\begin{equation}
+x_1 = \frac{b_1}{a_{11}},
+\end{equation}
+which corresponds to a \texttt{DIVSUB} operation at the boundary of the array.
+
+The second variable reuses the previously computed result. An IPSP multiplies and accumulates the partial product $a_{21}x_1$, and the result is then divided:
+\begin{equation}
+x_2 = \frac{b_2 - a_{21}x_1}{a_{22}}.
+\end{equation}
+
+Similarly, the third variable is computed by accumulating multiple partial products across IPSPs before a final division:
+\begin{equation}
+x_3 = \frac{b_3 - a_{31}x_1 - a_{32}x_2}{a_{33}}.
+\end{equation}
+
+As an example, consider the system
+\[
+a_{11}=2,\; a_{21}=1,\; a_{22}=3,\; a_{31}=1,\; a_{32}=2,\; a_{33}=4,\;
+b_1=8,\; b_2=13,\; b_3=20.
+\]
+The systolic array computes
+\[
+x_1 = \frac{8}{2} = 4,
+\]
+then
+\[
+x_2 = \frac{13 - 1\cdot 4}{3} = 3,
+\]
+and finally
+\[
+x_3 = \frac{20 - 1\cdot 4 - 2\cdot 3}{4} = 2.5.
+\]
+
+In this way, IPSPs form the main array to perform high-throughput multiply--accumulate operations, while the multi-cycle \texttt{DIVSUB} blocks handle division at the array boundary, where fewer operations are required.
+
+\begin{itemize}
+    \item A coefficients: Left-to-right along top
+    \item x values: Left-to-right between cells (solution vector)
+    \item y values: Right-to-left along bottom (partial sums)
+    \item b vector: Enters DIVSUB from below
+\end{itemize}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+    block/.style={draw, rectangle, minimum width=3.6cm, minimum height=2.4cm, align=center},
+    arrow/.style={->, thick},
+    node distance=2cm
+]
+
+% Blocks
+\node[block] (divsub) {DIVSUB\\[4pt]
+$(b-y)/a$};
+
+\node[block, right=4.5cm of divsub] (ipsp1) {IPSP\\[4pt]
+$ax + y$};
+
+\node[block, right=4.5cm of ipsp1] (ipsp2) {IPSP\\[4pt]
+$ax + y$};
+
+% External signals
+\node[left=2.5cm of divsub] (b) {$b$};
+\node[below=1.6cm of divsub] (btilde) {$\tilde{b}$};
+
+\node[right=2.5cm of ipsp2] (xtilde) {$\tilde{x}$};
+
+% Top A-matrix coefficients
+\node[above=2.8cm of ipsp1] (acoef) {A matrix coefficients};
+
+% Connections: main datapath (x)
+\draw[arrow] (divsub.east) -- node[above] {$x$} (ipsp1.west);
+\draw[arrow] (ipsp1.east) -- node[above] {$x$} (ipsp2.west);
+\draw[arrow] (ipsp2.east) -- (xtilde.west);
+
+% b input
+\draw[arrow] (b.east) -- (divsub.west);
+
+% y feedback paths (horizontal + vertical only)
+\draw[arrow] (ipsp1.west) -- ++(-0.8,0) |- (divsub.east);
+\draw[arrow] (ipsp2.west) -- ++(-0.8,0) |- (ipsp1.east);
+
+% Zero injection to last IPSP
+\node[below=1.2cm of ipsp2] (zero) {$0$};
+\draw[arrow] (zero.north) -- (ipsp2.south);
+
+% b-tilde input
+\draw[arrow] (btilde.north) -- (divsub.south);
+
+% A-matrix coefficient distribution
+\draw[arrow] (acoef.south) -- ++(0,-0.8) -| (divsub.north);
+\draw[arrow] (acoef.south) -- ++(0,-0.8) -| (ipsp1.north);
+\draw[arrow] (acoef.south) -- ++(0,-0.8) -| (ipsp2.north);
+
+% Caption text
+\node[below=3.2cm of ipsp1] (note) {Registers on inputs (systolic timing)};
+
+\end{tikzpicture}
+\caption{Full systolic array architecture showing the DIVSUB boundary element and chained IPSPs. All data and coefficients propagate synchronously using registered inputs.}
+\end{figure}
+
+\textbf{Results and Discussion}
+
+The behavioural simulation waveform confirms that the systolic array correctly computes the solution vector $x$ over multiple clock cycles, with each IPSP and DIVSUB operating in synchrony.
+
+The synthesis and implementation timing reports indicate that the full systolic array meets timing constraints, with a positive WNS demonstrating successful timing closure across the entire design.
+
+\begin{large}
+    IMAGE SHOWING THE ANNOTATED WAVEFORM OF THE FULL SYSTOLIC ARRAY HERE.
+\end{large}
+
+\begin{large}
+    IMAGE SHOWING THE TIMING REPORT OF THE FULL SYSTOLIC ARRAY POST SYNTH HERE.
+\end{large}
+
+\begin{large}
+    IMAGE SHOWING THE TIMING REPORT OF THE FULL SYSTOLIC ARRAY POST IMP HERE.
+\end{large}
+
+\begin{large}
+    IMAGE SHOWING THE POWER REPORT OF THE FULL SYSTOLIC ARRAY HERE POST SYNTH.
+\end{large}
+
+\begin{large}
+    IMAGE SHOWING THE POWER REPORT OF THE FULL SYSTOLIC ARRAY HERE POST IMP.
+\end{large}
+
+\begin{large}
+    IMAGE SHOWING THE UTILISATION REPORT OF THE FULL SYSTOLIC ARRAY HERE.
+\end{large}
+
+\begin{large}
+    IMAGE SHOWING THE CRITICAL PATH OF THE FULL SYSTOLIC ARRAY HERE.
+\end{large}
+
 \section{Asynchronous Circuit Modelling with Workcraft \- (Labs 7 \& 8)}
 
 \subsection{Lab 7 - C-Element Modelling and Design}
@@ -911,8 +1576,6 @@ Each signal event (rising transition denoted '+' or falling transition denoted '
 Places between transitions hold tokens representing the current state, and arcs define causality - which events must occur before others can fire.
 
 \textbf{part 1, C-Element STG construction}
-
-
 
 \textbf{Part 1, Results and Discussion}
 
