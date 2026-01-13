@@ -876,9 +876,184 @@ The \texttt{PULSE} source generates a $0-5V$ square wave with $5ns$ rise/fall ti
     \label{fig:OGTransientAnalysisLog}
 \end{figure}
 
+\textbf{Question 2, RC Model Delay}
+
+MOS transistors can be modelled as ideal switches with a finite on-resistance:
+\[
+R_{\text{on}} \approx \frac{V_{DD}}{I_{D,\text{avg}}}
+\]
+
+When operating in saturation, the drain current is given by:
+\[
+I_{D,\text{sat}} = \frac{K_P}{2}\frac{W}{L}\left(V_{GS} - V_{th}\right)^2
+\]
+
+The switching behaviour is dominated by the RC time constant formed by the on-resistance and load capacitance:
+\[
+\tau = R_{\text{on}} C_L
+\]
+
+The rise and fall times are approximately related to the time constant by:
+\[
+t_{\text{rise/fall}} \approx 2.2\tau
+\]
+
+\textbf{Results and Discussion}
+
+\[
+I_{D,\text{sat}} = \frac{200\mu}{2} \times 10 \times (5 - 0.4)^2 = 21.16~\text{mA}
+\]
+
+\[
+R_{\text{NMOS}} \approx \frac{5~\text{V}}{I_{D,\text{sat}}/2}
+= \frac{5}{21.16~\text{mA}/2}
+= 473~\Omega
+\]
+
+\[
+I_{D,\text{sat}} = \frac{80\mu}{2} \times 20 \times (5 - 0.4)^2 = 16.93~\text{mA}
+\]
+
+\[
+R_{\text{PMOS}} \approx \frac{5~\text{V}}{I_{D,\text{sat}}/2}
+= \frac{5}{16.93~\text{mA}/2}
+= 591~\Omega
+\]
+
+\[
+t_{\text{fall}} = 2.2 \times R_{\text{NMOS}} \times C_L
+= 2.2 \times 473 \times 10~\text{pF}
+= 10.4~\text{ns}
+\]
+
+\[
+t_{\text{rise}} = 2.2 \times R_{\text{PMOS}} \times C_L
+= 2.2 \times 591 \times 10~\text{pF}
+= 13.0~\text{ns}
+\]
+
+In reality, the measured rise and fall times from the simulation are actually much faster, showing that the inverter actually meets the design specifications. This discrepancy arises because the simplified RC model neglects the nonlinear behaviour of the transistors, which can provide lower effective resistance during switching.
+
+This can be seen from the two figures below, which show the annotated waveforms for rise and fall times and the log file.
+
+\begin{large}
+    IMAGE SHOWING THE ANNOTATED WAVEFORM OF RISE AND FALL TIMES HERE.
+\end{large}
+
+\begin{large}
+    IMAGE SHOWING THE TRANSIENT ANALYSIS LOG OUTPUT HERE.
+\end{large}
+
+\textbf{Question 3, Design Optimisation and Testing}
+
+The original design meets all timing specifications. However, to further optimise performance, we can adjust the transistor sizes.
+By increasing the NMOS width to $W_{NMOS} = 15\,\mu\text{m}$ and the PMOS width to $W_{PMOS} = 30\,\mu\text{m}$, we can reduce the on-resistances, thereby decreasing rise and fall times. This also allows for symmetric switching characteristics and delays.
+
+The netlist can be seen here: LINK TO GITHUB
+
+\begin{large}
+    IMAGE SHOWING THE ANNOTATED WAVEFORM OF THE OPTIMISED RISE AND FALL TIMES HERE.
+\end{large}
+
+The log file also shows that the optimised design meets all timing specifications with improved margins (nearly 1ns faster for $t_rise$).
+
+\textbf{Asymmetric Ratio Test}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{l c c}
+\hline
+\textbf{Parameter} & \textbf{Value} & \textbf{Change} \\
+\hline
+$W_{\text{NMOS}}$ & $15~\mu$m & $+50\%$ \\
+$W_{\text{PMOS}}$ & $37.5~\mu$m & $+87.5\%$ \\
+Ratio $(W_P/W_N)$ & $2.5$ & Optimal \\
+\hline
+\end{tabular}
+\caption{Variant 2 transistor sizing for faster switching}
+\end{table}
+
+The same width ratio of $2.5$ is retained to maintain symmetric rise and fall times. Increasing transistor widths further reduces the on-resistance, leading to faster switching at the expense of increased silicon area.
+
+\[
+R_{\text{NMOS}} = \frac{1}{200\mu \times 15 \times 4.6}
+= 72~\Omega
+\]
+
+\[
+R_{\text{PMOS}} = \frac{1}{80\mu \times 37.5 \times 4.6}
+= 72~\Omega
+\]
+
+\begin{large}
+    IMAGE SHOWING THE ANNOTATED WAVEFORM OF THE ASYMMETRIC RISE AND FALL TIMES HERE.
+\end{large}
+
+Also, we can see that there is an increase in times (0.8ns for rise and 0.4 ns for fall) due to the larger capacitance associated with wider transistors, which slightly offsets the benefits of reduced resistance.
+
+Further evidence can be seen in the log file below.
+
+\begin{large}
+    IMAGE SHOWING THE TRANSIENT ANALYSIS LOG OUTPUT OF THE ASYMMETRIC TEST HERE.
+\end{large}
+
+For further testing, one could explore the output after doubling the capacitance or halving the width, to verify the rules of proportionality.
+
+The output waveforms and log files for these tests can be found here: LINK TO GITHUB
+
+\textbf{Question 4, Qualitative Analysis}
+
+\paragraph{Procedure and Theory}
+The delay of a CMOS inverter is governed by the RC time constant of the conducting transistor and the load capacitance. Hence,
+\[
+t \propto R_{on} \times C_L
+\]
+and since the on-resistance depends inversely on the process transconductance parameter and device width,
+\[
+R_{on} \propto \frac{1}{K_P \cdot W},
+\qquad
+t \propto \frac{C_L}{K_P \cdot W}.
+\]
+This shows that increasing transistor width or carrier mobility reduces delay, while increasing load capacitance increases delay.
+
+\paragraph{Results and Discussion}
+\textbf{Q4a: Why does the NMOS produce a faster fall time than the PMOS rise time?}
+
+Electron mobility $\mu_n$ is approximately $2.5$ times greater than hole mobility $\mu_p$. Since $K_P = \mu C_{ox}$, this results in
+\[
+K_{P,n} = 200~\mu\text{A/V}^2, 
+\qquad
+K_{P,p} = 80~\mu\text{A/V}^2.
+\]
+The lower $K_P$ of the PMOS leads to a higher on-resistance compared to the NMOS for equal widths. Consequently, charging the load capacitance (rise time) is slower than discharging it (fall time), giving a longer $t_{PLH}$ than $t_{PHL}$ in an unbalanced design.
+
+\textbf{Q4b: What happens if $W_{NMOS}$ and $W_{PMOS}$ are halved?}
+
+Since $R_{on} \propto 1/W$, halving the transistor widths doubles the on-resistance. In theory, this results in approximately doubled delays:
+\[
+t_{rise}: \sim 13~\text{ns} \rightarrow \sim 26~\text{ns},
+\qquad
+t_{fall}: \sim 10~\text{ns} \rightarrow \sim 20~\text{ns}.
+\]
+These values would violate the timing specification. However, it should be noted that the implemented designs were sized to meet the specification, and this degradation is a theoretical consequence of width reduction rather than an observed failure in the final designs.
+
+\textbf{Q4c: What happens if the load capacitance doubles to $20$~pF?}
+
+From $\tau = RC$, doubling $C_L$ directly doubles the delay. In theory,
+\[
+t_{rise}: \sim 13~\text{ns} \rightarrow \sim 26~\text{ns},
+\qquad
+t_{fall}: \sim 10~\text{ns} \rightarrow \sim 21~\text{ns}.
+\]
+Again, while this illustrates the sensitivity of delay to load capacitance, both the original and optimised designs were verified to meet the specification under the intended loading conditions.
+
+\textbf{Q4d: Why is symmetric $t_{PHL}$ and $t_{PLH}$ important?}
+
+Symmetric rise and fall delays preserve signal duty cycle, which is particularly important for clocked systems. Predictable and balanced delays improve timing margins by ensuring consistent setup and hold times, and prevent cumulative distortion when signals propagate through cascaded logic stages. Additionally, symmetric transitions reduce short-circuit power by minimising overlap between NMOS and PMOS conduction during switching.
+
 \section{FPGA Design Labs \- (Labs 4, 5 \& 6)}
 
-\section{Lab 4, IPSP (Single-Cycle and Pipelined)}
+\subsection{Lab 4, IPSP (Single-Cycle and Pipelined)}
 
 \textbf{Theory and Procedure}
 
@@ -1454,29 +1629,29 @@ In this way, IPSPs form the main array to perform high-throughput multiply--accu
 \begin{figure}[h]
 \centering
 \begin{tikzpicture}[
-    block/.style={draw, rectangle, minimum width=3.6cm, minimum height=2.4cm, align=center},
+    block/.style={draw, rectangle, minimum width=2.6cm, minimum height=2.4cm, align=center},
     arrow/.style={->, thick},
-    node distance=2cm
+    node distance=1.5cm
 ]
 
 % Blocks
 \node[block] (divsub) {DIVSUB\\[4pt]
 $(b-y)/a$};
 
-\node[block, right=4.5cm of divsub] (ipsp1) {IPSP\\[4pt]
+\node[block, right=2.2cm of divsub] (ipsp1) {IPSP\\[4pt]
 $ax + y$};
 
-\node[block, right=4.5cm of ipsp1] (ipsp2) {IPSP\\[4pt]
+\node[block, right=2.2cm of ipsp1] (ipsp2) {IPSP\\[4pt]
 $ax + y$};
 
 % External signals
-\node[left=2.5cm of divsub] (b) {$b$};
-\node[below=1.6cm of divsub] (btilde) {$\tilde{b}$};
+\node[left=1.5cm of divsub] (b) {$b$};
+\node[below=1.1cm of divsub] (btilde) {$\tilde{b}$};
 
-\node[right=2.5cm of ipsp2] (xtilde) {$\tilde{x}$};
+\node[right=1.5cm of ipsp2] (xtilde) {$\tilde{x}$};
 
 % Top A-matrix coefficients
-\node[above=2.8cm of ipsp1] (acoef) {A matrix coefficients};
+\node[above=1.5cm of ipsp1] (acoef) {A matrix coefficients};
 
 % Connections: main datapath (x)
 \draw[arrow] (divsub.east) -- node[above] {$x$} (ipsp1.west);
@@ -1503,11 +1678,42 @@ $ax + y$};
 \draw[arrow] (acoef.south) -- ++(0,-0.8) -| (ipsp2.north);
 
 % Caption text
-\node[below=3.2cm of ipsp1] (note) {Registers on inputs (systolic timing)};
+\node[below=2.2cm of ipsp1] (note) {Registers on inputs (systolic timing)};
 
 \end{tikzpicture}
 \caption{Full systolic array architecture showing the DIVSUB boundary element and chained IPSPs. All data and coefficients propagate synchronously using registered inputs.}
 \end{figure}
+
+\begin{table}[h!]
+\centering
+\caption{Key Inter-Block Signals in the Systolic Architecture}
+\begin{tabular}{p{3.5cm} p{3.5cm} p{2.7cm} p{3.5cm}}
+\hline
+\textbf{Signal} & \textbf{Source} & \textbf{Destination} & \textbf{Purpose} \\
+\hline
+\texttt{divsub\_x\_out} &
+DIVSUB.\texttt{x\_out} &
+IPSP.\texttt{x\_in} &
+Propagates the computed solution value into the multiply--accumulate stage \\
+\hline
+\texttt{divsub\_valid\_out} &
+DIVSUB.\texttt{valid\_out} &
+Controller &
+Indicates completion of the multi-cycle division operation \\
+\hline
+\texttt{ipsp\_y\_out} &
+IPSP.\texttt{y\_out} &
+Output / Feedback Path &
+Carries the accumulated result for output or feedback into subsequent iterations \\
+\hline
+Controller control signals &
+Controller &
+DIVSUB and IPSP blocks &
+Coordinates operation sequencing and enforces systolic timing \\
+\hline
+\end{tabular}
+\end{table}
+
 
 \textbf{Results and Discussion}
 
