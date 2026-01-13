@@ -940,6 +940,14 @@ This can be seen from the two figures below, which show the annotated waveforms 
     IMAGE SHOWING THE ANNOTATED WAVEFORM OF RISE AND FALL TIMES HERE.
 \end{large}
 
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.3]{}
+    \caption{NMOS I-V Characteristics for various $V_{GS}$ values.}
+    \label{fig:nmos_iv_curve}
+\end{figure}
+
+
 \begin{large}
     IMAGE SHOWING THE TRANSIENT ANALYSIS LOG OUTPUT HERE.
 \end{large}
@@ -1456,19 +1464,19 @@ $valid_in$ asserts with inputs\\
 $(b-y)$ computed immediately\\
 FSM transitions from IDLE to DIVIDING\\
 
-Division Phase (Cycles 2\-33):
+Division Phase (Cycles 2\-47):
 
 Internal counter increments each cycle (visible if exposed)\\
 Remainder and quotient registers update progressively\\
 FSM remains in DIVIDING state
 
-Output Phase (Cycle 34):
+Output Phase (Cycle 48):
 
 Division complete, $valid_out$ asserts\\
 $x_out$ contains correct quotient\\
 FSM returns to IDLE (or processes next FIFO entry)\\
 
-This can be seen in the waveform below, where $valid_out$ goes high $34$ cycles after $valid_in$, and $x_out$ holds the correct result.
+This can be seen in the waveform below, where $valid_out$ goes high $48$ cycles after $valid_in$, and $x_out$ holds the correct result.
 
 \begin{large}
     IMAGE SHOWING THE ANNOTATED WAVEFORM OF THE PIPELINED DIVSUB HERE.
@@ -1538,8 +1546,8 @@ Multiplication has a regular and highly parallelisable structure, allowing parti
 \textbf{Metric} & \textbf{IPSP (Pipelined)} & \textbf{DIVSUB (Multi-cycle)} \\
 \hline
 Operation & $a \times x + y$ & $\dfrac{b - y}{a}$ \\
-Latency & 4 cycles & $\sim$33 cycles \\
-Throughput & 1 per cycle & 1 per $\sim$33 cycles \\
+Latency & 4 cycles & $\sim$47 cycles \\
+Throughput & 1 per cycle & 1 per $\sim$47 cycles \\
 Hardware & DSP48E1 & LUTs only \\
 \hline
 \end{tabular}
@@ -1548,13 +1556,13 @@ Hardware & DSP48E1 & LUTs only \\
 
 This asymmetry explains why systolic arrays place the \texttt{DIVSUB} block at the array boundary, where fewer elements are processed, while IPSP units populate the main array to maximise throughput.
 
-This was shown in the timing reports for both designs, where the pipelined IPSP meets timing with a positive WNS, while the multi-cycle DIVSUB also meets timing due to its sequential nature, albeit with higher latency.
+This was shown in the timing reports for both designs, where the pipelined IPSP meets timing with a positive WNS, while the multi\-cycle DIVSUB also meets timing due to its sequential nature, albeit with higher latency.
 
 \begin{itemize}
     \item No dedicated division hardware: Unlike DSP48E1 for multiplication, FPGAs have no division primitive
     \item Sequential algorithm required: Division inherently requires iterating through bits — this cannot be parallelised like multiplication
     \item Multi-cycle is the only practical approach: The choice is between impossibly slow single-cycle or practical multi-cycle
-    \item Latency vs throughput trade-off: Multi-cycle has high latency but reasonable throughput with pipelining/buffering
+    \item Latency vs throughput trade\-off: Multi\-cycle has high latency but reasonable throughput with pipelining/buffering
     \item System-level impact: The controller (Lab 6) must account for DIVSUB's long latency when scheduling data flow
 \end{itemize}
 
@@ -2217,18 +2225,6 @@ To perform synthesis, the CSC-resolved STG was used and processed via \texttt{Sy
 Formal verification was then applied to ensure correctness of the synthesised circuit. The environment property was set to the original specification \texttt{vme-read\_write.stg.work}, rather than the CSC-resolved model. Conformation, deadlock freeness, and output persistency were verified using MPSat, either individually or using the combined verification option with unfolding reuse.
 
 \textbf{Part 5, Results and Discussion}
-
-\textbf{Results \& Discussion}
-
-Screenshots of the synthesised circuit and the verification results are included. All verification checks pass.
-
-Inspection of the circuit shows the logic implementing each output signal (\texttt{lds}, \texttt{dtack}, and \texttt{d}), as well as the internal signal \texttt{csc0} introduced during CSC resolution. Feedback paths are visible in the circuit, where outputs feed back into gate inputs, providing the memory required to store state.
-
-Verification is performed against the original STG rather than the CSC-resolved model because the original STG represents the behavioural contract with the environment. CSC resolution only introduces internal implementation details. Verifying against the original specification ensures that the synthesised circuit preserves the intended external behaviour, independent of how internal state is encoded.
-
-Each verification check addresses a different correctness aspect. Conformation ensures that the circuit produces correct outputs for all legal input sequences defined by the STG. Deadlock freeness guarantees that the circuit can always make progress and never becomes stuck waiting indefinitely. Output persistency ensures hazard-free behaviour, meaning that once an output is enabled it completes its transition without glitches.
-
-\textbf{Results \& Discussion}
 
 Screenshots of the synthesised circuit and the verification results are included. All verification checks pass.
 
