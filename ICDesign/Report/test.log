@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.10.7)  21 JAN 2026 13:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.10.7)  22 JAN 2026 13:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/sahast/CodingProjects/EEE3027_Project/ICDesign/Report/finalReport.tex
-(/home/sahast/CodingProjects/EEE3027_Project/ICDesign/Report/finalReport.tex
+**/home/sahast/CodingProjects/EEE3027_Project/ICDesign/Report/test.tex
+(/home/sahast/CodingProjects/EEE3027_Project/ICDesign/Report/test.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -1155,7 +1155,7 @@ Package: fontawesome5-generic-helper 2022/05/02 v5.15.4 non-uTeX helper for font
 Package translations Info: No language package found. I am going to use `english' as default language. on input line 5.
 \@quotelevel=\count513
 \@quotereset=\count514
- (./finalReport.aux
+ (./test.aux
 
 LaTeX Warning: Label `lst:beta_sweep' multiply defined.
 
@@ -1166,13 +1166,10 @@ LaTeX Warning: Label `lst:pulldown' multiply defined.
 LaTeX Warning: Label `fig:CMOS_varTwo_log' multiply defined.
 
 
-LaTeX Warning: Label `fig:CMOS_varTwo_log' multiply defined.
-
-
 LaTeX Warning: Label `fig:VME_CSC_Conflict' multiply defined.
 
 )
-\openout1 = `finalReport.aux'.
+\openout1 = `test.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
 LaTeX Font Info:    ... okay on input line 5.
@@ -1260,901 +1257,661 @@ File: english.lbx 2023/03/05 v3.19 biblatex localization (PK/MW)
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
-\openout4 = `finalReport.bcf'.
+\openout4 = `test.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'finalReport.bbl' not found.
+Package biblatex Info: ... file 'test.bbl' not found.
 
-No file finalReport.bbl.
+No file test.bbl.
 Package biblatex Info: Reference section=0 on input line 5.
 Package biblatex Info: Reference segment=0 on input line 5.
 Package hyperref Info: Link coloring ON on input line 5.
-(./finalReport.out) (./finalReport.out)
+(./test.out) (./test.out)
 \@outlinefile=\write5
-\openout5 = `finalReport.out'.
+\openout5 = `test.out'.
 
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./finalReport.toc
-LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./test.toc
+LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ))
 \tf@toc=\write6
-\openout6 = `finalReport.toc'.
+\openout6 = `test.toc'.
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.21 \newpage
-              [1] [2] [3{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 98.
+              [1] [2{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 101.
 
-Overfull \hbox (4.66489pt too wide) in paragraph at lines 130--132
+Overfull \hbox (4.66489pt too wide) in paragraph at lines 133--135
 \OT1/cmr/m/n/12 transcon-duc-tance pa-ram-e-ter (KP), and channel-length mod-u-la-tion co-ef-fi-cient (LAMBDA). 
  []
 
-<../Images/1NMOSImage.png, id=115, 1282.7925pt x 899.36pt>
+[3]
+<../Images/1NMOSImage.png, id=145, 1282.7925pt x 899.36pt>
 File: ../Images/1NMOSImage.png Graphic file (type png)
 <use ../Images/1NMOSImage.png>
-Package pdftex.def Info: ../Images/1NMOSImage.png  used on input line 139.
+Package pdftex.def Info: ../Images/1NMOSImage.png  used on input line 142.
 (pdftex.def)             Requested size: 384.84071pt x 269.81007pt.
 
-Overfull \hbox (16.51495pt too wide) in paragraph at lines 144--145
+Overfull \hbox (16.51495pt too wide) in paragraph at lines 147--148
 []\OT1/cmr/m/n/12 The sim-u-la-tion pro-duces five curves cor-re-spond-ing to $\OML/cmm/m/it/12 VGS \OT1/cmr/m/n/12 = 0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 4\OML/cmm/m/it/12 V; \OT1/cmr/m/n/12 0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 6\OML/cmm/m/it/12 V; \OT1/cmr/m/n/12 0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 8\OML/cmm/m/it/12 V; \OT1/cmr/m/n/12 1\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 0\OML/cmm/m/it/12 V; and\OT1/cmr/m/n/12 1\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 2\OML/cmm/m/it/12 V$\OT1/cmr/m/n/12 . 
  []
 
-[4] [5 <../Images/1NMOSImage.png>]
-<../Images/1PMOSImage.png, id=163, 1974.37625pt x 1406.25375pt>
+[4 <../Images/1NMOSImage.png>] [5]
+<../Images/1PMOSImage.png, id=181, 1974.37625pt x 1406.25375pt>
 File: ../Images/1PMOSImage.png Graphic file (type png)
 <use ../Images/1PMOSImage.png>
-Package pdftex.def Info: ../Images/1PMOSImage.png  used on input line 242.
+Package pdftex.def Info: ../Images/1PMOSImage.png  used on input line 245.
 (pdftex.def)             Requested size: 355.37239pt x 253.11475pt.
- [6]
-Overfull \hbox (18.16595pt too wide) in paragraph at lines 247--249
+
+Overfull \hbox (18.16595pt too wide) in paragraph at lines 250--252
 []\OT1/cmr/m/n/12 From \OT1/cmr/bx/n/12 Fig-ure [][]3[][]\OT1/cmr/m/n/12 , we ob-serve five curves cor-re-spond-ing to $\OML/cmm/m/it/12 VGS \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 ^^@\OT1/cmr/m/n/12 0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 4\OML/cmm/m/it/12 V; \OMS/cmsy/m/n/12 ^^@\OT1/cmr/m/n/12 0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 6\OML/cmm/m/it/12 V; \OMS/cmsy/m/n/12 ^^@\OT1/cmr/m/n/12 0\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 8\OML/cmm/m/it/12 V; \OMS/cmsy/m/n/12 ^^@\OT1/cmr/m/n/12 1\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 0\OML/cmm/m/it/12 V;$
  []
 
-[7 <../Images/1PMOSImage.png>] [8] [9]
-<../Images/1BetaVerify.png, id=236, 1857.94125pt x 1321.93875pt>
+[6 <../Images/1PMOSImage.png>] [7] [8]
+
+Package Listings Warning: Text dropped after begin of listing on input line 410.
+
+[9]
+<../Images/1BetaVerify.png, id=254, 1857.94125pt x 1321.93875pt>
 File: ../Images/1BetaVerify.png Graphic file (type png)
 <use ../Images/1BetaVerify.png>
-Package pdftex.def Info: ../Images/1BetaVerify.png  used on input line 435.
+Package pdftex.def Info: ../Images/1BetaVerify.png  used on input line 438.
 (pdftex.def)             Requested size: 334.415pt x 237.9387pt.
- [10] [11 <../Images/1BetaVerify.png>]
-<../Images/1BetaDoubledL.png, id=282, 1822.81pt x 1292.83pt>
+ [10 <../Images/1BetaVerify.png>]
+<../Images/1BetaDoubledL.png, id=275, 1822.81pt x 1292.83pt>
 File: ../Images/1BetaDoubledL.png Graphic file (type png)
 <use ../Images/1BetaDoubledL.png>
-Package pdftex.def Info: ../Images/1BetaDoubledL.png  used on input line 500.
+Package pdftex.def Info: ../Images/1BetaDoubledL.png  used on input line 503.
 (pdftex.def)             Requested size: 328.09164pt x 232.69936pt.
- [12 <../Images/1BetaDoubledL.png>] [13]
-<../Images/Task4NRI.png, id=309, 735.74875pt x 672.5125pt>
-File: ../Images/Task4NRI.png Graphic file (type png)
-<use ../Images/Task4NRI.png>
-Package pdftex.def Info: ../Images/Task4NRI.png  used on input line 599.
-(pdftex.def)             Requested size: 264.86934pt x 242.10431pt.
- [14]
-<../Images/newton_cobweb_diagram.png, id=320, 578.16pt x 433.62pt>
-File: ../Images/newton_cobweb_diagram.png Graphic file (type png)
-<use ../Images/newton_cobweb_diagram.png>
-Package pdftex.def Info: ../Images/newton_cobweb_diagram.png  used on input line 608.
-(pdftex.def)             Requested size: 277.51364pt x 208.13524pt.
- [15 <../Images/Task4NRI.png> <../Images/newton_cobweb_diagram.png>]
-<../Images/NewCircuit.png, id=329, 433.62pt x 286.82156pt>
-File: ../Images/NewCircuit.png Graphic file (type png)
-<use ../Images/NewCircuit.png>
-Package pdftex.def Info: ../Images/NewCircuit.png  used on input line 639.
-(pdftex.def)             Requested size: 338.22224pt x 223.71991pt.
- [16 <../Images/NewCircuit.png>]
+ [11] [12 <../Images/1BetaDoubledL.png>]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<../Images/2CMOSInverter.png, id=338, 1821.80624pt x 1294.8375pt>
+<../Images/Task4NRI.png, id=300, 735.74875pt x 672.5125pt>
+File: ../Images/Task4NRI.png Graphic file (type png)
+<use ../Images/Task4NRI.png>
+Package pdftex.def Info: ../Images/Task4NRI.png  used on input line 602.
+(pdftex.def)             Requested size: 264.86934pt x 242.10431pt.
+[13]
+<../Images/newton_cobweb_diagram.png, id=316, 578.16pt x 433.62pt>
+File: ../Images/newton_cobweb_diagram.png Graphic file (type png)
+<use ../Images/newton_cobweb_diagram.png>
+Package pdftex.def Info: ../Images/newton_cobweb_diagram.png  used on input line 611.
+(pdftex.def)             Requested size: 277.51364pt x 208.13524pt.
+ [14 <../Images/Task4NRI.png>]
+<../Images/NewCircuit.png, id=325, 433.62pt x 286.82156pt>
+File: ../Images/NewCircuit.png Graphic file (type png)
+<use ../Images/NewCircuit.png>
+Package pdftex.def Info: ../Images/NewCircuit.png  used on input line 642.
+(pdftex.def)             Requested size: 338.22224pt x 223.71991pt.
+ [15 <../Images/newton_cobweb_diagram.png>] [16 <../Images/NewCircuit.png>]
+<../Images/2CMOSInverter.png, id=366, 1821.80624pt x 1294.8375pt>
 File: ../Images/2CMOSInverter.png Graphic file (type png)
 <use ../Images/2CMOSInverter.png>
-Package pdftex.def Info: ../Images/2CMOSInverter.png  used on input line 716.
+Package pdftex.def Info: ../Images/2CMOSInverter.png  used on input line 719.
 (pdftex.def)             Requested size: 437.24243pt x 310.76735pt.
-[17]
-<../Images/Point1.png, id=372, 609.27625pt x 418.56375pt>
+ [17]
+<../Images/Point1.png, id=376, 609.27625pt x 418.56375pt>
 File: ../Images/Point1.png Graphic file (type png)
 <use ../Images/Point1.png>
-Package pdftex.def Info: ../Images/Point1.png  used on input line 725.
+Package pdftex.def Info: ../Images/Point1.png  used on input line 728.
 (pdftex.def)             Requested size: 225.42868pt x 154.86615pt.
- [18 <../Images/2CMOSInverter.png>]
-<../Images/Point2.png, id=383, 609.27625pt x 418.56375pt>
+<../Images/Point2.png, id=377, 609.27625pt x 418.56375pt>
 File: ../Images/Point2.png Graphic file (type png)
 <use ../Images/Point2.png>
-Package pdftex.def Info: ../Images/Point2.png  used on input line 732.
+Package pdftex.def Info: ../Images/Point2.png  used on input line 735.
 (pdftex.def)             Requested size: 225.42868pt x 154.86615pt.
-<../Images/Point3.png, id=384, 607.26875pt x 418.56375pt>
+ [18 <../Images/2CMOSInverter.png> <../Images/Point1.png>]
+<../Images/Point3.png, id=388, 607.26875pt x 418.56375pt>
 File: ../Images/Point3.png Graphic file (type png)
 <use ../Images/Point3.png>
-Package pdftex.def Info: ../Images/Point3.png  used on input line 739.
+Package pdftex.def Info: ../Images/Point3.png  used on input line 742.
 (pdftex.def)             Requested size: 224.68591pt x 154.86615pt.
-<../Images/Point4.png, id=385, 609.27625pt x 414.54875pt>
+<../Images/Point4.png, id=389, 609.27625pt x 414.54875pt>
 File: ../Images/Point4.png Graphic file (type png)
 <use ../Images/Point4.png>
-Package pdftex.def Info: ../Images/Point4.png  used on input line 746.
+Package pdftex.def Info: ../Images/Point4.png  used on input line 749.
 (pdftex.def)             Requested size: 225.42868pt x 153.38063pt.
- [19 <../Images/Point1.png> <../Images/Point2.png> <../Images/Point3.png>]
-<../Images/Point5.png, id=397, 609.27625pt x 414.54875pt>
+<../Images/Point5.png, id=390, 609.27625pt x 414.54875pt>
 File: ../Images/Point5.png Graphic file (type png)
 <use ../Images/Point5.png>
-Package pdftex.def Info: ../Images/Point5.png  used on input line 753.
+Package pdftex.def Info: ../Images/Point5.png  used on input line 756.
 (pdftex.def)             Requested size: 225.42868pt x 153.38063pt.
-<../Images/HighlightedNMOSOnly.png, id=398, 1274.7625pt x 905.3825pt>
+ [19 <../Images/Point2.png> <../Images/Point3.png> <../Images/Point4.png>] [20 <../Images/Point5.png>]
+<../Images/HighlightedNMOSOnly.png, id=410, 1274.7625pt x 905.3825pt>
 File: ../Images/HighlightedNMOSOnly.png Graphic file (type png)
 <use ../Images/HighlightedNMOSOnly.png>
-Package pdftex.def Info: ../Images/HighlightedNMOSOnly.png  used on input line 782.
+Package pdftex.def Info: ../Images/HighlightedNMOSOnly.png  used on input line 787.
 (pdftex.def)             Requested size: 318.68985pt x 226.34506pt.
- [20 <../Images/Point4.png> <../Images/Point5.png>] [21 <../Images/HighlightedNMOSOnly.png>]
-<../Images/OGTransientAnalysisLog.png, id=431, 1619.04875pt x 900.36375pt>
+ [21 <../Images/HighlightedNMOSOnly.png>] [22]
+<../Images/OGTransientAnalysisLog.png, id=450, 1619.04875pt x 900.36375pt>
 File: ../Images/OGTransientAnalysisLog.png Graphic file (type png)
 <use ../Images/OGTransientAnalysisLog.png>
-Package pdftex.def Info: ../Images/OGTransientAnalysisLog.png  used on input line 874.
+Package pdftex.def Info: ../Images/OGTransientAnalysisLog.png  used on input line 879.
 (pdftex.def)             Requested size: 404.7612pt x 225.09038pt.
- [22] [23 <../Images/OGTransientAnalysisLog.png>]
-<../Images/1InitialSpecCMOS.png, id=470, 1039.885pt x 736.7525pt>
+ [23 <../Images/OGTransientAnalysisLog.png>]
+<../Images/1InitialSpecCMOS.png, id=472, 1039.885pt x 736.7525pt>
 File: ../Images/1InitialSpecCMOS.png Graphic file (type png)
 <use ../Images/1InitialSpecCMOS.png>
-Package pdftex.def Info: ../Images/1InitialSpecCMOS.png  used on input line 941.
+Package pdftex.def Info: ../Images/1InitialSpecCMOS.png  used on input line 946.
 (pdftex.def)             Requested size: 311.96791pt x 221.02745pt.
-<../Images/1InitialLog.png, id=472, 1035.87pt x 579.16376pt>
+<../Images/1InitialLog.png, id=474, 1035.87pt x 579.16376pt>
 File: ../Images/1InitialLog.png Graphic file (type png)
 <use ../Images/1InitialLog.png>
-Package pdftex.def Info: ../Images/1InitialLog.png  used on input line 950.
+Package pdftex.def Info: ../Images/1InitialLog.png  used on input line 955.
 (pdftex.def)             Requested size: 310.7634pt x 173.75046pt.
-<../Images/1CMOSVarTwo.png, id=473, 1019.81pt x 724.7075pt>
+ [24 <../Images/1InitialSpecCMOS.png>]
+<../Images/1CMOSVarTwo.png, id=483, 1019.81pt x 724.7075pt>
 File: ../Images/1CMOSVarTwo.png Graphic file (type png)
 <use ../Images/1CMOSVarTwo.png>
-Package pdftex.def Info: ../Images/1CMOSVarTwo.png  used on input line 964.
+Package pdftex.def Info: ../Images/1CMOSVarTwo.png  used on input line 967.
 (pdftex.def)             Requested size: 305.94536pt x 217.41393pt.
 
 
-LaTeX Warning: Reference `fig:CMOS_varTwo_Log' on page 24 undefined on input line 969.
+LaTeX Warning: Reference `fig:CMOS_varTwo_Log' on page 25 undefined on input line 972.
 
-<../Images/1OptLog.png, id=475, 1022.82124pt x 486.81876pt>
+<../Images/1OptLog.png, id=485, 1022.82124pt x 486.81876pt>
 File: ../Images/1OptLog.png Graphic file (type png)
 <use ../Images/1OptLog.png>
-Package pdftex.def Info: ../Images/1OptLog.png  used on input line 973.
+Package pdftex.def Info: ../Images/1OptLog.png  used on input line 976.
 (pdftex.def)             Requested size: 306.84874pt x 146.04675pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[24 <../Images/1InitialSpecCMOS.png>] [25 <../Images/1InitialLog.png> <../Images/1CMOSVarTwo.png> <../Images/1OptLog.png>]
+[25 <../Images/1InitialLog.png> <../Images/1CMOSVarTwo.png>]
 <../Images/1CMOSAsym.png, id=495, 1026.83624pt x 732.7375pt>
 File: ../Images/1CMOSAsym.png Graphic file (type png)
 <use ../Images/1CMOSAsym.png>
-Package pdftex.def Info: ../Images/1CMOSAsym.png  used on input line 1008.
+Package pdftex.def Info: ../Images/1CMOSAsym.png  used on input line 1011.
 (pdftex.def)             Requested size: 308.05325pt x 219.82294pt.
-<../Images/1CMOSAsymLog.png, id=498, 1259.70625pt x 585.18625pt>
+ [26 <../Images/1OptLog.png>]
+<../Images/1CMOSAsymLog.png, id=506, 1259.70625pt x 585.18625pt>
 File: ../Images/1CMOSAsymLog.png Graphic file (type png)
 <use ../Images/1CMOSAsymLog.png>
-Package pdftex.def Info: ../Images/1CMOSAsymLog.png  used on input line 1019.
+Package pdftex.def Info: ../Images/1CMOSAsymLog.png  used on input line 1022.
 (pdftex.def)             Requested size: 377.9148pt x 175.55722pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[26 <../Images/1CMOSAsym.png>] [27 <../Images/1CMOSAsymLog.png>] [28]
-<../Images/1SingIPSPAnno.png, id=524, 1622.06pt x 599.23875pt>
+ [27 <../Images/1CMOSAsym.png> <../Images/1CMOSAsymLog.png>] [28] [29]
+<../Images/1SingIPSPAnno.png, id=535, 1622.06pt x 599.23875pt>
 File: ../Images/1SingIPSPAnno.png Graphic file (type png)
 <use ../Images/1SingIPSPAnno.png>
-Package pdftex.def Info: ../Images/1SingIPSPAnno.png  used on input line 1138.
+Package pdftex.def Info: ../Images/1SingIPSPAnno.png  used on input line 1141.
 (pdftex.def)             Requested size: 486.62177pt x 179.77301pt.
 
-Overfull \hbox (33.65387pt too wide) in paragraph at lines 1138--1139
+Overfull \hbox (33.65387pt too wide) in paragraph at lines 1141--1142
  [][] 
  []
 
-[29 <../Images/1SingIPSPAnno.png>]
-<../Images/1SingIPSPSynthTiming.png, id=538, 1611.01875pt x 401.5pt>
+<../Images/1SingIPSPSynthTiming.png, id=537, 1611.01875pt x 401.5pt>
 File: ../Images/1SingIPSPSynthTiming.png Graphic file (type png)
 <use ../Images/1SingIPSPSynthTiming.png>
-Package pdftex.def Info: ../Images/1SingIPSPSynthTiming.png  used on input line 1161.
-(pdftex.def)             Requested size: 483.30936pt x 120.45091pt.
-
-Overfull \hbox (30.34146pt too wide) in paragraph at lines 1161--1162
- [][] 
- []
-
-<../Images/1SingIPSPpowerSummary.png, id=540, 1303.87125pt x 733.74126pt>
+Package pdftex.def Info: ../Images/1SingIPSPSynthTiming.png  used on input line 1164.
+(pdftex.def)             Requested size: 434.98088pt x 108.40643pt.
+[30 <../Images/1SingIPSPAnno.png>]
+<../Images/1SingIPSPpowerSummary.png, id=551, 1303.87125pt x 733.74126pt>
 File: ../Images/1SingIPSPpowerSummary.png Graphic file (type png)
 <use ../Images/1SingIPSPpowerSummary.png>
-Package pdftex.def Info: ../Images/1SingIPSPpowerSummary.png  used on input line 1181.
+Package pdftex.def Info: ../Images/1SingIPSPpowerSummary.png  used on input line 1182.
 (pdftex.def)             Requested size: 391.1644pt x 220.12407pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<../Images/1SingIPSPUtilReport.png, id=542, 1022.82124pt x 205.76875pt>
+<../Images/1SingIPSPUtilReport.png, id=553, 1022.82124pt x 205.76875pt>
 File: ../Images/1SingIPSPUtilReport.png Graphic file (type png)
 <use ../Images/1SingIPSPUtilReport.png>
-Package pdftex.def Info: ../Images/1SingIPSPUtilReport.png  used on input line 1194.
+Package pdftex.def Info: ../Images/1SingIPSPUtilReport.png  used on input line 1191.
 (pdftex.def)             Requested size: 306.84874pt x 61.7311pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[30 <../Images/1SingIPSPSynthTiming.png>]
-Overfull \hbox (3.02473pt too wide) in paragraph at lines 1205--1206
+ [31 <../Images/1SingIPSPSynthTiming.png> <../Images/1SingIPSPpowerSummary.png>]
+Overfull \hbox (3.02473pt too wide) in paragraph at lines 1202--1203
 []\OT1/cmr/m/n/12 The FPGA con-tains DSP48E1 prim-i-tives, which are hard-wired multiply-accumulate blocks.
  []
 
-<../Images/1SingIPSPPostImpTimingReport.png, id=555, 1576.89125pt x 402.50375pt>
+<../Images/1SingIPSPPostImpTimingReport.png, id=564, 1576.89125pt x 402.50375pt>
 File: ../Images/1SingIPSPPostImpTimingReport.png Graphic file (type png)
 <use ../Images/1SingIPSPPostImpTimingReport.png>
-Package pdftex.def Info: ../Images/1SingIPSPPostImpTimingReport.png  used on input line 1213.
-(pdftex.def)             Requested size: 473.07103pt x 120.75204pt.
-
-Overfull \hbox (20.10313pt too wide) in paragraph at lines 1213--1214
- [][] 
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<../Images/1SingIPSPPostImpPower.png, id=556, 1551.7975pt x 408.52625pt>
+Package pdftex.def Info: ../Images/1SingIPSPPostImpTimingReport.png  used on input line 1210.
+(pdftex.def)             Requested size: 425.76633pt x 108.67746pt.
+<../Images/1SingIPSPPostImpPower.png, id=566, 1551.7975pt x 408.52625pt>
 File: ../Images/1SingIPSPPostImpPower.png Graphic file (type png)
 <use ../Images/1SingIPSPPostImpPower.png>
-Package pdftex.def Info: ../Images/1SingIPSPPostImpPower.png  used on input line 1224.
-(pdftex.def)             Requested size: 465.54285pt x 122.55882pt.
-
-Overfull \hbox (12.57495pt too wide) in paragraph at lines 1224--1225
- [][] 
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<../Images/1SingIPSPPostImpSym.png, id=557, 1120.185pt x 605.26125pt>
+Package pdftex.def Info: ../Images/1SingIPSPPostImpPower.png  used on input line 1219.
+(pdftex.def)             Requested size: 418.99094pt x 110.30356pt.
+<../Images/1SingIPSPPostImpSym.png, id=568, 1120.185pt x 605.26125pt>
 File: ../Images/1SingIPSPPostImpSym.png Graphic file (type png)
 <use ../Images/1SingIPSPPostImpSym.png>
-Package pdftex.def Info: ../Images/1SingIPSPPostImpSym.png  used on input line 1235.
+Package pdftex.def Info: ../Images/1SingIPSPPostImpSym.png  used on input line 1228.
 (pdftex.def)             Requested size: 336.05809pt x 181.57976pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[31 <../Images/1SingIPSPpowerSummary.png> <../Images/1SingIPSPUtilReport.png>] [32 <../Images/1SingIPSPPostImpTimingReport.png> <../Images/1SingIPSPPostImpPower.png> <../Images/1SingIPSPPostImpSym.png>]
-Overfull \hbox (24.31789pt too wide) in paragraph at lines 1267--1269
-[]\OT1/cmr/m/n/14.4 IMAGE SHOW-ING THE AN-NO-TATED WAVE-FORM OF THE PIPELINED
- []
-
-<../Images/1PipeIPSPAnno.png, id=577, 1629.08624pt x 632.3625pt>
+[32 <../Images/1SingIPSPUtilReport.png> <../Images/1SingIPSPPostImpTimingReport.png> <../Images/1SingIPSPPostImpPower.png>]
+<../Images/1PipeIPSPAnno.png, id=580, 1629.08624pt x 632.3625pt>
 File: ../Images/1PipeIPSPAnno.png Graphic file (type png)
 <use ../Images/1PipeIPSPAnno.png>
-Package pdftex.def Info: ../Images/1PipeIPSPAnno.png  used on input line 1272.
-(pdftex.def)             Requested size: 488.72964pt x 189.7102pt.
-
-Overfull \hbox (35.76175pt too wide) in paragraph at lines 1272--1273
- [][] 
- []
-
-<../Images/1PipeIPSPSynthTiming.png, id=578, 1600.98125pt x 418.56375pt>
+Package pdftex.def Info: ../Images/1PipeIPSPAnno.png  used on input line 1261.
+(pdftex.def)             Requested size: 423.55243pt x 164.41037pt.
+ [33 <../Images/1SingIPSPPostImpSym.png>]
+<../Images/1PipeIPSPSynthTiming.png, id=591, 1600.98125pt x 418.56375pt>
 File: ../Images/1PipeIPSPSynthTiming.png Graphic file (type png)
 <use ../Images/1PipeIPSPSynthTiming.png>
-Package pdftex.def Info: ../Images/1PipeIPSPSynthTiming.png  used on input line 1285.
-(pdftex.def)             Requested size: 480.29808pt x 125.57008pt.
-
-Overfull \hbox (27.33018pt too wide) in paragraph at lines 1285--1286
- [][] 
- []
-
-[33 <../Images/1PipeIPSPAnno.png> <../Images/1PipeIPSPSynthTiming.png>]
-<../Images/1PipeIPSPImpSummary.png, id=588, 1690.315pt x 431.6125pt>
+Package pdftex.def Info: ../Images/1PipeIPSPSynthTiming.png  used on input line 1270.
+(pdftex.def)             Requested size: 432.27072pt x 113.01372pt.
+<../Images/1PipeIPSPImpSummary.png, id=593, 1690.315pt x 431.6125pt>
 File: ../Images/1PipeIPSPImpSummary.png Graphic file (type png)
 <use ../Images/1PipeIPSPImpSummary.png>
-Package pdftex.def Info: ../Images/1PipeIPSPImpSummary.png  used on input line 1298.
-(pdftex.def)             Requested size: 507.09842pt x 129.48474pt.
-
-Overfull \hbox (54.13052pt too wide) in paragraph at lines 1298--1299
- [][] 
- []
-
-<../Images/1PipeIPSPpowerSummary.png, id=589, 1151.30125pt x 724.7075pt>
+Package pdftex.def Info: ../Images/1PipeIPSPImpSummary.png  used on input line 1279.
+(pdftex.def)             Requested size: 422.57771pt x 107.90285pt.
+<../Images/1PipeIPSPpowerSummary.png, id=595, 1151.30125pt x 724.7075pt>
 File: ../Images/1PipeIPSPpowerSummary.png Graphic file (type png)
 <use ../Images/1PipeIPSPpowerSummary.png>
-Package pdftex.def Info: ../Images/1PipeIPSPpowerSummary.png  used on input line 1313.
+Package pdftex.def Info: ../Images/1PipeIPSPpowerSummary.png  used on input line 1290.
 (pdftex.def)             Requested size: 345.39305pt x 217.41393pt.
+ [34 <../Images/1PipeIPSPAnno.png> <../Images/1PipeIPSPSynthTiming.png> <../Images/1PipeIPSPImpSummary.png>]
 File: ../Images/1PipeIPSPpowerSummary.png Graphic file (type png)
 <use ../Images/1PipeIPSPpowerSummary.png>
-Package pdftex.def Info: ../Images/1PipeIPSPpowerSummary.png  used on input line 1326.
+Package pdftex.def Info: ../Images/1PipeIPSPpowerSummary.png  used on input line 1299.
 (pdftex.def)             Requested size: 345.39305pt x 217.41393pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Overfull \hbox (1.21977pt too wide) in paragraph at lines 1334--1336
-[]\OT1/cmr/m/n/14.4 IMAGE SHOW-ING THE UTIL-I-SA-TION RE-PORT OF THE PIPELINED
- []
-
-[34 <../Images/1PipeIPSPImpSummary.png> <../Images/1PipeIPSPpowerSummary.png>]
-<../Images/1PipeIPSPUtilSummary.png, id=599, 1342.01375pt x 308.15125pt>
+<../Images/1PipeIPSPUtilSummary.png, id=609, 1342.01375pt x 308.15125pt>
 File: ../Images/1PipeIPSPUtilSummary.png Graphic file (type png)
 <use ../Images/1PipeIPSPUtilSummary.png>
-Package pdftex.def Info: ../Images/1PipeIPSPUtilSummary.png  used on input line 1339.
+Package pdftex.def Info: ../Images/1PipeIPSPUtilSummary.png  used on input line 1308.
 (pdftex.def)             Requested size: 402.60724pt x 92.44608pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[35 <../Images/1PipeIPSPUtilSummary.png>]
-Overfull \hbox (2.10814pt too wide) in paragraph at lines 1411--1412
+ [35 <../Images/1PipeIPSPpowerSummary.png>] [36 <../Images/1PipeIPSPUtilSummary.png>]
+Overfull \hbox (2.10814pt too wide) in paragraph at lines 1380--1381
 []\OT1/cmr/m/n/12 A com-bi-na-tional di-vider for a WIDTH-bit operand re-quires WIDTH it-er-a-tions of compare-
  []
 
-[36]
-Overfull \hbox (31.0618pt too wide) in paragraph at lines 1432--1433
+
+Overfull \hbox (31.0618pt too wide) in paragraph at lines 1401--1402
 []\OT1/cmr/m/n/12 The fol-low-ing fig-ures show the wave-form, post-synthesis tim-ing re-port, and post-implementation
  []
 
-<../Images/2SingDivSubAnno.png, id=620, 1726.45pt x 579.16376pt>
+<../Images/2SingDivSubAnno.png, id=627, 1726.45pt x 579.16376pt>
 File: ../Images/2SingDivSubAnno.png Graphic file (type png)
 <use ../Images/2SingDivSubAnno.png>
-Package pdftex.def Info: ../Images/2SingDivSubAnno.png  used on input line 1440.
-(pdftex.def)             Requested size: 517.939pt x 173.75046pt.
-
-Overfull \hbox (64.9711pt too wide) in paragraph at lines 1440--1441
- [][] 
- []
-
-
-Overfull \hbox (8.95634pt too wide) in paragraph at lines 1446--1448
-[]\OT1/cmr/m/n/14.4 IMAGE SHOW-ING THE TIM-ING RE-PORT OF THE COM-BI-NA-TIONAL
- []
-
-<../Images/2SingDivSubSynthTiming.png, id=621, 1454.43375pt x 375.4025pt>
+Package pdftex.def Info: ../Images/2SingDivSubAnno.png  used on input line 1405.
+(pdftex.def)             Requested size: 414.35648pt x 139.00214pt.
+[37]
+<../Images/2SingDivSubSynthTiming.png, id=640, 1454.43375pt x 375.4025pt>
 File: ../Images/2SingDivSubSynthTiming.png Graphic file (type png)
 <use ../Images/2SingDivSubSynthTiming.png>
-Package pdftex.def Info: ../Images/2SingDivSubSynthTiming.png  used on input line 1451.
+Package pdftex.def Info: ../Images/2SingDivSubSynthTiming.png  used on input line 1414.
 (pdftex.def)             Requested size: 436.3335pt x 112.62161pt.
-
-Overfull \hbox (8.95634pt too wide) in paragraph at lines 1457--1459
-[]\OT1/cmr/m/n/14.4 IMAGE SHOW-ING THE TIM-ING RE-PORT OF THE COM-BI-NA-TIONAL
- []
-
-<../Images/2SingDivSubImpTimingSummary.png, id=622, 1599.9775pt x 417.56pt>
+<../Images/2SingDivSubImpTimingSummary.png, id=642, 1599.9775pt x 417.56pt>
 File: ../Images/2SingDivSubImpTimingSummary.png Graphic file (type png)
 <use ../Images/2SingDivSubImpTimingSummary.png>
-Package pdftex.def Info: ../Images/2SingDivSubImpTimingSummary.png  used on input line 1462.
-(pdftex.def)             Requested size: 479.99695pt x 125.26895pt.
-
-Overfull \hbox (27.02905pt too wide) in paragraph at lines 1462--1463
- [][] 
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Overfull \hbox (8.67131pt too wide) in paragraph at lines 1468--1470
-[]\OT1/cmr/m/n/14.4 IMAGE SHOW-ING THE POWER RE-PORT OF THE COM-BI-NA-TIONAL
- []
-
-<../Images/2SingDivSubSynthPowerSummary.png, id=623, 1242.6425pt x 752.8125pt>
+Package pdftex.def Info: ../Images/2SingDivSubImpTimingSummary.png  used on input line 1423.
+(pdftex.def)             Requested size: 415.98434pt x 108.56303pt.
+<../Images/2SingDivSubSynthPowerSummary.png, id=644, 1242.6425pt x 752.8125pt>
 File: ../Images/2SingDivSubSynthPowerSummary.png Graphic file (type png)
 <use ../Images/2SingDivSubSynthPowerSummary.png>
-Package pdftex.def Info: ../Images/2SingDivSubSynthPowerSummary.png  used on input line 1473.
+Package pdftex.def Info: ../Images/2SingDivSubSynthPowerSummary.png  used on input line 1432.
 (pdftex.def)             Requested size: 372.79562pt x 225.84549pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Overfull \hbox (8.67131pt too wide) in paragraph at lines 1479--1481
-[]\OT1/cmr/m/n/14.4 IMAGE SHOW-ING THE POWER RE-PORT OF THE COM-BI-NA-TIONAL
- []
-
-<../Images/2SingDivSubImpPowerSummary.png, id=624, 1362.08875pt x 811.03pt>
+ [38 <../Images/2SingDivSubAnno.png> <../Images/2SingDivSubSynthTiming.png> <../Images/2SingDivSubImpTimingSummary.png>]
+<../Images/2SingDivSubImpPowerSummary.png, id=657, 1362.08875pt x 811.03pt>
 File: ../Images/2SingDivSubImpPowerSummary.png Graphic file (type png)
 <use ../Images/2SingDivSubImpPowerSummary.png>
-Package pdftex.def Info: ../Images/2SingDivSubImpPowerSummary.png  used on input line 1484.
+Package pdftex.def Info: ../Images/2SingDivSubImpPowerSummary.png  used on input line 1441.
 (pdftex.def)             Requested size: 408.62978pt x 243.31087pt.
-[37 <../Images/2SingDivSubAnno.png> <../Images/2SingDivSubSynthTiming.png>]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[38 <../Images/2SingDivSubImpTimingSummary.png> <../Images/2SingDivSubSynthPowerSummary.png>]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1591--1594
+ [39 <../Images/2SingDivSubSynthPowerSummary.png> <../Images/2SingDivSubImpPowerSummary.png>] [40]
+Underfull \hbox (badness 10000) in paragraph at lines 1548--1551
 
  []
 
-[39 <../Images/2SingDivSubImpPowerSummary.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1603--1606
+[41]
+Underfull \hbox (badness 10000) in paragraph at lines 1560--1563
 
  []
 
-
-Overfull \hbox (24.31789pt too wide) in paragraph at lines 1610--1612
-[]\OT1/cmr/m/n/14.4 IMAGE SHOW-ING THE AN-NO-TATED WAVE-FORM OF THE PIPELINED
- []
-
-<../Images/2PipeDivSubWavOne.png, id=654, 1583.9175pt x 804.00375pt>
+<../Images/2PipeDivSubWavOne.png, id=683, 1583.9175pt x 804.00375pt>
 File: ../Images/2PipeDivSubWavOne.png Graphic file (type png)
 <use ../Images/2PipeDivSubWavOne.png>
-Package pdftex.def Info: ../Images/2PipeDivSubWavOne.png  used on input line 1615.
-(pdftex.def)             Requested size: 475.17892pt x 241.20299pt.
-
-Overfull \hbox (22.21103pt too wide) in paragraph at lines 1615--1616
- [][] 
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<../Images/2PipeDivSubWaveTwo.png, id=655, 1583.9175pt x 804.00375pt>
+Package pdftex.def Info: ../Images/2PipeDivSubWavOne.png  used on input line 1568.
+(pdftex.def)             Requested size: 427.66345pt x 217.08391pt.
+<../Images/2PipeDivSubWaveTwo.png, id=684, 1583.9175pt x 804.00375pt>
 File: ../Images/2PipeDivSubWaveTwo.png Graphic file (type png)
 <use ../Images/2PipeDivSubWaveTwo.png>
-Package pdftex.def Info: ../Images/2PipeDivSubWaveTwo.png  used on input line 1622.
-(pdftex.def)             Requested size: 475.17892pt x 241.20299pt.
-
-Overfull \hbox (22.21103pt too wide) in paragraph at lines 1622--1623
- [][] 
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[40]
-<../Images/2PipeDivSubSynthTiming.png, id=662, 1556.81625pt x 436.63126pt>
+Package pdftex.def Info: ../Images/2PipeDivSubWaveTwo.png  used on input line 1575.
+(pdftex.def)             Requested size: 427.66345pt x 217.08391pt.
+<../Images/2PipeDivSubSynthTiming.png, id=686, 1556.81625pt x 436.63126pt>
 File: ../Images/2PipeDivSubSynthTiming.png Graphic file (type png)
 <use ../Images/2PipeDivSubSynthTiming.png>
-Package pdftex.def Info: ../Images/2PipeDivSubSynthTiming.png  used on input line 1635.
-(pdftex.def)             Requested size: 467.04848pt x 130.99039pt.
-
-Overfull \hbox (14.08058pt too wide) in paragraph at lines 1635--1636
- [][] 
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<../Images/2PipeDivSubImpTiming.png, id=663, 1556.81625pt x 436.63126pt>
+Package pdftex.def Info: ../Images/2PipeDivSubSynthTiming.png  used on input line 1584.
+(pdftex.def)             Requested size: 420.34601pt x 117.89201pt.
+[42 <../Images/2PipeDivSubWavOne.png> <../Images/2PipeDivSubWaveTwo.png>]
+<../Images/2PipeDivSubImpTiming.png, id=699, 1556.81625pt x 436.63126pt>
 File: ../Images/2PipeDivSubImpTiming.png Graphic file (type png)
 <use ../Images/2PipeDivSubImpTiming.png>
-Package pdftex.def Info: ../Images/2PipeDivSubImpTiming.png  used on input line 1646.
-(pdftex.def)             Requested size: 467.04848pt x 130.99039pt.
-
-Overfull \hbox (14.08058pt too wide) in paragraph at lines 1646--1647
- [][] 
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[41 <../Images/2PipeDivSubWavOne.png> <../Images/2PipeDivSubWaveTwo.png>]
-<../Images/2PipeDivSubPowerSynth.png, id=673, 1249.66875pt x 796.9775pt>
+Package pdftex.def Info: ../Images/2PipeDivSubImpTiming.png  used on input line 1593.
+(pdftex.def)             Requested size: 420.34601pt x 117.89201pt.
+<../Images/2PipeDivSubPowerSynth.png, id=701, 1249.66875pt x 796.9775pt>
 File: ../Images/2PipeDivSubPowerSynth.png Graphic file (type png)
 <use ../Images/2PipeDivSubPowerSynth.png>
-Package pdftex.def Info: ../Images/2PipeDivSubPowerSynth.png  used on input line 1659.
+Package pdftex.def Info: ../Images/2PipeDivSubPowerSynth.png  used on input line 1602.
 (pdftex.def)             Requested size: 374.90352pt x 239.0951pt.
-<../Images/2PipeDivSubPowerImp.png, id=674, 1261.71375pt x 753.81625pt>
+<../Images/2PipeDivSubPowerImp.png, id=703, 1261.71375pt x 753.81625pt>
 File: ../Images/2PipeDivSubPowerImp.png Graphic file (type png)
 <use ../Images/2PipeDivSubPowerImp.png>
-Package pdftex.def Info: ../Images/2PipeDivSubPowerImp.png  used on input line 1670.
+Package pdftex.def Info: ../Images/2PipeDivSubPowerImp.png  used on input line 1611.
 (pdftex.def)             Requested size: 378.51704pt x 226.14662pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
+ [43 <../Images/2PipeDivSubSynthTiming.png> <../Images/2PipeDivSubImpTiming.png> <../Images/2PipeDivSubPowerSynth.png>]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[42 <../Images/2PipeDivSubSynthTiming.png> <../Images/2PipeDivSubImpTiming.png> <../Images/2PipeDivSubPowerSynth.png>]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[43 <../Images/2PipeDivSubPowerImp.png>]
-Overfull \hbox (2.36627pt too wide) in paragraph at lines 1735--1736
+[44 <../Images/2PipeDivSubPowerImp.png>]
+Overfull \hbox (2.36627pt too wide) in paragraph at lines 1676--1677
 []\OT1/cmr/m/n/12 Latency vs through-put trade-off: Multi-cycle has high la-tency but rea-son-able through-
  []
 
-[44]
-Overfull \hbox (7.7366pt too wide) in paragraph at lines 1861--1862
+[45]
+Overfull \hbox (7.7366pt too wide) in paragraph at lines 1802--1803
  [][] 
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1875--1876
+[46]
+Underfull \hbox (badness 10000) in paragraph at lines 1816--1817
 []|\OT1/cmr/m/n/12 Propagates the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1875--1876
+Underfull \hbox (badness 10000) in paragraph at lines 1816--1817
 \OT1/cmr/m/n/12 com-puted so-lu-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1875--1876
+Underfull \hbox (badness 10000) in paragraph at lines 1816--1817
 \OT1/cmr/m/n/12 tion value into
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1875--1876
+Underfull \hbox (badness 10000) in paragraph at lines 1816--1817
 \OT1/cmr/m/n/12 the multiply--
  []
 
 
-Overfull \hbox (3.20256pt too wide) in paragraph at lines 1878--1878
+Overfull \hbox (3.20256pt too wide) in paragraph at lines 1819--1819
 []|\OT1/cmr/m/n/12 DIVSUB.\OT1/cmtt/m/n/12 valid[]out| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1880--1881
+Underfull \hbox (badness 10000) in paragraph at lines 1821--1822
 []|\OT1/cmr/m/n/12 Indicates com-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1880--1881
+Underfull \hbox (badness 10000) in paragraph at lines 1821--1822
 \OT1/cmr/m/n/12 ple-tion of the
  []
 
 
-Underfull \hbox (badness 2903) in paragraph at lines 1885--1886
+Underfull \hbox (badness 2903) in paragraph at lines 1826--1827
 []|\OT1/cmr/m/n/12 Carries the ac-cu-
  []
 
 
-Underfull \hbox (badness 7326) in paragraph at lines 1887--1887
+Underfull \hbox (badness 7326) in paragraph at lines 1828--1828
 []|\OT1/cmr/m/n/12 Controller con-trol
  []
 
 
-Underfull \hbox (badness 7613) in paragraph at lines 1889--1889
+Underfull \hbox (badness 7613) in paragraph at lines 1830--1830
 []|\OT1/cmr/m/n/12 DIVSUB and
  []
 
 
-Underfull \hbox (badness 5563) in paragraph at lines 1890--1891
+Underfull \hbox (badness 5563) in paragraph at lines 1831--1832
 []|\OT1/cmr/m/n/12 Coordinates op-er-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1890--1891
+Underfull \hbox (badness 10000) in paragraph at lines 1831--1832
 \OT1/cmr/m/n/12 a-tion se-quenc-ing
  []
 
 
-Underfull \hbox (badness 3302) in paragraph at lines 1890--1891
+Underfull \hbox (badness 3302) in paragraph at lines 1831--1832
 \OT1/cmr/m/n/12 and en-forces sys-
  []
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<../Images/3SysArrayAnno.png, id=706, 1713.40125pt x 548.0475pt>
+<../Images/3SysArrayAnno.png, id=740, 1713.40125pt x 548.0475pt>
 File: ../Images/3SysArrayAnno.png Graphic file (type png)
 <use ../Images/3SysArrayAnno.png>
-Package pdftex.def Info: ../Images/3SysArrayAnno.png  used on input line 1907.
-(pdftex.def)             Requested size: 514.02434pt x 164.41551pt.
+Package pdftex.def Info: ../Images/3SysArrayAnno.png  used on input line 1844.
+(pdftex.def)             Requested size: 462.62453pt x 147.9748pt.
 
-Overfull \hbox (61.05644pt too wide) in paragraph at lines 1907--1908
+Overfull \hbox (9.65663pt too wide) in paragraph at lines 1844--1845
  [][] 
  []
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<../Images/3SysArrayPostSynthTiming.png, id=707, 1646.15pt x 435.6275pt>
+[47]
+<../Images/3SysArrayPostSynthTiming.png, id=749, 1646.15pt x 435.6275pt>
 File: ../Images/3SysArrayPostSynthTiming.png Graphic file (type png)
 <use ../Images/3SysArrayPostSynthTiming.png>
-Package pdftex.def Info: ../Images/3SysArrayPostSynthTiming.png  used on input line 1918.
-(pdftex.def)             Requested size: 493.84882pt x 130.68925pt.
-
-Overfull \hbox (40.88092pt too wide) in paragraph at lines 1918--1919
- [][] 
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<../Images/3SysArrayPostImpTiming.png, id=708, 1646.15pt x 435.6275pt>
+Package pdftex.def Info: ../Images/3SysArrayPostSynthTiming.png  used on input line 1853.
+(pdftex.def)             Requested size: 427.9889pt x 113.26047pt.
+<../Images/3SysArrayPostImpTiming.png, id=751, 1646.15pt x 435.6275pt>
 File: ../Images/3SysArrayPostImpTiming.png Graphic file (type png)
 <use ../Images/3SysArrayPostImpTiming.png>
-Package pdftex.def Info: ../Images/3SysArrayPostImpTiming.png  used on input line 1929.
-(pdftex.def)             Requested size: 493.84882pt x 130.68925pt.
-
-Overfull \hbox (40.88092pt too wide) in paragraph at lines 1929--1930
- [][] 
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<../Images/3SysArrayPostSynthPower.png, id=709, 1459.4525pt x 852.18375pt>
+Package pdftex.def Info: ../Images/3SysArrayPostImpTiming.png  used on input line 1862.
+(pdftex.def)             Requested size: 427.9889pt x 113.26047pt.
+<../Images/3SysArrayPostSynthPower.png, id=753, 1459.4525pt x 852.18375pt>
 File: ../Images/3SysArrayPostSynthPower.png Graphic file (type png)
 <use ../Images/3SysArrayPostSynthPower.png>
-Package pdftex.def Info: ../Images/3SysArrayPostSynthPower.png  used on input line 1940.
+Package pdftex.def Info: ../Images/3SysArrayPostSynthPower.png  used on input line 1871.
 (pdftex.def)             Requested size: 437.83913pt x 255.65709pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[45]
-<../Images/3SysArrayPostImpPower.png, id=717, 1475.5125pt x 929.4725pt>
+ [48 <../Images/3SysArrayAnno.png> <../Images/3SysArrayPostSynthTiming.png> <../Images/3SysArrayPostImpTiming.png>]
+<../Images/3SysArrayPostImpPower.png, id=768, 1475.5125pt x 929.4725pt>
 File: ../Images/3SysArrayPostImpPower.png Graphic file (type png)
 <use ../Images/3SysArrayPostImpPower.png>
-Package pdftex.def Info: ../Images/3SysArrayPostImpPower.png  used on input line 1951.
+Package pdftex.def Info: ../Images/3SysArrayPostImpPower.png  used on input line 1880.
 (pdftex.def)             Requested size: 442.65717pt x 278.8439pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<../Images/3SysArrayUtilReport.png, id=718, 1286.8075pt x 338.26375pt>
+<../Images/3SysArrayUtilReport.png, id=770, 1286.8075pt x 338.26375pt>
 File: ../Images/3SysArrayUtilReport.png Graphic file (type png)
 <use ../Images/3SysArrayUtilReport.png>
-Package pdftex.def Info: ../Images/3SysArrayUtilReport.png  used on input line 1962.
+Package pdftex.def Info: ../Images/3SysArrayUtilReport.png  used on input line 1889.
 (pdftex.def)             Requested size: 386.04523pt x 101.4799pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[46]
-<../Images/3SysArrayCritPath.png, id=726, 1714.405pt x 293.095pt>
+ [49 <../Images/3SysArrayPostSynthPower.png> <../Images/3SysArrayPostImpPower.png>]
+<../Images/3SysArrayCritPath.png, id=781, 1714.405pt x 293.095pt>
 File: ../Images/3SysArrayCritPath.png Graphic file (type png)
 <use ../Images/3SysArrayCritPath.png>
-Package pdftex.def Info: ../Images/3SysArrayCritPath.png  used on input line 1973.
-(pdftex.def)             Requested size: 514.32547pt x 87.92917pt.
-
-Overfull \hbox (61.35757pt too wide) in paragraph at lines 1973--1974
- [][] 
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[47 <../Images/3SysArrayAnno.png> <../Images/3SysArrayPostSynthTiming.png> <../Images/3SysArrayPostImpTiming.png>] [48 <../Images/3SysArrayPostSynthPower.png> <../Images/3SysArrayPostImpPower.png>] [49 <../Images/3SysArrayUtilReport.png> <../Images/3SysArrayCritPath.png>]
-<../Images/7STGCElement.png, id=757, 1225.57875pt x 724.7075pt>
+Package pdftex.def Info: ../Images/3SysArrayCritPath.png  used on input line 1898.
+(pdftex.def)             Requested size: 428.6002pt x 73.27356pt.
+ [50 <../Images/3SysArrayUtilReport.png> <../Images/3SysArrayCritPath.png>]
+<../Images/7STGCElement.png, id=791, 1225.57875pt x 724.7075pt>
 File: ../Images/7STGCElement.png Graphic file (type png)
 <use ../Images/7STGCElement.png>
-Package pdftex.def Info: ../Images/7STGCElement.png  used on input line 2030.
+Package pdftex.def Info: ../Images/7STGCElement.png  used on input line 1951.
 (pdftex.def)             Requested size: 367.67647pt x 217.41393pt.
-<../Images/7STGTrace.png, id=758, 660.4675pt x 696.6025pt>
+<../Images/7STGTrace.png, id=793, 660.4675pt x 696.6025pt>
 File: ../Images/7STGTrace.png Graphic file (type png)
 <use ../Images/7STGTrace.png>
-Package pdftex.def Info: ../Images/7STGTrace.png  used on input line 2043.
+Package pdftex.def Info: ../Images/7STGTrace.png  used on input line 1960.
 (pdftex.def)             Requested size: 198.14177pt x 208.98236pt.
- [50 <../Images/7STGCElement.png> <../Images/7STGTrace.png>]
-<../Images/7STGTiming.png, id=768, 1068.99374pt x 421.575pt>
+ [51 <../Images/7STGCElement.png>]
+<../Images/7STGTiming.png, id=803, 1068.99374pt x 421.575pt>
 File: ../Images/7STGTiming.png Graphic file (type png)
 <use ../Images/7STGTiming.png>
-Package pdftex.def Info: ../Images/7STGTiming.png  used on input line 2056.
+Package pdftex.def Info: ../Images/7STGTiming.png  used on input line 1969.
 (pdftex.def)             Requested size: 320.70059pt x 126.47346pt.
- [51 <../Images/7STGTiming.png>]
-Overfull \hbox (1.81627pt too wide) in paragraph at lines 2092--2094
-[]\OT1/cmr/m/n/14.4 IMAGE SHOW-ING THE VER-I-FI-CA-TION RE-SULTS FOR C-ELEMENT
- []
-
-<../Images/7STGVerify.png, id=776, 1375.1375pt x 656.4525pt>
+ [52 <../Images/7STGTrace.png> <../Images/7STGTiming.png>]
+<../Images/7STGVerify.png, id=813, 1375.1375pt x 656.4525pt>
 File: ../Images/7STGVerify.png Graphic file (type png)
 <use ../Images/7STGVerify.png>
-Package pdftex.def Info: ../Images/7STGVerify.png  used on input line 2097.
+Package pdftex.def Info: ../Images/7STGVerify.png  used on input line 2006.
 (pdftex.def)             Requested size: 412.54443pt x 196.93727pt.
-[52 <../Images/7STGVerify.png>]
-<../Images/7STGstdCElement.png, id=784, 1132.23pt x 294.09875pt>
+ [53 <../Images/7STGVerify.png>]
+<../Images/7STGstdCElement.png, id=823, 1132.23pt x 294.09875pt>
 File: ../Images/7STGstdCElement.png Graphic file (type png)
 <use ../Images/7STGstdCElement.png>
-Package pdftex.def Info: ../Images/7STGstdCElement.png  used on input line 2144.
+Package pdftex.def Info: ../Images/7STGstdCElement.png  used on input line 2049.
 (pdftex.def)             Requested size: 339.67162pt x 88.2303pt.
-<../Images/7STGGenMap.png, id=785, 1142.2675pt x 216.81pt>
+ [54]
+<../Images/7STGGenMap.png, id=831, 1142.2675pt x 216.81pt>
 File: ../Images/7STGGenMap.png Graphic file (type png)
 <use ../Images/7STGGenMap.png>
-Package pdftex.def Info: ../Images/7STGGenMap.png  used on input line 2157.
+Package pdftex.def Info: ../Images/7STGGenMap.png  used on input line 2058.
 (pdftex.def)             Requested size: 342.68289pt x 65.04349pt.
- [53 <../Images/7STGstdCElement.png>]
-<../Images/7STGComplexGateMap.png, id=793, 1139.25626pt x 303.1325pt>
+ [55 <../Images/7STGstdCElement.png> <../Images/7STGGenMap.png>]
+<../Images/7STGComplexGateMap.png, id=842, 1139.25626pt x 303.1325pt>
 File: ../Images/7STGComplexGateMap.png Graphic file (type png)
 <use ../Images/7STGComplexGateMap.png>
-Package pdftex.def Info: ../Images/7STGComplexGateMap.png  used on input line 2189.
+Package pdftex.def Info: ../Images/7STGComplexGateMap.png  used on input line 2086.
 (pdftex.def)             Requested size: 341.77951pt x 90.94044pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<../Images/7NonWorkingSTG.png, id=794, 1078.0275pt x 533.995pt>
+<../Images/7NonWorkingSTG.png, id=844, 1078.0275pt x 533.995pt>
 File: ../Images/7NonWorkingSTG.png Graphic file (type png)
 <use ../Images/7NonWorkingSTG.png>
-Package pdftex.def Info: ../Images/7NonWorkingSTG.png  used on input line 2200.
+Package pdftex.def Info: ../Images/7NonWorkingSTG.png  used on input line 2095.
 (pdftex.def)             Requested size: 323.41075pt x 160.19974pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
 File: ../Images/7STGTrace.png Graphic file (type png)
 <use ../Images/7STGTrace.png>
-Package pdftex.def Info: ../Images/7STGTrace.png  used on input line 2211.
+Package pdftex.def Info: ../Images/7STGTrace.png  used on input line 2104.
 (pdftex.def)             Requested size: 198.14177pt x 208.98236pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[54 <../Images/7STGGenMap.png>] [55 <../Images/7STGComplexGateMap.png> <../Images/7NonWorkingSTG.png>]
-Overfull \hbox (6.41304pt too wide) in paragraph at lines 2231--2233
-[]\OT1/cmr/m/n/14.4 IMAGE SHOW-ING THE VER-I-FI-CA-TION RE-SULTS FOR GATE LEVEL
- []
-
-<../Images/7STGWorkingVerify.png, id=813, 1375.1375pt x 653.44125pt>
+ [56 <../Images/7STGComplexGateMap.png> <../Images/7NonWorkingSTG.png>]
+<../Images/7STGWorkingVerify.png, id=857, 1375.1375pt x 653.44125pt>
 File: ../Images/7STGWorkingVerify.png Graphic file (type png)
 <use ../Images/7STGWorkingVerify.png>
-Package pdftex.def Info: ../Images/7STGWorkingVerify.png  used on input line 2236.
+Package pdftex.def Info: ../Images/7STGWorkingVerify.png  used on input line 2125.
 (pdftex.def)             Requested size: 412.54443pt x 196.03387pt.
-[56 <../Images/7STGWorkingVerify.png>]
-Overfull \hbox (1.81627pt too wide) in paragraph at lines 2258--2260
-[]\OT1/cmr/m/n/14.4 IMAGE SHOW-ING THE VER-I-FI-CA-TION RE-SULTS FOR C-ELEMENT
- []
-
-<../Images/7STGErrorMes.png, id=821, 771.88374pt x 565.11125pt>
+ [57]
+<../Images/7STGErrorMes.png, id=865, 771.88374pt x 565.11125pt>
 File: ../Images/7STGErrorMes.png Graphic file (type png)
 <use ../Images/7STGErrorMes.png>
-Package pdftex.def Info: ../Images/7STGErrorMes.png  used on input line 2263.
+Package pdftex.def Info: ../Images/7STGErrorMes.png  used on input line 2150.
 (pdftex.def)             Requested size: 231.56691pt x 169.53468pt.
-
-Overfull \hbox (1.81627pt too wide) in paragraph at lines 2269--2271
-[]\OT1/cmr/m/n/14.4 IMAGE SHOW-ING THE VER-I-FI-CA-TION RE-SULTS FOR C-ELEMENT
- []
-
+ [58 <../Images/7STGWorkingVerify.png>]
 File: ../Images/7STGWorkingVerify.png Graphic file (type png)
 <use ../Images/7STGWorkingVerify.png>
-Package pdftex.def Info: ../Images/7STGWorkingVerify.png  used on input line 2274.
+Package pdftex.def Info: ../Images/7STGWorkingVerify.png  used on input line 2159.
 (pdftex.def)             Requested size: 412.54443pt x 196.03387pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[57 <../Images/7STGErrorMes.png>]
-<../Images/7WorkingSTG.png, id=829, 1154.3125pt x 555.07375pt>
+<../Images/7WorkingSTG.png, id=874, 1154.3125pt x 555.07375pt>
 File: ../Images/7WorkingSTG.png Graphic file (type png)
 <use ../Images/7WorkingSTG.png>
-Package pdftex.def Info: ../Images/7WorkingSTG.png  used on input line 2295.
-(pdftex.def)             Requested size: 346.29642pt x 166.52339pt.
- [58 <../Images/7WorkingSTG.png>]
-Overfull \hbox (1.81627pt too wide) in paragraph at lines 2331--2333
-[]\OT1/cmr/m/n/14.4 IMAGE SHOW-ING THE VER-I-FI-CA-TION RE-SULTS FOR C-ELEMENT
- []
-
+Package pdftex.def Info: ../Images/7WorkingSTG.png  used on input line 2178.
+(pdftex.def)             Requested size: 311.66855pt x 149.8719pt.
+ [59 <../Images/7STGErrorMes.png>] [60 <../Images/7WorkingSTG.png>]
 File: ../Images/7STGVerify.png Graphic file (type png)
 <use ../Images/7STGVerify.png>
-Package pdftex.def Info: ../Images/7STGVerify.png  used on input line 2336.
+Package pdftex.def Info: ../Images/7STGVerify.png  used on input line 2215.
 (pdftex.def)             Requested size: 412.54443pt x 196.93727pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Overfull \hbox (1.81627pt too wide) in paragraph at lines 2342--2344
-[]\OT1/cmr/m/n/14.4 IMAGE SHOW-ING THE VER-I-FI-CA-TION RE-SULTS FOR C-ELEMENT
- []
-
 File: ../Images/7STGErrorMes.png Graphic file (type png)
 <use ../Images/7STGErrorMes.png>
-Package pdftex.def Info: ../Images/7STGErrorMes.png  used on input line 2347.
+Package pdftex.def Info: ../Images/7STGErrorMes.png  used on input line 2224.
 (pdftex.def)             Requested size: 231.56691pt x 169.53468pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<../Images/7STGERROR.png, id=838, 762.85pt x 460.72125pt>
+<../Images/7STGERROR.png, id=894, 762.85pt x 460.72125pt>
 File: ../Images/7STGERROR.png Graphic file (type png)
 <use ../Images/7STGERROR.png>
-Package pdftex.def Info: ../Images/7STGERROR.png  used on input line 2360.
+Package pdftex.def Info: ../Images/7STGERROR.png  used on input line 2233.
 (pdftex.def)             Requested size: 228.85677pt x 138.21744pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[59] [60 <../Images/7STGERROR.png>]
-Overfull \hbox (24.12701pt too wide) in paragraph at lines 2389--2390
+ [61]
+Overfull \hbox (24.12701pt too wide) in paragraph at lines 2262--2263
 []\OT1/cmr/m/n/12 For the read con-troller, a new STG was cre-ated in Workcraft and saved as \OT1/cmtt/m/n/12 vme-read.stg.work\OT1/cmr/m/n/12 . 
  []
 
-[61]
-<../Images/8ReadControlSTG.png, id=860, 463.7325pt x 817.0525pt>
+[62 <../Images/7STGERROR.png>]
+<../Images/8ReadControlSTG.png, id=910, 463.7325pt x 817.0525pt>
 File: ../Images/8ReadControlSTG.png Graphic file (type png)
 <use ../Images/8ReadControlSTG.png>
-Package pdftex.def Info: ../Images/8ReadControlSTG.png  used on input line 2425.
+Package pdftex.def Info: ../Images/8ReadControlSTG.png  used on input line 2294.
 (pdftex.def)             Requested size: 139.12082pt x 245.11765pt.
-<../Images/8ReadControlSTGTimingDia.png, id=861, 1138.2525pt x 488.82625pt>
+ [63]
+<../Images/8ReadControlSTGTimingDia.png, id=918, 1138.2525pt x 488.82625pt>
 File: ../Images/8ReadControlSTGTimingDia.png Graphic file (type png)
 <use ../Images/8ReadControlSTGTimingDia.png>
-Package pdftex.def Info: ../Images/8ReadControlSTGTimingDia.png  used on input line 2436.
+Package pdftex.def Info: ../Images/8ReadControlSTGTimingDia.png  used on input line 2303.
 (pdftex.def)             Requested size: 341.4784pt x 146.649pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<../Images/8ReadControlSTGVerify.png, id=862, 1140.26pt x 518.93875pt>
+<../Images/8ReadControlSTGVerify.png, id=920, 1140.26pt x 518.93875pt>
 File: ../Images/8ReadControlSTGVerify.png Graphic file (type png)
 <use ../Images/8ReadControlSTGVerify.png>
-Package pdftex.def Info: ../Images/8ReadControlSTGVerify.png  used on input line 2447.
+Package pdftex.def Info: ../Images/8ReadControlSTGVerify.png  used on input line 2312.
 (pdftex.def)             Requested size: 342.08064pt x 155.68282pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<../Images/8WriteControlSTG.png, id=863, 392.46625pt x 768.8725pt>
+ [64 <../Images/8ReadControlSTG.png> <../Images/8ReadControlSTGTimingDia.png>]
+<../Images/8WriteControlSTG.png, id=931, 392.46625pt x 768.8725pt>
 File: ../Images/8WriteControlSTG.png Graphic file (type png)
 <use ../Images/8WriteControlSTG.png>
-Package pdftex.def Info: ../Images/8WriteControlSTG.png  used on input line 2460.
+Package pdftex.def Info: ../Images/8WriteControlSTG.png  used on input line 2321.
 (pdftex.def)             Requested size: 117.74077pt x 230.66353pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<../Images/8WriteControlTiming.png, id=864, 1027.84pt x 381.425pt>
+<../Images/8WriteControlTiming.png, id=933, 1027.84pt x 381.425pt>
 File: ../Images/8WriteControlTiming.png Graphic file (type png)
 <use ../Images/8WriteControlTiming.png>
-Package pdftex.def Info: ../Images/8WriteControlTiming.png  used on input line 2471.
+Package pdftex.def Info: ../Images/8WriteControlTiming.png  used on input line 2330.
 (pdftex.def)             Requested size: 308.35437pt x 114.42838pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<../Images/8WriteControlVerify.png, id=865, 1033.8625pt x 500.87125pt>
+<../Images/8WriteControlVerify.png, id=935, 1033.8625pt x 500.87125pt>
 File: ../Images/8WriteControlVerify.png Graphic file (type png)
 <use ../Images/8WriteControlVerify.png>
-Package pdftex.def Info: ../Images/8WriteControlVerify.png  used on input line 2482.
+Package pdftex.def Info: ../Images/8WriteControlVerify.png  used on input line 2339.
 (pdftex.def)             Requested size: 310.16115pt x 150.26253pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[62 <../Images/8ReadControlSTG.png>] [63 <../Images/8ReadControlSTGTimingDia.png> <../Images/8ReadControlSTGVerify.png> <../Images/8WriteControlSTG.png>]
-LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 2493.
+ [65 <../Images/8ReadControlSTGVerify.png> <../Images/8WriteControlSTG.png> <../Images/8WriteControlTiming.png>]
+LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 2350.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-) [64 <../Images/8WriteControlTiming.png> <../Images/8WriteControlVerify.png>]
-Overfull \hbox (0.34474pt too wide) in paragraph at lines 2510--2512
-[]\OT1/cmr/m/n/14.4 IMAGE SHOW-ING THE VME READ-WRITE COM-BINED STG HERE.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2510--2512
-
- []
-
-<../Images/8RWControl.png, id=894, 682.55pt x 675.52374pt>
+) [66 <../Images/8WriteControlVerify.png>]
+<../Images/8RWControl.png, id=956, 682.55pt x 675.52374pt>
 File: ../Images/8RWControl.png Graphic file (type png)
 <use ../Images/8RWControl.png>
-Package pdftex.def Info: ../Images/8RWControl.png  used on input line 2515.
+Package pdftex.def Info: ../Images/8RWControl.png  used on input line 2370.
 (pdftex.def)             Requested size: 204.76657pt x 202.65868pt.
-<../Images/8RWTimingDiagram.png, id=895, 1019.81pt x 291.0875pt>
+<../Images/8RWTimingDiagram.png, id=958, 1019.81pt x 291.0875pt>
 File: ../Images/8RWTimingDiagram.png Graphic file (type png)
 <use ../Images/8RWTimingDiagram.png>
-Package pdftex.def Info: ../Images/8RWTimingDiagram.png  used on input line 2526.
+Package pdftex.def Info: ../Images/8RWTimingDiagram.png  used on input line 2379.
 (pdftex.def)             Requested size: 305.94536pt x 87.32692pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
 File: ../Images/8WriteControlVerify.png Graphic file (type png)
 <use ../Images/8WriteControlVerify.png>
-Package pdftex.def Info: ../Images/8WriteControlVerify.png  used on input line 2537.
+Package pdftex.def Info: ../Images/8WriteControlVerify.png  used on input line 2388.
 (pdftex.def)             Requested size: 310.16115pt x 150.26253pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[65 <../Images/8RWControl.png>] [66 <../Images/8RWTimingDiagram.png>]
-<../Images/8RWConflictMessage.png, id=912, 1019.81pt x 320.19624pt>
+ [67 <../Images/8RWControl.png> <../Images/8RWTimingDiagram.png>] [68]
+<../Images/8RWConflictMessage.png, id=977, 1019.81pt x 320.19624pt>
 File: ../Images/8RWConflictMessage.png Graphic file (type png)
 <use ../Images/8RWConflictMessage.png>
-Package pdftex.def Info: ../Images/8RWConflictMessage.png  used on input line 2568.
+Package pdftex.def Info: ../Images/8RWConflictMessage.png  used on input line 2417.
 (pdftex.def)             Requested size: 305.94536pt x 96.0596pt.
 File: ../Images/8RWConflictMessage.png Graphic file (type png)
 <use ../Images/8RWConflictMessage.png>
-Package pdftex.def Info: ../Images/8RWConflictMessage.png  used on input line 2589.
+Package pdftex.def Info: ../Images/8RWConflictMessage.png  used on input line 2438.
 (pdftex.def)             Requested size: 305.94536pt x 96.0596pt.
- [67 <../Images/8RWConflictMessage.png>]
-<../Images/8WriteControlComplexGate.png, id=920, 1020.81375pt x 314.17375pt>
-File: ../Images/8WriteControlComplexGate.png Graphic file (type png)
-<use ../Images/8WriteControlComplexGate.png>
-Package pdftex.def Info: ../Images/8WriteControlComplexGate.png  used on input line 2618.
-(pdftex.def)             Requested size: 306.24649pt x 94.25284pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[68]
+ [69 <../Images/8RWConflictMessage.png>]
+<../Images/8RWCircuitImplementation.png, id=987, 932.48375pt x 917.4275pt>
+File: ../Images/8RWCircuitImplementation.png Graphic file (type png)
+<use ../Images/8RWCircuitImplementation.png>
+Package pdftex.def Info: ../Images/8RWCircuitImplementation.png  used on input line 2465.
+(pdftex.def)             Requested size: 279.74728pt x 275.23038pt.
+ [70]
 File: ../Images/8WriteControlVerify.png Graphic file (type png)
 <use ../Images/8WriteControlVerify.png>
-Package pdftex.def Info: ../Images/8WriteControlVerify.png  used on input line 2629.
+Package pdftex.def Info: ../Images/8WriteControlVerify.png  used on input line 2474.
 (pdftex.def)             Requested size: 310.16115pt x 150.26253pt.
- [69 <../Images/8WriteControlComplexGate.png>] (./finalReport.aux)
+ [71 <../Images/8RWCircuitImplementation.png>] [72]
+Underfull \hbox (badness 10000) in paragraph at lines 2580--2580
+[]|\OT1/cmr/m/n/12 Delay as-sump-tions (e.g.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2581--2581
+[]|\OT1/cmr/m/n/12 Clocking masks com-bi-na-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2582--2582
+[]|\OT1/cmr/m/n/12 Clock tree con-tin-u-ously
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2583--2583
+[]|\OT1/cmr/m/n/12 Mature, au-to-mated
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2583--2583
+[]|\OT1/cmr/m/n/12 Specialised tools (e.g.
+ []
+
+[73]
+Overfull \hbox (8.79851pt too wide) in paragraph at lines 2607--2608
+[]\OT1/cmr/m/n/12 [7] ``tu-to-rial:method:handshake[]verification:start - [Workcraft]," Workcraft.org, 2024. [][]Hand-
+ []
+
+[74] (./test.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -2166,25 +1923,25 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package rerunfilecheck Info: File `finalReport.out' has not changed.
-(rerunfilecheck)             Checksum: DFBB3AF43A5AE11CEEE291FBD7902F3C;3090.
-Package logreq Info: Writing requests to 'finalReport.run.xml'.
-\openout1 = `finalReport.run.xml'.
+Package rerunfilecheck Info: File `test.out' has not changed.
+(rerunfilecheck)             Checksum: 84B2EB2224778E8710DF1BA7A39723A8;2902.
+Package logreq Info: Writing requests to 'test.run.xml'.
+\openout1 = `test.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 71888 strings out of 474222
- 1788973 string characters out of 5748733
- 3069715 words of memory out of 5000000
- 92971 multiletter control sequences out of 15000+600000
+ 72027 strings out of 474222
+ 1790444 string characters out of 5748733
+ 3084936 words of memory out of 5000000
+ 93058 multiletter control sequences out of 15000+600000
  569617 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 89i,14n,90p,1260b,2449s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,14n,90p,1253b,2452s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on finalReport.pdf (70 pages, 9442453 bytes).
+Output written on test.pdf (75 pages, 9538647 bytes).
 PDF statistics:
- 1108 PDF objects out of 1200 (max. 8388607)
- 839 compressed objects within 9 object streams
- 386 named destinations out of 1000 (max. 500000)
- 498 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1257 PDF objects out of 1440 (max. 8388607)
+ 982 compressed objects within 10 object streams
+ 438 named destinations out of 1000 (max. 500000)
+ 482 words of extra memory for PDF output out of 10000 (max. 10000000)
 

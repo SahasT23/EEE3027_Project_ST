@@ -21,12 +21,15 @@
 \newpage
 
 \begin{abstract}
-    This is a placeholder for the abstract of the report.
+This report documents the results and explanations of the laboratory exercises conducted as part of the EEE3027 Integrated Circuit Design course.
+\begin{enumerate}
+  \item \href{URL}{text}
+  \item \href{URL}{text}
+  \item \href{URL}{text}
+  \item \href{URL}{text}
+  \item \href{URL}{text}
+\end{enumerate}
 \end{abstract}
-
-\newpage
-
-\section{Introduction}
 
 \section{Transistor Design Labs \- (Labs 1 \& 2)}
 
@@ -49,7 +52,7 @@ It is composed of semiconductor material, usually with at least three terminals 
     \item \textbf{Oxide Layer:} An insulating layer between the gate and the channel, typically made of silicon dioxide (SiO2).
 \end{itemize}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \begin{circuitikz}[american]
 
@@ -124,7 +127,7 @@ M1 D G 0 0 NLEVEL1 W=10u L=1u
 * Component values: scientific notation (1e-12) or units (1p, 1n, 1u, 1m, 1k, 1meg)
 \end{lstlisting}
 
-The netlist defines an NMOS transistor (M1) with width $10\mu m$ and length $1\mu m$. 
+The netlist defines an NMOS transistor (M1) with width $10\mu m$ and length $1\mu m$ [1]. 
 The $.dc$ command performs a nested sweep: the primary sweep varies $VDS$ from $0V$ to $1.2V$ in $10mV$ increments, while the secondary sweep steps $VGS$ from $0.4V$ (threshold) to $1.2V$ in $0.2V$ increments. 
 
 This generates five $I-V$ characteristic curves, each corresponding to a different gate overdrive voltage. 
@@ -134,7 +137,7 @@ The Level 1 model parameters define the threshold voltage (VTO), transconductanc
 
 The resulting plot (\textbf{Figure \ref{fig:nmos_iv_curve}}) below shows the drain current ($I_D$) compared to the drain-source voltage ($V_{DS}$). 5 distinct curves are visible, each one representing a different gate-source voltage ($V_{GS}$) from $0.4V$ to $1.2V$.
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{1NMOSImage.png}
     \caption{NMOS I-V Characteristics for various $V_{GS}$ values.}
@@ -404,7 +407,7 @@ with no body-effect corrections included.
 
 \textbf{Results and Discussion}
 
-\begin{lstlisting}[caption=Beta Sweep Simulation Code, label=lst:beta_sweep]
+\begin{lstlisting}[caption=Beta Sweep Simulation Code, label=lst:beta_sweep][H]
 * --- Fixed Bias Parameters ---
 .param VGSVAL=1.2
 .param VDSVAL=1.2
@@ -590,7 +593,7 @@ $V_t$   & $26\,\text{mV}$ (at $T = 300\,\text{K}$) \\
 \caption{Circuit and diode parameters used in the analysis}
 \end{table}
 
-Due to the length of the code, use the link to view the Python script here: (INSERT PYTHON CODE LINK GITHUB HERE).
+Due to the length of the code, use the link to view the Python script here: (\href{https://github.com/SahasT23/EEE3027_Project_ST/blob/main/ICDesign/Code/PythonSolutionCode/Task4_Newton_Raphson_Iteration.py}{Python Code}).
 
 \textbf{Figure \ref{fig:NRIOutput}} shows the terminal output from running the Newton\-Raphson iterative solver for the diode circuit. The iterations converge to a diode voltage of approximately $0.58\,\text{V}$, yielding a current of about $4.4\,\text{mA}$.
 
@@ -754,6 +757,8 @@ The following figures show the cursor positions for points A through E on the vo
     \caption{CMOS Point E}
     \label{fig:PointE}
 \end{figure}
+
+\newpage
 
 \textbf{1D NMOS Pull Up Exploration}
 
@@ -936,7 +941,7 @@ In reality, the measured rise and fall times from the simulation are actually mu
 
 This can be seen from the two figures below, which show the annotated waveforms for rise and fall times and the log file \textbf{Figure \ref{fig:init_CMOS_curve}}.
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{1InitialSpecCMOS.png}
     \caption{Initial CMOS Curve}
@@ -945,7 +950,7 @@ This can be seen from the two figures below, which show the annotated waveforms 
 
 And the log file for the graph above, clearly showing the results \textbf{Figure \ref{fig:init_CMOS_log}}:
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{1InitialLog.png}
     \caption{Initial CMOS Curve Log File}
@@ -957,9 +962,7 @@ And the log file for the graph above, clearly showing the results \textbf{Figure
 The original design meets all timing specifications. However, to further optimise performance, we can adjust the transistor sizes.
 By increasing the NMOS width to $W_{NMOS} = 15\,\mu\text{m}$ and the PMOS width to $W_{PMOS} = 30\,\mu\text{m}$, we can reduce the on-resistances, thereby decreasing rise and fall times. This also allows for symmetric switching characteristics and delays.
 
-The netlist can be seen here: LINK TO GITHUB
-
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{1CMOSVarTwo.png}
     \caption{Optimised CMOS}
@@ -968,7 +971,7 @@ The netlist can be seen here: LINK TO GITHUB
 
 The log file also shows that the optimised design meets all timing specifications with improved margins (nearly $1ns$ faster for $t_rise$), \textbf{Figure \ref{fig:CMOS_varTwo}}, and also \textbf{Figure \ref{fig:CMOS_varTwo_Log}}.
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{1OptLog.png}
     \caption{Optimised CMOS Log File}
@@ -1003,7 +1006,7 @@ R_{\text{PMOS}} = \frac{1}{100\mu \times 37.5 \times 4.6}
 = 72~\Omega
 \]
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{1CMOSAsym.png}
     \caption{Asymmetric Ratio Test}
@@ -1014,7 +1017,7 @@ Also, we can see that there is an increase in times ($0.8ns$ for rise and $0.4ns
 
 Further evidence can be seen in the log file below \textbf{Figure \ref{fig:CMOS_Asym_log}}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{1CMOSAsymLog.png}
     \caption{Asymmetric Test Log File}
@@ -1133,7 +1136,7 @@ Implementation maps this netlist onto the physical device through placement and 
 
 Firstly, a visual verification of the waveform shows that, after $10ns$, the output matches the expected result when valid input is provided, with the rising edge for the input at $35ns$ and the corresponding output at $45ns$, as seen below in \textbf{Figure \ref{fig:SingIPSPAnno}}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{1SingIPSPAnno.png}
     \caption{Single Cycle IPSP}
@@ -1156,9 +1159,9 @@ A negative WPWS indicates that the clock high or low pulse width is too short to
 
 This can be seen in the timing report excerpt below, where an infinite negative WNS indicate that the single-cycle design cannot meet the 10\,ns clock period due to excessive combinational delay, thus highlighting the impracticality of this approach for the given operation, after synthesis \textbf{Figure \ref{fig:SingIPSPSynthTime}}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{1SingIPSPSynthTiming.png}
+    \includegraphics[scale=0.27]{1SingIPSPSynthTiming.png}
     \caption{Single Cycle IPSP Post Synthesis Timing Report}
     \label{fig:SingIPSPSynthTime}
 \end{figure}
@@ -1172,24 +1175,18 @@ Dynamic power arises from signal switching activity and is broken down by resour
 
 The Power Summary also provides estimated thermal information, such as junction temperature, enabling assessment of the design’s power efficiency and thermal feasibility. The reported values are estimates and depend on the accuracy of clock and switching activity assumptions, after synthesis \textbf{Figure \ref{fig:SingIPSPSynthPower}}.
 
-\begin{large}
-    IMAGE SHOWING THE POWER REPORT OF THE SINGLE CYCLE IPSP HERE.
-\end{large}
+The power consumption breakdown is shown in Figure~\ref{fig:SingIPSPSynthPower}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{1SingIPSPpowerSummary.png}
     \caption{Single Cycle IPSP Post Synthesis Power Report}
     \label{fig:SingIPSPSynthPower}
 \end{figure}
 
-For further reference, the utilisation report can simply tell a designer how many resources have been used in the FPGA, such as LUTs, Flip-Flops, BRAMs, and DSP slices \textbf{Figure \ref{fig:SingIPSPUtil}}.
+For further reference, the utilisation report can simply tell a designer how many resources have been used in the FPGA, such as LUTs, Flip-Flops, BRAMs, and DSP slices, as shown in Figure~\ref{fig:SingIPSPUtil}.
 
-\begin{large}
-    IMAGE SHOWING THE UTILISATION REPORT OF THE SINGLE CYCLE IPSP HERE.
-\end{large}
-
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{1SingIPSPUtilReport.png}
     \caption{Single Cycle IPSP Post Synthesis}
@@ -1208,29 +1205,25 @@ The timing report identifies the critical path as the slowest path through the d
 
 This can be seen in the timing report excerpt below \textbf{Figure \ref{fig:SingIPSPPostImpTime}}:
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{1SingIPSPPostImpTimingReport.png}
+    \includegraphics[scale=0.27]{1SingIPSPPostImpTimingReport.png}
     \caption{Single Cycle IPSP Post Implementation Timing Report}
     \label{fig:SingIPSPPostImpTime}
 \end{figure}
 
-\begin{large}
-    IMAGE SHOWING THE POST IMP POWER SUMMARY
-\end{large}
+The post-implementation power report is shown in Figure~\ref{fig:SingIPSPPostImpPower}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{1SingIPSPPostImpPower.png}
+    \includegraphics[scale=0.27]{1SingIPSPPostImpPower.png}
     \caption{Single Cycle IPSP Post Implementation Power Report}
     \label{fig:SingIPSPPostImpPower}
 \end{figure}
 
-\begin{large}
-    IMAGE SHOWING THE POST IMP IPSP SIM
-\end{large}
+The post-implementation simulation waveform is presented in Figure~\ref{fig:SingIPSPPostImpSim}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{1SingIPSPPostImpSym.png}
     \caption{Single Cycle IPSP Post Implementation Simulation}
@@ -1261,80 +1254,56 @@ This approach lets more hardware resources be used in parallel, trading off area
 
 Synthesis and implementation proceed similarly to the single-cycle design, with the addition of pipeline registers breaking the critical path.
 
-The waveform also adheres to the expected four-cycle latency, with \texttt{valid\_out} asserted four cycles after \texttt{valid\_in}, and the output data correctly reflecting the pipelined multiply-accumulate operation.
+The waveform also adheres to the expected four-cycle latency, with \texttt{valid\_out} asserted four cycles after \texttt{valid\_in}, and the output data correctly reflecting the pipelined multiply-accumulate operation, as shown in Figure~\ref{fig:PipeIPSPBehavSim}.
 
-\begin{large}
-    IMAGE SHOWING THE ANNOTATED WAVEFORM OF THE PIPELINED IPSP HERE.
-\end{large}
-
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{1PipeIPSPAnno.png}
+    \includegraphics[scale=0.26]{1PipeIPSPAnno.png}
     \caption{Behavioural Simulation of Pipelined IPSP}
     \label{fig:PipeIPSPBehavSim}
 \end{figure}
 
-The timing report excerpt below shows that the pipelined design meets the 10\,ns clock period with a positive WNS, indicating successful timing closure.
+The timing report excerpt in Figure~\ref{fig:PipeIPSPSynthTime} shows that the pipelined design meets the 10\,ns clock period with a positive WNS, indicating successful timing closure.
 
-\begin{large}
-    IMAGE SHOWING THE TIMING REPORT OF THE PIPELINED IPSP POST SYNTHESIS HERE.
-\end{large}
-
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{1PipeIPSPSynthTiming.png}
+    \includegraphics[scale=0.27]{1PipeIPSPSynthTiming.png}
     \caption{Pipelined IPSP Post Synthesis Timing Report}
     \label{fig:PipeIPSPSynthTime}
 \end{figure}
 
-After implementation, the timing report confirms that the design still meets timing constraints, with the critical path now slightly shorter due to pipelining.
+After implementation, the timing report in Figure~\ref{fig:PipeIPSPImpTime} confirms that the design still meets timing constraints, with the critical path now slightly shorter due to pipelining.
 
-\begin{large}
-    IMAGE SHOWING THE TIMING REPORT OF THE PIPELINED IPSP POST IMP HERE.
-\end{large}
-
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{1PipeIPSPImpSummary.png}
+    \includegraphics[scale=0.25]{1PipeIPSPImpSummary.png}
     \caption{Pipelined IPSP Post Implementation Timing Report}
     \label{fig:PipeIPSPImpTime}
 \end{figure}
 
 The power reports show the dynamic and static power consumption of the pipelined design, which may be higher than the single-cycle design due to increased register usage but is offset by improved timing performance. 
 
-There is a higher utilisation of the FPGA resources due to the additional pipeline registers, which is reflected in the utilisation report.
+There is a higher utilisation of the FPGA resources due to the additional pipeline registers, which is reflected in the utilisation report. The post-synthesis power report is shown in Figure~\ref{fig:PipeIPSPSynthPower}.
 
-\begin{large}
-    IMAGE SHOWING THE POWER REPORT OF THE PIPELINED IPSP HERE POST SYNTH.
-\end{large}
-
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{1PipeIPSPpowerSummary.png}
     \caption{Pipelined IPSP Post Synthesis Power Report}
     \label{fig:PipeIPSPSynthPower}
 \end{figure}
 
-And after implementation:
+The post-implementation power report is shown in Figure~\ref{fig:PipeIPSPImpPower}.
 
-\begin{large}
-    IMAGE SHOWING THE POWER REPORT OF THE PIPELINED IPSP HERE POST IMP.
-\end{large}
-
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{1PipeIPSPpowerSummary.png}
     \caption{Pipelined IPSP Post Implementation Power Report}
     \label{fig:PipeIPSPImpPower}
 \end{figure}
 
-Utilisation report shows the resource usage of the pipelined design, which typically increases due to the additional registers but remains within acceptable limits for the target FPGA.
+The utilisation report in Figure~\ref{fig:PipeIPSPUtil} shows the resource usage of the pipelined design, which typically increases due to the additional registers but remains within acceptable limits for the target FPGA.
 
-\begin{large}
-    IMAGE SHOWING THE UTILISATION REPORT OF THE PIPELINED IPSP HERE.
-\end{large}
-
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{1PipeIPSPUtilSummary.png}
     \caption{Pipelined IPSP Utilisation Report}
@@ -1374,7 +1343,7 @@ This operation consists of a subtraction followed by a division. Unlike multipli
 
 In the first version, both subtraction and division are implemented as purely combinational logic, completing in a single clock cycle. For a 32-bit division, this requires fully unrolling the division algorithm into one large combinational path.
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \begin{tikzpicture}[
     block/.style={draw, rectangle, minimum width=3.2cm, minimum height=1.2cm, align=center},
@@ -1429,57 +1398,45 @@ The combinational DIVSUB produces functionally correct results in behavioural si
 
 However, synthesis and implementation reports reveal that the design cannot meet timing constraints due to the excessively long combinational path through the divider. The timing report shows an infinite WNS, indicating that the critical path delay far exceeds the $10ns$ clock period.
 
-The following figures show the waveform, post-synthesis timing report, and post-implementation timing report for the combinational DIVSUB design, along with the equivalent power reports
+The following figures show the waveform, post-synthesis timing report, and post-implementation timing report for the combinational DIVSUB design, along with the equivalent power reports. The behavioural simulation is presented in Figure~\ref{fig:SingDivSubAnno}.
 
-\begin{large}
-    IMAGE SHOWING THE ANNOTATED WAVEFORM OF THE COMBINATIONAL DIVSUB HERE.
-\end{large}
-
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{2SingDivSubAnno.png}
+    \includegraphics[scale=0.24]{2SingDivSubAnno.png}
     \caption{Behavioural Simulation of Combinational (single cycle) DIVSUB}
     \label{fig:SingDivSubAnno}
 \end{figure}
 
-\begin{large}
-    IMAGE SHOWING THE TIMING REPORT OF THE COMBINATIONAL DIVSUB POST SYNTH HERE.
-\end{large}
+The post-synthesis timing report is shown in Figure~\ref{fig:SingDivSubSynthTime}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{2SingDivSubSynthTiming.png}
     \caption{Single Cycle DIVSUB Post Synthesis Timing Report}
     \label{fig:SingDivSubSynthTime}
 \end{figure}
 
-\begin{large}
-    IMAGE SHOWING THE TIMING REPORT OF THE COMBINATIONAL DIVSUB POST IMP HERE.
-\end{large}
+The post-implementation timing report is shown in Figure~\ref{fig:CMOS_varTwo_log}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{2SingDivSubImpTimingSummary.png}
+    \includegraphics[scale=0.26]{2SingDivSubImpTimingSummary.png}
     \caption{Single Cycle DIVSUB Post Implementation Timing Report}
     \label{fig:CMOS_varTwo_log}
 \end{figure}
 
-\begin{large}
-    IMAGE SHOWING THE POWER REPORT OF THE COMBINATIONAL DIVSUB HERE POST SYNTH.
-\end{large}
+The post-synthesis power report is shown in Figure~\ref{fig:SingDivSubSynthPower}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{2SingDivSubSynthPowerSummary.png}
     \caption{Single Cycle DIVSUB Post Synthesis Power Report}
     \label{fig:SingDivSubSynthPower}
 \end{figure}
 
-\begin{large}
-    IMAGE SHOWING THE POWER REPORT OF THE COMBINATIONAL DIVSUB HERE POST IMP.
-\end{large}
+The post-implementation power report is shown in Figure~\ref{fig:SingDivSubImpPower}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{2SingDivSubImpPowerSummary.png}
     \caption{Single Cycle DIVSUB Post Implementation Power Report}
@@ -1523,7 +1480,7 @@ Init & 00000000 & 00001101 & 00000000 & Load \\
 \label{tab:serial_div}
 \end{table}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \begin{tikzpicture}[
     block/.style={draw, rectangle, minimum width=3.8cm, minimum height=1.4cm, align=center},
@@ -1604,68 +1561,52 @@ Division complete, $valid_out$ asserts\\
 $x_out$ contains correct quotient\\
 FSM returns to IDLE (or processes next FIFO entry)\\
 
-This can be seen in the waveform below, where $valid_out$ goes high $48$ cycles after $valid_in$, and $x_out$ holds the correct result.
+This can be seen in the waveform in Figure~\ref{fig:PipeDivSubBehavSim}, where $valid_out$ goes high $48$ cycles after $valid_in$, and $x_out$ holds the correct result.
 
-\begin{large}
-    IMAGE SHOWING THE ANNOTATED WAVEFORM OF THE PIPELINED DIVSUB HERE.
-\end{large}
-
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{2PipeDivSubWavOne.png}
+    \includegraphics[scale=0.27]{2PipeDivSubWavOne.png}
     \caption{Pipelined DIVSUB Behavioural Simulation First Part}
     \label{fig:PipeDivSubBehavSim}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{2PipeDivSubWaveTwo.png}
+    \includegraphics[scale=0.27]{2PipeDivSubWaveTwo.png}
     \caption{Pipelined DIVSUB Behavioural Simulation Second Part}
     \label{fig:PipeDivSubBehavSimTwo}
 \end{figure}
 
-For further reference, the synthesis and implementation timing reports confirm that the pipelined design meets timing constraints, with a positive WNS indicating successful timing closure.
+For further reference, the synthesis and implementation timing reports confirm that the pipelined design meets timing constraints, with a positive WNS indicating successful timing closure. The post-synthesis timing report is shown in Figure~\ref{fig:PipeDivSubSynthTime}.
 
-\begin{large}
-    IMAGE SHOWING THE TIMING REPORT OF THE PIPELINED DIVSUB POST SYNTH HERE.
-\end{large}
-
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{2PipeDivSubSynthTiming.png}
+    \includegraphics[scale=0.27]{2PipeDivSubSynthTiming.png}
     \caption{Pipelined DIVSUB Post Synthesis Timing Report}
     \label{fig:PipeDivSubSynthTime}
 \end{figure}
 
-\begin{large}
-    IMAGE SHOWING THE TIMING REPORT OF THE PIPELINED DIVSUB POST IMP HERE.
-\end{large}
+The post-implementation timing report is shown in Figure~\ref{fig:PipeDivSubImpTime}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{2PipeDivSubImpTiming.png}
+    \includegraphics[scale=0.27]{2PipeDivSubImpTiming.png}
     \caption{Pipelined DIVSUB Post Implementation Timing Report}
     \label{fig:PipeDivSubImpTime}
 \end{figure}
 
-The power reports show the dynamic and static power consumption of the pipelined DIVSUB design, which may be higher than the combinational design due to increased register usage but is offset by improved timing performance.
+The power reports show the dynamic and static power consumption of the pipelined DIVSUB design, which may be higher than the combinational design due to increased register usage but is offset by improved timing performance. The post-synthesis power report is shown in Figure~\ref{fig:PipeDivSubSynthPower}.
 
-\begin{large}
-    IMAGE SHOWING THE POWER REPORT OF THE PIPELINED DIVSUB HERE POST SYNTH.
-\end{large} 
-
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{2PipeDivSubPowerSynth.png}
     \caption{Pipelined DIVSUB Post Synthesis Power Report}
     \label{fig:PipeDivSubSynthPower}
 \end{figure}
 
-\begin{large}
-    IMAGE SHOWING THE POWER REPORT OF THE PIPELINED DIVSUB HERE POST IMP.
-\end{large}
+The post-implementation power report is shown in Figure~\ref{fig:PipeDivSubImpPower}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{2PipeDivSubPowerImp.png}
     \caption{Pipelined DIVSUB Post Implementation Power Report}
@@ -1795,7 +1736,7 @@ and finally
 x_3 = \frac{20 - 1\cdot 4 - 2\cdot 3}{4} = 2.5.
 \]
 
-In this way, IPSPs form the main array to perform high-throughput multiply--accumulate operations, while the multi-cycle \texttt{DIVSUB} blocks handle division at the array boundary, where fewer operations are required.
+In this way, IPSPs form the main array to perform high-throughput multiply\-accumulate operations, while the multi-cycle \texttt{DIVSUB} blocks handle division at the array boundary, where fewer operations are required.
 
 \begin{itemize}
     \item A coefficients: Left-to-right along top
@@ -1804,7 +1745,7 @@ In this way, IPSPs form the main array to perform high-throughput multiply--accu
     \item b vector: Enters DIVSUB from below
 \end{itemize}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \begin{tikzpicture}[
     block/.style={draw, rectangle, minimum width=2.6cm, minimum height=2.4cm, align=center},
@@ -1862,7 +1803,7 @@ $ax + y$};
 \caption{Full systolic array architecture showing the DIVSUB boundary element and chained IPSPs. All data and coefficients propagate synchronously using registered inputs.}
 \end{figure}
 
-\begin{table}[h!]
+\begin{table}[H]
 \centering
 \caption{Key Inter-Block Signals in the Systolic Architecture}
 \begin{tabular}{p{3.5cm} p{3.5cm} p{2.7cm} p{3.5cm}}
@@ -1894,83 +1835,67 @@ Coordinates operation sequencing and enforces systolic timing \\
 
 \textbf{Results and Discussion}
 
-The behavioural simulation waveform confirms that the systolic array correctly computes the solution vector $x$ over multiple clock cycles, with each IPSP and DIVSUB operating in synchrony.
+The behavioural simulation waveform confirms that the systolic array correctly computes the solution vector $x$ over multiple clock cycles, with each IPSP and DIVSUB operating in synchrony [2], [3].
 
-The synthesis and implementation timing reports indicate that the full systolic array meets timing constraints, with a positive WNS demonstrating successful timing closure across the entire design.
+The synthesis and implementation timing reports indicate that the full systolic array meets timing constraints, with a positive WNS demonstrating successful timing closure across the entire design. The behavioural simulation waveform is shown in Figure~\ref{fig:SysArrayAnno}.
 
-\begin{large}
-    IMAGE SHOWING THE ANNOTATED WAVEFORM OF THE FULL SYSTOLIC ARRAY HERE.
-\end{large}
-
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{3SysArrayAnno.png}
+    \includegraphics[scale=0.27]{3SysArrayAnno.png}
     \caption{Systolic Array Behavioural Simulation}
     \label{fig:SysArrayAnno}
 \end{figure}
 
-\begin{large}
-    IMAGE SHOWING THE TIMING REPORT OF THE FULL SYSTOLIC ARRAY POST SYNTH HERE.
-\end{large}
+The post-synthesis timing report is shown in Figure~\ref{fig:SysArraySynthTime}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{3SysArrayPostSynthTiming.png}
+    \includegraphics[scale=0.26]{3SysArrayPostSynthTiming.png}
     \caption{Systolic Array Post Synthesis Timing Report}
     \label{fig:SysArraySynthTime}
 \end{figure}
 
-\begin{large}
-    IMAGE SHOWING THE TIMING REPORT OF THE FULL SYSTOLIC ARRAY POST IMP HERE.
-\end{large}
+The post-implementation timing report is shown in Figure~\ref{fig:SysArrayImpTime}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{3SysArrayPostImpTiming.png}
+    \includegraphics[scale=0.26]{3SysArrayPostImpTiming.png}
     \caption{Systolic Array Post Implementation Timing Report}
     \label{fig:SysArrayImpTime}
 \end{figure}
 
-\begin{large}
-    IMAGE SHOWING THE POWER REPORT OF THE FULL SYSTOLIC ARRAY HERE POST SYNTH.
-\end{large}
+The post-synthesis power report is shown in Figure~\ref{fig:SysArraySynthPower}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{3SysArrayPostSynthPower.png}
     \caption{Systolic Array Post Synthesis Power Report}
     \label{fig:SysArraySynthPower}
 \end{figure}
 
-\begin{large}
-    IMAGE SHOWING THE POWER REPORT OF THE FULL SYSTOLIC ARRAY HERE POST IMP.
-\end{large}
+The post-implementation power report is shown in Figure~\ref{fig:SysArrayImpPower}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{3SysArrayPostImpPower.png}
     \caption{Systolic Array Post Implementation Power Report}
     \label{fig:SysArrayImpPower}
 \end{figure}
 
-\begin{large}
-    IMAGE SHOWING THE UTILISATION REPORT OF THE FULL SYSTOLIC ARRAY HERE.
-\end{large}
+The utilisation summary is shown in Figure~\ref{fig:SysArrayUtil}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{3SysArrayUtilReport.png}
     \caption{Systolic Array Utilisation Summary}
     \label{fig:SysArrayUtil}
 \end{figure}
 
-\begin{large}
-    IMAGE SHOWING THE CRITICAL PATH OF THE FULL SYSTOLIC ARRAY HERE.
-\end{large}
+The critical path analysis is shown in Figure~\ref{fig:SysArrayCritPath}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{3SysArrayCritPath.png}
+    \includegraphics[scale=0.25]{3SysArrayCritPath.png}
     \caption{Systolic Array Critical Path}
     \label{fig:SysArrayCritPath}
 \end{figure}
@@ -1981,7 +1906,7 @@ The synthesis and implementation timing reports indicate that the full systolic 
 
 \textbf{Part 1, Theory and Procedure}
 
-The C-element is one of the most fundamental building blocks in asynchronous circuit design. Unlike combinational gates where outputs are purely a function of current inputs, the C-element is a state-holding element with memory. 
+The C-element is one of the most fundamental building blocks in asynchronous circuit design [4], [5]. Unlike combinational gates where outputs are purely a function of current inputs, the C-element is a state-holding element with memory. 
 
 Its behaviour is defined as follows: the output transitions HIGH ($Q^+$) only when all inputs are HIGH, the output transitions LOW ($Q^-$) only when all inputs are LOW, and when the inputs have different values, the output retains its previous value. This makes it a synchronisation element that waits for all inputs to agree before changing state.
 
@@ -2019,39 +1944,27 @@ The initial marking, with tokens on the arcs from $out^-$ to the input rising tr
 
 The STG allows concurrency, so $in1^+$ and $in2^+$ may occur in any order, reflecting that their relative timing is actually unimportant.
 
-This can be seen in the STG diagram below:
+This can be seen in the STG diagram in Figure~\ref{fig:CElementSTG}.
 
-\begin{large}
-    IMAGE SHOWING STG OF C-ELEMENT HERE
-\end{large}
-
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{7STGCElement.png}
     \caption{C-Element STG}
     \label{fig:CElementSTG}
 \end{figure}
 
-The trace corresponding to the STG is shown here, with two runs of the C-element behaviour:
+The trace corresponding to the STG is shown in Figure~\ref{fig:CElementTrace}, with two runs of the C-element behaviour.
 
-\begin{large}
- IMAGE SHOWING THE TRACE OF THE C-ELEMENT HERE.
-\end{large}
-
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{7STGTrace.png}
     \caption{C-Element STG Trace}
     \label{fig:CElementTrace}
 \end{figure}
 
-Circuit timing diagram generated from the trace is shown below:
+The circuit timing diagram generated from the trace is shown in Figure~\ref{fig:CElementTiming}.
 
-\begin{large}
-    IMAGE SHOWING THE TIMING DIAGRAM OF THE C-ELEMENT HERE.
-\end{large}
-
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{7STGTiming.png}
     \caption{C-Element Timing Diagram}
@@ -2086,13 +1999,9 @@ Input-properness holds because input transitions ($in1^\pm$, $in2^\pm$) are cont
 
 Output-persistence is satisfied because once $out^+$ or $out^-$ becomes enabled, it cannot be disabled by any input transition; for example, after $in1^+$ and $in2^+$ fire, $out^+$ is guaranteed to occur since no input can remove the required tokens.
 
-Verification results from Workcraft are shown below:
+The verification results from Workcraft are shown in Figure~\ref{fig:CElementVerify}.
 
-\begin{large}
-    IMAGE SHOWING THE VERIFICATION RESULTS FOR C-ELEMENT HERE.
-\end{large}
-
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{7STGVerify.png}
     \caption{C-Element STG Verification Results}
@@ -2127,32 +2036,24 @@ out = (out \lor in2)\land in1 \;\lor\; in2 \land out,
 \]
 which is reflected in the Verilog export as a single \texttt{assign} statement. In both synthesis approaches, the functional behaviour is identical, and the feedback path ensures correct C-element operation.
 
-For further reference, the Verilog code generated from complex-gate synthesis is shown in the GITHUB LINK
+For further reference, the Verilog code generated from complex-gate synthesis is shown in the github repository.
 
 Workcraft provides two forms of C-element synthesis. Standard C-element synthesis produces a canonical implementation that directly represents an ideal C-element, with built-in memory and feedback. The result typically appears as a single C-element gate or an equivalent standard-cell representation, emphasising clarity and correspondence with theoretical asynchronous models.
 
 Generalised C-element synthesis derives a Boolean function with memory from the STG without enforcing a strict C-element structure. This allows additional logic or asymmetry when required by the specification and may be realised as a complex gate with feedback or as a small network of standard gates after technology mapping. While both approaches implement equivalent behaviour, the standard method highlights the textbook C-element, whereas the generalised method provides greater flexibility for optimisation and technology mapping.
 
-This can be seen in the images below:
+This can be seen in Figure~\ref{fig:CElementStandard} for the standard C-element implementation.
 
-\begin{large}
-IMAGE SHOWING THE STANDARD C ELEMENT
-\end{large}
-
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{7STGstdCElement.png}
     \caption{Standard C-Element Implementation}
     \label{fig:CElementStandard}
 \end{figure}
 
-and for Generalised C-element:
+The generalised C-element implementation is shown in Figure~\ref{fig:CElementGeneralised}.
 
-\begin{large}
-IMAGE SHOWING THE GENERALISED C ELEMENT
-\end{large}
-
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{7STGGenMap.png}
     \caption{Generalised C-Element Implementation}
@@ -2178,35 +2079,27 @@ Once $out$ is high, the feedback terms $in1\land out$ and $in2\land out$ maintai
 
 Compared to a complex-gate implementation, the same logic is realised using four standard gates. This increases fan-out at $out$, which feeds both the external output and feedback paths, and increases fan-in at the OR gate, which combines three signals. This may increase delay and area but improves portability across standard cell libraries.
 
-The following images show the gate-level implementations of the C-element:
+The gate-level implementation is shown in Figure~\ref{fig:CElementGateLevel}.
 
-\begin{large}
-IMAGE SHOWING THE GATE LEVEL IMPLEMENTATION OF C-ELEMENT HERE.
-\end{large}
-
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{7STGComplexGateMap.png}
     \caption{Gate-Level C-Element Implementation}
     \label{fig:CElementGateLevel}
 \end{figure}
 
-\begin{large}
-IMAGE SHOWING THE STG OF THE GATE LEVEL C-ELEMENT HERE.
-\end{large}
+The STG of the gate-level C-element is shown in Figure~\ref{fig:CElementGateSTG}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{7NonWorkingSTG.png}
     \caption{STG of Gate-Level C-Element}
     \label{fig:CElementGateSTG}
 \end{figure}
 
-\begin{large}
-TRACE OF THE GATE LEVEL C-ELEMENT HERE.
-\end{large}
+The trace of the gate-level C-element is shown in Figure~\ref{fig:CElementGateTrace}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{7STGTrace.png}
     \caption{Trace of Gate-Level C-Element}
@@ -2225,13 +2118,9 @@ When the environment STG is not attached, verification fails for output persiste
 
 This failure does not indicate an implementation error. In a realistic system, the environment does not arbitrarily withdraw inputs, and the original STG specification enforces valid input behaviour. The violation therefore arises from analysing the circuit in isolation rather than from incorrect C-element functionality.
 
-the verification results from Workcraft are shown below, including the violation as well as successful verification when the environment is included:
+The verification results from Workcraft are shown in Figure~\ref{fig:CElementGateVerify}, including the violation as well as successful verification when the environment is included.
 
-\begin{large}
-    IMAGE SHOWING THE VERIFICATION RESULTS FOR GATE LEVEL C-ELEMENT HERE.
-\end{large}
-
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{7STGWorkingVerify.png}
     \caption{Gate-Level C-Element Verification Results}
@@ -2254,22 +2143,18 @@ This occurs because, in isolation, the verifier assumes inputs can change at any
 
 The key insight is that the environment STG serves as a contract: the circuit is guaranteed to behave correctly as long as the environment respects the specified input constraints, and verification confirms compliance with this contract.
 
-\begin{large}
-    IMAGE SHOWING THE VERIFICATION RESULTS FOR C-ELEMENT WITHOUT ENVIRONMENT HERE.
-\end{large}
+The verification results without environment are shown in Figure~\ref{fig:CElementNonEnvVerify}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{7STGErrorMes.png}
     \caption{Non-Working C-Element Verification Results}
     \label{fig:CElementNonEnvVerify}
 \end{figure}
 
-\begin{large}
-    IMAGE SHOWING THE VERIFICATION RESULTS FOR C-ELEMENT WITH ENVIRONMENT HERE.
-\end{large}
+The verification results with environment are shown in Figure~\ref{fig:CElementEnvVerify}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{7STGWorkingVerify.png}
     \caption{Working C-Element Verification Results}
@@ -2286,15 +2171,13 @@ While the original STG specifies one particular sequence of inputs and outputs f
 
 This results in additional interleavings and states, showing what the circuit can do rather than what it should do. Consequently, the original STG is effectively a subset of the extracted STG's behaviours.
 
-\begin{large}
-    IMAGE SHOWING THE EXTRACTED STG FROM THE CIRCUIT HERE.
-\end{large}
+The extracted STG from the circuit is shown in Figure~\ref{fig:WorkingSTG}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{7WorkingSTG.png}
-    \caption{Optimised CMOS Log File}
-    \label{fig:CMOS_varTwo_log}
+    \includegraphics[scale=0.27]{7WorkingSTG.png}
+    \caption{Working STG Extracted from Decomposed C-Element Circuit}
+    \label{fig:WorkingSTG}
 \end{figure}
 
 The extracted STG includes ``extra" behaviours that the original specification doesn't allow, which is why environment constraints are needed.
@@ -2325,37 +2208,27 @@ The violation trace reported by Workcraft highlights this window where an enable
 The key insight is that speed-independent design relies on isochronic forks. While wire delays are usually negligible compared to gate delays, significant interconnect delays or poor routing can violate this assumption. 
 The buffered circuit explicitly models such a violation, demonstrating why physical implementation considerations remain important in asynchronous circuit design.
 
-Here, the verification results for both circuits are shown:
+Here, the verification results for both circuits are shown in Figure~\ref{fig:STGIsochronicForkVerify}.
 
-\begin{large}
-    IMAGE SHOWING THE VERIFICATION RESULTS FOR C-ELEMENT WITH ISOCHRONIC FORK HERE.
-\end{large}
-
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{7STGVerify.png}
     \caption{Working STG Verification Results}
     \label{fig:STGIsochronicForkVerify}
 \end{figure}
 
-\begin{large}
-    IMAGE SHOWING THE VERIFICATION RESULTS FOR C-ELEMENT WITH BUFFERED FORK HERE.
-\end{large}
+The verification results for the buffered fork circuit are shown in Figure~\ref{fig:STGBufferedForkVerify}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{7STGErrorMes.png}
     \caption{Erroneous STG Verification Results}
     \label{fig:STGBufferedForkVerify}
 \end{figure}
 
-And the verification violation trace for the buffered fork circuit is shown below:
+The verification violation trace for the buffered fork circuit is shown in Figure~\ref{fig:STGBufferedForkTrace}.
 
-\begin{large}
-    IMAGE SHOWING THE VERIFICATION VIOLATION TRACE FOR C-ELEMENT WITH BUFFERED FORK HERE.
-\end{large}
-
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{7STGERROR.png}
     \caption{Verification Violation Trace for Buffered Fork Circuit}
@@ -2414,70 +2287,54 @@ shows that the transceiver is enabled early, allowing the device to observe vali
 
 The READ and WRITE controllers were modelled separately to simplify verification. Isolating each mode reduces model complexity, making it easier to validate correctness and identify errors before integration.
 
-In both STGs, limited concurrency appears during the reset phase. Some deassertion transitions, such as \texttt{lds-} and \texttt{ldtack-}, may occur concurrently with the next request (\texttt{dsr+} or \texttt{dsw+}). This overlap allows a new transaction to begin while the previous one is still completing its reset, improving overall responsiveness.
+In both STGs, limited concurrency appears during the reset phase. Some deassertion transitions, such as \texttt{lds-} and \texttt{ldtack-}, may occur concurrently with the next request (\texttt{dsr+} or \texttt{dsw+}). This overlap allows a new transaction to begin while the previous one is still completing its reset, improving overall responsiveness. The VME Read controller STG is shown in Figure~\ref{fig:VME_Read_STG}.
 
-\begin{large}
-    IMAGE SHOWING THE VME READ STG HERE.
-\end{large}
-
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{8ReadControlSTG.png}
     \caption{VME Read Controller STG}
     \label{fig:VME_Read_STG}
 \end{figure}
 
-\begin{large}
-    IMAGE SHOWING THE TIMING DIAGRAM OF THE VME READ STG HERE.
-\end{large}
+The timing diagram of the VME Read controller is shown in Figure~\ref{fig:VME_Read_Timing}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{8ReadControlSTGTimingDia.png}
     \caption{Timing Diagram of VME Read Controller}
     \label{fig:VME_Read_Timing}
 \end{figure}
 
-\begin{large}
-    IMAGE SHOWING THE VERIFICATION RESULTS FOR THE VME READ STG HERE.
-\end{large}
+The verification results of the VME Read controller are shown in Figure~\ref{fig:VME_Read_Verify}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{8ReadControlSTGVerify.png}
     \caption{Verification Results of VME Read Controller}
     \label{fig:VME_Read_Verify}
 \end{figure}
 
-This covers the read controller. The write controller follows similarly:
+This covers the read controller. The write controller follows similarly. The VME Write controller STG is shown in Figure~\ref{fig:VME_Write_STG}.
 
-\begin{large}
-    IMAGE SHOWING THE VME WRITE STG HERE.
-\end{large}
-
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{8WriteControlSTG.png}
     \caption{VME Write Controller STG}
     \label{fig:VME_Write_STG}
 \end{figure}
 
-\begin{large}
-    IMAGE SHOWING THE TIMING DIAGRAM OF THE VME WRITE STG HERE.
-\end{large}
+The timing diagram of the VME Write controller is shown in Figure~\ref{fig:VME_Write_Timing}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{8WriteControlTiming.png}
     \caption{Timing Diagram of VME Write Controller}
     \label{fig:VME_Write_Timing}
 \end{figure}
 
-\begin{large}
-    IMAGE SHOWING THE VERIFICATION RESULTS FOR THE VME WRITE STG HERE.
-\end{large}
+The verification results of the VME Write controller are shown in Figure~\ref{fig:VME_Write_Verify}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{8WriteControlVerify.png}
     \caption{Verification Results of VME Write Controller}
@@ -2506,33 +2363,27 @@ A key observation is the distinction between free and controlled choice. The mer
 
 Finally, the model highlights an important aspect of VME operation. Reset signals from the device, such as \texttt{lds-} and \texttt{ldtack-}, can occur concurrently with new bus requests (\texttt{dsr+} or \texttt{dsw+}). This overlap allows a new transaction to begin before the previous one has fully completed, enabling pipelined operation and improved bus throughput.
 
-\begin{large}
-    IMAGE SHOWING THE VME READ-WRITE COMBINED STG HERE.
-\end{large}
+The VME Read-Write combined controller STG is shown in Figure~\ref{fig:VME_Read_Write_STG}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{8RWControl.png}
     \caption{VME Read-Write Combined Controller STG}
     \label{fig:VME_Read_Write_STG}
 \end{figure}
 
-\begin{large}
-    IMAGE SHOWING THE TIMING DIAGRAM OF THE VME READ-WRITE COMBINED STG HERE.
-\end{large}
+The timing diagram of the VME Read-Write combined controller is shown in Figure~\ref{fig:VME_Read_Write_Timing}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{8RWTimingDiagram.png}
     \caption{Timing Diagram of VME Read-Write Combined Controller}
     \label{fig:VME_Read_Write_Timing}
 \end{figure}
 
-\begin{large}
-    IMAGE SHOWING THE VERIFICATION RESULTS FOR THE VME READ-WRITE COMBINED STG HERE.
-\end{large}
+The verification results of the VME Read-Write combined controller are shown in Figure~\ref{fig:VME_Read_Write_Verify}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{8WriteControlVerify.png}
     \caption{Verification Results of VME Read-Write Combined Controller}
@@ -2559,11 +2410,9 @@ In the VME controller, such conflicts typically arise during the reset phase, wh
 
 This issue is fundamental to circuit synthesis. A combinational circuit computes outputs as a function of its current inputs. If two distinct situations present the same inputs but require different outputs, no valid combinational function exists. To resolve this ambiguity, additional state must be introduced to distinguish between the conflicting situations. In practice, this is achieved by adding internal signals to encode the missing state information.
 
-\begin{large}
-    IMAGE SHOWING THE CSC CONFLICT DETAILS FOR VME CONTROLLER HERE.
-\end{large}
+The CSC conflict details for the VME controller are shown in Figure~\ref{fig:VME_CSC_Conflict}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{8RWConflictMessage.png}
     \caption{CSC Conflict Details for VME Controller}
@@ -2584,7 +2433,7 @@ Finally, Petrify may apply an \textbf{arbitrary signal insertion} strategy. The 
 
 \textbf{Part 4, Results and Discussion}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{8RWConflictMessage.png}
     \caption{CSC Conflict Details for VME Controller}
@@ -2609,22 +2458,18 @@ Verification is performed against the original STG rather than the CSC-resolved 
 
 Each verification check addresses a different correctness aspect. Conformation ensures that the circuit produces correct outputs for all legal input sequences defined by the STG. Deadlock freeness guarantees that the circuit can always make progress and never becomes stuck waiting indefinitely. Output persistency ensures hazard-free behaviour, meaning that once an output is enabled it completes its transition without glitches.
 
-\begin{large}
-    IMAGE SHOWING THE SYNTHESISED VME CONTROLLER CIRCUIT HERE.
-\end{large}
+The synthesised VME controller circuit is shown in Figure~\ref{fig:VME_Synthesised_Circuit}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
-    \includegraphics[scale=0.3]{8WriteControlComplexGate.png}
+    \includegraphics[scale=0.3]{8RWCircuitImplementation.png}
     \caption{Synthesised VME Controller Circuit}
     \label{fig:VME_Synthesised_Circuit}
 \end{figure}
 
-\begin{large}
-    IMAGE SHOWING THE VERIFICATION RESULTS FOR THE SYNTHESISED VME CONTROLLER CIRCUIT HERE.
-\end{large}
+The verification results of the synthesised VME controller circuit are shown in Figure~\ref{fig:VME_Synthesised_Verify}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.3]{8WriteControlVerify.png}
     \caption{Verification Results of Synthesised VME Controller Circuit}
@@ -2636,8 +2481,129 @@ Each verification check addresses a different correctness aspect. Conformation e
 The synthesised circuit can be exported to Verilog for use in standard digital design flows. 
 The task requires translating this to VHDL and explaining the connection to previous lab tools.
 
+These files are available from the links at the top. 
+
+\begin{lstlisting}
+-- VHDL conversion from Verilog netlist generated by Workcraft 3
+-- Original Workcraft version: 3.5.3
+-- Design title: VME Stage 1
+-- Converted: 2025-12-29
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity VME is
+    port (
+        dsr    : in  std_logic;
+        dsw    : in  std_logic;
+        ldtack : in  std_logic;
+        d      : out std_logic;
+        lds    : out std_logic;
+        dtack  : out std_logic
+    );
+end VME;
+
+architecture stage1 of VME is
+    signal csc  : std_logic;
+    signal csc1 : std_logic;
+begin
+
+    -- All assignments have 1 time unit delay in original Verilog
+    d     <= (not csc or csc1) and dsw or csc1 and ldtack after 1 ns;
+    lds   <= (d or dsw) and csc or csc1 and not dsw after 1 ns;
+    dtack <= (not d or not dsw) and csc after 1 ns;
+    csc   <= (csc or csc1) and (d or dsw) after 1 ns;
+    csc1  <= (csc1 or not ldtack) and dsr or d and not ldtack after 1 ns;
+
+    -- Initial signal values (for simulation):
+    -- csc = '0', csc1 = '0', d = '0', dsr = '0', dsw = '0'
+    -- dtack = '0', lds = '0', ldtack = '0'
+
+end stage1;
+\end{lstlisting}
+
+\begin{table}[h]
+\centering
+\caption{Verilog and VHDL Construct Equivalents}
+\label{tab:verilog_vhdl_equiv}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{l|l|l}
+\hline
+\textbf{Verilog Construct} & \textbf{VHDL Equivalent} & \textbf{Notes} \\ \hline
+\texttt{\&} & \texttt{and} & Logical AND \\ \hline
+\texttt{|} & \texttt{or} & Logical OR \\ \hline
+\texttt{\textasciitilde} & \texttt{not} & Logical NOT \\ \hline
+\texttt{\^} & \texttt{xor} & Logical XOR \\ \hline
+\texttt{assign x = expr;} & \texttt{x <= expr;} & Concurrent signal assignment \\ \hline
+\texttt{input} & \texttt{: in STD\_LOGIC} & Port direction \\ \hline
+\texttt{output} & \texttt{: out STD\_LOGIC} & Port direction \\ \hline
+\texttt{wire} & \texttt{signal} & Internal connection \\ \hline
+\texttt{module \ldots endmodule} & \texttt{entity \ldots architecture} & Design unit structure \\ \hline
+\end{tabular}
+\end{table}
+
+\textbf{How the Translated VHDL Works}
+
+The translated VHDL describes an asynchronous controller, which differs fundamentally from the synchronous FPGA designs used in Labs~4--6.
+
+\begin{enumerate}
+    \item \textbf{No Clock Signal} \\
+    The circuit does not use a clock. All signal assignments are concurrent, meaning that any change in an input immediately propagates through the logic.
+
+    \item \textbf{Memory via Feedback} \\
+    Memory is implemented using feedback rather than flip-flops. For example, the \texttt{lds\_int} signal is defined as:
+    \begin{equation}
+        lds\_int \leftarrow ((dsr \lor dsw) \land \lnot ldtack) \lor
+        (lds\_int \land (dsr \lor dsw \lor ldtack))
+    \end{equation}
+    The feedback term allows \texttt{lds\_int} to retain its value, giving latch-like behaviour.
+
+    \item \textbf{Hazard-Free by Construction} \\
+    The Boolean equations generated by Workcraft are hazard-free for all signal sequences permitted by the STG. Glitches may still occur if inputs violate the STG specification.
+
+    \item \textbf{State Machine via Signal Dependencies} \\
+    The controller’s state machine is encoded implicitly through dependencies between signals. Outputs depend on both inputs and other outputs, collectively enforcing the protocol defined by the STG.
+\end{enumerate}
+
+A critical VHDL-specific consideration: output ports cannot be read directly. When a Boolean expression for one output references another output (feedback), internal signals must be introduced. This is why \texttt{lds\_int}, \texttt{dtack\_int}, and \texttt{d\_int} are declared. They allow the feedback paths essential for asynchronous state retention.
+
+\begin{table}[h]
+\centering
+\caption{Comparison of Synchronous and Asynchronous Design Methodologies}
+\label{tab:sync_async_comparison}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|p{3.2cm}|p{5.2cm}|p{5.2cm}|}
+\hline
+\textbf{Aspect} & \textbf{Synchronous (Labs 4--6)} & \textbf{Asynchronous (Labs 7--8)} \\ \hline
+Timing Reference & Global clock signal & No clock; event-driven \\ \hline
+State Storage & Explicit flip-flops (registers) & Implicit latches via feedback \\ \hline
+Timing Analysis & Setup/hold times relative to clock edges & Delay assumptions (e.g.\ isochronic forks) \\ \hline
+Hazard Handling & Clocking masks combinational glitches & Hazards must be eliminated by design \\ \hline
+Power Consumption & Clock tree continuously switching & Only active signals consume power \\ \hline
+Design Methodology & Mature, automated toolchains & Specialised tools (e.g.\ Workcraft) \\ \hline
+FPGA Suitability & Excellent; FPGAs optimised for clocks & Poor; feedback paths have unpredictable delays \\ \hline
+Verification & Clock-based timing simulation & STG conformance and output persistence checks \\ \hline
+\end{tabular}
+\end{table}
+
+The VHDL/Verilog provides logical correctness, but SPICE reveals whether the physical implementation actually works.
+
+This integration demonstrates the complete IC design flow: from high\-level specification (STG) through logic synthesis (Workcraft) to physical implementation (SPICE)
+
 \section{References}
 
-\section{Appendix}
+[1] ``Getting Started with LTspice \- FAQs/Docs \- LTspice \- EngineerZone,” Analog.com, Jan. 15, 2025. \href{https://ez.analog.com/design-tools-and-calculators/ltspice/a/faqs-docs/c/getting-started-with-ltspice}{LTSpice Documentation}.
+
+[2] ``AMD Technical Information Portal,” Amd.com, 2026. \href{https://docs.amd.com/r/en-US/ug906-vivado-design-analysis/Timing-Path-Details-in-Vivado-IDE}{Vivado Critical Path Documentation}.
+
+[3] H. Kung, E. Rson, and A. 197, ``SYSTOLIC ARRAYS FOR (VLSI).” \href{https://www.eecs.harvard.edu/htk/static/files/1978-cmu-cs-report-kung-leiserson.pdf}{Systolic Arrays for VLSI Paper}.
+
+[4] ``Workcraft Documentation,” Workcraft.org, 2024. \href{https://workcraft.org/documentation/}{Workcraft Documentation}.  
+
+[5] ``tutorial:design:c\_element:start \- Workcraft,” workcraft.org. \href{https://workcraft.org/tutorial/design/c_element/start}{C-Element Tutorial}.
+
+[6] ``tutorial:design:vme\_bus:start \- [Workcraft],” Workcraft.org, 2024. \href{https://workcraft.org/tutorial/design/vme_bus/start}{VME Bus Tutorial}.
+
+[7] ``tutorial:method:handshake\_verification:start \- [Workcraft],” Workcraft.org, 2024. \href{https://workcraft.org/tutorial/method/handshake_verification/start}{Handshake Verification For CSC}.
 
 \end{document}
