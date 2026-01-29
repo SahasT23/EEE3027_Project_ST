@@ -6,7 +6,7 @@
 
   **Summarised Breakdown**: The FIFO buffer is successfully implemented and holds enough pieces of data with respect to the number of memory slots allocated. 
 
---
+---
 
   **Task**: Implement shared memory capabilities in the FIFO buffer from task 1a using appropriate mutex protocols.	
   
