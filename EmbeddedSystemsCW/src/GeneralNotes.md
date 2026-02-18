@@ -11,3 +11,4 @@ Don't use the in-built model, create LSTM from scratch. If possible, do it in C+
 Need to make it a plug and play style of model. 
 Add notes on how an LSTM works. 
 Petri Net model for LSTM.
+
